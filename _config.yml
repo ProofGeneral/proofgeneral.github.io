@@ -112,6 +112,7 @@ exclude:
   - README.md
   - CNAME
   - Vagrantfile
+  - _posts_demo
 
 # prose.io config
 prose:
