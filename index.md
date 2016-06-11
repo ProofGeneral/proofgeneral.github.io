@@ -23,8 +23,8 @@ Proof General comes ready-to-go for these proof assistants:
   **Isabelle Proof General** for [Isabelle](http://www.cl.cam.ac.uk/Research/HVG/Isabelle/)  
   by [David Aspinall](http://homepages.inf.ed.ac.uk/da) and [Makarius](http://www.lri.fr/~wenzel).
 
-- [![Coq logo](img/coq.png)](http://coq.inria.fr/)
-  **Coq Proof General** for [Coq](http://coq.inria.fr/)  
+- [![Coq logo](img/coq.png)](https://coq.inria.fr/)
+  **Coq Proof General** for [Coq](https://coq.inria.fr/)  
   by Healfdene Goguen, Patrick Loiseleur, David Aspinall, and [Pierre Courtieu](http://cedric.cnam.fr/~courtiep/).
 
 - [![PhoX logo](img/phox.png)](http://www.lama.univ-savoie.fr/~RAFFALLI/phox.html)
@@ -37,7 +37,7 @@ including
 -   **LEGO Proof General**,
     for [LEGO](http://www.dcs.ed.ac.uk/home/lego)
 -   **HOL Proof General**,
-    for [HOL98/HOL4](http://hol.sourceforge.net/)
+    for [HOL98/HOL4](https://hol-theorem-prover.org/)
 -   **ACL2 Proof General**,
     for [ACL2](http://www.cs.utexas.edu/users/moore/acl2)
 
