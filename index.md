@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Proof General
-subtitle: PG is a generic Emacs interface for proof assistants.
+subtitle: A generic Emacs interface for proof assistants.
 ---
 
 ## What is Proof General?
