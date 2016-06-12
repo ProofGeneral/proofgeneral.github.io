@@ -116,8 +116,9 @@ rich font and the ample [Emacs Unicode
 support](http://www.emacswiki.org/emacs/UnicodeEncoding) mechanisms.
 
 Alternatively or additionally, you can use [Proof General's own Unicode
-Tokens mode](/components#unicodetokens) which provides a *presentation
-view* on the source text by rendering sequences of characters using
+Tokens mode](http://proofgeneral.inf.ed.ac.uk/components#unicodetokens)
+which provides a *presentation view*
+on the source text by rendering sequences of characters using
 symbols, fonts and positioning information (see the
 [screenshots](/screenshots) for examples.)
 
@@ -157,14 +158,15 @@ proof assistant with surprisingly little effort.
 Adapting for a new proof assistant is mainly a matter of setting some
 variables with regular expressions to help parse output from the prover,
 and setting other variables with commands to send to the prover. See
-this basic [example
-instance](http://proofgeneral.inf.ed.ac.uk/fileshow.php?file=releases%2FProofGeneral%2Fdemoisa%2Fdemoisa-easy.el).
+this basic [example instance](https://github.com/ProofGeneral/PG/blob/master/obsolete/demoisa/demoisa-easy.el).
 To get the most from Proof General (proof by pointing, for example), it
 may be necessary to put some hooks in the output routines of the proof
 assistant.
 
+{% comment %} TODO: remove
 Please feel free to download Proof General to customize it for a new
 system, and [tell us](/feedback) how you get on.
+{% endcomment %}
 
 For (even) more details of Proof General's features, see the manuals and
 papers on the [documentation page](/doc).
