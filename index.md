@@ -63,7 +63,7 @@ supports some PGIP configuration.
 
 Remove old versions of Proof General, then download and install the new release from GitHub:
 
-```
+```sh
 git clone https://github.com/ProofGeneral/PG ~/.emacs.d/lisp/PG
 cd ~/.emacs.d/lisp/PG
 make
@@ -71,14 +71,14 @@ make
 
 Then add the following to your `.emacs`:
 
-```
+```elisp
 ;; Open .v files with Proof General's Coq mode
 (load "~/.emacs.d/lisp/PG/generic/proof-site")
 ```
 
 If Proof General complains about a version mismatch, make sure that the shell's `emacs` is indeed your usual Emacs. If not, run the Makefile again with an explicit path to Emacs. On Mac in particular you'll probably need something like
 
-```
+```sh
 make clean; make EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs
 ```
 
