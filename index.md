@@ -19,13 +19,13 @@ listed below and in the [AUTHORS](/AUTHORS) file.
 
 Proof General comes ready-to-go for these proof assistants:
 
-- [![Isabelle logo](img/isabelle.png)](http://www.cl.cam.ac.uk/Research/HVG/Isabelle/)
-  **Isabelle Proof General** for [Isabelle](http://www.cl.cam.ac.uk/Research/HVG/Isabelle/)  
-  by [David Aspinall](http://homepages.inf.ed.ac.uk/da) and [Makarius](http://www.lri.fr/~wenzel).
-
 - [![Coq logo](img/coq.png)](https://coq.inria.fr/)
   **Coq Proof General** for [Coq](https://coq.inria.fr/)  
   by Healfdene Goguen, Patrick Loiseleur, David Aspinall, and [Pierre Courtieu](http://cedric.cnam.fr/~courtiep/).
+
+- [![Isabelle logo](img/isabelle.png)](http://www.cl.cam.ac.uk/Research/HVG/Isabelle/)
+  **Isabelle Proof General** for [Isabelle](http://www.cl.cam.ac.uk/Research/HVG/Isabelle/)  
+  by [David Aspinall](http://homepages.inf.ed.ac.uk/da) and [Makarius](http://www.lri.fr/~wenzel).
 
 - [![PhoX logo](img/phox.png)](http://www.lama.univ-savoie.fr/~RAFFALLI/phox.html)
   **PhoX Proof General** for [PhoX](http://www.lama.univ-savoie.fr/~RAFFALLI/phox.html)  
