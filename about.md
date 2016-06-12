@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: About PG
 subtitle:
 ---
 
@@ -35,6 +35,6 @@ Have you any suggestions, bug fixes or bug reports for Proof General?
 Please browse the [issues on GitHub](https://github.com/ProofGeneral/PG/issues)
 and add your own.  
 Receive announcements and ask questions about Proof General on our
-low-frequency [mailing lists](mailinglist) for
+low-frequency [mailing lists](http://proofgeneral.inf.ed.ac.uk/mailinglist) for
 [users](http://lists.inf.ed.ac.uk/mailman/listinfo/proofgeneral) and
 [developers](http://lists.inf.ed.ac.uk/mailman/listinfo/proofgeneral-devel).
