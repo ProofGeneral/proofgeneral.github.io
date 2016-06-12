@@ -15,7 +15,7 @@ other sites. It is distributed under the conditions of the [GNU General
 Public License](http://www.gnu.org/licenses/gpl-2.0.html). The manager
 and main developer is [David
 Aspinall](http://homepages.inf.ed.ac.uk/da). Other contributors are
-listed below and in the [AUTHORS](AUTHORS) file.
+listed below and in the [AUTHORS](/AUTHORS) file.
 
 Proof General comes ready-to-go for these proof assistants:
 

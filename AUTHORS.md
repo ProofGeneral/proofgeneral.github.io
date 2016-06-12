@@ -27,4 +27,6 @@ people have contributed, some very significantly. We're grateful to
 everyone who has! Please see the CREDITS section in the manual for a
 more complete list.
 
+---
+
 Click [here](/) to go back to the front page.
