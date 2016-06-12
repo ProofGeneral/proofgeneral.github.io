@@ -75,8 +75,8 @@ versions is very troublesome as invariably things break with Emacs or
 prover API changes and new bugs. You may have luck with older versions
 but there are no guarantees!
 
-Please [report problems and send
-fixes](http://proofgeneral.inf.ed.ac.uk/trac/) so we can maintain
+Please [report problems](https://github.com/ProofGeneral/PG/issues)
+and [send fixes](https://github.com/ProofGeneral/PG/pulls) so we can maintain
 support for latest versions.
 
 ### Other versions

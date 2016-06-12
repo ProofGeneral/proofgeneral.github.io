@@ -31,9 +31,9 @@ see the manual appendix.
 
 ### Contact information
 
-Have you any suggestions, bug fixes or bug reports for Proof General?  
-Please visit the [Trac pages](http://proofgeneral.inf.ed.ac.uk/trac/) to
-browse tickets and add your own.  
+Have you any suggestions, bug fixes or bug reports for Proof General?
+Please browse the [issues on GitHub](https://github.com/ProofGeneral/PG/issues)
+and add your own.  
 Receive announcements and ask questions about Proof General on our
 low-frequency [mailing lists](mailinglist) for
 [users](http://lists.inf.ed.ac.uk/mailman/listinfo/proofgeneral) and

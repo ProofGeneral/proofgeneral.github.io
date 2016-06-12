@@ -17,7 +17,7 @@ Check the
 file for a summary of changes since the last stable version, and notes
 about work-in-progress.
 
-Please [report problems](http://proofgeneral.inf.ed.ac.uk/trac) you find with the latest pre-release.
+Please [report problems](https://github.com/ProofGeneral/PG/issues) you find with the latest pre-release.
 Please [register](register) if you haven't done so already.
 
 gzip'ed tar file
@@ -43,9 +43,14 @@ Manual](adaptingman-latest.html)
 Proof General follows an open development method.
 We encourage code contributions, suggestions, and bug reports, from all
 users.
-Please see the [PG trac](http://proofgeneral.inf.ed.ac.uk/trac) and
-[this wiki page](https://wiki.inf.ed.ac.uk/PG/ProofGeneralDevelopment)
+Please refer to the [GitHub repository](https://github.com/ProofGeneral/PG)
 for more pointers and collaboration.
+
+You might also want to look at
+[this wiki page](https://wiki.inf.ed.ac.uk/PG/ProofGeneralDevelopment)
+or at the [PG trac](http://proofgeneral.inf.ed.ac.uk/trac) for older bug reports.
+
+{% comment %} TODO: remove
 
 ### CVS access
 
@@ -58,8 +63,6 @@ and use the password `anon`. Then you can check out the CVS with:
 
 `cvs -d :pserver:anon@cvs.inf.ed.ac.uk:/disk/cvs/proofgen checkout ProofGeneral`
 
-
-{% comment %} TODO: remove
 
 For more information, see the file `etc/cvs-tips.txt` in the repository.
 If you want to have write access to the CVS repository, [ask
