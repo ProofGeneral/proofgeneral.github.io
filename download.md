@@ -8,7 +8,7 @@ subtitle:
 
 Proof General is distributed under the terms of the [GNU General Public
 License, Version 2](https://github.com/ProofGeneral/PG/blob/master/COPYING).
-See [below](/download#prereq) for software pre-requisites for running
+See [below](#prereq) for software pre-requisites for running
 Proof General.
 
 ### Download Proof General (for GNU Emacs 23.3 and later)
@@ -50,7 +50,7 @@ e.g.:
 Proof General will also run using the interpreted code, at some speed
 penalty.
 
-### What you need to run Proof General
+### <a name="prereq"></a>What you need to run Proof General
 
 You need:
 
@@ -81,8 +81,9 @@ support for latest versions.
 
 ### Other versions
 
--   Developers and early-adopters: check the interim [development
-    release](/devel). This version may also have compatibility fixes for
+-   Developers and early-adopters: check the interim
+    [development release](https://github.com/ProofGeneral/PG/tree/master).
+	This version may also have compatibility fixes for
     new Emacs or prover versions.
 -   If you have an old version of a proof assistant and/or an old Emacs
     version, you may need a [previous release](http://proofgeneral.inf.ed.ac.uk/oldrel.php).
