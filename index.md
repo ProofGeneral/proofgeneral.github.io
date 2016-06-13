@@ -17,29 +17,29 @@ and main developer is [David
 Aspinall](http://homepages.inf.ed.ac.uk/da). Other contributors are
 listed below and in the [AUTHORS](/AUTHORS) file.
 
-Proof General comes ready-to-go for these proof assistants:
+Proof General offers a full support for latest versions of the Coq proof assistant:
 
 - [![Coq logo](img/coq.png)](https://coq.inria.fr/)
-  **Coq Proof General** for [Coq](https://coq.inria.fr/)  
+  **Coq Proof General**,
+  for [Coq](https://coq.inria.fr/)  
   by Healfdene Goguen, Patrick Loiseleur, David Aspinall, and [Pierre Courtieu](http://cedric.cnam.fr/~courtiep/).
 
+There are also instances of Proof General that can handle the following proof assistants:
+
 - [![Isabelle logo](img/isabelle.png)](http://www.cl.cam.ac.uk/Research/HVG/Isabelle/)
-  **Isabelle Proof General** for [Isabelle](http://www.cl.cam.ac.uk/Research/HVG/Isabelle/)  
+  **Isabelle Proof General**,
+  for [Isabelle](http://www.cl.cam.ac.uk/Research/HVG/Isabelle/) (up to Isabelle2014)  
   by [David Aspinall](http://homepages.inf.ed.ac.uk/da) and [Makarius](http://www.lri.fr/~wenzel).
-
 - [![PhoX logo](img/phox.png)](http://www.lama.univ-savoie.fr/~RAFFALLI/phox.html)
-  **PhoX Proof General** for [PhoX](http://www.lama.univ-savoie.fr/~RAFFALLI/phox.html)  
+  **PhoX Proof General**,
+  for [PhoX](http://www.lama.univ-savoie.fr/~RAFFALLI/phox.html)  
   by [Christophe Raffalli](http://www.lama.univ-savoie.fr/~RAFFALLI), Paul Roziere and Jean-Roch Sotty.
-
-There are also unsupported or experimental instances of Proof General,
-including
-
--   **LEGO Proof General**,
-    for [LEGO](http://www.dcs.ed.ac.uk/home/lego)
--   **HOL Proof General**,
-    for [HOL98/HOL4](https://hol-theorem-prover.org/)
--   **ACL2 Proof General**,
-    for [ACL2](http://www.cs.utexas.edu/users/moore/acl2)
+- **LEGO Proof General**,
+  for [LEGO](http://www.dcs.ed.ac.uk/home/lego)
+- **HOL Proof General**,
+  for [HOL98/HOL4](https://hol-theorem-prover.org/)
+- **ACL2 Proof General**,
+  for [ACL2](http://www.cs.utexas.edu/users/moore/acl2)
 
 These instances may be incomplete or not work with the latest theorem
 prover versions.
