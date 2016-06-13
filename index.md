@@ -24,7 +24,7 @@ Proof General offers a full support for latest versions of the Coq proof assista
   for [Coq](https://coq.inria.fr/)  
   by Healfdene Goguen, Patrick Loiseleur, David Aspinall, and [Pierre Courtieu](http://cedric.cnam.fr/~courtiep/).
 
-There are also instances of Proof General that can handle the following proof assistants:
+Proof General also supports previous versions of the following other proof assistants:
 
 - [![Isabelle logo](img/isabelle.png)](http://www.cl.cam.ac.uk/Research/HVG/Isabelle/)
   **Isabelle Proof General**,
