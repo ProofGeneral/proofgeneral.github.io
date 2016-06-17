@@ -31,7 +31,7 @@ formats) and available in Info format from inside Proof General. For the
 CVS or a development version of Proof General, see the [development download](devel).
 {% endcomment %}
 
-See also the [publications page](pubs) for academic pointers.
+See also the [publications page](/pubs) for academic pointers.
 
 ## Manuals for Emacs
 
@@ -43,9 +43,9 @@ and the Help menu inside Emacs gives access to more help facilities.
 For on-line reading and further help, these links might be helpful:
 
 -   The [Emacs user manual](http://www.gnu.org/software/emacs/manual/)
--   The [Emacs lisp introduction](http://www.gnu.org/software/emacs/emacs-lisp-intro/)
-    and [Emacs lisp reference](http://www.gnu.org/software/emacs/elisp-manual/).
--   The [Emacs Wiki](http://www.emacswiki.org)
+-   The [Emacs lisp introduction](http://www.gnu.org/software/emacs/manual/eintr.html)
+    and [Emacs lisp reference](http://www.gnu.org/software/emacs/manual/elisp.html).
+-   The [Emacs Wiki](https://www.emacswiki.org/)
 
 You don't need to look at anything about lisp unless you're interested
 in developing Proof General.
