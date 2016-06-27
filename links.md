@@ -10,12 +10,11 @@ subtitle:
     Theorem Provers)](http://www.informatik.uni-bremen.de/uitp/)
     workshop series.
 -   [MathUI (Mathematical
-    User Interfaces)](http://www.activemath.org/workshops/MathUI/)
+    User Interfaces)](http://www.cermat.org/events/MathUI/)
     worshop series.
--   [ITP (Interactive
-    Theorem Proving)](http://itp2011.cs.ru.nl/ITP2011/Home.html)
+-   [ITP (Interactive Theorem Proving)](http://itp2016.inria.fr/)
     conference series (evolution/merger of
-    [TPHOLs](http://tphols.in.tum.de/) and others).
+    [TPHOLs](http://isabelle.in.tum.de/nominal/activities/tphols09/) and others).
 -   [MKM (Mathematical Knowledge Management)](http://www.mkm-ig.org/)
 
 ## Related Projects, Present and Past
@@ -28,7 +27,7 @@ subtitle:
     General-style interaction. It's perhaps in a more robust state than
     our own [Proof General Eclipse](http://proofgeneral.inf.ed.ac.uk/eclipse) prototype.
 -   As a possible foundation for generic proof environments,
-    [OpenMath](http://www.nag.co.uk/projects/openmath/omsoc/) is a
+    [OpenMath](http://www.openmath.org/society/) is a
     standard representation form for mathematical objects, which links
     in with the [MathML](http://www.w3.org/Math/) markup language.
 -   [Prosper](http://www.dcs.gla.ac.uk/prosper/) was a project to

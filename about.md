@@ -7,7 +7,7 @@ subtitle:
 ## About the Proof General project
 
 The forefather of Proof General was LEGO mode, begun in 1994 at the
-[LFCS](http://www.lfcs.informatics.ed.ac.uk) by Thomas Kleymann. LEGO
+[LFCS](http://wcms.inf.ed.ac.uk/lfcs/) by Thomas Kleymann. LEGO
 mode was an Emacs-based front end for LEGO similar to David Aspinall's
 [Isamode](http://homepages.inf.ed.ac.uk/da/Isamode), developed at the
 LFCS since 1992. After 1994, implementations of proof-by-pointing and
@@ -21,7 +21,7 @@ The Proof General project was coordinated until October 1998 by Thomas
 Kleymann, and since then by David Aspinall. The project has benefited
 from travel and auxiliary support funding by
 [EPSRC](http://gow.epsrc.ac.uk/ViewGrant.aspx?GrantRef=EP/E005713/1),
-the [EC](http://www.dcs.ed.ac.uk/lfcs/research/types_bra/index.html),
+the [EC](http://www.lfcs.inf.ed.ac.uk/research/types-bra/index.html),
 and the [LFCS](http://www.lfcs.informatics.ed.ac.uk).
 
 David Aspinall designed the web pages and graphics for Proof General.

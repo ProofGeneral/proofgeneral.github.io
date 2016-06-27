@@ -9,7 +9,7 @@ subtitle: A generic Emacs interface for proof assistants.
 **Proof General** is a generic front-end for *proof assistants* (also
 known as *interactive theorem provers*), based on the customizable text
 editor [Emacs](http://www.emacswiki.org). Proof General has been
-developed at the [LFCS](http://www.lfcs.informatics.ed.ac.uk/) in the
+developed at the [LFCS](http://wcms.inf.ed.ac.uk/lfcs/) in the
 [University of Edinburgh](http://www.ed.ac.uk/) with contributions from
 other sites. It is distributed under the conditions of the [GNU General
 Public License](http://www.gnu.org/licenses/gpl-2.0.html). The manager
@@ -26,10 +26,10 @@ Proof General offers a full support for latest versions of the Coq proof assista
 
 Proof General also supports previous versions of the following other proof assistants:
 
-- [![Isabelle logo](img/isabelle.png)](http://www.cl.cam.ac.uk/Research/HVG/Isabelle/)
+- [![Isabelle logo](img/isabelle.png)](http://www.cl.cam.ac.uk/research/hvg/Isabelle/)
   **Isabelle Proof General**,
-  for [Isabelle](http://www.cl.cam.ac.uk/Research/HVG/Isabelle/) (up to Isabelle2014)  
-  by [David Aspinall](http://homepages.inf.ed.ac.uk/da) and [Makarius](http://www.lri.fr/~wenzel).
+  for [Isabelle](http://www.cl.cam.ac.uk/research/hvg/Isabelle/) (up to Isabelle2014)  
+  by [David Aspinall](http://homepages.inf.ed.ac.uk/da) and [Makarius](http://sketis.net/).
 - [![PhoX logo](img/phox.png)](http://www.lama.univ-savoie.fr/~RAFFALLI/phox.html)
   **PhoX Proof General**,
   for [PhoX](http://www.lama.univ-savoie.fr/~RAFFALLI/phox.html)  

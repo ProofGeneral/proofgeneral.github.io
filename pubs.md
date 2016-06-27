@@ -31,7 +31,7 @@ subtitle: Papers about Proof General
     [pdf](http://proofgeneral.inf.ed.ac.uk/Kit/docs/pgipimp.pdf) (315k).
 -   [David Aspinall](http://homepages.inf.ed.ac.uk/da), [Christoph
     Lüth](http://www.informatik.uni-bremen.de/~cxl/) and [Burkhart
-    Wolff](http://www.infsec.ethz.ch/people/wolffb).
+    Wolff](https://www.lri.fr/~wolff/).
     ***Assisted Proof Document Authoring***.
     Appears in *Mathematical Knowledge Management 2005 (MKM '05)*,
     Springer LNAI 3863, p. 65--80, 2005.
@@ -57,7 +57,7 @@ subtitle: Papers about Proof General
 ## An Overview of Emacs Proof General
 
 -   [David Aspinall](http://homepages.inf.ed.ac.uk/da). [Proof General:
-    A Generic Tool for Proof Development](papers/pgoutline.ps.gz).
+    A Generic Tool for Proof Development](http://proofgeneral.inf.ed.ac.uk/papers/pgoutline.ps.gz).
     *Tools and Algorithms for the Construction and Analysis of Systems,
     Proc TACAS 2000*, LNCS 1785.
     Here are some [slides](http://proofgeneral.inf.ed.ac.uk/papers/pgtalk.pdf) used for this talk and
@@ -65,20 +65,18 @@ subtitle: Papers about Proof General
 
 ## Related work and older documentation
 
--   [Yves Bertot](http://www-sop.inria.fr/lemme/Yves.Bertot) and
-    [Laurent
-    Théry](http://www.inria.fr/croap/personnel/Laurent.Thery/me.html).
+-   [Yves Bertot](http://www-sop.inria.fr/members/Yves.Bertot/index.html) and
+    [Laurent Théry](http://www-sop.inria.fr/marelle/personnel/Laurent.Thery/me.html).
     [A generic approach to building user interfaces for theorem
     provers](http://proofgeneral.inf.ed.ac.uk/papers/jsymcomp.ps.gz). *Journal of Symbolic Computation*,
     25(7), pp. 161-194, February 1998.
     This paper describes Script Management, also supported by
     Proof General.
-
 -   [Yves Bertot](http://www-sop.inria.fr/lemme/Yves.Bertot), Thomas
     Kleymann-Schreiber and Dilip Sequeira. *Implementing Proof by
     Pointing without a Structure Editor*. LFCS Technical Report
-    [ECS-LFCS-97-368](http://www.lfcs.informatics.ed.ac.uk/reports/97/ECS-LFCS-97-368/index.html).
-    Also published as Rapport de recherche de l'INRIA [Sophia
-    Antipolis](http://www.inria.fr/Unites/SOPHIA-eng.html)
-    [RR-3286](http://www.inria.fr/RRRT/RR-3286.html)
+    [ECS-LFCS-97-368](http://www.lfcs.inf.ed.ac.uk/reports/97/ECS-LFCS-97-368/index.html).
+    Also published as Rapport de recherche de
+    l'[Inria Sophia Antipolis](http://www.inria.fr/en/centre/sophia)
+    [RR-3286](https://hal.inria.fr/inria-00073402/).
     This paper describes PG's implementation of Proof by Pointing.
