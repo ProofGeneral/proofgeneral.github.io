@@ -1,0 +1,19 @@
+---
+layout: base
+common-css:
+  - "/css/bootstrap.min.css"
+  - "/css/main.css"
+  - "/css/doc.css"
+---
+
+{% include header.html type="page" %}
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="pgdoc">
+      {{ content }}
+      </div>
+    </div>
+  </div>
+</div>
