@@ -264,3 +264,10 @@ table tr th {
 div.header a {
     color: blue;
 }
+
+div.pgdoc a.anchor {
+    display: block;
+    position: relative;
+    top: -163px;
+    visibility: hidden;
+}

@@ -4,15 +4,46 @@
 
 use strict;
 
-########################################################################
-# Control of Page layout:
-# There are the following subs which control the layout:
-
+$anchor            = \&pgdoc_t2h_default_anchor;
 $print_navigation	      = \&pgdoc_T2H_DEFAULT_print_navigation;
 
 ######################################################################
-# navigation panel
+
+# This function produces an anchor 
 #
+# arguments:
+# $name           :   anchor name
+# $href           :   anchor href
+# text            :   text displayed
+# extra_attribs   :   added to anchor attributes list
+sub pgdoc_t2h_default_anchor($;$$$)
+{
+    my $name = shift;
+    my $href = shift;
+    my $text = shift;
+    my $attributes = shift;
+#print STDERR "!$name!$href!$text!$attributes!\n";
+    if (!defined($attributes) or ($attributes !~ /\S/))
+    {
+        $attributes = '';
+    }
+    else 
+    {
+        $attributes = ' ' . $attributes;
+    }
+    $name = '' if (!defined($name) or ($name !~ /\S/));
+    $href = '' if (!defined($href) or ($href !~ /\S/));
+    $text = '' if (!defined($text));
+    return $text if (($name eq '') and ($href eq ''));
+    my $anchorclass = "class=\"anchor\" " if (($name ne '') and ($href eq ''));
+    $name = $anchorclass . "id=\"$name\"" if ($name ne '');
+    $href = "href=\"$href\"" if ($href ne '');
+    $href = ' ' . $href if (($name ne '') and ($href ne ''));
+#print STDERR "!!!$name!$href!$text!$attributes!\n";
+    return "<a ${name}${href}${attributes}>$text</a>";
+}
+
+######################################################################
 
 sub pgdoc_T2H_DEFAULT_print_navigation
 {
