@@ -78,11 +78,17 @@ page](http://www.inf.ed.ac.uk/systems/cvs/new/).
 
 {% endcomment %}
 
+### Users Mailing List
+
+We have a [mailing list](http://proofgeneral.inf.ed.ac.uk/mailinglist)
+for users, at <proofgeneral@inf.ed.ac.uk>.
+Posting is restricted to list members. To subscribe (or unsubscribe),
+visit [this web page](http://lists.inf.ed.ac.uk/mailman/listinfo/proofgeneral).
 
 ### Developers Mailing List
 
-We have a mailing list for developers, at
-<proofgeneral-devel@inf.ed.ac.uk>.
+We also have a [mailing list](http://proofgeneral.inf.ed.ac.uk/mailinglist)
+for developers, at <proofgeneral-devel@inf.ed.ac.uk>.
 Posting is restricted to list members. To subscribe (or unsubscribe),
 visit [this web page](http://lists.informatics.ed.ac.uk/mailman/listinfo/proofgeneral-devel).
 
