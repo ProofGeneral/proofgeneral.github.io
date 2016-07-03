@@ -25,6 +25,7 @@ the [EC](http://www.lfcs.inf.ed.ac.uk/research/types-bra/index.html),
 and the [LFCS](http://www.lfcs.informatics.ed.ac.uk).
 
 David Aspinall designed the web pages and graphics for Proof General.
+New icons for Proof General 4.4 were contributed by Yoshihiro Imai.
 For more on the history of the development of the Proof General program,
 see the
 [preface](/doc/userman/ProofGeneral_1/#Preface) and
