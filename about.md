@@ -26,8 +26,10 @@ and the [LFCS](http://www.lfcs.informatics.ed.ac.uk).
 
 David Aspinall designed the web pages and graphics for Proof General.
 For more on the history of the development of the Proof General program,
-see the manual appendix.
-{% comment %} TODO: Upload the manual appendix automatically {% endcomment %}
+see the
+[preface](/doc/userman/ProofGeneral_1/#Preface) and
+[appendix](/doc/userman/ProofGeneral_19/#History-of-Proof-General)
+of the user manual.
 
 ### Contact information
 
