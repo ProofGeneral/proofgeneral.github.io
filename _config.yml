@@ -116,6 +116,8 @@ exclude:
   - CNAME
   - Vagrantfile
   - _posts_demo
+  - doc/Makefile
+  - doc/_src
 
 # prose.io config
 prose:
@@ -131,6 +133,8 @@ prose:
     - /css
     - /img
     - /js
+    - doc/Makefile
+    - doc/_src
   metadata:
     _posts:
       - name: "layout"
