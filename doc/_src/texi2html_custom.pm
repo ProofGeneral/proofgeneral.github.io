@@ -57,7 +57,7 @@ sub pgdoc_T2H_DEFAULT_print_navigation
     for my $button (@$buttons)
     {
         $result .= qq{<tr valign="top" align="left">\n} if $vertical;
-        $result .=  qq{<td valign="middle" align="left">};
+        $result .=  qq{<td valign="middle" align="left">} if ($button ne ' '); #/#
 
         if (ref($button) eq 'CODE')
         {
@@ -102,11 +102,11 @@ sub pgdoc_T2H_DEFAULT_print_navigation
         }
         elsif ($button eq ' ')
         {                       # handle space button
-            $result .= 
-                ($ICONS && $ACTIVE_ICONS{' '}) ?
-                    &$button_icon_img($BUTTONS_NAME{$button}, $ACTIVE_ICONS{' '}) :
-                        $NAVIGATION_TEXT{' '};
-            #next;
+#/#            $result .= 
+#/#                ($ICONS && $ACTIVE_ICONS{' '}) ?
+#/#                    &$button_icon_img($BUTTONS_NAME{$button}, $ACTIVE_ICONS{' '}) :
+#/#                        $NAVIGATION_TEXT{' '};
+#/#            #next;
         }
         elsif ($Texi2HTML::HREF{$button})
         {                       # button is active
@@ -153,7 +153,7 @@ sub pgdoc_T2H_DEFAULT_print_navigation
 
                                               "[" . $NAVIGATION_TEXT{$button} . "]";
         }
-        $result .= "</td>\n";
+        $result .= "</td>\n" if ($button ne ' '); #/#
         $result .= "</tr>\n" if $vertical;
     }
     $result .= "</tr>" unless $vertical;
