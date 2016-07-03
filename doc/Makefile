@@ -28,7 +28,7 @@ compile: compile.user compile.adapt
 doc: doc.user doc.adapt
 add: add.user add.adapt
 
-.PHONY: all checkout compile doc add
+.PHONY: all checkout compile doc add clean distclean
 
 # Phase 0
 checkout:
@@ -69,3 +69,10 @@ add.%:
 	@echo "### Phase 3/$*"
 	git add -v -A $(DEST_$*)
 	@echo "### End of Phase 3/$* -- You can now run: git commit"
+
+clean:
+	$(RM) -r $(CHECKOUT)/$(REPODIR)
+	-rmdir $(CHECKOUT)
+
+distclean: clean
+	$(RM) -r $(DEST_user) $(DEST_adapt)
