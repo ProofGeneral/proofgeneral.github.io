@@ -72,7 +72,7 @@ add.%:
 
 clean:
 	$(RM) -r $(CHECKOUT)/$(REPODIR)
-	-rmdir $(CHECKOUT)
+	rmdir $(CHECKOUT) 2>/dev/null || true
 
 distclean: clean
 	$(RM) -r $(DEST_user) $(DEST_adapt)
