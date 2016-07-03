@@ -32,20 +32,25 @@ add: add.user add.adapt
 
 # Phase 0
 checkout:
+	@echo "### Phase 0"
 	$(RM) -r $(CHECKOUT)/$(REPODIR)
 	cd $(REPO) && git ls-files -z $(REPODIR) | git checkout-index --prefix=$(CURDIR)/$(CHECKOUT)/ -f --stdin -z
+	@echo "### End of Phase 0 -- $(REPODIR) folder checked-out in:"
+	@echo "$(CURDIR)/$(CHECKOUT)/$(REPODIR)"
 
 # Phase 1
 compile.%:
+	@echo "### Phase 1/$*"
 	$(RM) -r $(DEST_$*)
 	mkdir -p $(DEST_$*)
 	# The slash at the beginning of --prefix is required to get proper Jekyll URLs:
 	$(TEXI2HTML) --output=.. --prefix=/$(DEST)/$(DEST_$*)/$(SRC_$*) --top-file=/$(DEST)/$(DEST_$*)/index.html $(CHECKOUT)/$(REPODIR)/$(SRC_$*).texi
-	@echo "### End of Phase 1 ## raw HTML files generated in:"
+	@echo "### End of Phase 1/$* -- raw HTML files generated in:"
 	@echo "$(CURDIR)/$(DEST_$*)"
 
 # Phase 2
 doc.%:
+	@echo "### Phase 2/$*"
 	cd $(DEST_$*) && for f in *.html; do \
 	  mv $$f $$f.bak && \
 	  cp -f $(CURDIR)/$(HEADER) $$f && \
@@ -55,10 +60,12 @@ doc.%:
           $$f.bak >> $$f && \
 	  $(RM) $$f.bak; \
 	done
-	@echo "### End of Phase 2 ## final HTML files generated in:"
+	@echo "### End of Phase 2/$* -- final HTML files generated in:"
 	@echo "$(CURDIR)/$(DEST_$*)"
 	@echo "You can now run: bundle exec jekyll serve"
 
 # Phase 3
 add.%:
+	@echo "### Phase 3/$*"
 	git add -v -A $(DEST_$*)
+	@echo "### End of Phase 3/$* -- You can now run: git commit"
