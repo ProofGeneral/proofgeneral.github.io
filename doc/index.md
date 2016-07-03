@@ -9,11 +9,11 @@ subtitle:
 Proof General has a FAQ and two manuals, and places for users:
 
 {% comment %} TODO: convert FAQ to Markdown within the main PG repo {% endcomment %}
+-   [Proof General user manual](/doc/userman)
+-   [Adapting Proof General manual](/doc/adaptingman)
 -   [FAQ](https://github.com/ProofGeneral/PG/blob/master/FAQ)
--   [Proof General user manual](http://proofgeneral.inf.ed.ac.uk/userman)
--   [Adapting Proof General manual](http://proofgeneral.inf.ed.ac.uk/adaptingman)
--   [Proof General Wiki](http://proofgeneral.inf.ed.ac.uk/wiki)
 -   [GitHub issues](https://github.com/ProofGeneral/PG/issues)
+-   [Proof General Wiki](http://proofgeneral.inf.ed.ac.uk/wiki)
 -   [Trac bug tracker](http://proofgeneral.inf.ed.ac.uk/trac) (legacy bug tracking system)
 -   [Users mailing list](http://proofgeneral.inf.ed.ac.uk/mailinglist) (announcements only)
 
