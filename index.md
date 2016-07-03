@@ -81,5 +81,6 @@ If Proof General complains about a version mismatch, make sure that the shell's 
 ```sh
 make clean; make EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs
 ```
-
-[More info on the GitHub repo](https://github.com/ProofGeneral/PG#more-info).
+For more information, see the [README](https://github.com/ProofGeneral/PG#more-info)
+and [INSTALL](https://github.com/ProofGeneral/PG/blob/master/INSTALL) files
+on the GitHub repo.
