@@ -8,6 +8,7 @@ Current Authors/Maintainers:
 
 - David Aspinall (all)
 - Pierre Courtieu (coq)
+- Erik Martin-Dorel (coq, website)
 - Clément Pit-Claudel (coq)
 - Christoph Raffalli (phox)
 - Makarius Wenzel (isar)
