@@ -52,7 +52,7 @@ author:
   #facebook: yourname  # eg. daattali
   github: ProofGeneral
   #twitter: yourname   # eg. daattali
-  #linkedin: yourlink  # eg. "pub/dean-attali/8/946/143"
+  #linkedin: yourlink  # eg. daattali
   #stackoverflow: yourlink  # eg. "3943160/daattali"
  
 # Select which links to show in the footer
@@ -106,6 +106,9 @@ defaults:
     values:
       layout: "page"
       show-avatar: true
+
+# Use tags pages (not recommended if you are deploying via GitHub pages, only set to true if deploying locally with ruby)
+link-tags: false
 
 # Exclude these files from production site
 exclude:

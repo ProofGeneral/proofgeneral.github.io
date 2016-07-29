@@ -1,10 +1,8 @@
 # Beautiful Jekyll
 
-**Beautiful Jekyll** is a ready-to-use template to help you create an awesome website quickly. Perfect for personal blogs or simple project websites.  [Check out a demo](http://deanattali.com/beautiful-jekyll) of what you'll get after just two minutes.  You can look at [my personal website](http://deanattali.com) to see it in use, or see examples of websites other people created using this theme [here](#featured-users-success-stories).
+**Beautiful Jekyll** is a ready-to-use template to help you create an awesome website quickly. Perfect for personal blogs or simple project websites.  [Check out a demo](http://deanattali.com/beautiful-jekyll) of what you'll get after just two minutes.  You can also look at [my personal website](http://deanattali.com) to see it in use, or see examples of websites other people created using this theme [here](#featured-users-success-stories).
 
-Feel free to modify this in any way you'd like, but I would appreciate it if you don't remove the attribution to Beautiful Jekyll. I've noticed that many people copy this website and deliberately remove the tiny phrase that gives me credit, and it feels a bit sad to not get credit for the countless hours I've put into this. Don't make me sad!
-
-If you need a bit of help or have comments, feel free to [contact me](http://deanattali.com/aboutme#contact). Even if you don't have anything important to say but found this useful, I'd love to [hear about it](http://deanattali.com/aboutme#contact). Lastly, if you like this theme, please consider [supporting me with a small donation](http://deanattali.com/aboutme#feed-meeee) if you want to make me extra happy. :)
+If you need a bit of help or have comments, feel free to [contact me](http://deanattali.com/aboutme#contact). Even if you don't have anything important to say but found this useful, I'd love to [hear about it](http://deanattali.com/aboutme#contact). Lastly, if you like this theme, please consider [supporting me](https://www.paypal.me/daattali/20) if you want to make me extra happy. :)
 
 This template is built on top of [Jekyll](http://jekyllrb.com/) and can be used for any [GitHub Pages](https://pages.github.com/) website.  (If you don't know what these two things are, that's absolutely fine, you don't need to!)
 
@@ -124,7 +122,7 @@ subtitle    | Short description of page or blog post that goes under the title
 bigimg      | Include a large full-width image at the top of the page.  You can either give the path to a single image, or provide a list of images to cycle through (see [my personal website](http://deanattali.com/) as an example).
 comments    | If you want do add Disqus comments to a specific page, use `comments: true`. Comments are automatically enabled on blog posts; to turn comments off for a specific post, use `comments: false`. Comments only work if you set your Disqus id in the `_config.yml` file.
 show-avatar | If you have an avatar configured in the `_config.yml` but you want to turn it off on a specific page, use `show-avatar: false`. If you want to turn it off by default, locate the line `show-avatar: true` in the file `_config.yml` and change the `true` to `false`; then you can selectively turn it on in specific pages using `show-avatar: true`.
-fb-img      | If you want to share a page on Facebook, by default Facebook will use the first image it can find on the page.  If you want to specify an image to use when sharing the page on Facebook, then provide the image's URL here
+share-img   | If you want to specify an image to use when sharing the page on Facebook or Twitter, then provide the image's full URL here.
 layout      | What type of page this is (default is `blog` for blog posts and `page` for other pages. You can use `minimal` if you don't want a header and footer)  
 js          | List of local JavaScript files to include in the page (eg. `/js/mypage.js`)
 ext-js      | List of external JavaScript files to include in the page (eg. `//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js`)
@@ -152,7 +150,7 @@ I wrote [a blog post](http://deanattali.com/2015/03/12/beautiful-jekyll-how-to-b
 
 ### Featured users (success stories!)
 
-To my huge surprise, Beautiful Jekyll has been used in over 500 websites in its first 6 months. Here is a hand-picked selection of some websites that use Beautiful Jekyll.
+To my huge surprise, Beautiful Jekyll has been used in over 500 websites in its first 6 months alone! Here is a hand-picked selection of some websites that use Beautiful Jekyll.
 
 Want your website featured here? [Contact me](http://deanattali.com/aboutme#contact) to let me know about your website.
 
@@ -169,6 +167,7 @@ Want your website featured here? [Contact me](http://deanattali.com/aboutme#cont
 | [organicrails.github.io](http://organicrails.github.io) | Ruby on Rails tutorial |
 | [esentire.github.io](https://esentire.github.io) | Blog about threats and malware | 
 | [reactionic.github.io](http://reactionic.github.io) | Create iOS and Android apps with React and Ionic |
+| [ja2-stracciatella.github.io](http://ja2-stracciatella.github.io) | Jagged Alliance 2 Stracciatella |
 
 #### Personal websites
 
@@ -183,11 +182,11 @@ Want your website featured here? [Contact me](http://deanattali.com/aboutme#cont
 | [chaitanyajoshi.xyz](http://chaitanyajoshi.xyz/) | Chaitanya Joshi | Computer Science undergrad |
 | [chauff.github.io](http://chauff.github.io/) | Claudia Hauff | Professor at Delft University of Technology |
 | [kootenpv.github.io](http://kootenpv.github.io/) | Pascal van Kooten | Data analytics |
-
+| [sjackman.ca](http://sjackman.ca) | Shaun Jackman | PhD candidate in bioinformatics |
 
 ### Very advanced: Local development
 
-Beautiful Jekyll is meant to be so simple to use that you can do it all within the browser. However, if you'd like to develop locally on your own machine, that's possible too if you're comfortable with command line. Folow these simple steps to do that with Vagrant:
+Beautiful Jekyll is meant to be so simple to use that you can do it all within the browser. However, if you'd like to develop locally on your own machine, that's possible too if you're comfortable with command line. Follow these simple steps to do that with Vagrant:
 
 1. Install [VirtualBox](http://virtualbox.org) and [Vagrant](https://www.vagrantup.com)
 2. Clone your fork `git clone git@github.com:yourusername/yourusername.github.io.git`
@@ -196,6 +195,8 @@ Beautiful Jekyll is meant to be so simple to use that you can do it all within t
 5. Commit any changes and push everything to the master branch of your GitHub repository. GitHub Pages will then rebuild and serve your website automatically.
 
 Disclaimer: I personally am NOT using local development so I don't know much about running Jekyll locally. If you follow this route, please don't ask me questions because unfortunately I honestly won't be able to help!
+
+Additionally, if you choose to deploy Jekyll using a local ruby installation, you can tell Jekyll to automatically categorize your blog posts by tags. You just need to set `link-tags: true` in `_config.yml`. Jekyll will then generate a new page for each unique tag which lists all of the posts that belong to that tag.
 
 ### Credits
 
