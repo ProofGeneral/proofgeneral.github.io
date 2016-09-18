@@ -21,9 +21,10 @@ The Adapting manual gives instructions on how to adapt Proof General to
 new proof systems, it's not needed for ordinary use. For printing you
 can download:
 
--   [User manual (pdf)](http://proofgeneral.inf.ed.ac.uk/releases/ProofGeneral/doc/ProofGeneral.pdf)
-    (627k),
--   [Adapting manual (pdf)](http://proofgeneral.inf.ed.ac.uk/releases/ProofGeneral/doc/PG-adapting.pdf) (507k)
+-   [User manual (PDF)](https://github.com/ProofGeneral/PG/releases/download/v4.4/ProofGeneral.pdf)
+    (505k)
+-   [Adapting manual (PDF)](https://github.com/ProofGeneral/PG/releases/download/v4.4/PG-adapting.pdf)
+    (414k)
 
 {% comment %} TODO: update
 Both manuals are included in the [download](/download) (in HTML and Info
