@@ -20,13 +20,13 @@ title: Documentation
 <h1 class="appendix">A. Obtaining and Installing</h1>
 
 <p>Proof General has its own
-<a href="http://proofgeneral.inf.ed.ac.uk">home page</a> hosted at
-Edinburgh.  Visit this page for the latest news!
+<a href="https://proofgeneral.github.io">home page</a> hosted at
+GitHub.  Visit this page for the latest news!
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#Obtaining-Proof-General">A.1 Obtaining Proof General</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">     
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Installing-Proof-General-from-tarball">A.2 Installing Proof General from tarball</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+<tr><td align="left" valign="top"><a href="#Installing-Proof-General-from-sources">A.2 Installing Proof General from sources</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
 </td></tr>
 <tr><td align="left" valign="top"><a href="#Setting-the-names-of-binaries">A.3 Setting the names of binaries</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -41,48 +41,39 @@ Edinburgh.  Visit this page for the latest news!
 <h2 class="section">A.1 Obtaining Proof General</h2>
 
 <p>You can obtain Proof General from the URL
-</p><table><tr><td>&nbsp;</td><td><pre class="example"><a href="http://proofgeneral.inf.ed.ac.uk">http://proofgeneral.inf.ed.ac.uk</a>.
+</p><table><tr><td>&nbsp;</td><td><pre class="example"><a href="https://github.com/ProofGeneral/PG">https://github.com/ProofGeneral/PG</a>.
 </pre></td></tr></table>
 
-<p>The distribution is available in as a tarball.  It may be
-redistributed by third party packagers in other forms.  
+<p>The distribution is available in the master branch of the repository.
+Tagged versions of the sources may be redistributed by third party
+packagers in other forms.
 </p>
-<p>Two versions are available:
-</p><ul>
-<li> The current stable version, <br>
-<a href="http://proofgeneral.inf.ed.ac.uk/ProofGeneral-stable.tgz">http://proofgeneral.inf.ed.ac.uk/ProofGeneral-stable.tgz</a>
-</li><li> The latest development version, <br>
-<a href="http://proofgeneral.inf.ed.ac.uk/ProofGeneral-latest.tgz">http://proofgeneral.inf.ed.ac.uk/ProofGeneral-latest.tgz</a>
-</li></ul>
-
-<p>The source tarball includes the generic elisp code, and code for LEGO,
-Coq, Isabelle, and other provers.  Also included are installation
+<p>The sources includes the generic elisp code, and code for Coq, LEGO,
+Isabelle, and other provers.  Also included are installation
 instructions (reproduced in brief below) and this documentation.
 </p>
-<p>For access to the source code repository, please see the
-Proof General web page <a href="http://proofgeneral.inf.ed.ac.uk/devel">http://proofgeneral.inf.ed.ac.uk/devel</a>.
-</p>
 <hr size="6">
-<a class="anchor" id="Installing-Proof-General-from-tarball"></a>
-<a class="anchor" id="Installing-Proof-General-from-tarball-1"></a>
-<h2 class="section">A.2 Installing Proof General from tarball</h2>
+<a class="anchor" id="Installing-Proof-General-from-sources"></a>
+<a class="anchor" id="Installing-Proof-General-from-sources-1"></a>
+<h2 class="section">A.2 Installing Proof General from sources</h2>
 
-<p>Copy the distribution to some directory <var>mydir</var>.
-Unpack it there. For example:
-</p><table><tr><td>&nbsp;</td><td><pre class="example"># cd <var>mydir</var>
-# tar -xpzf ProofGeneral-<var>version</var>.tgz
+<p>Remove old versions of Proof General, then download and install the new
+release from GitHub:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">$ git clone https://github.com/ProofGeneral/PG ~/.emacs.d/lisp/PG
+$ cd ~/.emacs.d/lisp/PG
+$ make
 </pre></td></tr></table>
-<p>If you downloaded the version called <var>latest</var>, you&rsquo;ll find it
-unpacks to a numeric version number.
-</p>
-<p>Proof General will now be in some subdirectory of <var>mydir</var>.  The name
-of the subdirectory will depend on the version number of Proof General.
-For example, it might be &lsquo;<tt>ProofGeneral-4.0</tt>&rsquo;.  It&rsquo;s convenient to
-link it to a fixed name:
-</p><table><tr><td>&nbsp;</td><td><pre class="example"># ln -sf ProofGeneral-4.0 ProofGeneral
+
+<p>Then add the following to your &lsquo;<tt>.emacs</tt>&rsquo;:
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">;; Open .v files with Proof General's Coq mode
+(load &quot;~/.emacs.d/lisp/PG/generic/proof-site&quot;)
 </pre></td></tr></table>
-<p>Now put this line in your &lsquo;<tt>.emacs</tt>&rsquo; file:
-</p><table><tr><td>&nbsp;</td><td><pre class="lisp">    (load-file &quot;<var>mydir</var>/ProofGeneral/generic/proof-site.el&quot;)
+
+<p>If Proof General complains about a version mismatch, make sure that the
+shell&rsquo;s <code>emacs</code> is indeed your usual Emacs. If not, run the Makefile
+again with an explicit path to Emacs. On Mac in particular you&rsquo;ll
+probably need something like
+</p><table><tr><td>&nbsp;</td><td><pre class="example">make clean; make EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs
 </pre></td></tr></table>
 
 <hr size="6">
@@ -90,7 +81,7 @@ link it to a fixed name:
 <a class="anchor" id="Setting-the-names-of-binaries-1"></a>
 <h2 class="section">A.3 Setting the names of binaries</h2>
 
-<p>The <code>load-file</code> command you have added will load &lsquo;<tt>proof-site</tt>&rsquo;
+<p>The <code>load</code> command you have added will load &lsquo;<tt>proof-site</tt>&rsquo;
 which sets the Emacs load path for Proof General and add auto-loads and
 modes for the supported assistants.
 </p>
@@ -109,8 +100,9 @@ General is loaded.  To load it manually, type
 </p><table><tr><td>&nbsp;</td><td><pre class="lisp">  (setq coq-prog-name &quot;/usr/bin/coqtop -emacs&quot;)
 </pre></td></tr></table>
 <p>to your &lsquo;<tt>.emacs</tt>&rsquo; file.
+For more advice on how to customize the <code>coq-prog-name</code> variable,
+see section <a href="/doc/userman/ProofGeneral_10#Using-file-variables">Using file variables</a>, Remark 2.
 </p>
-
 
 <hr size="6">
 <a class="anchor" id="Notes-for-syssies"></a>
@@ -195,7 +187,7 @@ PG installation.  For example, to remove support for Coq, delete the
 </div>
 <p>
  <font size="-1">
-  This document was generated by <em>Erik Martin-Dorel</em> on <em>July 23, 2016</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
+  This document was generated by <em>Erik Martin-Dorel</em> on <em>September 18, 2016</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
  </font>
  <br>
 
