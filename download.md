@@ -76,10 +76,9 @@ support for latest versions.
 ### Other versions
 
 If you have an old version of a proof assistant and/or an old Emacs
-version, you may need a previous release of Proof General, such as:
+version, you may need a previous release of Proof General:
 
-- [Proof General 4.2](http://proofgeneral.inf.ed.ac.uk/download);
-- [Proof General 4.0 and older versions](http://proofgeneral.inf.ed.ac.uk/oldrel.php).
+- <http://proofgeneral.inf.ed.ac.uk/oldrel.php> (up to Proof General 4.0)
 
 
 {% comment %} TODO: remove
