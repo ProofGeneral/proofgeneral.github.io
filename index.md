@@ -8,7 +8,8 @@ subtitle: A generic Emacs interface for proof assistants.
 
 **Proof General** is a generic front-end for *proof assistants* (also
 known as *interactive theorem provers*), based on the customizable text
-editor [Emacs](http://www.emacswiki.org). Proof General has been
+editor [Emacs](https://www.emacswiki.org/emacs/SiteMap).
+Proof General has been
 developed at the [LFCS](http://wcms.inf.ed.ac.uk/lfcs/) in the
 [University of Edinburgh](http://www.ed.ac.uk/) with contributions from
 other sites. It is distributed under the conditions of the [GNU General
