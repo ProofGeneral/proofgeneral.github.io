@@ -48,7 +48,7 @@ prover versions.
 Proof General is ready to be customized to new proof assistants. It can
 be [very easy](https://github.com/ProofGeneral/PG/blob/master/obsolete/demoisa/demoisa-easy.el)
 to get basic support working. Full [documentation on
-configuration](http://proofgeneral.inf.ed.ac.uk/releases/ProofGeneral/doc/PG-adapting.pdf)
+configuration](https://github.com/ProofGeneral/PG/releases/download/v4.4/PG-adapting.pdf)
 is provided. We welcome offers to support, extend and improve Proof
 General instances. Please get in touch if you plan major work.
 
