@@ -34,7 +34,8 @@ add: add.user add.adapt
 checkout:
 	@echo "### Phase 0"
 	$(RM) -r $(CHECKOUT)/$(REPODIR)
-	cd $(REPO) && git ls-files -z $(REPODIR) | git checkout-index --prefix=$(CURDIR)/$(CHECKOUT)/ -f --stdin -z
+	# cd $(REPO) && git ls-files -z $(REPODIR) | git checkout-index --prefix=$(CURDIR)/$(CHECKOUT)/ -f --stdin -z
+	cd $(REPO) && git archive --format=tar --prefix=$(CHECKOUT)/ master -- $(REPODIR) | (cd $(CURDIR) && tar xf -)
 	@echo "### End of Phase 0 -- $(REPODIR) folder checked-out in:"
 	@echo "$(CURDIR)/$(CHECKOUT)/$(REPODIR)"
 
