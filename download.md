@@ -17,30 +17,42 @@ for announcements of new versions.
 
 ## Quick installation instructions
 
-Remove old versions of Proof General, then download and install the new release from GitHub:
-
-```sh
-git clone https://github.com/ProofGeneral/PG ~/.emacs.d/lisp/PG
-cd ~/.emacs.d/lisp/PG
-make
-```
-
-Then add the following to your `.emacs`:
+The `master` version of Proof General is available on
+[MELPA](https://melpa.org/), a repository of Emacs packages.
+Skip this step if you already use MELPA. Otherwise, add the following
+to your `.emacs` and restart Emacs:
 
 ```elisp
-;; Open .v files with Proof General's Coq mode
-(load "~/.emacs.d/lisp/PG/generic/proof-site")
+(require 'package)
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (add-to-list 'package-archives
+               (cons "melpa" (concat proto "://melpa.org/packages/")) t))
+(package-initialize)
 ```
 
-If Proof General complains about a version mismatch, make sure that the shell's `emacs` is indeed your usual Emacs. If not, run the Makefile again with an explicit path to Emacs. On macOS in particular you'll probably need something like
+> **Note:** If you switch to MELPA from a previously manually-installed
+> Proof General, make sure you removed the old versions of Proof General
+> from your Emacs context (by removing from your `.emacs` the line
+> loading `PG/generic/proof-site`, or by uninstalling the proofgeneral
+> package provided by your OS package manager).
 
-```sh
-make clean; make EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs
-```
+Then, run `M-x package-refresh-contents RET` followed by
+`M-x package-install RET proof-general RET` to install and
+byte-compile `proof-general`.
 
-For more information, see the [README](https://github.com/ProofGeneral/PG#more-info)
-and [INSTALL](https://github.com/ProofGeneral/PG/blob/master/INSTALL) files
-on the GitHub repo.
+You can now open a Coq file (`.v`), an EasyCrypt file (`.ec`), or a
+PhoX file (`.phx`) to automatically load the corresponding major mode.
+
+## Keeping Proof General up-to-date
+
+As explained in the [MELPA documentation](https://melpa.org/#/getting-started), updating all MELPA packages in one go is as easy as typing
+`M-x package-list-packages RET` then `r` (**r**efresh the package list), `U`(mark **U**pgradable packages), and `x` (e**x**ecute the installs and deletions).
+
+For more information, see the
+[README](https://github.com/ProofGeneral/PG#readme) file on the GitHub
+repo.
 
 ### <a name="prereq"></a>What you need to run Proof General
 
