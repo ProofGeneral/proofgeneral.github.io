@@ -103,8 +103,8 @@ to your `.emacs` and restart Emacs:
 > loading `PG/generic/proof-site`, or by uninstalling the proofgeneral
 > package provided by your OS package manager).
 
-Then, run <kbd>M-x package-refresh-contents RET</kbd> followed by
-<kbd>M-x package-install RET proof-general RET</kbd> to install and
+Then, run `M-x package-refresh-contents RET` followed by
+`M-x package-install RET proof-general RET` to install and
 byte-compile `proof-general`.
 
 You can now open a Coq file (`.v`), an EasyCrypt file (`.ec`), or a
@@ -113,7 +113,7 @@ PhoX file (`.phx`) to automatically load the corresponding major mode.
 ## Keeping Proof General up-to-date
 
 As explained in the [MELPA documentation](https://melpa.org/#/getting-started), updating all MELPA packages in one go is as easy as typing
-<kbd>M-x package-list-packages RET</kbd> then <kbd>r</kbd> (**r**efresh the package list), <kbd>U</kbd> (mark **U**pgradable packages), and <kbd>x</kbd> (e**x**ecute the installs and deletions).
+`M-x package-list-packages RET` then `r` (**r**efresh the package list), `U`(mark **U**pgradable packages), and `x` (e**x**ecute the installs and deletions).
 
 ## Documentation
 
