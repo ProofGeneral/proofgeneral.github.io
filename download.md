@@ -45,24 +45,14 @@ byte-compile `proof-general`.
 You can now open a Coq file (`.v`), an EasyCrypt file (`.ec`), or a
 PhoX file (`.phx`) to automatically load the corresponding major mode.
 
-## Keeping Proof General up-to-date
-
-As explained in the [MELPA documentation](https://melpa.org/#/getting-started), updating all MELPA packages in one go is as easy as typing
-`M-x package-list-packages RET` then `r` (**r**efresh the package list), `U`(mark **U**pgradable packages), and `x` (e**x**ecute the installs and deletions).
-
-For more information, see the
-[README](https://github.com/ProofGeneral/PG#readme) file on the GitHub
-repo.
-
 ### <a name="prereq"></a>What you need to run Proof General
 
 You need:
 
 - A proof assistant, e.g.:
-  [Coq](https://github.com/ProofGeneral/PG/blob/master/coq/README),
-  [Isabelle/Isar](https://github.com/ProofGeneral/PG/blob/master/isar/README),
-  [LEGO](https://github.com/ProofGeneral/PG/blob/master/lego/README),
-  [PhoX](https://github.com/ProofGeneral/PG/blob/master/phox/README)
+  [Coq](https://coq.inria.fr/),
+  [EasyCrypt](http://www.easycrypt.info/),
+  [PhoX](http://www.lama.univ-savoie.fr/pagesmembres/raffalli/phox.html)
   (see links for versions).
 - Version 24.3 or later of [GNU Emacs](http://www.gnu.org/software/emacs/).
 
@@ -85,6 +75,17 @@ Please [report problems](https://github.com/ProofGeneral/PG/issues)
 and [send fixes](https://github.com/ProofGeneral/PG/pulls) so we can maintain
 support for latest versions.
 
+
+## Keeping Proof General up-to-date
+
+As explained in the [MELPA documentation](https://melpa.org/#/getting-started), updating all MELPA packages in one go is as easy as typing
+`M-x package-list-packages RET` then `r` (**r**efresh the package list), `U`(mark **U**pgradable packages), and `x` (e**x**ecute the installs and deletions).
+
+For more information, see the
+[README](https://github.com/ProofGeneral/PG#readme) file on the GitHub
+repo.
+
+{% comment %} TODO: remove
 ### Other versions
 
 If you have an old version of a proof assistant and/or an old Emacs
@@ -92,8 +93,6 @@ version, you may need a previous release of Proof General:
 
 - <http://proofgeneral.inf.ed.ac.uk/oldrel.php> (up to Proof General 4.0)
 
-
-{% comment %} TODO: remove
 ### Install Proof General
 
 - Download and unpack the file:
