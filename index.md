@@ -6,18 +6,22 @@ subtitle: A generic Emacs interface for proof assistants.
 
 ## What is Proof General?
 
-**Proof General** is a generic front-end for *proof assistants* (also
-known as *interactive theorem provers*), based on the customizable text
-editor [Emacs](https://www.emacswiki.org/emacs/SiteMap).
-Proof General has been
-developed at the [LFCS](http://wcms.inf.ed.ac.uk/lfcs/) in the
-[University of Edinburgh](http://www.ed.ac.uk/) with contributions from
-other sites. It is distributed under the conditions of the [GNU General
-Public License](http://www.gnu.org/licenses/gpl-2.0.html). The manager
-and main developer is [David
-Aspinall](http://homepages.inf.ed.ac.uk/da). Other contributors are
-listed below and in the [AUTHORS](/AUTHORS) file.
+**Proof General** is a generic interface for *proof assistants* (also
+known as *interactive theorem provers*), based on the extensible,
+customizable text editor [Emacs](https://www.gnu.org/software/emacs/).
 
+Proof General has been developed at the
+[LFCS](http://wcms.inf.ed.ac.uk/lfcs/) in the
+[University of Edinburgh](http://www.ed.ac.uk/), mainly by
+[David Aspinall](http://homepages.inf.ed.ac.uk/da), with contributions
+from other sites.  It is distributed under the conditions of the
+[GNU General Public License](https://www.gnu.org/licenses/gpl-2.0.html).
+
+The authors of Proof General are listed in the [AUTHORS](/AUTHORS) file.
+Many more people have also contributed.  Please see the CREDITS
+section in the manual for a more complete list of contributors.
+
+{% comment %}
 Proof General offers a full support for latest versions of the Coq proof assistant:
 
 - [![Coq logo](img/coq.png)](https://coq.inria.fr/)
@@ -60,28 +64,60 @@ interfaces. The main research prototype using PGIP is an experimental
 [Eclipse](http://www.eclipse.org) plugin, although Emacs Proof General
 supports some PGIP configuration.
 
+## About Proof General branches
+
+Two editions of Proof General are currently available:
+
+* the (legacy) REPL-based, stable version of Proof General,
+  gathered in the
+  [master](https://github.com/ProofGeneral/PG/tree/master) branch, and
+  licensed under GPLv2;
+* the (newest) Coq-specific, experimental version of Proof General,
+  supporting asynchronous proof processing,
+  gathered in the
+  [async](https://github.com/ProofGeneral/PG/tree/async) branch, and
+  licensed under GPLv3+.
+
+{% endcomment %}
+
 ## Quick installation instructions
 
-Remove old versions of Proof General, then download and install the new release from GitHub:
-
-```sh
-git clone https://github.com/ProofGeneral/PG ~/.emacs.d/lisp/PG
-cd ~/.emacs.d/lisp/PG
-make
-```
-
-Then add the following to your `.emacs`:
+The `master` version of Proof General is available on
+[MELPA](https://melpa.org/), a repository of Emacs packages.
+Skip this step if you already use MELPA. Otherwise, add the following
+to your `.emacs` and restart Emacs:
 
 ```elisp
-;; Open .v files with Proof General's Coq mode
-(load "~/.emacs.d/lisp/PG/generic/proof-site")
+(require 'package)
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (add-to-list 'package-archives
+               (cons "melpa" (concat proto "://melpa.org/packages/")) t))
+(package-initialize)
 ```
 
-If Proof General complains about a version mismatch, make sure that the shell's `emacs` is indeed your usual Emacs. If not, run the Makefile again with an explicit path to Emacs. On macOS in particular you'll probably need something like
+> **Note:** If you switch to MELPA from a previously manually-installed
+> Proof General, make sure you removed the old versions of Proof General
+> from your Emacs context (by removing from your `.emacs` the line
+> loading `PG/generic/proof-site`, or by uninstalling the proofgeneral
+> package provided by your OS package manager).
 
-```sh
-make clean; make EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs
-```
-For more information, see the [README](https://github.com/ProofGeneral/PG#more-info)
-and [INSTALL](https://github.com/ProofGeneral/PG/blob/master/INSTALL) files
-on the GitHub repo.
+Then, run <kbd>M-x package-refresh-contents RET</kbd> followed by
+<kbd>M-x package-install RET proof-general RET</kbd> to install and
+byte-compile `proof-general`.
+
+You can now open a Coq file (`.v`), an EasyCrypt file (`.ec`), or a
+PhoX file (`.phx`) to automatically load the corresponding major mode.
+
+## Keeping Proof General up-to-date
+
+As explained in the [MELPA documentation](https://melpa.org/#/getting-started), updating all MELPA packages in one go is as easy as typing
+<kbd>M-x package-list-packages RET</kbd> then <kbd>r</kbd> (**r**efresh the package list), <kbd>U</kbd> (mark **U**pgradable packages), and <kbd>x</kbd> (e**x**ecute the installs and deletions).
+
+## Documentation
+
+For more information about Proof General, see the
+[README](https://github.com/ProofGeneral/PG#readme) file on the GitHub
+repo, or browse the
+[documentation](https://proofgeneral.github.io/doc) page.
