@@ -9,7 +9,7 @@ title: Documentation
 <td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_10#Hints-and-Tips" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left">[<a href="/doc/userman/index.html#Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_20#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_21#Function-Index" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
@@ -245,7 +245,7 @@ buffers or refresh the window layout.  These are on the menu:
 
 <dl>
 <dt><a class="anchor" id="index-proof_002ddisplay_002dsome_002dbuffers-1"></a><u>Command:</u> <b>proof-display-some-buffers</b></dt>
-<dd><p>Display the reponse, trace, goals, or shell buffer, rotating.<br>
+<dd><p>Display the response, trace, goals, or shell buffer, rotating.<br>
 A fixed number of repetitions of this command switches back to
 the same buffer.
 Also move point to the end of the response buffer if it&rsquo;s selected.
@@ -263,39 +263,49 @@ without adjusting window layout.
 </p>
 <p>For single frame mode:
 </p>
-<p>- In two panes mode, this uses a canonical layout made by splitting
+<ul>
+<li>
+In two panes mode, this uses a canonical layout made by splitting
 Emacs windows in equal proportions. The splitting is vertical if
 emacs width is smaller than &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; and
 horizontal otherwise. You can then adjust the proportions by
 dragging the separating bars.
+
+</li><li>
+In three pane mode, there are three display modes, depending
+where the three useful buffers are displayed: scripting
+buffer, goals buffer and response buffer.
+
+<p>Here are the three modes:
 </p>
-<p>- In three pane mode, there are three display modes, depending
-</p><table><tr><td>&nbsp;</td><td><pre class="lisp">  where the three useful buffers are displayed: scripting
-  buffer, goals buffer and response buffer.
+<ul>
+<li>
+<code>vertical</code>: the 3 buffers are displayed in one column.
 
-  Here are the three modes:
+</li><li>
+<code>hybrid</code>: 2 columns mode, left column displays scripting buffer
+and right column displays the 2 others.
 
-  - vertical: the 3 buffers are displayed in one column.
-  - hybrid: 2 columns mode, left column displays scripting buffer
-    and right column displays the 2 others.
-  - horizontal: 3 columns mode, one for each buffer (script, goals,
-    response).
+</li><li>
+<code>horizontal</code>: 3 columns mode, one for each buffer (script, goals, response).
+</li></ul>
 
-  By default, the display mode is automatically chosen by
-  considering the current emacs frame width: if it is smaller
-  than &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then vertical mode is chosen,
-  otherwise if it is smaller than 1.5 * &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo;
-  then hybrid mode is chosen, finally if the frame is larger than
-  1.5 * &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then the horizontal mode is chosen.
+<p>By default, the display mode is automatically chosen by
+considering the current emacs frame width: if it is smaller
+than &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then vertical mode is chosen,
+otherwise if it is smaller than 1.5 * &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo;
+then hybrid mode is chosen, finally if the frame is larger than
+1.5 * &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then the horizontal mode is chosen.
+</p>
+<p>You can change the value of &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; at your
+will.
+</p>
+<p>If you want to force one of the layouts, you can set variable
+&lsquo;<samp><code>proof-three-window-mode-policy</code></samp>&rsquo; to <code>'vertical</code>, <code>'horizontal</code> or
+<code>'hybrid</code>. The default value is <code>'smart</code> which sets the automatic
+behaviour described above.
+</p></li></ul>
 
-  You can change the value of &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; at your
-  will.
-
-  If you want to force one of the layouts, you can set variable
-  &lsquo;<samp><code>proof-three-window-mode-policy</code></samp>&rsquo; to <code>'vertical</code>, <code>'horizontal</code> or
-  <code>'hybrid</code>. The default value is <code>'smart</code> which sets the automatic
-  behaviour described above.
-</pre></td></tr></table>
 </dd></dl>
 
 <dl>
@@ -753,13 +763,13 @@ prover specific ones using the <code><em>PA</em>-</code> mechanism).
 <td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_10#Hints-and-Tips" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left">[<a href="/doc/userman/index.html#Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_20#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_21#Function-Index" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 <p>
  <font size="-1">
-  This document was generated by <em>Erik Martin-Dorel</em> on <em>December 27, 2016</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
+  This document was generated by <em>Erik Martin-Dorel</em> on <em>June 1, 2019</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
  </font>
  <br>
 

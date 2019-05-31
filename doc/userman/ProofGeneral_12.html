@@ -9,7 +9,7 @@ title: Documentation
 <td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_13#Isabelle-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left">[<a href="/doc/userman/index.html#Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_20#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_21#Function-Index" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
@@ -36,6 +36,8 @@ assistant.  It supports most of the generic features of Proof General.
 <tr><td align="left" valign="top"><a href="#Holes-feature">11.6 Holes feature</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top"><a href="#Proof_002dTree-Visualization">11.7 Proof-Tree Visualization</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Showing-Proof-Diffs">11.8 Showing Proof Diffs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -174,13 +176,13 @@ If you make complex customizations using <code>eval</code> in
 <dl>
 <dt><a class="anchor" id="index-coq_002dproject_002dfilename"></a><u>Variable:</u> <b>coq-project-filename</b></dt>
 <dd><p>The name of coq project file.<br>
-The coq project file of a coq developpement (Cf Coq documentation
+The coq project file of a coq development (Cf Coq documentation
 on &quot;makefile generation&quot;) should contain the arguments given to
 coq_makefile. In particular it contains the -I and -R
 options (preferably one per line). If &lsquo;<samp>coq-use-coqproject</samp>&rsquo; is
-t (default) the content of this file will be used by proofgeneral
+t (default) the content of this file will be used by Proof General
 to infer the &lsquo;<samp><code>coq-load-path</code></samp>&rsquo; and the &lsquo;<samp><code>coq-prog-args</code></samp>&rsquo; variables
-that set the coqtop invocation by proofgeneral. This is now the
+that set the coqtop invocation by Proof General. This is now the
 recommended way of configuring the coqtop invocation. Local file
 variables may still be used to override the coq project file&rsquo;s
 configuration. .dir-locals.el files also work and override
@@ -446,7 +448,8 @@ ancestor.
 <p>You have two choices, if you don&rsquo;t like ancestor locking in its
 default way.
 You can either switch ancestor locking completely off via
-<code>coq-lock-ancestors</code> (<a href="#Customizing-Coq-Multiple-File-Support">Customizing Coq Multiple File Support</a>) or you can generally permit editing in locked
+menu <code>Coq -&gt; Auto Compilation -&gt; Lock Ancestors</code> or
+<code>coq-lock-ancestors</code> (<a href="#Customizing-Coq-Multiple-File-Support">Customizing Coq Multiple File Support</a>). Alternatively, you can generally permit editing in locked
 sections with selecting 
 <code>Proof-General</code> -&gt; <code>Quick Options</code> -&gt; <code>Read Only</code>
 -&gt; <code>Freely Edit</code> (which will set the option
@@ -469,7 +472,8 @@ file.]
 <p>Proof General supports quick compilation only with the parallel
 asynchronous compilation. There are 4 modes that can be
 configured with <code>coq-compile-quick</code> or by selecting one of
-the radio buttons in the <code>Coq -&gt; Auto Compilation</code> menu.
+the radio buttons in the <code>Coq -&gt; Auto Compilation -&gt; Quick
+compilation</code> menu.
 </p>
 <p>Use the default <code>no-quick</code>, if you have not yet switched to
 <code>Proof using</code>. Use <code>quick-no-vio2vo</code>, if you want quick
@@ -608,6 +612,9 @@ modified Coq buffers, <code>'ask-all</code> to confirm saving all modified
 buffers, <code>'save-coq</code> to save all modified Coq buffers without
 confirmation and <code>'save-all</code> to save all modified buffers without
 confirmation.
+</p>
+<p>This option can be set via menu
+&lsquo;<samp>Coq -&gt; Auto Compilation -&gt; Auto Save</samp>&rsquo;.
 </p></dd></dl>
 
 
@@ -683,6 +690,9 @@ with <code>'quick-and-vio2vo</code>, see Coq issue #<var>5223</var>.
 If external compilation is used (via &lsquo;<samp><code>coq-compile-command</code></samp>&rsquo;) then
 only the direct ancestors are locked. Otherwise all ancestors are
 locked when the &quot;Require&quot; command is processed.
+</p>
+<p>This option can be set via menu
+&lsquo;<samp>Coq -&gt; Auto Compilation -&gt; Lock Ancestors</samp>&rsquo;.
 </p></dd></dl>
 
 
@@ -725,7 +735,7 @@ minibuffer if &lsquo;<samp><code>coq-confirm-external-compilation</code></samp>&
 Otherwise start the external compilation without confirmation.
 </p>
 <p>This option can be set/reset via menu
-&lsquo;<samp>Coq -&gt; Settings -&gt; Confirm External Compilation</samp>&rsquo;.
+&lsquo;<samp>Coq -&gt; Auto Compilation -&gt; Confirm External Compilation</samp>&rsquo;.
 </p></dd></dl>
 
 
@@ -842,7 +852,7 @@ one.  This is supported to any nesting depth that Coq allows.
 </p>
 <p>Warning! Using Coq commands for navigating inside the different proofs
 (<code>Resume</code> and especially <code>Suspend</code>) are not supported,
-backtracking will break syncronization.
+backtracking will break synchronization.
 </p>
 <p><b>Special note:</b> The old feature that moved nested proofs outside the
 current proof is disabled.
@@ -958,7 +968,47 @@ possibly having two or more initial goals in the display.
 actually display several graphically independent proof trees in
 several layers.
 </p>
+<hr size="6">
+<a class="anchor" id="Showing-Proof-Diffs"></a>
+<a class="anchor" id="Showing-Proof-Diffs-1"></a>
+<h2 class="section">11.8 Showing Proof Diffs</h2>
 
+<p>Coq 8.10 supports automatically highlighting the differences
+between successive proof steps in Proof General.  The feature is described in the
+<a href="https://coq.inria.fr/distrib/current/refman/proof-engine/proof-handling.html#showing-differences-between-proof-steps">Coq Documentation</a>.
+</p>
+<p>The Coq proof diff does more than a basic &quot;diff&quot; operation.  For example:
+</p>
+<ul>
+<li> diffs are computed on a per-token basis (as determined by the Coq lexer) rather
+  than on a per-character basis, probably a better match for how people understand
+  the output.  (For example, a token-based diff between &quot;abc&quot; and &quot;axc&quot; will
+  highlight all of &quot;abc&quot; and &quot;axc&quot; as a difference, while a character-based diff
+  would indicate that &quot;a&quot; and &quot;c&quot; are in common and that only the &quot;b&quot;/&quot;x&quot; is a
+  difference.)
+</li><li> diffs ignore the order of hypotheses
+</li><li> tactics that only change the proof view are handled specially, for
+  example &quot;swap&quot; after a &quot;split&quot; will show the diffs between before &quot;split&quot;
+  and after &quot;swap&quot;, which is more useful
+</li><li> some error messages have been instrumented to show diffs where it is helpful
+</li></ul>
+
+<p>To enable or disable diffs, set <code>coq-diffs</code> (select menu <code>Coq -&gt; Diffs</code>)
+to &quot;on&quot;, &quot;off&quot; or &quot;removed&quot;.  &quot;on&quot; highlights added tokens with the background
+color from <code>diff-refine-added</code>.  &quot;removed&quot; highlights removed tokens
+with the background color from <code>diff-refine-removed</code>.  With the &quot;removed&quot; setting,
+lines that have both added and removed text may be shown twice, as &quot;before&quot; and
+&quot;after&quot; lines.
+To preserve the settings for the next time you start Proof General,
+select <code>Coq -&gt; Settings -&gt; Save Settings</code>.
+</p>
+<p>The colors used to highlight diffs are configurable in the
+<code>Proof-General -&gt; Advanced -&gt; Customize -&gt; Proof Faces</code> menu.
+The 4 <code>Coq Diffs ...</code> faces control the highlights.  Lines that
+have added or removed tokens are shown with the entire line highlighted with
+a <code>Coq Diffs ... Bg</code> face.  The added or removed tokens themselves are highlighted
+with non-<code>Bg</code> faces.
+</p>
 <hr size="6">
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
@@ -966,13 +1016,13 @@ several layers.
 <td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_13#Isabelle-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left">[<a href="/doc/userman/index.html#Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_20#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_21#Function-Index" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 <p>
  <font size="-1">
-  This document was generated by <em>Erik Martin-Dorel</em> on <em>December 27, 2016</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
+  This document was generated by <em>Erik Martin-Dorel</em> on <em>June 1, 2019</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
  </font>
  <br>
 
