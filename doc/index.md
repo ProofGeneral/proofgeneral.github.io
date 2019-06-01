@@ -9,8 +9,8 @@ subtitle:
 Proof General has a FAQ and two manuals, and places for users:
 
 {% comment %} TODO: convert FAQ to Markdown within the main PG repo {% endcomment %}
--   [Proof General user manual](/doc/userman)
--   [Adapting Proof General manual](/doc/adaptingman)
+-   [Proof General user manual (branch master)](/doc/master/userman)
+-   [Adapting Proof General manual (branch master)](/doc/master/adaptingman)
 -   [FAQ](https://github.com/ProofGeneral/PG/blob/master/FAQ.md)
 -   [GitHub issues](https://github.com/ProofGeneral/PG/issues)
 -   [Proof General Wiki](http://proofgeneral.inf.ed.ac.uk/wiki)
