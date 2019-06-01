@@ -5,12 +5,12 @@ title: Documentation
 
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="Customizing-Proof-General/#Customizing-Proof-General" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="LEGO-Proof-General/#LEGO-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left">[<a href="index/#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="Function-Index/#Function-Index" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+<tr><td valign="middle" align="left">[<a href="/doc/userman/Customizing-Proof-General/#Customizing-Proof-General" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/LEGO-Proof-General/#LEGO-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/index/#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Function-Index/#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 
@@ -97,9 +97,9 @@ by default).  Use lisp like this:
 (global-set-key [?\s-3] 'proof-three-window-toggle)
 </pre></td></tr></table>
 <p>This defines a bunch of short-cuts for inserting symbols taken
-from the Maths Menu, see section <a href="Unicode-symbols-and-special-layout-support/#Unicode-symbols-and-special-layout-support">Unicode symbols and special layout support</a>
+from the Maths Menu, see section <a href="/doc/userman/Unicode-symbols-and-special-layout-support/#Unicode-symbols-and-special-layout-support">Unicode symbols and special layout support</a>
 and a short-cut for enabling three window mode,
-see section <a href="Customizing-Proof-General/#Display-customization">Display customization</a>.
+see section <a href="/doc/userman/Customizing-Proof-General/#Display-customization">Display customization</a>.
 </p>
 
 <hr size="6">
@@ -109,7 +109,7 @@ see section <a href="Customizing-Proof-General/#Display-customization">Display c
 <a class="anchor" id="index-file-variables"></a>
 
 <p>A very convenient way to customize file-specific variables is to use 
-File Variables (See <a href="../emacs/File-Variables/#File-Variables">(emacs)File Variables</a>). This feature of
+File Variables (See <a href="../emacs/File-Variables.html#File-Variables">(emacs)File Variables</a>). This feature of
 Emacs permits to specify values for certain Emacs variables
 when a file is loaded. File variables and their values 
 are written as a list at the end of
@@ -120,7 +120,7 @@ trick is applicable to other provers.
 </p>
 <p><b>Remark 2:</b> For Coq specifically, there is a recommended other way
 of configuring Coq options:
-project files (<a href="Coq-Proof-General/#Using-the-Coq-project-file">Using the Coq project file</a>).
+project files (<a href="/doc/userman/Coq-Proof-General/#Using-the-Coq-project-file">Using the Coq project file</a>).
 Actually, project files are intended to be included in the
 distribution of a library (and included in its repository), so the Coq
 options specified in project files are supposed to work for all users.
@@ -129,7 +129,7 @@ preferably be specified in a directory-local-variables file (see below).
 </p>
 <p>For example, in Coq projects involving multiple directories, it is necessary
 to set the variable <code>coq-load-path</code> 
-(<a href="Coq-Proof-General/#Customizing-Coq-Multiple-File-Support">Customizing Coq Multiple File Support</a>). 
+(<a href="/doc/userman/Coq-Proof-General/#Customizing-Coq-Multiple-File-Support">Customizing Coq Multiple File Support</a>). 
 Here is an example:
 Assume the file &lsquo;<tt>.../dir/bar/foo.v</tt>&rsquo; depends on modules in
 <code>.../dir/theories/</code>. Then you can put the following at the
@@ -172,10 +172,10 @@ variables:
 <p>And then the right call to make will be done if you use the <kbd>M-x
 compile</kbd> command. Note that the lines are commented in order to be
 ignored by the proof assistant. It is possible to use this mechanism for
-all variables, See <a href="../emacs/File-Variables/#File-Variables">(emacs)File Variables</a>.
+all variables, See <a href="../emacs/File-Variables.html#File-Variables">(emacs)File Variables</a>.
 </p>
 <p>One can also specify file variables on a per directory basis,
-See <a href="../emacs/Directory-Variables/#Directory-Variables">(emacs)Directory Variables</a>. For instance,
+See <a href="../emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>. For instance,
 assume you have a Coq project with several subdirectories and you
 want to put each subdirectory into <code>coq-load-path</code> for every
 file in the project. You can achieve this by storing
@@ -186,7 +186,7 @@ file in the project. You can achieve this by storing
 <p>into the file <code>.dir-locals.el</code> in one of the parent directories.
 The value in this file must be an alist that maps mode names to alists,
 where these latter alists map variables to values. You can aso put
-arbitrary code in this file See <a href="../emacs/Directory-Variables/#Directory-Variables">(emacs)Directory Variables</a>.
+arbitrary code in this file See <a href="../emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>.
 </p>
 <p>Regarding the configuration of the <code>coq-prog-name</code> variable, the
 <code>.dir-locals.el</code> file should contain something like:
@@ -208,7 +208,7 @@ before restarting the Coq process).
 <h2 class="section">9.3 Using abbreviations</h2>
 
 <p>A very useful package of Emacs supports automatic expansions of
-abbreviations as you type, See <a href="../emacs/Abbrevs/#Abbrevs">(emacs)Abbrevs</a>.
+abbreviations as you type, See <a href="../emacs/Abbrevs.html#Abbrevs">(emacs)Abbrevs</a>.
 </p>
 <p>For example, the proof assistant Coq has many command strings that are
 long, such as &ldquo;reflexivity,&rdquo; &ldquo;Inductive,&rdquo; &ldquo;Definition&rdquo; and
@@ -229,7 +229,7 @@ mode you can expand an abbreviation by pressing <kbd>C-x '</kbd>
 </p>
 <p>Coq Proof General has a special experimental feature called &quot;Holes&quot;
 which makes use of the abbreviation mechanism and includes a large list
-of command abbreviations. See section <a href="Coq-Proof-General/#Holes-feature">Holes feature</a>, for details.  With other
+of command abbreviations. See section <a href="/doc/userman/Coq-Proof-General/#Holes-feature">Holes feature</a>, for details.  With other
 provers, you may use the standard Emacs commands above to set up your
 own abbreviation tables.
 </p>
@@ -242,11 +242,11 @@ own abbreviation tables.
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Hints-and-Tips" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="LEGO-Proof-General/#LEGO-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left">[<a href="index/#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="Function-Index/#Function-Index" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/LEGO-Proof-General/#LEGO-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/index/#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Function-Index/#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 <p>

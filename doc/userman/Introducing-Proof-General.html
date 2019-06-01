@@ -5,12 +5,12 @@ title: Documentation
 
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="Preface/#Preface" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="Basic-Script-Management/#Basic-Script-Management" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left">[<a href="index/#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="Function-Index/#Function-Index" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+<tr><td valign="middle" align="left">[<a href="/doc/userman/Preface/#Preface" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Basic-Script-Management/#Basic-Script-Management" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/index/#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Function-Index/#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 
@@ -23,13 +23,13 @@ title: Documentation
 
 <img src="/img/ProofGeneral-image.jpg" alt="[ Proof General logo ]" >
 <p><em>Proof General</em> is a generic Emacs interface for interactive proof
-assistants,<a id="DOCF1" href="ProofGeneral_fot/#FOOT1">(1)</a> developed at the LFCS in
+assistants,<a id="DOCF1" href="/doc/userman/ProofGeneral_fot/#FOOT1">(1)</a> developed at the LFCS in
 the University of Edinburgh.  
 </p>
 <p>You do not have to be an Emacs militant to use Proof General!  
 </p>
 <p>The interface is designed to be very easy to use.  You develop your
-proof script<a id="DOCF2" href="ProofGeneral_fot/#FOOT2">(2)</a>
+proof script<a id="DOCF2" href="/doc/userman/ProofGeneral_fot/#FOOT2">(2)</a>
  in-place rather than line-by-line and later reassembling the pieces.
 Proof General keeps track of which proof steps have been processed by
 the prover, and prevents you editing them accidentally.  You can undo
@@ -80,7 +80,7 @@ unpack it and insert the line:
 <p>into your &lsquo;<tt>~/.emacs</tt>&rsquo; file, where <var>proof-general-home</var> is the
 top-level directory that was created when Proof General was unpacked.
 </p>
-<p>For much more information, See section <a href="Obtaining-and-Installing/#Obtaining-and-Installing">Obtaining and Installing</a>.
+<p>For much more information, See section <a href="/doc/userman/Obtaining-and-Installing/#Obtaining-and-Installing">Obtaining and Installing</a>.
 </p>
 
 <hr size="6">
@@ -125,7 +125,7 @@ processed.  You can start the proof assistant manually with the
 menu command &quot;Start proof assistant&quot;.
 </p>
 <p>To follow an example use of Proof General on a Isabelle proof, 
-see section <a href="Basic-Script-Management/#Walkthrough-example-in-Isabelle">Walkthrough example in Isabelle</a>.  If you know the syntax for proof
+see section <a href="/doc/userman/Basic-Script-Management/#Walkthrough-example-in-Isabelle">Walkthrough example in Isabelle</a>.  If you know the syntax for proof
 scripts in another theorem prover, you can easily adapt the details 
 given there.
 </p>
@@ -170,8 +170,8 @@ assistant.
 <p>Proof General does not commandeer the proof assistant shell: the user
 still has complete access to it if necessary.
 </p>
-<p>For more details, see section <a href="Basic-Script-Management/#Summary-of-Proof-General-buffers">Summary of Proof General buffers</a>
-and see section <a href="Customizing-Proof-General/#Display-customization">Display customization</a>.
+<p>For more details, see section <a href="/doc/userman/Basic-Script-Management/#Summary-of-Proof-General-buffers">Summary of Proof General buffers</a>
+and see section <a href="/doc/userman/Customizing-Proof-General/#Display-customization">Display customization</a>.
 </p>
 
 </li><li> <i>Script management</i><br>
@@ -183,9 +183,9 @@ be edited.  Proof General has functions for <em>asserting</em> or
 <em>retracting</em> parts of a proof script, which alters the coloured
 regions.
 
-<p>For more details, see section <a href="Basic-Script-Management/#Basic-Script-Management">Basic Script Management</a>,
-<a href="Basic-Script-Management/#Script-processing-commands">Script processing commands</a>,
-and <a href="Advanced-Script-Management-and-Editing/#Advanced-Script-Management-and-Editing">Advanced Script Management and Editing</a>.
+<p>For more details, see section <a href="/doc/userman/Basic-Script-Management/#Basic-Script-Management">Basic Script Management</a>,
+<a href="/doc/userman/Basic-Script-Management/#Script-processing-commands">Script processing commands</a>,
+and <a href="/doc/userman/Advanced-Script-Management-and-Editing/#Advanced-Script-Management-and-Editing">Advanced Script Management and Editing</a>.
 </p>
 </li><li> <i>Script editing mode</i><br>
 Proof General provides useful facilities for editing proof scripts,
@@ -194,8 +194,8 @@ definitions, or declarations.
 Special editing functions send lines of proof script to the proof
 assistant, or undo previous proof steps.
 
-<p>For more details, see section <a href="Basic-Script-Management/#Script-editing-commands">Script editing commands</a>,
-and <a href="Basic-Script-Management/#Script-processing-commands">Script processing commands</a>.
+<p>For more details, see section <a href="/doc/userman/Basic-Script-Management/#Script-editing-commands">Script editing commands</a>,
+and <a href="/doc/userman/Basic-Script-Management/#Script-processing-commands">Script processing commands</a>.
 </p>
 </li><li> <i>Proof-tree visualization</i><br>
 In cooperation with the external program Prooftree
@@ -206,7 +206,7 @@ additional means for inspecting the proof tree and thus helps
 against loosing track in proofs.
 
 <p>The graphical proof-tree visualization is currently only
-supported for Coq. For more details, see section <a href="Graphical-Proof_002dTree-Visualization/#Graphical-Proof_002dTree-Visualization">Graphical Proof-Tree Visualization</a>. 
+supported for Coq. For more details, see section <a href="/doc/userman/Graphical-Proof_002dTree-Visualization/#Graphical-Proof_002dTree-Visualization">Graphical Proof-Tree Visualization</a>. 
 </p>
 
 </li><li> <i>Toolbar and menus</i><br>
@@ -215,7 +215,7 @@ parts of the proof script.  A menu provides further functions for
 operations in the proof assistant, as well as customization of Proof
 General.
 
-<p>For more details, see section <a href="Basic-Script-Management/#Toolbar-commands">Toolbar commands</a>, <a href="Basic-Script-Management/#Proof-assistant-commands">Proof assistant commands</a>, and <a href="Customizing-Proof-General/#Customizing-Proof-General">Customizing Proof General</a>.
+<p>For more details, see section <a href="/doc/userman/Basic-Script-Management/#Toolbar-commands">Toolbar commands</a>, <a href="/doc/userman/Basic-Script-Management/#Proof-assistant-commands">Proof assistant commands</a>, and <a href="/doc/userman/Customizing-Proof-General/#Customizing-Proof-General">Customizing Proof General</a>.
 </p>
 </li><li> <i>Proof by pointing</i><br>
 Proof General has support for proof-by-pointing and similar features.
@@ -240,23 +240,23 @@ proof assistants, including these:
 <ul>
 <li> 
 <b>LEGO Proof General</b> for LEGO Version 1.3.1<br>
-See section <a href="LEGO-Proof-General/#LEGO-Proof-General">LEGO Proof General</a>, for more details.
+See section <a href="/doc/userman/LEGO-Proof-General/#LEGO-Proof-General">LEGO Proof General</a>, for more details.
 </li><li> 
 <b>Coq Proof General</b> for Coq Version 8.2<br>
-See section <a href="Coq-Proof-General/#Coq-Proof-General">Coq Proof General</a>, for more details.
+See section <a href="/doc/userman/Coq-Proof-General/#Coq-Proof-General">Coq Proof General</a>, for more details.
 </li><li> 
 <b>Isabelle Proof General</b> for Isabelle2009-2<br>
-See section <a href="Isabelle-Proof-General/#Isabelle-Proof-General">Isabelle Proof General</a>, and documentation supplied with
+See section <a href="/doc/userman/Isabelle-Proof-General/#Isabelle-Proof-General">Isabelle Proof General</a>, and documentation supplied with
 Isabelle for more details.
 </li><li>
 <b>HOL Light Proof General</b> for HOL Light<br>
-See section <a href="HOL-Light-Proof-General/#HOL-Light-Proof-General">HOL Light Proof General</a>, for more details.
+See section <a href="/doc/userman/HOL-Light-Proof-General/#HOL-Light-Proof-General">HOL Light Proof General</a>, for more details.
 </li><li>
 <b>EasyCrypt Proof General</b> for EasyCrypt<br>
-See section <a href="EasyCrypt-Proof-General/#EasyCrypt-Proof-General">EasyCrypt Proof General</a>, for mode details.
+See section <a href="/doc/userman/EasyCrypt-Proof-General/#EasyCrypt-Proof-General">EasyCrypt Proof General</a>, for mode details.
 </li><li>
 <b>Shell Proof General</b> for shell scripts (not really a proof assistant!)<br>
-See section <a href="Shell-Proof-General/#Shell-Proof-General">Shell Proof General</a>, for more details.
+See section <a href="/doc/userman/Shell-Proof-General/#Shell-Proof-General">Shell Proof General</a>, for more details.
 </li></ul>
 
 <p>Proof General is designed to be generic, so if you know how
@@ -306,7 +306,7 @@ of a common interface mechanism.
 <p>To get more from Proof General and adapt it to your liking, it helps to
 know a little bit about how Emacs lisp packages can be customized via
 the Customization mechanism.  It&rsquo;s really easy to use.  For details,
-see section <a href="Customizing-Proof-General/#How-to-customize">How to customize</a>.  See <a href="../emacs/Customization/#Customization">(emacs)Customization</a>,
+see section <a href="/doc/userman/Customizing-Proof-General/#How-to-customize">How to customize</a>.  See <a href="../emacs/Customization.html#Customization">(emacs)Customization</a>,
 for documentation in Emacs.
 </p>
 <p>To get the absolute most from Proof General, to improve it or to adapt
@@ -361,11 +361,11 @@ contents for full details.
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Introducing-Proof-General" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="Basic-Script-Management/#Basic-Script-Management" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left">[<a href="index/#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="Function-Index/#Function-Index" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Basic-Script-Management/#Basic-Script-Management" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/index/#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Function-Index/#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 <p>

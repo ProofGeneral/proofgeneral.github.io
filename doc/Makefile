@@ -45,7 +45,7 @@ compile.%:
 	$(RM) -r $(DEST_$*)
 	mkdir -p $(DEST_$*)
 	# The slash at the beginning of --prefix is required to get proper Jekyll URLs:
-	$(TEXI2HTML) --output=$(DEST_$*) --prefix=$(SRC_$*) --top-file=index.html $(CHECKOUT)/$(REPODIR)/$(SRC_$*).texi
+	$(TEXI2HTML) --output=$(DEST_$*) --top-file=index.html $(CHECKOUT)/$(REPODIR)/$(SRC_$*).texi
 	@echo "### End of Phase 1/$* -- raw HTML files generated in:"
 	@echo "$(CURDIR)/$(DEST_$*)"
 
@@ -56,7 +56,7 @@ doc.%:
 	  mv $$f $$f.bak && \
 	  cp -f $(CURDIR)/$(HEADER) $$f && \
 	  sed -e '1,/<body\>/d;/<\/body\>/,$$d' \
-	  -e 's|\.html#|/#|g' \
+	  -e 's|\(href="\)\([-_0-9A-Za-z]*\)\.html\#|\1'/$(DEST)/$(DEST_$*)/'\2/#|g' \
 	  -e 's|"ProofGeneral-image.jpg"|"/img/ProofGeneral-image.jpg"|g' \
           $$f.bak >> $$f && \
 	  $(RM) $$f.bak; \

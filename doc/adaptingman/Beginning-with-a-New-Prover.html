@@ -5,12 +5,12 @@ title: Documentation
 
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="Introduction/#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="Menus-and-Toolbar-and-User_002dlevel-Commands/#Menus-and-Toolbar-and-User_002dlevel-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left">[<a href="index/#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="PG-adapting_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="Function-Index/#Function-Index" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="PG-adapting_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+<tr><td valign="middle" align="left">[<a href="/doc/adaptingman/Introduction/#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/Menus-and-Toolbar-and-User_002dlevel-Commands/#Menus-and-Toolbar-and-User_002dlevel-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/index/#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/PG-adapting_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/Function-Index/#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/PG-adapting_abt/#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 
@@ -30,16 +30,16 @@ prototype is about 25 simple settings.
 <p>For more advanced features you may need (or want) to write some Emacs
 Lisp.  If you&rsquo;re adding new functionality please consider making it
 generic for different proof assistants, if appropriate.  When writing
-your modes, please follow the Emacs Lisp conventions, See <a href="../Elisp/Tips/#Tips">(Elisp)Tips</a>.
+your modes, please follow the Emacs Lisp conventions, See <a href="../Elisp/Tips.html#Tips">(Elisp)Tips</a>.
 </p>
 <p>The configuration variables are declared in the file
 &lsquo;<tt>generic/proof-config.el</tt>&rsquo;.  The details in the central part of this
-manual are based on the contents of that file, beginning in <a href="Menus-and-Toolbar-and-User_002dlevel-Commands/#Menus-and-Toolbar-and-User_002dlevel-Commands">Menus, toolbar, and user-level commands</a>, and continuing until <a href="Global-Constants/#Global-Constants">Global Constants</a>.
+manual are based on the contents of that file, beginning in <a href="/doc/adaptingman/Menus-and-Toolbar-and-User_002dlevel-Commands/#Menus-and-Toolbar-and-User_002dlevel-Commands">Menus, toolbar, and user-level commands</a>, and continuing until <a href="/doc/adaptingman/Global-Constants/#Global-Constants">Global Constants</a>.
 Other chapters cover the details of configuring for multiple files and
 for supporting the other Emacs packages mentioned in the user manual
 (<i>Support for other Packages</i>).  If you write additional Elisp code
 interfacing to Proof General, you can find out about some useful functions
-by reading <a href="Writing-More-Lisp-Code/#Writing-More-Lisp-Code">Writing More Lisp Code</a>.  The last chapter of this
+by reading <a href="/doc/adaptingman/Writing-More-Lisp-Code/#Writing-More-Lisp-Code">Writing More Lisp Code</a>.  The last chapter of this
 manual describes some of the internals of Proof General, in case you are
 interested, maybe because you need to extend the generic core to do
 something new.
@@ -223,7 +223,7 @@ each generic one, like this:
    (proof-shell-config-done))
 </pre></td></tr></table>
 <p>Where <code>myass-shell-config</code> is a function which sets the
-configuration variables for the shell (see section <a href="Proof-Shell-Settings/#Proof-Shell-Settings">Proof Shell Settings</a>).
+configuration variables for the shell (see section <a href="/doc/adaptingman/Proof-Shell-Settings/#Proof-Shell-Settings">Proof Shell Settings</a>).
 </p>
 <p>It&rsquo;s important that each of your modes invokes one of the functions
  <code>proof-config-done</code>,
@@ -251,11 +251,11 @@ are declared in <code>pg-vars.el</code>.
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Beginning-with-a-New-Prover" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="Menus-and-Toolbar-and-User_002dlevel-Commands/#Menus-and-Toolbar-and-User_002dlevel-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left">[<a href="index/#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="PG-adapting_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="Function-Index/#Function-Index" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="PG-adapting_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/Menus-and-Toolbar-and-User_002dlevel-Commands/#Menus-and-Toolbar-and-User_002dlevel-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/index/#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/PG-adapting_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/Function-Index/#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/PG-adapting_abt/#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 <p>
