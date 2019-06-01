@@ -18,6 +18,7 @@ CHECKOUT=$(SRC)/PG
 DEST=doc
 DEST_user=userman
 DEST_adapt=adaptingman
+BRANCH=master
 HEADER=$(SRC)/_head.html
 TEXI_CUSTOM=$(CURDIR)/$(SRC)/texi2html_custom.pm
 TEXI2HTML=texi2html --expandinfo --node-files --split=chapter --noheader --init-file=$(TEXI_CUSTOM)
@@ -42,21 +43,21 @@ checkout:
 # Phase 1
 compile.%:
 	@echo "### Phase 1/$*"
-	$(RM) -r $(DEST_$*)
-	mkdir -p $(DEST_$*)
+	$(RM) -r $(BRANCH)/$(DEST_$*)
+	mkdir -p $(BRANCH)/$(DEST_$*)
 	# The slash at the beginning of --prefix is required to get proper Jekyll URLs:
-	$(TEXI2HTML) --output=$(DEST_$*) --top-file=index.html $(CHECKOUT)/$(REPODIR)/$(SRC_$*).texi
+	$(TEXI2HTML) --output=$(BRANCH)/$(DEST_$*) --top-file=index.html $(CHECKOUT)/$(REPODIR)/$(SRC_$*).texi
 	@echo "### End of Phase 1/$* -- raw HTML files generated in:"
-	@echo "$(CURDIR)/$(DEST_$*)"
+	@echo "$(CURDIR)/$(BRANCH)/$(DEST_$*)"
 
 # Phase 2
 doc.%:
 	@echo "### Phase 2/$*"
-	cd $(DEST_$*) && for f in *.html; do \
+	cd $(BRANCH)/$(DEST_$*) && for f in *.html; do \
 	  mv $$f $$f.bak && \
 	  cp -f $(CURDIR)/$(HEADER) $$f && \
 	  sed -e '1,/<body\>/d;/<\/body\>/,$$d' \
-	  -e 's|\(href="\)\([-_0-9A-Za-z]*\)\.html\#|\1'/$(DEST)/$(DEST_$*)/'\2#|g' \
+	  -e 's|\(href="\)\([-_0-9A-Za-z]*\)\.html\#|\1'/$(DEST)/$(BRANCH)/$(DEST_$*)/'\2#|g' \
 	  -e 's|"ProofGeneral-image.jpg"|"/img/ProofGeneral-image.jpg"|g' \
           $$f.bak >> $$f && \
 	  $(RM) $$f.bak; \
@@ -68,7 +69,7 @@ doc.%:
 # Phase 3
 add.%:
 	@echo "### Phase 3/$*"
-	git add -v -A $(DEST_$*)
+	git add -v -A $(BRANCH)/$(DEST_$*)
 	@echo "### End of Phase 3/$* -- You can now run: git commit"
 
 clean:
