@@ -5,12 +5,12 @@ title: Documentation
 
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="/doc/adaptingman/Global-Constants/#Global-Constants" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/adaptingman/Configuring-Editing-Syntax/#Configuring-Editing-Syntax" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/adaptingman/index/#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/adaptingman/PG-adapting_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/adaptingman/Function-Index/#Function-Index" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/adaptingman/PG-adapting_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+<tr><td valign="middle" align="left">[<a href="/doc/adaptingman/Global-Constants#Global-Constants" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/Configuring-Editing-Syntax#Configuring-Editing-Syntax" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/index#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/PG-adapting_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/Function-Index#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/PG-adapting_abt#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 
@@ -154,38 +154,38 @@ interface whenever it processes or retracts a file.
 customized are as follows. To recognize file-processing,
 <code>proof-shell-process-file</code>.  To recognize messages about file
 undoing, <code>proof-shell-retract-files-regexp</code> and
-<code>proof-shell-compute-new-files-list</code>.  See section <a href="/doc/adaptingman/Proof-Shell-Settings/#Settings-for-matching-urgent-messages-from-proof-process">Settings for matching urgent messages from proof process</a>.  To tell the prover about files
+<code>proof-shell-compute-new-files-list</code>.  See section <a href="/doc/adaptingman/Proof-Shell-Settings#Settings-for-matching-urgent-messages-from-proof-process">Settings for matching urgent messages from proof process</a>.  To tell the prover about files
 handled with script management, use
  <code>proof-shell-inform-file-processed-cmd</code> and
- <code>proof-shell-inform-file-retracted-cmd</code>.  See section <a href="/doc/adaptingman/Proof-Shell-Settings/#Proof-shell-commands">Commands</a>.
+ <code>proof-shell-inform-file-retracted-cmd</code>.  See section <a href="/doc/adaptingman/Proof-Shell-Settings#Proof-shell-commands">Commands</a>.
 If your prover does not allow re-opening of closed
 files, set <code>proof-cannot-reopen-processed-files</code> to <code>t</code>.
   Finally, set the flag <code>proof-auto-multiple-files</code> 
 for a automatic approximation to multiple file handling.
-See section <a href="/doc/adaptingman/Proof-Script-Settings/#Proof-Script-Settings">Proof Script Settings</a>.
+See section <a href="/doc/adaptingman/Proof-Script-Settings#Proof-Script-Settings">Proof Script Settings</a>.
 </p>
 <p>Internally Proof General uses
 <code>proof-register-possibly-new-processed-file</code> to add a file
 to <code>proof-included-files-list</code> and to possibly inform the
-prover about this fact, See section <a href="/doc/adaptingman/Internals-of-Proof-General/#Proof-script-mode">Proof script mode</a>. The function
+prover about this fact, See section <a href="/doc/adaptingman/Internals-of-Proof-General#Proof-script-mode">Proof script mode</a>. The function
 <code>proof-shell-process-urgent-message-retract</code> is responsible
 for taking (possibly several) files off
 <code>proof-included-files-list</code>. It relies on
-<code>proof-shell-compute-new-files-list</code> (see section <a href="/doc/adaptingman/Proof-Shell-Settings/#Settings-for-matching-urgent-messages-from-proof-process">Settings for matching urgent messages from proof process</a>) to compute the new
+<code>proof-shell-compute-new-files-list</code> (see section <a href="/doc/adaptingman/Proof-Shell-Settings#Settings-for-matching-urgent-messages-from-proof-process">Settings for matching urgent messages from proof process</a>) to compute the new
 value of <code>proof-included-files-list</code> and then calls
 <code>proof-restart-buffers</code> on all those buffers that have been
-taken off from <code>proof-included-files-list</code>, See section <a href="/doc/adaptingman/Internals-of-Proof-General/#Proof-script-mode">Proof script mode</a>.
+taken off from <code>proof-included-files-list</code>, See section <a href="/doc/adaptingman/Internals-of-Proof-General#Proof-script-mode">Proof script mode</a>.
 </p>
 
 <hr size="6">
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="/doc/adaptingman/Global-Constants/#Global-Constants" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/adaptingman/Configuring-Editing-Syntax/#Configuring-Editing-Syntax" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/adaptingman/index/#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/adaptingman/PG-adapting_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/adaptingman/Function-Index/#Function-Index" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/adaptingman/PG-adapting_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+<tr><td valign="middle" align="left">[<a href="/doc/adaptingman/Global-Constants#Global-Constants" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/Configuring-Editing-Syntax#Configuring-Editing-Syntax" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/index#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/PG-adapting_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/Function-Index#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/adaptingman/PG-adapting_abt#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 <p>

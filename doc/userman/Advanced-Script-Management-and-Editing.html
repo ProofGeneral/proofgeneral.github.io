@@ -5,12 +5,12 @@ title: Documentation
 
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="/doc/userman/Basic-Script-Management/#Basic-Script-Management" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/Unicode-symbols-and-special-layout-support/#Unicode-symbols-and-special-layout-support" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/index/#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/Function-Index/#Function-Index" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+<tr><td valign="middle" align="left">[<a href="/doc/userman/Basic-Script-Management#Basic-Script-Management" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Unicode-symbols-and-special-layout-support#Unicode-symbols-and-special-layout-support" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/index#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Function-Index#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 
@@ -125,7 +125,7 @@ interaction with the prover are <code>proof-full-annotation</code> and
 <code>proof-strict-read-only</code>.  Note that you can also record the
 history of output from the prover <i>without</i> adding mouse hovers to the
 script.  This is controlled by <code>proof-output-tooltips</code> which is
-also on the Display menu in Quick Options.  See section <a href="/doc/userman/Customizing-Proof-General/#Display-customization">Display customization</a>, for more information about customizing display options.
+also on the Display menu in Quick Options.  See section <a href="/doc/userman/Customizing-Proof-General#Display-customization">Display customization</a>, for more information about customizing display options.
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002dfull_002dannotation"></a><u>User Option:</u> <b>proof-full-annotation</b></dt>
@@ -276,7 +276,7 @@ proof boundaries.
 <p>Basic modularity in large proof developments can be achieved by
 splitting proof scripts across various files. Let&rsquo;s assume that you are
 in the middle of a proof development. You are working on a soundness
-proof of Hoare Logic in a file called<a id="DOCF5" href="/doc/userman/ProofGeneral_fot/#FOOT5">(5)</a> &lsquo;<tt>HSound.l</tt>&rsquo;. It
+proof of Hoare Logic in a file called<a id="DOCF5" href="/doc/userman/ProofGeneral_fot#FOOT5">(5)</a> &lsquo;<tt>HSound.l</tt>&rsquo;. It
 depends on a number of other files which develop underlying
 concepts e.g. syntax and semantics of expressions, assertions,
 imperative programs. You notice that the current lemma is too difficult
@@ -312,7 +312,7 @@ or retract the current script buffer.
 <p>Proof General tries to be aware of all files that the proof assistant
 has processed or is currently processing.  In the best case, it relies
 on the proof assistant explicitly telling it whenever it processes a new
-file which corresponds<a id="DOCF6" href="/doc/userman/ProofGeneral_fot/#FOOT6">(6)</a> to a file
+file which corresponds<a id="DOCF6" href="/doc/userman/ProofGeneral_fot#FOOT6">(6)</a> to a file
 containing a proof script.
 </p>
 <p>If the current proof script buffer depends on background material from
@@ -364,7 +364,7 @@ you are back on track.
 asserted or retracted (Proof General enforces this).  Then you can
 retract proof scripts in a different file. Simply visit a file that has
 been processed earlier and retract in it, using the retraction commands
-from see section <a href="/doc/userman/Basic-Script-Management/#Script-processing-commands">Script processing commands</a>. Apart from removing parts of the
+from see section <a href="/doc/userman/Basic-Script-Management#Script-processing-commands">Script processing commands</a>. Apart from removing parts of the
 locked region in this buffer, all files which depend on it will be
 retracted (and thus unlocked) automatically. Proof General reminds you
 that now is a good time to save any unmodified buffers.
@@ -378,7 +378,7 @@ that now is a good time to save any unmodified buffers.
 <p>Make sure that the current script buffer has either been completely
 asserted or retracted. Then you can assert proof scripts in a different
 file. Simply visit a file that contains no locked region and assert some
-command with the usual assertion commands, see section <a href="/doc/userman/Basic-Script-Management/#Script-processing-commands">Script processing commands</a>. Proof General reminds you that now is a good time to save any
+command with the usual assertion commands, see section <a href="/doc/userman/Basic-Script-Management#Script-processing-commands">Script processing commands</a>. Proof General reminds you that now is a good time to save any
 unmodified buffers.  This is particularly useful as assertion may cause
 the proof assistant to automatically process other files.
 </p>
@@ -420,7 +420,7 @@ the <i>Adapting Proof General</i> manual.
 with the proof assistant, or check that it hasn&rsquo;t done something
 unexpected.  Experienced users may also want to directly communicate
 with the proof assistant rather than sending commands via the
-minibuffer, see section <a href="/doc/userman/Basic-Script-Management/#Proof-assistant-commands">Proof assistant commands</a>.
+minibuffer, see section <a href="/doc/userman/Basic-Script-Management#Proof-assistant-commands">Proof assistant commands</a>.
 </p>
 <p>Although the proof shell is usually hidden from view, it is run in a
 buffer which you can use to interact with the prover if necessary.  You
@@ -453,7 +453,7 @@ you are lucky, it might suffice to use the key:
 accidently.
 </p>
 <p>If <code>proof-frob-locked-end</code> does not work, you will need to restart
-script management altogether (see section <a href="/doc/userman/Basic-Script-Management/#Proof-assistant-commands">Proof assistant commands</a>).
+script management altogether (see section <a href="/doc/userman/Basic-Script-Management#Proof-assistant-commands">Proof assistant commands</a>).
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002dfrob_002dlocked_002dend"></a><u>Command:</u> <b>proof-frob-locked-end</b></dt>
@@ -541,11 +541,11 @@ If <var>n</var> is negative, search backwards for the -Nth previous match.
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Advanced-Script-Management-and-Editing" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/Unicode-symbols-and-special-layout-support/#Unicode-symbols-and-special-layout-support" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/index/#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/Function-Index/#Function-Index" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Unicode-symbols-and-special-layout-support#Unicode-symbols-and-special-layout-support" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/index#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Function-Index#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 <p>

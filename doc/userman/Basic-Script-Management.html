@@ -5,12 +5,12 @@ title: Documentation
 
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="/doc/userman/Introducing-Proof-General/#Introducing-Proof-General" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/Advanced-Script-Management-and-Editing/#Advanced-Script-Management-and-Editing" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/index/#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/Function-Index/#Function-Index" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+<tr><td valign="middle" align="left">[<a href="/doc/userman/Introducing-Proof-General#Introducing-Proof-General" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Advanced-Script-Management-and-Editing#Advanced-Script-Management-and-Editing" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/index#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Function-Index#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 
@@ -166,7 +166,7 @@ is, you can find the option anyway on the menu:
 which also shows the key binding.
 </p>
 <p>If you want to use electric terminator, you can customize Proof
-General to enable it every time if you want, See section <a href="/doc/userman/Customizing-Proof-General/#Customizing-Proof-General">Customizing Proof General</a>.  For the common options, customization is easy: just
+General to enable it every time if you want, See section <a href="/doc/userman/Customizing-Proof-General#Customizing-Proof-General">Customizing Proof General</a>.  For the common options, customization is easy: just
 use the menu item <code>Proof General -&gt; Quick Options</code> to make your choices,
 and <code>Proof-General -&gt; Quick Options -&gt; Save Options</code> to
 save your choices.
@@ -446,7 +446,7 @@ proofs which look something like this:
 exact syntax and terminology will depend on the proof assistant you use.
 </p>
 <p>The name <var>mythm</var> can appear in a menu for the proof script to help
-quickly find a proof (see section <a href="/doc/userman/Support-for-other-Packages/#Imenu-and-Speedbar">Imenu and Speedbar</a>).
+quickly find a proof (see section <a href="/doc/userman/Support-for-other-Packages#Imenu-and-Speedbar">Imenu and Speedbar</a>).
 </p>
 
 
@@ -507,12 +507,12 @@ either, Proof General will give an error message:
 First, it would certainly be confusing if it were possible to split
 parts of a proof arbitrarily between different buffers; the dependency
 between the commands would be lost and it would be tricky to replay the
-proof.<a id="DOCF3" href="/doc/userman/ProofGeneral_fot/#FOOT3">(3)</a>  Second, we want to interface
+proof.<a id="DOCF3" href="/doc/userman/ProofGeneral_fot#FOOT3">(3)</a>  Second, we want to interface
 with file management in the proof assistant.  Proof General assumes that
 a proof assistant may have a notion of which files have been processed,
 but that it will only record files that have been <i>completely</i>
 processed.  For more explanation of the handling of multiple files,
-See section <a href="/doc/userman/Advanced-Script-Management-and-Editing/#Switching-between-proof-scripts">Switching between proof scripts</a>.
+See section <a href="/doc/userman/Advanced-Script-Management-and-Editing#Switching-between-proof-scripts">Switching between proof scripts</a>.
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002dtoggle_002dactive_002dscripting"></a><u>Command:</u> <b>proof-toggle-active-scripting</b><i> &amp;optional arg</i></dt>
@@ -539,7 +539,7 @@ proofs.
 <ul>
 <li> The <em>proof shell buffer</em> is an Emacs shell buffer
  used to run your proof assistant.  Usually it is hidden from view
- (but see section <a href="/doc/userman/Advanced-Script-Management-and-Editing/#Escaping-script-management">Escaping script management</a>).
+ (but see section <a href="/doc/userman/Advanced-Script-Management-and-Editing#Escaping-script-management">Escaping script management</a>).
  Communication with the proof shell takes place via two or three
  intermediate buffers.
 </li><li>  A <em>script buffer</em>, as we have explained, is a buffer for editing a
@@ -564,7 +564,7 @@ proofs.
 <p>Normally Proof General will automatically reveal and hide the goals and
 response buffers as necessary during scripting.  However there are ways
 to customize the way the buffers are displayed, for example, to prevent
-auxiliary buffers being displayed at all (see section <a href="/doc/userman/Customizing-Proof-General/#Display-customization">Display customization</a>).
+auxiliary buffers being displayed at all (see section <a href="/doc/userman/Customizing-Proof-General#Display-customization">Display customization</a>).
 </p>
 <p>The menu <code>Proof General -&gt; Buffers</code> provides a convenient way to
 display or switch to a Proof General buffer: the active scripting
@@ -585,7 +585,7 @@ script.  Specific proof assistant code may add more to these basics.
 <a class="anchor" id="index-indent_002dfor_002dtab_002dcommand"></a>
 <a class="anchor" id="index-proof_002dscript_002dindent"></a>
 <p>Indentation is controlled by the user option <code>proof-script-indent</code>
-(see section <a href="/doc/userman/Customizing-Proof-General/#User-options">User options</a>).  When indentation is enabled, Proof General
+(see section <a href="/doc/userman/Customizing-Proof-General#User-options">User options</a>).  When indentation is enabled, Proof General
 will indent lines of proof script with the usual Emacs functions,
 particularly <kbd>TAB</kbd>, <code>indent-for-tab-command</code>.
 Unfortunately, indentation in Proof General 4.5-git is somewhat
@@ -652,7 +652,7 @@ If called interactively, a mark is set at the current location with &lsquo;<samp
 script, together with their default key-bindings.  Sometimes assertion
 and retraction commands can only be issued when the queue is empty.  You
 will get an error message <code>Proof Process Busy!</code> if you try to
-assert or retract when the queue is being processed.<a id="DOCF4" href="/doc/userman/ProofGeneral_fot/#FOOT4">(4)</a>
+assert or retract when the queue is being processed.<a id="DOCF4" href="/doc/userman/ProofGeneral_fot#FOOT4">(4)</a>
 </p>
 <dl compact="compact">
 <dt> <kbd>C-c C-n</kbd></dt>
@@ -914,7 +914,7 @@ is off (nil).
 
 <p>As if the last two commands weren&rsquo;t risky enough, there&rsquo;s also a command
 which explicitly adjusts the end of the locked region, to be used in
-extreme circumstances only.  See section <a href="/doc/userman/Advanced-Script-Management-and-Editing/#Escaping-script-management">Escaping script management</a>.
+extreme circumstances only.  See section <a href="/doc/userman/Advanced-Script-Management-and-Editing#Escaping-script-management">Escaping script management</a>.
 </p>
 
 <p>There are a few commands for starting, stopping, and restarting the
@@ -1043,11 +1043,11 @@ use a fresh Emacs.)
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Basic-Script-Management" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/Advanced-Script-Management-and-Editing/#Advanced-Script-Management-and-Editing" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/index/#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/Function-Index/#Function-Index" title="Index">Index</a>]</td>
-<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Advanced-Script-Management-and-Editing#Advanced-Script-Management-and-Editing" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/index#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/Function-Index#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="/doc/userman/ProofGeneral_abt#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 </div>
 <p>

@@ -56,7 +56,7 @@ doc.%:
 	  mv $$f $$f.bak && \
 	  cp -f $(CURDIR)/$(HEADER) $$f && \
 	  sed -e '1,/<body\>/d;/<\/body\>/,$$d' \
-	  -e 's|\(href="\)\([-_0-9A-Za-z]*\)\.html\#|\1'/$(DEST)/$(DEST_$*)/'\2/#|g' \
+	  -e 's|\(href="\)\([-_0-9A-Za-z]*\)\.html\#|\1'/$(DEST)/$(DEST_$*)/'\2#|g' \
 	  -e 's|"ProofGeneral-image.jpg"|"/img/ProofGeneral-image.jpg"|g' \
           $$f.bak >> $$f && \
 	  $(RM) $$f.bak; \
