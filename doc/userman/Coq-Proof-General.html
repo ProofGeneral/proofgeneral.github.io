@@ -1,0 +1,1029 @@
+---
+layout: doc
+title: Documentation
+---
+
+<div class="header">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="LEGO-Proof-General/#LEGO-Proof-General" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Isabelle-Proof-General/#Isabelle-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="index/#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Function-Index/#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+</div>
+
+<hr size="2">
+<a class="anchor" id="Coq-Proof-General"></a>
+<a class="anchor" id="Coq-Proof-General-1"></a>
+<h1 class="chapter">11. Coq Proof General</h1>
+
+<p>Coq Proof General is an instantiation of Proof General for the Coq proof
+assistant.  It supports most of the generic features of Proof General.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Coq_002dspecific-commands">11.1 Coq-specific commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Using-the-Coq-project-file">11.2 Using the Coq project file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Multiple-File-Support">11.3 Multiple File Support</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Editing-multiple-proofs">11.4 Editing multiple proofs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#User_002dloaded-tactics">11.5 User-loaded tactics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Holes-feature">11.6 Holes feature</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Proof_002dTree-Visualization">11.7 Proof-Tree Visualization</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Showing-Proof-Diffs">11.8 Showing Proof Diffs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+<hr size="6">
+<a class="anchor" id="Coq_002dspecific-commands"></a>
+<a class="anchor" id="Coq_002dspecific-commands-1"></a>
+<h2 class="section">11.1 Coq-specific commands</h2>
+<a class="anchor" id="index-C_002dc-C_002da-C_002di-1"></a>
+<a class="anchor" id="index-C_002dc-C_002da-C_002da"></a>
+<a class="anchor" id="index-C_002dc-C_002da-C_002db"></a>
+<a class="anchor" id="index-C_002dc-C_002da-C_002ds"></a>
+<a class="anchor" id="index-C_002dc-C_002da-C_002d_0029"></a>
+<a class="anchor" id="index-C_002dc-C_002da-C_002dp"></a>
+<a class="anchor" id="index-C_002dc-C_002da-C_002dc"></a>
+<a class="anchor" id="index-C_002dc-C_002da-C_002do"></a>
+
+<p>Coq Proof General supplies the following key-bindings:
+</p><dl compact="compact">
+<dt> <kbd>C-c C-a C-i</kbd>   </dt>
+<dd><p>Inserts &ldquo;intros &rdquo; and also introduces the name of the hypothesis
+proposed by coq on the current goal.
+</p>
+</dd>
+<dt> <kbd>C-c C-a C-s</kbd></dt>
+<dd><p>Show the goal (enter for the current goal, i &lt;enter&gt; for the ith goal).
+</p>
+<p>Add the prefix C-u to see the answer with all pretty printing options
+temporarily disable (Set Printing All).
+</p>
+</dd>
+<dt> <kbd>C-c C-a C-c</kbd>   </dt>
+<dd><p>Prompts for &ldquo;Check &rdquo; query arguments, the default input name is built
+from the identifier under the cursor.
+</p>
+<p>Add the prefix C-u to see the answer with all pretty printing options
+temporarily disable (Set Printing All).
+</p>
+</dd>
+<dt> <kbd>C-c C-a C-p</kbd></dt>
+<dd><p>The same for a &ldquo;Print &rdquo; query.
+</p></dd>
+<dt> <kbd>C-c C-a C-b</kbd></dt>
+<dd><p>The same for a &ldquo;About &rdquo; query.
+</p></dd>
+<dt> <kbd>C-c C-a C-a</kbd></dt>
+<dd><p>The same for a &ldquo;SearchAbout &rdquo; query (no C-u prefix).
+</p></dd>
+<dt> <kbd>C-c C-a C-o</kbd></dt>
+<dd><p>The same for a Search &ldquo;SearchIsos&rdquo; (no C-u prefix).
+</p>
+</dd>
+<dt> <kbd>C-c C-a C-)</kbd></dt>
+<dd><p>Inserts &ldquo;End &lt;section-name&gt;.&rdquo; (this should work well with nested sections).
+</p></dd>
+</dl>
+
+
+
+<hr size="6">
+<a class="anchor" id="Using-the-Coq-project-file"></a>
+<a class="anchor" id="Using-the-Coq-project-file-1"></a>
+<h2 class="section">11.2 Using the Coq project file</h2>
+
+<p>The Coq project file is the recommended way to configure the Coq
+load path and the mapping of logical module names to physical
+file path&rsquo;. The project file is typically named
+<code>_CoqProject</code> and must be located at the directory root of
+your Coq project. Proof General searches for the Coq project file
+starting at the current directory and walking the directory
+structure upwards. The Coq project file contains the common
+options (especially <code>-R</code>) and a list of the files of the
+project, see the Coq reference manual, Section 15.3, &ldquo;Creating a
+Makefile for Coq modules&rdquo;.
+</p>
+<p>The Coq project file should contain something like:
+</p>
+<pre class="verbatim">-R foo bar
+-I foo2
+-arg -foo3
+file.v
+bar/other_file.v
+...
+</pre>
+<p>Proof General only extracts the common options from the Coq
+project file and uses them for <code>coqtop</code> background
+processes as well as for <code>coqdep</code> and <code>coqc</code> when you use
+the auto compilation feature, <a href="#Automatic-Compilation-in-Detail">Automatic Compilation in Detail</a>. For the example above, Proof General will start
+<code>coqtop -foo3 -R foo bar -I foo2</code>.
+</p>
+<p><em>Remarque:</em> <code>-arg</code> must be followed by one and only one option
+to pass to coqtop/coqc, use several <code>-arg</code> to issue several
+options. One per line (limitation of Proof General).
+</p>
+<p>For backward compatibility, one can also configure the load path
+with the option <code>coq-load-path</code>, but this is not compatible
+with <code>CoqIde</code> or <code>coq_makefile</code>.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Changing-the-name-of-the-coq-project-file">11.2.1 Changing the name of the coq project file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Disabling-the-coq-project-file-mechanism">11.2.2 Disabling the coq project file mechanism</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="6">
+<a class="anchor" id="Changing-the-name-of-the-coq-project-file"></a>
+<a class="anchor" id="Changing-the-name-of-the-coq-project-file-1"></a>
+<h3 class="subsection">11.2.1 Changing the name of the coq project file</h3>
+
+<p>To change the name of the Coq project file, configure
+<code>coq-project-filename</code> (select menu <code>Proof-General -&gt;
+Advanced -&gt; Customize -&gt; Coq</code> and scroll down to &ldquo;Coq Project
+Filename&rdquo;). Customizing <code>coq-project-filename</code> this way
+will change the Coq project file name permanently and globally.
+</p>
+<p>If you only want to change the name of the Coq project file for
+one project you can set the option as local file variable,
+<a href="Hints-and-Tips/#Using-file-variables">Using file variables</a>. This can be done either directly in
+every file or once for all files of a directory tree with a
+<code>.dir-local.el</code> file, See <a href="../emacs/Directory-Variables/#Directory-Variables">(emacs)Directory Variables</a>.
+The file <code>.dir-local.el</code> should then contain
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">((coq-mode . ((coq-project-filename . &quot;myprojectfile&quot;))))
+</pre></td></tr></table>
+
+<p>Note that variables set in <code>.dir-local.el</code> are automatically
+made buffer local (such that files in different directories can
+have their independent setting of <code>coq-project-filename</code>).
+If you make complex customizations using <code>eval</code> in
+<code>.dir-local.el</code>, you might want to add appropriate calls to
+<code>make-local-variable</code>.
+</p>
+<p>Documentation of the user option <code>coq-project-filename</code>:
+</p>
+<dl>
+<dt><a class="anchor" id="index-coq_002dproject_002dfilename"></a><u>Variable:</u> <b>coq-project-filename</b></dt>
+<dd><p>The name of coq project file.<br>
+The coq project file of a coq development (Cf Coq documentation
+on &quot;makefile generation&quot;) should contain the arguments given to
+coq_makefile. In particular it contains the -I and -R
+options (preferably one per line). If &lsquo;<samp>coq-use-coqproject</samp>&rsquo; is
+t (default) the content of this file will be used by Proof General
+to infer the &lsquo;<samp><code>coq-load-path</code></samp>&rsquo; and the &lsquo;<samp><code>coq-prog-args</code></samp>&rsquo; variables
+that set the coqtop invocation by Proof General. This is now the
+recommended way of configuring the coqtop invocation. Local file
+variables may still be used to override the coq project file&rsquo;s
+configuration. .dir-locals.el files also work and override
+project file settings.
+</p></dd></dl>
+
+
+<hr size="6">
+<a class="anchor" id="Disabling-the-coq-project-file-mechanism"></a>
+<a class="anchor" id="Disabling-the-coq-project-file-mechanism-1"></a>
+<h3 class="subsection">11.2.2 Disabling the coq project file mechanism</h3>
+
+<p>To disable the Coq project file feature in Proof General, set
+<code>coq-use-project-file</code> to nil (select menu
+<code>Proof-General -&gt; Advanced -&gt; Customize -&gt; Coq</code> and scroll
+down to &ldquo;Coq Use Project File&rdquo;).
+</p>
+<dl>
+<dt><a class="anchor" id="index-coq_002duse_002dproject_002dfile"></a><u>Variable:</u> <b>coq-use-project-file</b></dt>
+<dd><p>If t, when opening a coq file read the dominating _CoqProject.<br>
+If t, when a coq file is opened, Proof General will look for a
+project file (see &lsquo;<samp><code>coq-project-filename</code></samp>&rsquo;) somewhere in the
+current directory or its parent directories.  If there is one,
+its contents are read and used to determine the arguments that
+must be given to coqtop.  In particular it sets the load
+path (including the -R lib options) (see &lsquo;<samp><code>coq-load-path</code></samp>&rsquo;).
+</p></dd></dl>
+
+<p>You can also use the .dir-locals.el as above to configure this setting
+on a per project basis.
+</p>
+<hr size="6">
+<a class="anchor" id="Multiple-File-Support"></a>
+<a class="anchor" id="Multiple-File-Support-1"></a>
+<h2 class="section">11.3 Multiple File Support</h2>
+
+<p>Since version 4.1 Coq Proof General has multiple file support. It
+consists of the following points:
+</p>
+<dl compact="compact">
+<dt> Restarting <code>coqtop</code> when changing the active scripting buffer</dt>
+<dd><p>Different buffers may require different load path&rsquo; or different
+sets of <code>-I</code> options. Because Coq cannot undo changes in the
+load path, Proof General is forced to restart <code>coqtop</code> when
+the active scripting buffer changes.
+</p></dd>
+<dt> Locking ancestors</dt>
+<dd><p>Locking those buffers on which the current active scripting
+buffer depends. This is controlled by the user option
+<code>coq-lock-ancestors</code>, 
+<a href="#Customizing-Coq-Multiple-File-Support">Customizing Coq Multiple File Support</a> and 
+<a href="#Locking-Ancestors">Locking Ancestors</a>.
+</p></dd>
+<dt> (Re-)Compilation </dt>
+<dd><p>Before a <code>Require</code> command is processed it may be necessary
+to save and compile some buffers. Because this feature
+conflicts with existing customization habits, it is switched off
+by default. When it is properly configured, one can freely switch
+between different buffers. Proof General will compile the
+necessary files whenever a <code>Require</code> command is processed. 
+</p>
+<p>The compilation feature does currently not support ML modules.
+</p></dd>
+</dl>
+
+<p>There are actually two implementations of the Recompilation
+feature. 
+</p>
+<dl compact="compact">
+<dt> Parallel asynchronous compilation (stable, default)</dt>
+<dd><p>With parallel compilation, coqdep and coqc are launched in the
+background and Proof General stays responsive during compilation.
+Up to &lsquo;coq-max-background-compilation-jobs&rsquo; coqdep and coqc
+processes may run in parallel. Coq 8.5 quick compilation is
+supported with various modes, <a href="#Quick-compilation-and-_002evio-Files">Quick compilation and .vio Files</a>.
+</p></dd>
+<dt> Synchronous single threaded compilation (obsolete)</dt>
+<dd><p>With synchronous compilation, coqdep and coqc are called
+synchronously for each Require command. Proof General is locked
+until the compilation finishes. Coq 8.5 quick compilation is not
+supported with synchronously compilation.
+</p></dd>
+</dl>
+
+<p>To enable the automatic compilation feature, you have to follow
+these points:
+</p>
+<ul>
+<li>
+Set the option <code>coq-compile-before-require</code> (menu <code>Coq
+-&gt; Auto Compilation -&gt; Compile Before Require</code>) to enable
+compilation before processing <code>Require</code> commands and set
+<code>coq-compile-parallel-in-background</code> (menu <code>Coq
+-&gt; Auto Compilation -&gt; Parallel background compilation</code>) for
+parallel asynchronous compilation (recommended).
+</li><li> 
+Nonstandard load path elements <em>must</em> be configured via a
+Coq project file (this is the recommended option),
+<a href="#Using-the-Coq-project-file">Using the Coq project file</a> or via
+option <code>coq-load-path</code>. <code>-I</code> or <code>-R</code> options in
+<code>coq-prog-name</code> or <code>coq-prog-args</code> must be deleted.
+</li><li>
+Configure
+<code>coq-max-background-compilation-jobs</code> if you want to limit
+the number of parallel background jobs and set
+<code>coq-compile-keep-going</code> (menu <code>Coq -&gt; Auto Compilation
+-&gt; Keep going</code>) to let compilation continue after the first
+error.
+</li></ul>
+
+<p>To abort parallel background compilation, use <code>C-c C-c</code>
+(<code>proof-interrupt-process</code>), the tool bar interrupt icon,
+the menu entry <code>Abort Background Compilation</code> (menu
+<code>Coq -&gt; Auto Compilation</code>) or kill the Coq toplevel via
+<code>C-c C-x</code> (<code>proof-shell-exit</code>). To abort synchronous
+single threaded compilation, simply hit <code>C-g</code>.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Automatic-Compilation-in-Detail">11.3.1 Automatic Compilation in Detail</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Locking-Ancestors">11.3.2 Locking Ancestors</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Quick-compilation-and-_002evio-Files">11.3.3 Quick compilation and .vio Files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Customizing-Coq-Multiple-File-Support">11.3.4 Customizing Coq Multiple File Support</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Current-Limitations">11.3.5 Current Limitations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+<hr size="6">
+<a class="anchor" id="Automatic-Compilation-in-Detail"></a>
+<a class="anchor" id="Automatic-Compilation-in-Detail-1"></a>
+<h3 class="subsection">11.3.1 Automatic Compilation in Detail</h3>
+
+<p>When <code>coq-compile-before-require</code> is enabled, Proof
+General looks for <code>Require</code> commands in text that gets
+asserted (i.e., in text that is moved from the editing region to
+the queue region, <a href="Basic-Script-Management/#Locked-queue-and-editing-regions">Locked, queue, and editing regions</a>). If
+Proof General finds a <code>Require</code> command, it checks the
+dependencies and (re-)compiles files as necessary. The Require
+command and the following text is only sent to Coq after the
+compilation finished.
+</p>
+<p><code>Declare ML Module</code> commands are currently not recognized.
+</p>
+<p>Proof General uses <code>coqdep</code> in order to translate the
+qualified identifiers in <code>Require</code> commands to coq library
+file names and to determine library dependencies. Because Proof
+General cannot know whether files are updated outside of Emacs,
+it checks for every <code>Require</code> command the complete
+dependency tree and recompiles files as necessary.
+</p>
+<p>Output from the compilation is only shown in case
+of errors. It then appears in the buffer
+<code>*coq-compile-response*</code>.
+One can use <code>C-x `</code> (bound to <code>next-error</code>,
+See <a href="../emacs/Compilation-Mode/#Compilation-Mode">(emacs)Compilation Mode</a>) to jump to error locations.
+Sometimes the compilation commands do not produce error messages
+with location information, then <code>C-x `</code> does only work in a
+limited way.
+</p>
+<p>For Coq version 8.5 or newer, the option <code>coq-compile-quick</code>
+controls how <code>-quick</code> and <code>.vio</code> files are used,
+<a href="#Quick-compilation-and-_002evio-Files">Quick compilation and .vio Files</a>. This can also be
+configured in the menu <code>Coq -&gt; Auto Compilation</code>.
+</p>
+<p>Similar to <code>make -k</code>, background compilation can be
+configured to continue as far as possible after the first error,
+see option <code>coq-compile-keep-going</code> (menu <code>Coq -&gt; Auto
+Compilation -&gt; Keep going</code>). The keep-going option only applies
+to errors from <code>coqdep</code> and <code>coqc</code>. For all other
+errors (for instance when the translation from logical module
+names to physical files fails or when starting <code>coqc</code> or
+<code>coqdep</code> fails), the compilation is immediately aborted.
+</p>
+<p>When a <code>Require</code> command causes a compilation of some files,
+one may wish to save some buffers to disk beforehand. The option
+<code>coq-compile-auto-save</code> controls how and which files are
+saved. There are two orthogonal choices: One may wish to save all
+or only the Coq source files, and, one may or may not want to
+confirm the saving of each file. 
+</p>
+<p>With &lsquo;coq-compile-parallel-in-background&rsquo; (menu <code>Coq -&gt;
+Settings -&gt; Compile Parallel In Background</code>) you can choose
+between two implementations of internal compilation.
+</p>
+<dl compact="compact">
+<dt> Synchronous single threaded compilation</dt>
+<dd><p>This is the old, now outdated version supported since Proof General
+4.1. This method starts coqdep and coqc processes one after each
+other in synchronous subprocesses. Your Emacs session will be
+locked until compilation finishes. Use <code>C-g</code> to interrupt
+compilation. This method supports compilation via an external
+command (such as <code>make</code>), see option
+<code>coq-compile-command</code> in <a href="#Customizing-Coq-Multiple-File-Support">Customizing Coq Multiple File Support</a> below. Synchronous compilation does not support the
+quick compilation of Coq 8.5.
+</p>
+</dd>
+<dt> Parallel asynchronous compilation</dt>
+<dd><p>This is the newer and default version added in Proof General version 4.3. It
+runs up to <code>coq-max-background-compilation-jobs</code> coqdep and
+coqc jobs in parallel in asynchronous subprocesses (or uses all
+your CPU cores if <code>coq-max-background-compilation-jobs</code>
+equals <code>'all-cpus</code>). Your Emacs will stay responsive during
+compilation. To abort the background compilation process, use
+<code>C-c C-c</code> (<code>proof-interrupt-process</code>), the tool bar
+interrupt icon, the menu entry <code>Abort Background
+Compilation</code> (menu <code>Coq -&gt; Auto Compilation</code>) or kill the
+Coq toplevel via <code>C-c C-x</code> (<code>proof-shell-exit</code>).
+</p>
+<p>For the usual case, you have at most
+&lsquo;coq-max-background-compilation-jobs&rsquo; parallel processes
+<em>including</em> your Proof General process. The usual case
+applies, when the Require commands are the first commands in the
+file. If you have other commands between two Require commands or
+before the first Require, then you may see Proof General and Coq
+running in addition to &lsquo;coq-max-background-compilation-jobs&rsquo;
+compilation jobs.
+</p>
+<p>Depending on the setting of <code>coq-compile-quick</code> (which can
+also be set via menu <code>Coq -&gt; Auto Compilation</code>) Proof
+General produces <code>.vio</code> or <code>.vo</code> files and deletes
+outdated <code>.vio</code> or <code>.vo</code> files to ensure Coq does not
+load outdated files. When <code>quick-and-vio2vo</code> is selected a
+vio2vo compilation starts when the <code>Require</code> command had
+been processed, <a href="#Quick-compilation-and-_002evio-Files">Quick compilation and .vio Files</a>.
+</p>
+<p>Actually, even with this method, not everything runs
+asynchronously. To translate module identifiers from the Coq
+sources into file names, Proof General runs coqdep on an
+automatically generated, one-line file. These coqdep jobs run
+synchronously while the Require commands are parsed. The coqdep
+jobs on the real source files do run asynchronously in the
+background. 
+</p></dd>
+</dl>
+
+
+<hr size="6">
+<a class="anchor" id="Locking-Ancestors"></a>
+<a class="anchor" id="Locking-Ancestors-1"></a>
+<h3 class="subsection">11.3.2 Locking Ancestors</h3>
+
+
+<p>Locking ancestor files works as a side effect of dependency
+checking. This means that ancestor locking does only work when
+Proof General performs dependency checking and compilation
+itself. If an external command is used, Proof General does not see
+all dependencies and can therefore only lock direct ancestors.
+</p>
+<p>In the default setting,
+when you want to edit a locked ancestor, you are
+forced to completely retract the current scripting buffer. 
+You can simplify this by setting <code>proof-strict-read-only</code> to
+<code>'retract</code> (menu <code>Proof-General -&gt; Quick Options -&gt;
+Read Only -&gt; Undo On Edit</code>). Then typing in some ancestor will
+immediately retract you current scripting buffer and unlock that
+ancestor.
+</p>
+<p>You have two choices, if you don&rsquo;t like ancestor locking in its
+default way.
+You can either switch ancestor locking completely off via
+menu <code>Coq -&gt; Auto Compilation -&gt; Lock Ancestors</code> or
+<code>coq-lock-ancestors</code> (<a href="#Customizing-Coq-Multiple-File-Support">Customizing Coq Multiple File Support</a>). Alternatively, you can generally permit editing in locked
+sections with selecting 
+<code>Proof-General</code> -&gt; <code>Quick Options</code> -&gt; <code>Read Only</code>
+-&gt; <code>Freely Edit</code> (which will set the option
+<code>proof-strict-read-only</code> to <code>nil</code>).
+</p>
+
+<p>[The right behaviour for Coq, namely to retract the current
+scripting buffer only up to the appropriate <code>Require</code>
+command, would be quite difficult to implement in the current
+Proof General infrastructure. Further, it has only dubious
+benefit, as Require commands are usually on the top of each
+file.]
+</p>
+
+<hr size="6">
+<a class="anchor" id="Quick-compilation-and-_002evio-Files"></a>
+<a class="anchor" id="Quick-compilation-and-_002evio-Files-1"></a>
+<h3 class="subsection">11.3.3 Quick compilation and .vio Files</h3>
+
+<p>Proof General supports quick compilation only with the parallel
+asynchronous compilation. There are 4 modes that can be
+configured with <code>coq-compile-quick</code> or by selecting one of
+the radio buttons in the <code>Coq -&gt; Auto Compilation -&gt; Quick
+compilation</code> menu.
+</p>
+<p>Use the default <code>no-quick</code>, if you have not yet switched to
+<code>Proof using</code>. Use <code>quick-no-vio2vo</code>, if you want quick
+recompilation without producing .vo files. Option
+<code>quick-and-vio2vo</code> recompiles with <code>-quick</code> as
+<code>quick-no-vio2vo</code> does, but schedules a vio2vo compilation
+for missing <code>.vo</code> files after a certain delay. Finally, use
+<code>ensure-vo</code> for only importing <code>.vo</code> files with
+complete universe checks.
+</p>
+<p>Note that with all of <code>no-quick</code>, <code>quick-no-vio2vo</code> and
+<code>quick-and-vio2vo</code> your development might be unsound because
+universe constraints are not fully present in <code>.vio</code> files.
+</p>
+<p>There are a few peculiarities of quick compilation in Coq 8.5
+that one should be aware of.
+</p>
+<ul>
+<li>
+Quick compilation runs noticeably slower when section
+variables are not declared via <code>Proof using</code>.
+</li><li>
+Even when section variables are declared, quick compilation runs
+slower on very small files, probably because of the
+comparatively big size of the <code>.vio</code> files. You can speed up
+quick compilation noticeably by running on a RAM disk.
+</li><li>
+If both, the <code>.vo</code> and the <code>.vio</code> files are present,
+Coq load the more recent one, regardless of whether
+<code>-quick</code>, and emits a warning when the <code>.vio</code> is more
+recent than the <code>.vo</code>.
+</li><li>
+Under some circumstances, files compiled when only the
+<code>.vio</code> file of some library was present are not compatible
+with (other) files compiled when also the <code>.vo</code> file of that
+library was present, see Coq issue #5223 for details. As a rule
+of thumb one should run vio2vo compilation only before or after
+library loading.
+</li><li>
+Apart from the previous point, Coq works fine when libraries are
+present as a mixture of <code>.vio</code> and <code>.vo</code> files. While
+<code>make</code> insists on building all prerequisites as either
+<code>.vio</code> or <code>.vo</code> files, Proof General just checks
+whether an up-to-date compiled library file is present.
+</li><li>
+To ensure soundness, all library dependencies must be compiled as
+<code>.vo</code> files and loaded into one Coq instance.
+</li></ul>
+
+<p>Detailed description of the 4 modes:
+</p>
+<dl compact="compact">
+<dt> <code>no-quick</code></dt>
+<dd><p>Compile outdated prerequisites without <code>-quick</code>, producing <code>.vo</code>
+files, but don&rsquo;t compile prerequisites for which an up-to-date
+<code>.vio</code> file exists. Delete or overwrite outdated <code>.vo</code> files.
+</p>
+</dd>
+<dt> <code>quick-no-vio2vo</code></dt>
+<dd><p>Compile outdated prerequisites with <code>-quick</code>, producing <code>.vio</code>
+files, but don&rsquo;t compile prerequisites for which an up-to-date
+<code>.vo</code> file exists. Delete or overwrite outdated <code>.vio</code> files.
+</p>
+</dd>
+<dt> <code>quick-and-vio2vo</code></dt>
+<dd><p>Same as <code>quick-no-vio2vo</code>, but start vio2vo processes for
+missing <code>.vo</code> files after a certain delay when library
+compilation for the current queue region has finished. With this
+mode you might see asynchronous errors from vio2vo compilation
+while you are processing stuff far below the last require. vio2vo
+compilation is done on a subset of the available cores controlled
+by option <code>coq-compile-vio2vo-percentage</code>, <a href="#Customizing-Coq-Multiple-File-Support">Customizing Coq Multiple File Support</a>. When <code>coq-compile-keep-going</code> is
+set, vio2vo compilation is scheduled for those files for which
+<code>coqc</code> compilation was successful.
+</p>
+<p><em>Warning</em>: This mode does only work when you process require
+commands in batches. Slowly single-stepping through require&rsquo;s
+might lead to inconsistency errors when loading some libraries,
+see Coq issue #5223. To mitigate this risk, vio2vo compilation
+only starts after a certain delay after the last require command
+of the current queue region has been processed. This is
+controlled by <code>coq-compile-vio2vo-delay</code>, <a href="#Customizing-Coq-Multiple-File-Support">Customizing Coq Multiple File Support</a>.
+</p>
+</dd>
+<dt> <code>ensure-vo</code></dt>
+<dd><p>Ensure that all library dependencies are present as <code>.vo</code>
+files and delete outdated <code>.vio</code> files or <code>.vio</code> files
+that are more recent than the corresponding <code>.vo</code> file. This
+setting is the only one that ensures soundness.
+</p></dd>
+</dl>
+
+<p>The options <code>no-quick</code> and <code>ensure-vo</code> are compatible
+with Coq 8.4 or older. When Proof General detects such an older
+Coq version, it changes the quick compilation mode automatically.
+For this to work, the option <code>coq-compile-quick</code> must only
+be set via the customization system or via the menu.
+</p>
+
+
+<hr size="6">
+<a class="anchor" id="Customizing-Coq-Multiple-File-Support"></a>
+<a class="anchor" id="Customizing-Coq-Multiple-File-Support-1"></a>
+<h3 class="subsection">11.3.4 Customizing Coq Multiple File Support</h3>
+
+<p>The customization settings for multiple file support of Coq Proof
+General are in a separate customization group, the
+<code>coq-auto-compile</code> group. To view all options in this
+group do <code>M-x customize-group coq-auto-compile</code> or select
+menu entry <code>Proof-General -&gt; Advanced -&gt; Customize -&gt; Coq -&gt;
+Coq Auto Compile -&gt; Coq Auto Compile</code>. 
+</p>
+
+<dl>
+<dt><a class="anchor" id="index-coq_002dcompile_002dbefore_002drequire"></a><u>Variable:</u> <b>coq-compile-before-require</b></dt>
+<dd><p>If non-nil, check dependencies of required modules and compile if necessary.<br>
+If non-nil ProofGeneral intercepts &quot;Require&quot; commands and checks if the
+required library module and its dependencies are up-to-date. If not, they
+are compiled from the sources before the &quot;Require&quot; command is processed.
+</p>
+<p>This option can be set/reset via menu
+&lsquo;<samp>Coq -&gt; Auto Compilation -&gt; Compile Before Require</samp>&rsquo;.
+</p></dd></dl>
+
+
+<dl>
+<dt><a class="anchor" id="index-coq_002dcompile_002dauto_002dsave"></a><u>Variable:</u> <b>coq-compile-auto-save</b></dt>
+<dd><p>Buffers to save before checking dependencies for compilation.<br>
+There are two orthogonal choices: Firstly one can save all or only the coq
+buffers, where coq buffers means all buffers in coq mode except the current
+buffer. Secondly, Emacs can ask about each such buffer or save all of them
+unconditionally.
+</p>
+<p>This makes four permitted values: <code>'ask-coq</code> to confirm saving all
+modified Coq buffers, <code>'ask-all</code> to confirm saving all modified
+buffers, <code>'save-coq</code> to save all modified Coq buffers without
+confirmation and <code>'save-all</code> to save all modified buffers without
+confirmation.
+</p>
+<p>This option can be set via menu
+&lsquo;<samp>Coq -&gt; Auto Compilation -&gt; Auto Save</samp>&rsquo;.
+</p></dd></dl>
+
+
+<p>The following options configure parallel compilation.
+</p>
+<dl>
+<dt><a class="anchor" id="index-coq_002dcompile_002dparallel_002din_002dbackground"></a><u>Variable:</u> <b>coq-compile-parallel-in-background</b></dt>
+<dd><p>Choose the internal compilation method.<br>
+When Proof General compiles itself, you have the choice between
+two implementations. If this setting is nil, then Proof General
+uses the old implementation and compiles everything sequentially
+with synchronous job. With this old method Proof General is
+locked during compilation. If this setting is t, then the new
+method is used and compilation jobs are dispatched in parallel in
+the background. The maximal number of parallel compilation jobs
+is set with &lsquo;<samp><code>coq-max-background-compilation-jobs</code></samp>&rsquo;.
+</p>
+<p>This option can be set/reset via menu
+&lsquo;<samp>Coq -&gt; Auto Compilation -&gt; Compile Parallel In Background</samp>&rsquo;.
+</p></dd></dl>
+
+
+<p>The option <code>coq-compile-quick</code> is described in detail above,
+<a href="#Quick-compilation-and-_002evio-Files">Quick compilation and .vio Files</a>
+</p>
+
+<dl>
+<dt><a class="anchor" id="index-coq_002dcompile_002dkeep_002dgoing"></a><u>Variable:</u> <b>coq-compile-keep-going</b></dt>
+<dd><p>Continue compilation after the first error as far as possible.<br>
+Similar to &lsquo;<samp>`make -k</samp>&rsquo;&rsquo;, with this option enabled, the background
+compilation continues after the first error as far as possible.
+With this option disabled, background compilation is
+immediately stopped after the first error.
+</p>
+<p>This option can be set/reset via menu
+&lsquo;<samp>Coq -&gt; Auto Compilation -&gt; Keep going</samp>&rsquo;.
+</p></dd></dl>
+
+
+<dl>
+<dt><a class="anchor" id="index-coq_002dmax_002dbackground_002dcompilation_002djobs"></a><u>Variable:</u> <b>coq-max-background-compilation-jobs</b></dt>
+<dd><p>Maximal number of parallel jobs, if parallel compilation is enabled.<br>
+Use the number of available CPU cores if this is set to
+<code>'all-cpus</code>. This variable is the user setting. The value that is
+really used is &lsquo;<samp><code>coq--internal-max-jobs</code></samp>&rsquo;. Use &lsquo;<samp><code>coq-max-jobs-setter</code></samp>&rsquo;
+or the customization system to change this variable. Otherwise
+your change will have no effect, because &lsquo;<samp><code>coq--internal-max-jobs</code></samp>&rsquo;
+is not adapted.
+</p></dd></dl>
+
+
+<dl>
+<dt><a class="anchor" id="index-coq_002dmax_002dbackground_002dvio2vo_002dpercentage"></a><u>Variable:</u> <b>coq-max-background-vio2vo-percentage</b></dt>
+<dd><p>Percentage of &lsquo;<samp><code>coq-max-background-vio2vo-percentage</code></samp>&rsquo; for vio2vo jobs.<br>
+This setting configures the maximal number of vio2vo background
+jobs (if you set &lsquo;<samp><code>coq-compile-quick</code></samp>&rsquo; to <code>'quick-and-vio2vo</code>) as
+percentage of &lsquo;<samp><code>coq-max-background-compilation-jobs</code></samp>&rsquo;.
+</p></dd></dl>
+
+
+<dl>
+<dt><a class="anchor" id="index-coq_002dcompile_002dvio2vo_002ddelay"></a><u>Variable:</u> <b>coq-compile-vio2vo-delay</b></dt>
+<dd><p>Delay in seconds for the vio2vo compilation.<br>
+This delay helps to avoid running into a library inconsistency
+with <code>'quick-and-vio2vo</code>, see Coq issue #<var>5223</var>.
+</p></dd></dl>
+
+<p>Locking ancestors can be disabled with the following option.
+</p>
+<dl>
+<dt><a class="anchor" id="index-coq_002dlock_002dancestors"></a><u>Variable:</u> <b>coq-lock-ancestors</b></dt>
+<dd><p>If non-nil, lock ancestor module files.<br>
+If external compilation is used (via &lsquo;<samp><code>coq-compile-command</code></samp>&rsquo;) then
+only the direct ancestors are locked. Otherwise all ancestors are
+locked when the &quot;Require&quot; command is processed.
+</p>
+<p>This option can be set via menu
+&lsquo;<samp>Coq -&gt; Auto Compilation -&gt; Lock Ancestors</samp>&rsquo;.
+</p></dd></dl>
+
+
+<p>The sequential compilation setting supports an external
+compilation command (which could be a parallel running
+<code>make</code>). For this set
+<code>coq-compile-parallel-in-background</code> to <code>nil</code> and
+configure the compilation command in <code>coq-compile-command</code>.
+</p>
+<dl>
+<dt><a class="anchor" id="index-coq_002dcompile_002dcommand"></a><u>Variable:</u> <b>coq-compile-command</b></dt>
+<dd><p>External compilation command. If empty ProofGeneral compiles itself.<br>
+If unset (the empty string) ProofGeneral computes the dependencies of
+required modules with coqdep and compiles as necessary. This internal
+dependency checking does currently not handle ML modules.
+</p>
+<p>If a non-empty string, the denoted command is called to do the
+dependency checking and compilation. Before executing this
+command the following keys are substituted as follows:
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">  %p  the (physical) directory containing the source of
+      the required module
+  %o  the Coq object file in the physical directory that will
+      be loaded
+  %s  the Coq source file in the physical directory whose
+      object will be loaded
+  %q  the qualified id of the &quot;Require&quot; command
+  %r  the source file containing the &quot;Require&quot;
+</pre></td></tr></table>
+<p>For instance, &quot;make -C %p %o&quot; expands to &quot;make -C bar foo.vo&quot;
+when module &quot;foo&quot; from directory &quot;bar&quot; is required.
+</p>
+<p>After the substitution the command can be changed in the
+minibuffer if &lsquo;<samp><code>coq-confirm-external-compilation</code></samp>&rsquo; is t.
+</p></dd></dl>
+
+
+<dl>
+<dt><a class="anchor" id="index-coq_002dconfirm_002dexternal_002dcompilation"></a><u>Variable:</u> <b>coq-confirm-external-compilation</b></dt>
+<dd><p>If set let user change and confirm the compilation command.<br>
+Otherwise start the external compilation without confirmation.
+</p>
+<p>This option can be set/reset via menu
+&lsquo;<samp>Coq -&gt; Auto Compilation -&gt; Confirm External Compilation</samp>&rsquo;.
+</p></dd></dl>
+
+
+<p>The preferred way to configure the load path and the mapping of
+logical library names to physical file path is the Coq project
+file, <a href="#Using-the-Coq-project-file">Using the Coq project file</a>. Alternatively one can
+configure these things with the following options.
+</p>
+<dl>
+<dt><a class="anchor" id="index-coq_002dload_002dpath"></a><u>Variable:</u> <b>coq-load-path</b></dt>
+<dd><p>Non-standard coq library load path.<br>
+This list specifies the LoadPath extension for coqdep, coqc and
+coqtop. Usually, the elements of this list are strings (for
+&quot;-I&quot;) or lists of two strings (for &quot;-R&quot; dir path and
+&quot;-Q&quot; dir path).
+</p>
+<p>The possible forms of elements of this list correspond to the 4
+forms of include options (&lsquo;<samp>-I</samp>&rsquo; &lsquo;<samp>-Q</samp>&rsquo; and &lsquo;<samp>-R</samp>&rsquo;). An element can be
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">  - A list of the form &lsquo;<samp>(</samp>&rsquo;ocamlimport dir)', specifying (in 8.5) a
+    directory to be added to ocaml path (&lsquo;<samp>-I</samp>&rsquo;).
+  - A list of the form &lsquo;<samp>(</samp>&rsquo;rec dir path)' (where dir and path are
+    strings) specifying a directory to be recursively mapped to the
+    logical path &lsquo;<samp>path</samp>&rsquo; (&lsquo;<samp>-R dir path</samp>&rsquo;).
+  - A list of the form &lsquo;<samp>(</samp>&rsquo;recnoimport dir path)' (where dir and
+    path are strings) specifying a directory to be recursively
+    mapped to the logical path &lsquo;<samp>path</samp>&rsquo; (&lsquo;<samp>-Q dir path</samp>&rsquo;), but not
+    imported (modules accessible for import with qualified names
+    only).  Note that -Q dir &quot;&quot; has a special, nonrecursive meaning.
+  - A list of the form (8.4 only) &lsquo;<samp>(</samp>&rsquo;nonrec dir path)', specifying a
+    directory to be mapped to the logical path <code>'path'</code> ('-I dir -as path').
+</pre></td></tr></table>
+<p>For convenience the symbol &lsquo;<samp>rec</samp>&rsquo; can be omitted and entries of
+the form &lsquo;<samp>(dir path)</samp>&rsquo; are interpreted as &lsquo;<samp>(rec dir path)</samp>&rsquo;.
+</p>
+<p>A plain string maps to -Q ... &quot;&quot; in 8.5, and -I ... in 8.4.
+</p>
+<p>Under normal circumstances this list does not need to
+contain the coq standard library or &quot;.&quot; for the current
+directory (see &lsquo;<samp><code>coq-load-path-include-current</code></samp>&rsquo;).
+</p>
+<p><var>warning</var>: if you use coq &lt;= 8.4, the meaning of these options is
+not the same (-I is for coq path).
+</p></dd></dl>
+
+
+<dl>
+<dt><a class="anchor" id="index-coq_002dload_002dpath_002dinclude_002dcurrent"></a><u>Variable:</u> <b>coq-load-path-include-current</b></dt>
+<dd><p>If &lsquo;<samp>t</samp>&rsquo; let coqdep search the current directory too.<br>
+Should be &lsquo;<samp>t</samp>&rsquo; for normal users. If &lsquo;<samp>t</samp>&rsquo; pass -Q dir &quot;&quot; to coqdep when
+processing files in directory &quot;dir&quot; in addition to any entries
+in &lsquo;<samp><code>coq-load-path</code></samp>&rsquo;.
+</p>
+<p>This setting is only relevant with Coq &lt; 8.5.
+</p></dd></dl>
+
+<p>During library dependency checking Proof General does not dive
+into the Coq standard library or into libraries that are
+installed as user contributions. This stems from <code>coqdep</code>,
+which does not output dependencies to these directories.
+The internal dependency check can also ignore additional
+libraries.
+</p>
+<dl>
+<dt><a class="anchor" id="index-coq_002dcompile_002dignored_002ddirectories"></a><u>Variable:</u> <b>coq-compile-ignored-directories</b></dt>
+<dd><p>Directories in which ProofGeneral should not compile modules.<br>
+List of regular expressions for directories in which ProofGeneral
+should not compile modules. If a library file name matches one
+of the regular expressions in this list then ProofGeneral does
+neither compile this file nor check its dependencies for
+compilation. It makes sense to include non-standard coq library
+directories here if they are not changed and if they are so big
+that dependency checking takes noticeable time. The regular
+expressions in here are always matched against the .vo file name,
+regardless whether &lsquo;<samp>`-quick</samp>&rsquo;&rsquo; would be used to compile the file
+or not.
+</p></dd></dl>
+
+
+<hr size="6">
+<a class="anchor" id="Current-Limitations"></a>
+<a class="anchor" id="Current-Limitations-1"></a>
+<h3 class="subsection">11.3.5 Current Limitations</h3>
+
+<ul>
+<li>
+No support <code>Declare ML Module</code> commands.
+</li><li>
+When a compiled library has the same time stamp as the source
+file, it is considered outdated. Some old file systems (for
+instance ext3) or Emacs before version 24.3 support only time
+stamps with one second granularity. On such configurations Proof
+General will perform some unnecessary compilations.
+</li></ul>
+
+
+<hr size="6">
+<a class="anchor" id="Editing-multiple-proofs"></a>
+<a class="anchor" id="Editing-multiple-proofs-1"></a>
+<h2 class="section">11.4 Editing multiple proofs</h2>
+
+<p>Coq allows the user to enter top-level commands while editing a proof
+script.  For example, if the user realizes that the current proof will
+fail without an additional axiom, he or she can add that axiom to the
+system while in the middle of the proof.  Similarly, the user can
+nest lemmas, beginning a new lemma while in the middle of an earlier
+one, and as the lemmas are proved or their proofs aborted they are
+popped off a stack.
+</p>
+<p>Coq Proof General supports this feature of Coq.  Top-level commands
+entered while in a proof are well backtracked. If new lemmas are
+started, Coq Proof General lets the user work on the proof of the new
+lemma, and when the lemma is finished it falls back to the previous
+one.  This is supported to any nesting depth that Coq allows.
+</p>
+<p>Warning! Using Coq commands for navigating inside the different proofs
+(<code>Resume</code> and especially <code>Suspend</code>) are not supported,
+backtracking will break synchronization.
+</p>
+<p><b>Special note:</b> The old feature that moved nested proofs outside the
+current proof is disabled.
+</p>
+<hr size="6">
+<a class="anchor" id="User_002dloaded-tactics"></a>
+<a class="anchor" id="User_002dloaded-tactics-1"></a>
+<h2 class="section">11.5 User-loaded tactics</h2>
+
+<p>Another feature that Coq allows is the extension of the grammar of the
+proof assistant by new tactic commands.  This feature interacts with the
+proof script management of Proof General, because Proof General needs to
+know when a tactic is called that alters the proof state.  When the user
+tries to retract across an extended tactic in a script, the algorithm
+for calculating how far to undo has a default behavior that is not
+always accurate in proof mode: do &quot;<code>Undo</code>&quot;.
+</p>
+<p>Coq Proof General does not currently support dynamic tactic extension in
+Coq: this is desirable but requires assistance from the Coq core.
+Instead we provide a way to add tactic and command names in the
+&lsquo;<tt>.emacs</tt>&rsquo; file. Four Configurable variables allows to register
+personal new tactics and commands into four categories:
+</p><ul>
+<li> <em>state changing commands</em>, 
+which need &quot;<code>Back</code>&quot; to be backtracked;
+</li><li> <em>state changing tactics</em>,
+which need &quot;<code>Undo</code>&quot; to be backtracked; 
+</li><li> <em>state preserving commands</em>,
+which do not need to be backtracked; 
+</li><li> <em>state preserving tactics</em>,
+which do not need to be backtracked; 
+</li></ul>
+
+<p>We give an example of existing commands that fit each category.
+</p>
+<ul>
+<li> <code>coq-user-state-preserving-commands</code>: example: &quot;<code>Print</code>&quot;
+
+</li><li> <code>coq-user-state-changing-commands</code>: example: &quot;<code>Require</code>&quot;
+
+</li><li> <code>coq-user-state-changing-tactics</code>: example: &quot;<code>Intro</code>&quot;
+ 
+</li><li> <code>coq-user-state-preserving-tactics</code>: example: &quot;<code>Idtac</code>&quot;
+</li></ul>
+
+<p>This variables are regexp string lists. See their documentations in
+emacs (<code>C-h v coq-user...</code>)  for details on how to set them in your
+&lsquo;<tt>.emacs</tt>&rsquo; file.
+</p>
+<p>Here is a simple example:
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(setq coq-user-state-changing-commands 
+      '(&quot;MyHint&quot; &quot;MyRequire&quot;))
+(setq coq-user-state-preserving-commands 
+      '(&quot;Show\\s-+Mydata&quot;))
+</pre></td></tr></table>
+
+<p>The regexp character sequence <code>\\s-+</code> means &quot;one or more
+whitespaces&quot;. See the Emacs documentation of <code>regexp-quote</code> for the
+syntax and semantics.  WARNING: you need to restart Emacs to make the
+changes to these variables effective.
+</p>
+<p>In case of losing synchronization, the user can use <kbd>C-c C-z</kbd> to
+move the locked region to the proper position,
+(<code>proof-frob-locked-end</code>, see section <a href="Advanced-Script-Management-and-Editing/#Escaping-script-management">Escaping script management</a>) or
+<kbd>C-c C-v</kbd> to re-issue an erroneously back-tracked tactic without
+recording it in the script.
+</p>
+<hr size="6">
+<a class="anchor" id="Holes-feature"></a>
+<a class="anchor" id="Holes-feature-1"></a>
+<h2 class="section">11.6 Holes feature</h2>
+
+<p><em>Holes</em> are an experimental feature for complex expression editing
+by filling in templates. It is inspired from other tools, like Pcoq
+(<a href="http://www-sop.inria.fr/lemme/pcoq/index.html">http://www-sop.inria.fr/lemme/pcoq/index.html</a>).  The principle
+is simple, holes are pieces of text that can be &quot;filled&quot; by various
+means. The Coq command insertion menu system makes use of the holes
+system.  Almost all holes operations are available in the Holes menu.
+</p>
+<p><b>Notes:</b> Holes make use of the Emacs abbreviation mechanism, it will
+work without problem if you don&rsquo;t have an abbrev table defined for Coq
+in your config files.  Use <code>C-h v abbrev-file-name</code> to see the name
+of the abbreviation file. 
+</p>
+<p>If you already have such a table it won&rsquo;t be automatically overwritten
+(so that you keep your own abbreviations).  But you must read the abbrev
+file given in the Proof General sources to be able to use the command
+insertion menus.  You can do the following to merge your abbreviations
+with ProofGeneral&rsquo;s abbreviations: <code>M-x read-abbrev-file</code>, then
+select the file named <code>coq-abbrev.el</code> in the
+<code>ProofGeneral/coq</code> directory. At Emacs exit you will be asked if
+you want to save abbrevs; answer yes.
+</p>
+
+<hr size="6">
+<a class="anchor" id="Proof_002dTree-Visualization"></a>
+<a class="anchor" id="Proof_002dTree-Visualization-1"></a>
+<h2 class="section">11.7 Proof-Tree Visualization</h2>
+
+<p>Starting with Proof General version 4.2 and Coq version 8.4, Coq
+Proof General has full support for proof-tree visualization, 
+see section <a href="Graphical-Proof_002dTree-Visualization/#Graphical-Proof_002dTree-Visualization">Graphical Proof-Tree Visualization</a>. To find out which
+versions of Prooftree are compatible with this version of Proof
+General, see section <a href="Graphical-Proof_002dTree-Visualization/#Graphical-Proof_002dTree-Visualization">Graphical Proof-Tree Visualization</a> or the 
+<a href="http://askra.de/software/prooftree/">Prooftree website</a>.
+</p>
+<p>For the visualization to work properly, proofs must be started
+with <code>Proof</code>, which is encouraged practice anyway (see Coq Bug
+#2776). Without <code>Proof</code> you lose the initial proof goal,
+possibly having two or more initial goals in the display.
+</p>
+<p>To support <code>Grab Existential Variables</code> Prooftree can
+actually display several graphically independent proof trees in
+several layers.
+</p>
+<hr size="6">
+<a class="anchor" id="Showing-Proof-Diffs"></a>
+<a class="anchor" id="Showing-Proof-Diffs-1"></a>
+<h2 class="section">11.8 Showing Proof Diffs</h2>
+
+<p>Coq 8.10 supports automatically highlighting the differences
+between successive proof steps in Proof General.  The feature is described in the
+<a href="https://coq.inria.fr/distrib/current/refman/proof-engine/proof-handling/#showing-differences-between-proof-steps">Coq Documentation</a>.
+</p>
+<p>The Coq proof diff does more than a basic &quot;diff&quot; operation.  For example:
+</p>
+<ul>
+<li> diffs are computed on a per-token basis (as determined by the Coq lexer) rather
+  than on a per-character basis, probably a better match for how people understand
+  the output.  (For example, a token-based diff between &quot;abc&quot; and &quot;axc&quot; will
+  highlight all of &quot;abc&quot; and &quot;axc&quot; as a difference, while a character-based diff
+  would indicate that &quot;a&quot; and &quot;c&quot; are in common and that only the &quot;b&quot;/&quot;x&quot; is a
+  difference.)
+</li><li> diffs ignore the order of hypotheses
+</li><li> tactics that only change the proof view are handled specially, for
+  example &quot;swap&quot; after a &quot;split&quot; will show the diffs between before &quot;split&quot;
+  and after &quot;swap&quot;, which is more useful
+</li><li> some error messages have been instrumented to show diffs where it is helpful
+</li></ul>
+
+<p>To enable or disable diffs, set <code>coq-diffs</code> (select menu <code>Coq -&gt; Diffs</code>)
+to &quot;on&quot;, &quot;off&quot; or &quot;removed&quot;.  &quot;on&quot; highlights added tokens with the background
+color from <code>diff-refine-added</code>.  &quot;removed&quot; highlights removed tokens
+with the background color from <code>diff-refine-removed</code>.  With the &quot;removed&quot; setting,
+lines that have both added and removed text may be shown twice, as &quot;before&quot; and
+&quot;after&quot; lines.
+To preserve the settings for the next time you start Proof General,
+select <code>Coq -&gt; Settings -&gt; Save Settings</code>.
+</p>
+<p>The colors used to highlight diffs are configurable in the
+<code>Proof-General -&gt; Advanced -&gt; Customize -&gt; Proof Faces</code> menu.
+The 4 <code>Coq Diffs ...</code> faces control the highlights.  Lines that
+have added or removed tokens are shown with the entire line highlighted with
+a <code>Coq Diffs ... Bg</code> face.  The added or removed tokens themselves are highlighted
+with non-<code>Bg</code> faces.
+</p>
+<hr size="6">
+<div class="header">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Coq-Proof-General" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Isabelle-Proof-General/#Isabelle-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="index/#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="ProofGeneral_toc/#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Function-Index/#Function-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="ProofGeneral_abt/#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+</div>
+<p>
+ <font size="-1">
+  This document was generated by <em>Erik Martin-Dorel</em> on <em>June 2, 2019</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
+ </font>
+ <br>
+
+</p>

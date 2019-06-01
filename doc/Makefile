@@ -20,7 +20,7 @@ DEST_user=userman
 DEST_adapt=adaptingman
 HEADER=$(SRC)/_head.html
 TEXI_CUSTOM=$(CURDIR)/$(SRC)/texi2html_custom.pm
-TEXI2HTML=texi2html --expandinfo --number-sections --split=chapter --noheader --init-file=$(TEXI_CUSTOM)
+TEXI2HTML=texi2html --expandinfo --node-files --split=chapter --noheader --init-file=$(TEXI_CUSTOM)
 
 all: checkout compile doc add
 
@@ -45,7 +45,7 @@ compile.%:
 	$(RM) -r $(DEST_$*)
 	mkdir -p $(DEST_$*)
 	# The slash at the beginning of --prefix is required to get proper Jekyll URLs:
-	$(TEXI2HTML) --output=.. --prefix=/$(DEST)/$(DEST_$*)/$(SRC_$*) --top-file=/$(DEST)/$(DEST_$*)/index.html $(CHECKOUT)/$(REPODIR)/$(SRC_$*).texi
+	$(TEXI2HTML) --output=$(DEST_$*) --prefix=$(SRC_$*) --top-file=index.html $(CHECKOUT)/$(REPODIR)/$(SRC_$*).texi
 	@echo "### End of Phase 1/$* -- raw HTML files generated in:"
 	@echo "$(CURDIR)/$(DEST_$*)"
 
@@ -56,7 +56,7 @@ doc.%:
 	  mv $$f $$f.bak && \
 	  cp -f $(CURDIR)/$(HEADER) $$f && \
 	  sed -e '1,/<body\>/d;/<\/body\>/,$$d' \
-	  -e 's/\($(SRC_$*)[_0-9A-Za-z]*\)\.html/\1/g' \
+	  -e 's|\.html#|/#|g' \
 	  -e 's|"ProofGeneral-image.jpg"|"/img/ProofGeneral-image.jpg"|g' \
           $$f.bak >> $$f && \
 	  $(RM) $$f.bak; \
