@@ -33,11 +33,13 @@ assistant.  It supports most of the generic features of Proof General.
 </td></tr>
 <tr><td align="left" valign="top"><a href="#User_002dloaded-tactics">11.5 User-loaded tactics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Holes-feature">11.6 Holes feature</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Indentation-tweaking">11.6 Indentation tweaking</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Proof_002dTree-Visualization">11.7 Proof-Tree Visualization</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Holes-feature">11.7 Holes feature</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Showing-Proof-Diffs">11.8 Showing Proof Diffs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Proof_002dTree-Visualization">11.8 Proof-Tree Visualization</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Showing-Proof-Diffs">11.9 Showing Proof Diffs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -84,7 +86,7 @@ temporarily disable (Set Printing All).
 <dd><p>The same for a &ldquo;About &rdquo; query.
 </p></dd>
 <dt> <kbd>C-c C-a C-a</kbd></dt>
-<dd><p>The same for a &ldquo;SearchAbout &rdquo; query (no C-u prefix).
+<dd><p>The same for a &ldquo;Search &rdquo; query (no C-u prefix).
 </p></dd>
 <dt> <kbd>C-c C-a C-o</kbd></dt>
 <dd><p>The same for a Search &ldquo;SearchIsos&rdquo; (no C-u prefix).
@@ -921,9 +923,68 @@ move the locked region to the proper position,
 recording it in the script.
 </p>
 <hr size="6">
+<a class="anchor" id="Indentation-tweaking"></a>
+<a class="anchor" id="Indentation-tweaking-1"></a>
+<h2 class="section">11.6 Indentation tweaking</h2>
+
+<p>Indentation of Coq script is provided by Proof General, but it may
+behave badly especially if you use syntax extensions. You can sometimes
+fix this problem by telling PG that some token should be considered as
+identical to other ones by the indentation mechanism. Use the two
+variables <code>coq-smie-user-tokens</code> and
+<code>coq-smie-monadic-tokens</code>. This variables contains associations
+between user tokens and the existing pg tokens they should be equated
+too.
+</p>
+<ul>
+<li> <code>coq-smie-user-tokens</code>
+
+<p>this is where users should put ther own tokens. For instance:
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(setq coq-smie-user-tokens '((\&quot;xor\&quot; . \&quot;or\&quot;) (\&quot;ifb\&quot; . \&quot;if\&quot;)))
+</pre></td></tr></table>
+<p>to have token \&quot;xor\&quot; and \&quot;ifb\&quot; be considered as having
+</p></li><li> <code>coq-smie-monadic-tokens</code>
+
+<p>is specific to monadic operators: it contains usual monadic notations
+by default (but you can redefine it if needed).
+</p>
+<p>Specific tokens are defined for the two usual monadic forms: 
+</p>
+<pre class="verbatim">&quot;let monadic&quot; E &quot;&lt;- monadic&quot; E &quot;in monadic&quot; E
+E &quot;&lt;- monadic&quot; E &quot;;; monadic&quot; E
+</pre>
+<p>The default value of <code>coq-smie-monadic-tokens</code> gives the following
+concrete syntax to these tokens:
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">((&quot;;;&quot; . &quot;;; monadic&quot;)
+ (&quot;do&quot; . &quot;let monadic&quot;)
+ (&quot;&lt;-&quot; . &quot;&lt;- monadic&quot;)
+ (&quot;;&quot; . &quot;in monadic&quot;))
+</pre></td></tr></table>
+
+<p>thus allowing for the following:
+</p>
+<pre class="verbatim">  do x &lt;- foo;
+  do y &lt;- bar;
+  ...
+</pre><p>and
+</p><pre class="verbatim">  x &lt;- foo;;
+  y &lt;- bar;;
+  ...
+</pre></li></ul>
+
+<p>NOTE: This feature is experimental.
+</p>
+<p>NOTE: the &ldquo;pg tokens&rdquo; are actually the ones PG generates internally by
+exploring the file around the indentation point. Consequently this
+refers to internals of PoofGeneral. Contact the Proof General team if you
+need help.
+</p>
+
+<hr size="6">
 <a class="anchor" id="Holes-feature"></a>
 <a class="anchor" id="Holes-feature-1"></a>
-<h2 class="section">11.6 Holes feature</h2>
+<h2 class="section">11.7 Holes feature</h2>
 
 <p><em>Holes</em> are an experimental feature for complex expression editing
 by filling in templates. It is inspired from other tools, like Pcoq
@@ -950,7 +1011,7 @@ you want to save abbrevs; answer yes.
 <hr size="6">
 <a class="anchor" id="Proof_002dTree-Visualization"></a>
 <a class="anchor" id="Proof_002dTree-Visualization-1"></a>
-<h2 class="section">11.7 Proof-Tree Visualization</h2>
+<h2 class="section">11.8 Proof-Tree Visualization</h2>
 
 <p>Starting with Proof General version 4.2 and Coq version 8.4, Coq
 Proof General has full support for proof-tree visualization, 
@@ -971,7 +1032,7 @@ several layers.
 <hr size="6">
 <a class="anchor" id="Showing-Proof-Diffs"></a>
 <a class="anchor" id="Showing-Proof-Diffs-1"></a>
-<h2 class="section">11.8 Showing Proof Diffs</h2>
+<h2 class="section">11.9 Showing Proof Diffs</h2>
 
 <p>Coq 8.10 supports automatically highlighting the differences
 between successive proof steps in Proof General.  The feature is described in the
@@ -1022,7 +1083,7 @@ with non-<code>Bg</code> faces.
 </div>
 <p>
  <font size="-1">
-  This document was generated by <em>Erik Martin-Dorel</em> on <em>June 2, 2019</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
+  This document was generated by <em>Erik Martin-Dorel</em> on <em>April 2, 2020</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
  </font>
  <br>
 
