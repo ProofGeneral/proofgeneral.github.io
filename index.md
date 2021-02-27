@@ -125,7 +125,7 @@ As explained in the [MELPA documentation](https://melpa.org/#/getting-started), 
 Alternatively, you can use one of the following shortcuts:
 
 * `M-x proof-upgrade-elpa-packages RET` or `M-x p-u-e-p RET`;
-* the menu item `Proof-General -> Upgrade ELPA packages...` (see screenshot below)
+* the menu item `Proof-General -> Upgrade ELPA packages...` (screenshot below)
 
 <a href="img/proof-upgrade-elpa-packages.png"><img src="img/proof-upgrade-elpa-packages.png" alt="M-x proof-upgrade-elpa-packages RET" width="75%" /></a>
 
