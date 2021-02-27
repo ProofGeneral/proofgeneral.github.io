@@ -122,6 +122,17 @@ PhoX file (`.phx`) to automatically load the corresponding major mode.
 As explained in the [MELPA documentation](https://melpa.org/#/getting-started), updating all MELPA packages in one go is as easy as typing
 `M-x package-list-packages RET` then `r` (**r**efresh the package list), `U`(mark **U**pgradable packages), and `x` (e**x**ecute the installs and deletions).
 
+Alternatively, you can use one of the following shortcuts:
+
+* `M-x proof-upgrade-elpa-packages RET` or `M-x p-u-e-p RET`;
+* the menu item `Proof-General -> Upgrade ELPA packages...` (see screenshot below)
+
+<img src="img/proof-upgrade-elpa-packages.png" alt="M-x proof-upgrade-elpa-packages RET" width="50%" />
+
+{% comment %}
+TODO: Add a link to the doc
+{% endcomment %}
+
 ## Documentation
 
 For more information about Proof General, see the
