@@ -61,7 +61,7 @@ You need:
   [EasyCrypt](http://www.easycrypt.info/),
   [PhoX](http://www.lama.univ-savoie.fr/pagesmembres/raffalli/phox.html)
   (see links for versions).
-- Version 24.5 or later of [GNU Emacs](http://www.gnu.org/software/emacs/).
+- Version 25.1 or later of [GNU Emacs](http://www.gnu.org/software/emacs/).
 
 Emacs is available for a huge variety of platforms, including Unix,
 Windows, and macOS. See the [Emacs Wiki](http://www.emacswiki.org)
