@@ -263,49 +263,39 @@ without adjusting window layout.
 </p>
 <p>For single frame mode:
 </p>
-<ul>
-<li>
-In two panes mode, this uses a canonical layout made by splitting
-Emacs windows in equal proportions. The splitting is vertical if
-emacs width is smaller than &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; and
-horizontal otherwise. You can then adjust the proportions by
+<p>- In two panes mode, this uses a canonical layout made by splitting
+Emacs windows in equal proportions.  The splitting is vertical if
+Emacs width is smaller than &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; and
+horizontal otherwise.  You can then adjust the proportions by
 dragging the separating bars.
-
-</li><li>
-In three pane mode, there are three display modes, depending
-where the three useful buffers are displayed: scripting
-buffer, goals buffer and response buffer.
-
-<p>Here are the three modes:
 </p>
-<ul>
-<li>
-<code>vertical</code>: the 3 buffers are displayed in one column.
+<p>- In three pane mode, there are three display modes, depending
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">  where the three useful buffers are displayed: scripting
+  buffer, goals buffer and response buffer.
 
-</li><li>
-<code>hybrid</code>: 2 columns mode, left column displays scripting buffer
-and right column displays the 2 others.
+  Here are the three modes:
 
-</li><li>
-<code>horizontal</code>: 3 columns mode, one for each buffer (script, goals, response).
-</li></ul>
+  - vertical: the 3 buffers are displayed in one column.
+  - hybrid: 2 columns mode, left column displays scripting buffer
+    and right column displays the 2 others.
+  - horizontal: 3 columns mode, one for each buffer (script, goals,
+    response).
 
-<p>By default, the display mode is automatically chosen by
-considering the current emacs frame width: if it is smaller
-than &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then vertical mode is chosen,
-otherwise if it is smaller than 1.5 * &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo;
-then hybrid mode is chosen, finally if the frame is larger than
-1.5 * &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then the horizontal mode is chosen.
-</p>
-<p>You can change the value of &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; at your
-will.
-</p>
-<p>If you want to force one of the layouts, you can set variable
-&lsquo;<samp><code>proof-three-window-mode-policy</code></samp>&rsquo; to <code>'vertical</code>, <code>'horizontal</code> or
-<code>'hybrid</code>. The default value is <code>'smart</code> which sets the automatic
-behaviour described above.
-</p></li></ul>
+  By default, the display mode is automatically chosen by
+  considering the current Emacs frame width: if it is smaller
+  than &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then vertical mode is chosen,
+  otherwise if it is smaller than 1.5 * &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo;
+  then hybrid mode is chosen, finally if the frame is larger than
+  1.5 * &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then the horizontal mode is chosen.
 
+  You can change the value of &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; at your
+  will.
+
+  If you want to force one of the layouts, you can set variable
+  &lsquo;<samp><code>proof-three-window-mode-policy</code></samp>&rsquo; to <code>'vertical</code>, <code>'horizontal</code> or
+  <code>'hybrid</code>.  The default value is <code>'smart</code> which sets the automatic
+  behaviour described above.
+</pre></td></tr></table>
 </dd></dl>
 
 <dl>
@@ -333,7 +323,7 @@ Hovers will be added when this option is non-nil.  Prover outputs
 can be displayed when the mouse hovers over the region that
 produced it and output is available (see &lsquo;<samp><code>proof-full-annotation</code></samp>&rsquo;).
 If output is not available, the type of the output region is displayed.
-Changes of this option will not be reflected in already-processed 
+Changes of this option will not be reflected in already-processed
 regions of the script.
 </p>
 <p>The default value is <code>nil</code>.
@@ -437,6 +427,21 @@ files which are out of date with respect to the loaded buffers!
 <dd><p>If non-nil, format for newlines after each command in a script.
 </p>
 <p>The default value is <code>t</code>.
+</p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002domit_002dproofs_002doption"></a><u>Variable:</u> <b>proof-omit-proofs-option</b></dt>
+<dd><p>Set to t to omit complete opaque proofs for speed reasons.<br>
+When t, complete opaque proofs in the asserted region are not
+sent to the proof assistant (and thus not checked). For files
+with big proofs this can drastically reduce the processing time
+for the asserted region at the cost of not checking the proofs.
+For partial and non-opaque proofs in the asserted region all
+proof commands are sent to the proof assistant.
+</p>
+<p>Using a prefix argument for &lsquo;<samp><code>proof-goto-point</code></samp>&rsquo; (M-x <code>proof-goto-point</code>)
+or &lsquo;<samp><code>proof-process-buffer</code></samp>&rsquo; (M-x <code>proof-process-buffer</code>) temporarily
+disables omitting proofs.
 </p></dd></dl>
 
 <dl>
@@ -557,8 +562,8 @@ locked (coloured blue); a buffer is completely unprocessed when there
 is no locked region.
 </p>
 <p>For some proof assistants (such as Coq) fully processed buffers make
-no sense. Setting this option to <code>'process</code> has then the same effect
-as leaving it unset (nil). (This behaviour is controlled by
+no sense.  Setting this option to <code>'process</code> has then the same effect
+as leaving it unset (nil).  (This behaviour is controlled by
 &lsquo;<samp><code>proof-no-fully-processed-buffer</code></samp>&rsquo;.)
 </p>
 <p>The default value is <code>nil</code>.
@@ -769,7 +774,7 @@ prover specific ones using the <code><em>PA</em>-</code> mechanism).
 </div>
 <p>
  <font size="-1">
-  This document was generated by <em>Erik Martin-Dorel</em> on <em>April 2, 2020</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
+  This document was generated by <em>Erik Martin-Dorel</em> on <em>August 21, 2021</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
  </font>
  <br>
 

@@ -36,15 +36,17 @@ the behaviour of script management.
 </td></tr>
 <tr><td align="left" valign="top"><a href="#Nested-proofs">3.5 Nested proofs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Safe-_0028state_002dpreserving_0029-commands">3.6 Safe (state-preserving) commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Omitting-proofs-for-speed">3.6 Omitting proofs for speed</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Activate-scripting-hook">3.7 Activate scripting hook</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Safe-_0028state_002dpreserving_0029-commands">3.7 Safe (state-preserving) commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Automatic-multiple-files">3.8 Automatic multiple files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Activate-scripting-hook">3.8 Activate scripting hook</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Completely-asserted-buffers">3.9 Completely asserted buffers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Automatic-multiple-files">3.9 Automatic multiple files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Completions">3.10 Completions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Completely-asserted-buffers">3.10 Completely asserted buffers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Completions">3.11 Completions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -84,7 +86,7 @@ or &lsquo;<samp><code>proof-script-parse-function</code></samp>&rsquo;.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dsexp_002dcommands"></a><u>Variable:</u> <b>proof-script-sexp-commands</b></dt>
-<dd><p>Non-nil if script has LISP-like syntax: commands are <code>top-level</code> sexps.<br>
+<dd><p>Non-nil if script has Lisp-like syntax: commands are <code>top-level</code> sexps.<br>
 You should set this variable in script mode configuration.
 </p>
 <p>To configure command recognition properly, you must set at least one
@@ -239,9 +241,9 @@ configuration of other modes (function menu, imenu).
 <dt><a class="anchor" id="index-proof_002dgoal_002dwith_002dhole_002dresult"></a><u>Variable:</u> <b>proof-goal-with-hole-result</b></dt>
 <dd><p>How to get theorem name after &lsquo;<samp><code>proof-goal-with-hole-regexp</code></samp>&rsquo; match.<br>
 String or Int.
-If an int N use <code>match-string</code> to recover the value of the Nth parenthesis matched.
-If it is a string use <code>replace-match</code>. In this case, <code>proof-save-with-hole-regexp</code>
-should match the entire command
+If an int N, use &lsquo;<samp><code>match-string</code></samp>&rsquo; to get the value of the Nth parenthesis matched.
+If a string, use &lsquo;<samp><code>replace-match</code></samp>&rsquo;.  In this case, &lsquo;<samp><code>proof-goal-with-hole-regexp</code></samp>&rsquo;
+should match the entire command.
 </p></dd></dl>
 
 <dl>
@@ -537,9 +539,100 @@ history.
 
 
 <hr size="6">
+<a class="anchor" id="Omitting-proofs-for-speed"></a>
+<a class="anchor" id="Omitting-proofs-for-speed-1"></a>
+<h2 class="section">3.6 Omitting proofs for speed</h2>
+
+<p>In normal operation, the commands in an asserted region are sent
+successively to the proof assistant. When the proof assistant
+reports an error, processing stops. This ensures the consistency
+of the development. Proof General supports omitting portions of
+the asserted region to speed processing up at the cost of
+consistency. Portions that can be potentially omitted are called
+<em>opaque proofs</em> in Proof General, because usually only
+opaque proofs (in the sense of Coq) can be omitted without
+risking to break the following code. This feature is also
+described in the Proof General manual, See <a href="../ProofGeneral/Script-processing-commands.html#Script-processing-commands">(ProofGeneral)Script processing commands</a> and See <a href="../ProofGeneral/Omitting-proofs-for-speed.html#Omitting-proofs-for-speed">(ProofGeneral)Omitting proofs for speed</a>.
+</p>
+<p>The omit proofs feature works in a simple, straightforward way:
+After parsing the asserted region, Proof General uses regular
+expressions to search for commands that start
+(<code>proof-script-proof-start-regexp</code>) and end
+(<code>proof-script-proof-end-regexp</code>) an opaque proof. If one is
+found, the opaque proof is replaced with a cheating command
+(<code>proof-script-proof-admit-command</code>). From this description
+it is immediate, that the omit proof feature does only work if
+proofs are not nested. If a nested proof is found, a warning is
+displayed and omitting proofs stops at that location for the
+currently asserted region.
+</p>
+<p>To enable the omit proofs feature, the following settings must be
+configured.
+</p>
+<dl>
+<dt><a class="anchor" id="index-proof_002domit_002dproofs_002dconfigured"></a><u>Variable:</u> <b>proof-omit-proofs-configured</b></dt>
+<dd><p>t if the omit proofs feature has been configured by the proof assitant.<br>
+See also &lsquo;<samp><code>proof-omit-proofs-option</code></samp>&rsquo; or the Proof General manual
+for a description of the feature. This option can only be set, if
+all of &lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo;,
+&lsquo;<samp><code>proof-script-proof-end-regexp</code></samp>&rsquo;,
+&lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo; and
+&lsquo;<samp><code>proof-script-proof-admit-command</code></samp>&rsquo; have been configured.
+</p>
+<p>The omit proofs feature skips over opaque proofs in the source
+code, admitting the theorems, to speed up processing.
+</p>
+<p>If &lsquo;<samp><code>proof-omit-proofs-option</code></samp>&rsquo; is set by the user, all proof
+commands in the source following a match of
+&lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo; up to and including the next
+match of &lsquo;<samp><code>proof-script-proof-end-regexp</code></samp>&rsquo;, are omitted (not send
+to the proof assistant) and replaced by
+&lsquo;<samp><code>proof-script-proof-admit-command</code></samp>&rsquo;. If a match for
+&lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo; is found while searching
+forward for the proof end, the current proof (up to and including
+the match of &lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo;) is considered
+to be not opaque and not omitted, thus all these proof commands
+_are_ sent to the proof assistant.
+</p>
+<p>The feature does not work for nested proofs. If a match for
+&lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo; is found before the next match
+for &lsquo;<samp><code>proof-script-proof-end-regexp</code></samp>&rsquo; or
+&lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo;, the search for opaque
+proofs immediately stops and all commands following the previous
+match of &lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo; are sent verbatim to
+the proof assistant.
+</p>
+<p>All the regular expressions for this feature are matched against
+the commands inside proof action items, that is as strings,
+without surrounding space.
+</p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002dscript_002dproof_002dstart_002dregexp"></a><u>Variable:</u> <b>proof-script-proof-start-regexp</b></dt>
+<dd><p>Regular expression for the start of a proof for the omit proofs feature.<br>
+See &lsquo;<samp><code>proof-omit-proofs-configured</code></samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002dscript_002dproof_002dend_002dregexp"></a><u>Variable:</u> <b>proof-script-proof-end-regexp</b></dt>
+<dd><p>Regular expression for the end of an opaque proof for the omit proofs feature.<br>
+See &lsquo;<samp><code>proof-omit-proofs-configured</code></samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002dscript_002ddefinition_002dend_002dregexp"></a><u>Variable:</u> <b>proof-script-definition-end-regexp</b></dt>
+<dd><p>Regexp for the end of a non-opaque proof for the omit proofs feature.<br>
+See &lsquo;<samp><code>proof-omit-proofs-configured</code></samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002dscript_002dproof_002dadmit_002dcommand"></a><u>Variable:</u> <b>proof-script-proof-admit-command</b></dt>
+<dd><p>Proof command to be inserted instead of omitted proofs.
+</p></dd></dl>
+<hr size="6">
 <a class="anchor" id="Safe-_0028state_002dpreserving_0029-commands"></a>
 <a class="anchor" id="Safe-_0028state_002dpreserving_0029-commands-1"></a>
-<h2 class="section">3.6 Safe (state-preserving) commands</h2>
+<h2 class="section">3.7 Safe (state-preserving) commands</h2>
 
 <p>A proof command is &quot;safe&quot; if it can be issued away from the proof
 script.  For this to work it should be state-preserving in the proof
@@ -564,7 +657,7 @@ tests by negating the match on &lsquo;<samp><code>proof-non-undoables-regexp</co
 <hr size="6">
 <a class="anchor" id="Activate-scripting-hook"></a>
 <a class="anchor" id="Activate-scripting-hook-1"></a>
-<h2 class="section">3.7 Activate scripting hook</h2>
+<h2 class="section">3.8 Activate scripting hook</h2>
 
 
 <dl>
@@ -590,7 +683,7 @@ for scripting commands), unless activated-interactively is set.
 <hr size="6">
 <a class="anchor" id="Automatic-multiple-files"></a>
 <a class="anchor" id="Automatic-multiple-files-1"></a>
-<h2 class="section">3.8 Automatic multiple files</h2>
+<h2 class="section">3.9 Automatic multiple files</h2>
 
 <p>See section <a href="/doc/master/adaptingman/Handling-Multiple-Files#Handling-Multiple-Files">Handling Multiple Files</a>, for more details about this
 setting.
@@ -613,7 +706,7 @@ Proof General about the dependencies rather than using this setting.
 <hr size="6">
 <a class="anchor" id="Completely-asserted-buffers"></a>
 <a class="anchor" id="Completely-asserted-buffers-1"></a>
-<h2 class="section">3.9 Completely asserted buffers</h2>
+<h2 class="section">3.10 Completely asserted buffers</h2>
 
 <p>When switching scripting from buffer A to buffer B Proof General
 normally offers the choice of either completely retracting or
@@ -636,10 +729,10 @@ switching to B.
 <dt><a class="anchor" id="index-proof_002dno_002dfully_002dprocessed_002dbuffer"></a><u>Variable:</u> <b>proof-no-fully-processed-buffer</b></dt>
 <dd><p>Set to t if buffers should always retract before scripting elsewhere.<br>
 Leave at nil if fully processed buffers make sense for the current
-proof assistant. If nil the user can choose to fully assert a
-buffer when starting scripting in a different buffer. If t there
+proof assistant.  If nil the user can choose to fully assert a
+buffer when starting scripting in a different buffer.  If t there
 is only the choice to fully retract the active buffer before
-starting scripting in a different buffer. This last behavior is
+starting scripting in a different buffer.  This last behavior is
 needed for Coq.
 </p></dd></dl>
 
@@ -648,7 +741,7 @@ needed for Coq.
 <hr size="6">
 <a class="anchor" id="Completions"></a>
 <a class="anchor" id="Completions-1"></a>
-<h2 class="section">3.10 Completions</h2>
+<h2 class="section">3.11 Completions</h2>
 
 <p>Proof General allows provers to create a <i>completion table</i> to help
 writing keywords and identifiers in proof scripts.  This is documented
@@ -701,7 +794,7 @@ last use time, to discourage saving these into the users database.
 </div>
 <p>
  <font size="-1">
-  This document was generated by <em>Erik Martin-Dorel</em> on <em>April 2, 2020</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
+  This document was generated by <em>Erik Martin-Dorel</em> on <em>August 21, 2021</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
  </font>
  <br>
 

@@ -81,10 +81,10 @@ is located in, or to the variable of the environment variable
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002dhome_002ddirectory"></a><u>Variable:</u> <b>proof-home-directory</b></dt>
-<dd><p>Directory where Proof General is installed.  Ends with slash.<br>
-Default value taken from environment variable &lsquo;<samp>PROOFGENERAL_HOME</samp>&rsquo; if set,
-otherwise based on where the file &lsquo;<samp>proof-site.el</samp>&rsquo; was loaded from.
-You can use customize to set this variable.
+<dd><p>Directory where Proof General is installed.<br>
+Based on where the file &lsquo;<samp>proof-site.el</samp>&rsquo; was loaded from.
+Falls back to consulting the environment variable &lsquo;<samp>PROOFGENERAL_HOME</samp>&rsquo; if
+proof-site.el couldn&rsquo;t know where it was executed from.
 </p></dd></dl>
 
 
@@ -112,9 +112,9 @@ extension.  The proof assistants enabled are the ones listed
 in the <code>proof-assistants</code> setting.
 </p>
 <dl>
-<dt><a class="anchor" id="index-proof_002dassistants"></a><u>User Option:</u> <b>proof-assistants</b></dt>
+<dt><a class="anchor" id="index-proof_002dassistants"></a><u>Variable:</u> <b>proof-assistants</b></dt>
 <dd><p>Choice of proof assistants to use with Proof General.<br>
-A list of symbols chosen from: <code>'isar</code> <code>'coq</code> <code>'easycrypt</code> <code>'pgshell</code> <code>'pgocaml</code> <code>'pghaskell</code>.
+A list of symbols chosen from: &lsquo;<samp>isar</samp>&rsquo; &lsquo;<samp>coq</samp>&rsquo; &lsquo;<samp>easycrypt</samp>&rsquo; &lsquo;<samp>phox</samp>&rsquo; &lsquo;<samp>pgshell</samp>&rsquo; &lsquo;<samp>pgocaml</samp>&rsquo; &lsquo;<samp>pghaskell</samp>&rsquo;.
 If nil, the default will be ALL available proof assistants.
 </p>
 <p>Each proof assistant defines its own instance of Proof General,
@@ -130,8 +130,6 @@ symbols you want, for example &quot;lego isa&quot;.  Or you can
 edit the file &lsquo;<samp>proof-site.el</samp>&rsquo; itself.
 </p>
 <p>Note: to change proof assistant, you must start a new Emacs session.
-</p>
-<p>The default value is <code>nil</code>.
 </p></dd></dl>
 
 <p>The file &lsquo;<tt>proof-site.el</tt>&rsquo; also defines a version variable.
@@ -178,7 +176,7 @@ but which the user may require different values of across provers.
 <p>The function proof-assistant-&lt;SYM&gt; is also defined, which can be used in the
 generic portion of Proof General to access the value for the current prover.
 </p>
-<p>Arguments are as for &lsquo;<samp>defcustom</samp>&rsquo;, which see.  If a :group argument is
+<p>Arguments <var>args</var> are as for &lsquo;<samp>defcustom</samp>&rsquo;, which see.  If a :group argument is
 not supplied, the setting will be added to the internal settings for the
 current prover (named &lt;PA&gt;-config).
 </p></dd></dl>
@@ -471,7 +469,7 @@ retract or assert, or automatically take the action indicated in the
 user option &lsquo;<samp><code>proof-auto-action-when-deactivating-scripting</code></samp>&rsquo;.
 </p>
 <p>If &lsquo;<samp><code>proof-no-fully-processed-buffer</code></samp>&rsquo; is t there is only the choice
-to fully retract the active scripting buffer. In this case the
+to fully retract the active scripting buffer.  In this case the
 active scripting buffer is retracted even if it was fully processed.
 Setting &lsquo;<samp><code>proof-auto-action-when-deactivating-scripting</code></samp>&rsquo; to <code>'process</code>
 is ignored in this case.
@@ -565,8 +563,8 @@ the locked region.  If invoked outside the locked region, undo
 the last successfully processed command.  See &lsquo;<samp><code>proof-retract-target</code></samp>&rsquo;.
 </p>
 <p>After retraction has succeeded in the prover, the filter will call
-&lsquo;<samp><code>proof-done-retracting</code></samp>&rsquo;.  If <var>undo-action</var> is non-nil, it will 
-then be invoked on the region in the proof script corresponding to 
+&lsquo;<samp><code>proof-done-retracting</code></samp>&rsquo;.  If <var>undo-action</var> is non-nil, it will
+then be invoked on the region in the proof script corresponding to
 the proof command sequence.
 <var>displayflags</var> control output shown to user, see &lsquo;<samp><code>proof-action-list</code></samp>&rsquo;.
 </p>
@@ -578,7 +576,7 @@ of effects:
 for scripting again which may involve retracting
 other (dependent) files.
 </p>
-<p>2. We may query the user whether to save some buffers.  
+<p>2. We may query the user whether to save some buffers.
 </p>
 <p>Step 2 may seem odd &ndash; we&rsquo;re undoing (in) the buffer, after all
 &ndash; but what may happen is that when scripting starts going
@@ -597,8 +595,8 @@ proof assistant exits, we use the functions
 <dt><a class="anchor" id="index-proof_002drestart_002dbuffers"></a><u>Function:</u> <b>proof-restart-buffers</b><i> buffers</i></dt>
 <dd><p>Remove all extents in <var>buffers</var> and maybe reset &lsquo;<samp><code>proof-script-buffer</code></samp>&rsquo;.<br>
 The high-level effect is that all members of <var>buffers</var> are
-completely unlocked, including all the necessary cleanup. No
-effect on a buffer which is nil or killed. If one of the buffers
+completely unlocked, including all the necessary cleanup.  No
+effect on a buffer which is nil or killed.  If one of the buffers
 is the current scripting buffer, then &lsquo;<samp><code>proof-script-buffer</code></samp>&rsquo; will
 deactivated.
 </p></dd></dl>
@@ -672,12 +670,12 @@ The value is a list of lists of the form
 </pre></td></tr></table>
 <p>which is the queue of things to do.
 </p>
-<p><var>span</var> is a region in the sources, where <var>commands</var> come from. Often,
+<p><var>span</var> is a region in the sources, where <var>commands</var> come from.  Often,
 additional properties are recorded as properties of <var>span</var>.
 </p>
 <p><var>commands</var> is a list of strings, holding the text to be send to the
-prover. It might be the empty list if nothing needs to be sent to
-the prover, such as, for comments. Usually <var>commands</var>
+prover.  It might be the empty list if nothing needs to be sent to
+the prover, such as, for comments.  Usually <var>commands</var>
 contains just 1 string, but it might also contains more elements.
 The text should be obtained with
 &lsquo;<samp>(mapconcat </samp>&rsquo;identity <var>commands</var> &quot; &quot;)&rsquo;, where the last argument
@@ -698,6 +696,7 @@ bother the user.  They may include
   <code>'no-error-display</code>         do not display errors/take error action
   <code>'no-goals-display</code>         do not goals in <strong>goals</strong> buffer
   <code>'proof-tree-show-subgoal</code>  item inserted by the proof-tree package
+  <code>'priority-action</code>          item added via <code>proof-add-to-priority-queue</code>
 </pre></td></tr></table>
 <p>Note that <code>'invisible</code> does not imply any of the others. If flags
 are non-empty, interactive cues will be surpressed. (E.g.,
@@ -724,14 +723,13 @@ until the asynchronous background compilation finishes.
 <dd><p>Signals that some items are waiting outside of &lsquo;<samp><code>proof-action-list</code></samp>&rsquo;.<br>
 If this is t it means that some items from the queue region are
 waiting for being processed in a place different from
-&lsquo;<samp><code>proof-action-list</code></samp>&rsquo;. In this case Proof General must behave as if
-&lsquo;<samp><code>proof-action-list</code></samp>&rsquo; would be non-empty, when it is, in fact,
-empty.
+&lsquo;<samp><code>proof-action-list</code></samp>&rsquo;.  In this case Proof General must behave as if
+&lsquo;<samp><code>proof-action-list</code></samp>&rsquo; would be non-empty, when it is, in fact, empty.
 </p>
 <p>This is used, for instance, for parallel background compilation
 for Coq: The Require command and the following items are not put
 into &lsquo;<samp><code>proof-action-list</code></samp>&rsquo; and are stored somewhere else until the
-background compilation finishes. Then those items are put into
+background compilation finishes.  Then those items are put into
 &lsquo;<samp><code>proof-action-list</code></samp>&rsquo; for getting processed.
 </p></dd></dl>
 
@@ -781,7 +779,7 @@ shell buffer, called by &lsquo;<samp><code>proof-shell-bail-out</code></samp>&rs
 </p>
 <p>This simply kills the &lsquo;<samp><code>proof-shell-buffer</code></samp>&rsquo; relying on the hook function
 </p>
-<p>&lsquo;<samp><code>proof-shell-kill-function</code></samp>&rsquo; to do the hard work. If optional
+<p>&lsquo;<samp><code>proof-shell-kill-function</code></samp>&rsquo; to do the hard work.  If optional
 argument <var>dont-ask</var> is non-nil, the proof process is terminated
 without confirmation.
 </p>
@@ -879,9 +877,9 @@ single string.
 <p>The <var>action</var> argument is a symbol which is typically the name of a
 callback for when each string has been processed.
 </p>
-<p>This calls &lsquo;<samp><code>proof-shell-insert-hook</code></samp>&rsquo;.  The arguments &lsquo;<samp>action</samp>&rsquo; and
-&lsquo;<samp>scriptspan</samp>&rsquo; may be examined by the hook to determine how to modify
-the &lsquo;<samp>string</samp>&rsquo; variable (exploiting dynamic scoping) which will be
+<p>This calls &lsquo;<samp><code>proof-shell-insert-hook</code></samp>&rsquo;.  The arguments <var>action</var> and
+<var>scriptspan</var> may be examined by the hook to determine how to modify
+the string variable (exploiting dynamic scoping) which will be
 the command actually sent to the shell.
 </p>
 <p>Note that the hook is not called for the empty (null) string
@@ -1101,8 +1099,8 @@ i.e., <code>'goals</code> or <code>'response</code>.
 <dt><a class="anchor" id="index-proof_002dshell_002dprocess_002durgent_002dmessage"></a><u>Function:</u> <b>proof-shell-process-urgent-message</b><i> start end</i></dt>
 <dd><p>Analyse urgent message between <var>start</var> and <var>end</var> for various cases.
 </p>
-<p>Cases are: <strong>trace</strong> output, included/retracted files, cleared 
-goals/response buffer, variable setting, xml-encoded <var>pgip</var> response, 
+<p>Cases are: <strong>trace</strong> output, included/retracted files, cleared
+goals/response buffer, variable setting, xml-encoded <var>pgip</var> response,
 theorem dependency message or interactive output indicator.
 </p>
 <p>If none of these apply, display the text between <var>start</var> and <var>end</var>.
@@ -1124,13 +1122,13 @@ library that is distributed with Proof General (in
 <dd><p>Master filter for the proof assistant shell-process.<br>
 A function for &lsquo;<samp><code>scomint-output-filter-functions</code></samp>&rsquo;.
 </p>
-<p>Deal with output and issue new input from the queue. This is an
-important internal function. The output must be collected from
-&lsquo;<samp><code>proof-shell-buffer</code></samp>&rsquo; for the following reason. This function
+<p>Deal with output and issue new input from the queue.  This is an
+important internal function.  The output must be collected from
+&lsquo;<samp><code>proof-shell-buffer</code></samp>&rsquo; for the following reason.  This function
 might block inside &lsquo;<samp><code>process-send-string</code></samp>&rsquo; when sending input to
-the proof assistant or to prooftree. In this case Emacs might
+the proof assistant or to prooftree.  In this case Emacs might
 call the process filter again while the previous instance is
-still running. &lsquo;<samp><code>proof-shell-filter-wrapper</code></samp>&rsquo; detects and delays
+still running.  &lsquo;<samp><code>proof-shell-filter-wrapper</code></samp>&rsquo; detects and delays
 such calls but does not buffer the output.
 </p>
 <p>Handle urgent messages first.  As many as possible are processed,
@@ -1193,7 +1191,7 @@ by the filter is to send the next command from the queue.
 <dd><p>Wrapper for &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo;, protecting against parallel calls.<br>
 In Emacs a process filter function can be called while the same
 filter is currently running for the same process, for instance,
-when the filter bocks on I/O. This wrapper protects the main
+when the filter blocks on I/O. This wrapper protects the main
 entry point, &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo; against such parallel,
 overlapping calls.
 </p>
@@ -1258,7 +1256,7 @@ Reference Manual.  I recommend using the source-level debugger
 </div>
 <p>
  <font size="-1">
-  This document was generated by <em>Erik Martin-Dorel</em> on <em>April 2, 2020</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
+  This document was generated by <em>Erik Martin-Dorel</em> on <em>August 21, 2021</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
  </font>
  <br>
 
