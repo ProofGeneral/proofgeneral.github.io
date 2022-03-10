@@ -114,8 +114,9 @@ Then, run `M-x package-refresh-contents RET` followed by
 `M-x package-install RET proof-general RET` to install and
 byte-compile `proof-general`.
 
-You can now open a Coq file (`.v`), an EasyCrypt file (`.ec`), or a
-PhoX file (`.phx`) to automatically load the corresponding major mode.
+You can now open a Coq file (`.v`), an EasyCrypt file (`.ec`),
+a qrhl-tool file (`.qrhl`), or a PhoX file (`.phx`)
+to automatically load the corresponding major mode.
 
 ## Keeping Proof General up-to-date
 

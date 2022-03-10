@@ -49,8 +49,9 @@ Then, run `M-x package-refresh-contents RET` followed by
 `M-x package-install RET proof-general RET` to install and
 byte-compile `proof-general`.
 
-You can now open a Coq file (`.v`), an EasyCrypt file (`.ec`), or a
-PhoX file (`.phx`) to automatically load the corresponding major mode.
+You can now open a Coq file (`.v`), an EasyCrypt file (`.ec`),
+a qrhl-tool file (`.qrhl`), or a PhoX file (`.phx`)
+to automatically load the corresponding major mode.
 
 ### <a name="prereq"></a>What you need to run Proof General
 
@@ -59,6 +60,7 @@ You need:
 - A proof assistant, e.g.:
   [Coq](https://coq.inria.fr/),
   [EasyCrypt](http://www.easycrypt.info/),
+  [qrhl-tool](https://github.com/dominique-unruh/qrhl-tool/#readme),
   [PhoX](http://www.lama.univ-savoie.fr/pagesmembres/raffalli/phox.html)
   (see links for versions).
 - Version 25.1 or later of [GNU Emacs](http://www.gnu.org/software/emacs/).
