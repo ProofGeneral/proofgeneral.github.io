@@ -5,8 +5,8 @@ title: Documentation
 
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="/doc/master/userman/LEGO-Proof-General#LEGO-Proof-General" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/master/userman/Isabelle-Proof-General#Isabelle-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
+<tr><td valign="middle" align="left">[<a href="/doc/master/userman/Hints-and-Tips#Hints-and-Tips" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/master/userman/EasyCrypt-Proof-General#EasyCrypt-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left">[<a href="/doc/master/userman/index#Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/master/userman/ProofGeneral_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/master/userman/Function-Index#Function-Index" title="Index">Index</a>]</td>
@@ -17,33 +17,34 @@ title: Documentation
 <hr size="2">
 <a class="anchor" id="Coq-Proof-General"></a>
 <a class="anchor" id="Coq-Proof-General-1"></a>
-<h1 class="chapter">11. Coq Proof General</h1>
+<h1 class="chapter">10. Coq Proof General</h1>
+
 
 <p>Coq Proof General is an instantiation of Proof General for the Coq proof
 assistant.  It supports most of the generic features of Proof General.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Coq_002dspecific-commands">11.1 Coq-specific commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Coq_002dspecific-commands">10.1 Coq-specific commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Using-the-Coq-project-file">11.2 Using the Coq project file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Using-the-Coq-project-file">10.2 Using the Coq project file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Proof-using-annotations">11.3 Proof using annotations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Proof-using-annotations">10.3 Proof using annotations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Multiple-File-Support">11.4 Multiple File Support</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Multiple-File-Support">10.4 Multiple File Support</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Omitting-proofs-for-speed">11.5 Omitting proofs for speed</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Omitting-proofs-for-speed">10.5 Omitting proofs for speed</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Editing-multiple-proofs">11.6 Editing multiple proofs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Editing-multiple-proofs">10.6 Editing multiple proofs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#User_002dloaded-tactics">11.7 User-loaded tactics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#User_002dloaded-tactics">10.7 User-loaded tactics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Indentation-tweaking">11.8 Indentation tweaking</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Indentation-tweaking">10.8 Indentation tweaking</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Holes-feature">11.9 Holes feature</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Holes-feature">10.9 Holes feature</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Proof_002dTree-Visualization">11.10 Proof-Tree Visualization</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Proof_002dTree-Visualization">10.10 Proof-Tree Visualization</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Showing-Proof-Diffs">11.11 Showing Proof Diffs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Showing-Proof-Diffs">10.11 Showing Proof Diffs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -51,8 +52,8 @@ assistant.  It supports most of the generic features of Proof General.
 <hr size="6">
 <a class="anchor" id="Coq_002dspecific-commands"></a>
 <a class="anchor" id="Coq_002dspecific-commands-1"></a>
-<h2 class="section">11.1 Coq-specific commands</h2>
-<a class="anchor" id="index-C_002dc-C_002da-C_002di-1"></a>
+<h2 class="section">10.1 Coq-specific commands</h2>
+<a class="anchor" id="index-C_002dc-C_002da-C_002di"></a>
 <a class="anchor" id="index-C_002dc-C_002da-C_002da"></a>
 <a class="anchor" id="index-C_002dc-C_002da-C_002db"></a>
 <a class="anchor" id="index-C_002dc-C_002da-C_002ds"></a>
@@ -106,19 +107,21 @@ temporarily disable (Set Printing All).
 <hr size="6">
 <a class="anchor" id="Using-the-Coq-project-file"></a>
 <a class="anchor" id="Using-the-Coq-project-file-1"></a>
-<h2 class="section">11.2 Using the Coq project file</h2>
+<h2 class="section">10.2 Using the Coq project file</h2>
 
 <p>The Coq project file is the recommended way to configure the Coq
 load path and the mapping of logical module names to physical
-file path&rsquo;. The project file is typically named
+file path (-R,-Q,-I options). The project file is typically named
 <code>_CoqProject</code> and must be located at the directory root of
 your Coq project. Proof General searches for the Coq project file
 starting at the current directory and walking the directory
 structure upwards. The Coq project file contains the common
 options (especially <code>-R</code>) and a list of the files of the
-project, see the Coq reference manual, Section 15.3, &ldquo;Creating a
-Makefile for Coq modules&rdquo;.
+project, see the Coq reference manual, Section
+<a href="https://coq.inria.fr/distrib/current/refman/practical-tools/utilities.html#building-a-coq-project">&ldquo;Building a Coq project&rdquo;</a>.
 </p>
+
+
 <p>The Coq project file should contain something like:
 </p>
 <pre class="verbatim">-R foo bar
@@ -132,9 +135,10 @@ bar/other_file.v
 project file and uses them for <code>coqtop</code> background
 processes as well as for <code>coqdep</code> and <code>coqc</code> when you use
 the auto compilation feature, <a href="#Automatic-Compilation-in-Detail">Automatic Compilation in Detail</a>. For the example above, Proof General will start
-<code>coqtop -foo3 -R foo bar -I foo2</code>.
+<code>coqtop -emacs -foo3 -R foo bar -I foo2</code> (remark:
+<code>-emacs</code> is always added to the options).
 </p>
-<p><em>Remarque:</em> <code>-arg</code> must be followed by one and only one option
+<p><em>NOTE:</em> <code>-arg</code> must be followed by one and only one option
 to pass to coqtop/coqc, use several <code>-arg</code> to issue several
 options. One per line (limitation of Proof General).
 </p>
@@ -142,17 +146,23 @@ options. One per line (limitation of Proof General).
 with the option <code>coq-load-path</code>, but this is not compatible
 with <code>CoqIde</code> or <code>coq_makefile</code>.
 </p>
+<p><em>NOTE:</em> the Coq project file cannot define which version of
+<code>coqtop</code> is launched. You need either to launch emacs with the
+right executable in the path or use See <a href="../emacs/File-Variables.html#File-Variables">(emacs)File Variables</a> or
+See <a href="../emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>. See <a href="/doc/master/userman/Hints-and-Tips#Using-file-variables">Using file variables</a>
+below.
+</p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Changing-the-name-of-the-coq-project-file">11.2.1 Changing the name of the coq project file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Changing-the-name-of-the-coq-project-file">10.2.1 Changing the name of the coq project file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Disabling-the-coq-project-file-mechanism">11.2.2 Disabling the coq project file mechanism</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Disabling-the-coq-project-file-mechanism">10.2.2 Disabling the coq project file mechanism</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
 <hr size="6">
 <a class="anchor" id="Changing-the-name-of-the-coq-project-file"></a>
 <a class="anchor" id="Changing-the-name-of-the-coq-project-file-1"></a>
-<h3 class="subsection">11.2.1 Changing the name of the coq project file</h3>
+<h3 class="subsection">10.2.1 Changing the name of the coq project file</h3>
 
 <p>To change the name of the Coq project file, configure
 <code>coq-project-filename</code> (select menu <code>Proof-General -&gt;
@@ -198,7 +208,7 @@ still be used to override the coq project file&rsquo;s configuration.
 <hr size="6">
 <a class="anchor" id="Disabling-the-coq-project-file-mechanism"></a>
 <a class="anchor" id="Disabling-the-coq-project-file-mechanism-1"></a>
-<h3 class="subsection">11.2.2 Disabling the coq project file mechanism</h3>
+<h3 class="subsection">10.2.2 Disabling the coq project file mechanism</h3>
 
 <p>To disable the Coq project file feature in Proof General, set
 <code>coq-use-project-file</code> to nil (select menu
@@ -222,7 +232,7 @@ on a per project basis.
 <hr size="6">
 <a class="anchor" id="Proof-using-annotations"></a>
 <a class="anchor" id="Proof-using-annotations-1"></a>
-<h2 class="section">11.3 Proof using annotations</h2>
+<h2 class="section">10.3 Proof using annotations</h2>
 
 <p>In order to process files asynchronously and pre-compile files (.vos and
 .vok files), it is advised (inside sections) to list the section
@@ -255,7 +265,7 @@ won&rsquo;t replay the proof)
 <hr size="6">
 <a class="anchor" id="Multiple-File-Support"></a>
 <a class="anchor" id="Multiple-File-Support-1"></a>
-<h2 class="section">11.4 Multiple File Support</h2>
+<h2 class="section">10.4 Multiple File Support</h2>
 
 <p>Since version 4.1 Coq Proof General has multiple file support. It
 consists of the following points:
@@ -340,15 +350,15 @@ single threaded compilation, simply hit <code>C-g</code>.
 </p>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Automatic-Compilation-in-Detail">11.4.1 Automatic Compilation in Detail</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Automatic-Compilation-in-Detail">10.4.1 Automatic Compilation in Detail</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Locking-Ancestors">11.4.2 Locking Ancestors</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Locking-Ancestors">10.4.2 Locking Ancestors</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Quick-and-inconsistent-compilation">11.4.3 Quick and inconsistent compilation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Quick-and-inconsistent-compilation">10.4.3 Quick and inconsistent compilation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Customizing-Coq-Multiple-File-Support">11.4.4 Customizing Coq Multiple File Support</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Customizing-Coq-Multiple-File-Support">10.4.4 Customizing Coq Multiple File Support</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Current-Limitations">11.4.5 Current Limitations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Current-Limitations">10.4.5 Current Limitations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -356,7 +366,7 @@ single threaded compilation, simply hit <code>C-g</code>.
 <hr size="6">
 <a class="anchor" id="Automatic-Compilation-in-Detail"></a>
 <a class="anchor" id="Automatic-Compilation-in-Detail-1"></a>
-<h3 class="subsection">11.4.1 Automatic Compilation in Detail</h3>
+<h3 class="subsection">10.4.1 Automatic Compilation in Detail</h3>
 
 <p>When <code>coq-compile-before-require</code> is enabled, Proof
 General looks for <code>Require</code> commands in text that gets
@@ -459,7 +469,7 @@ compilation, but exclusively, depending on the Coq version,
 <hr size="6">
 <a class="anchor" id="Locking-Ancestors"></a>
 <a class="anchor" id="Locking-Ancestors-1"></a>
-<h3 class="subsection">11.4.2 Locking Ancestors</h3>
+<h3 class="subsection">10.4.2 Locking Ancestors</h3>
 
 
 <p>Locking ancestor files works as a side effect of dependency
@@ -499,7 +509,7 @@ file.]
 <hr size="6">
 <a class="anchor" id="Quick-and-inconsistent-compilation"></a>
 <a class="anchor" id="Quick-and-inconsistent-compilation-1"></a>
-<h3 class="subsection">11.4.3 Quick and inconsistent compilation</h3>
+<h3 class="subsection">10.4.3 Quick and inconsistent compilation</h3>
 
 <p>Coq now supports two different modes for speeding up compilation
 at the price of consistency. Since Coq 8.11, <code>-vos</code> compiles
@@ -660,7 +670,7 @@ be set via the customization system or via the menu.
 <hr size="6">
 <a class="anchor" id="Customizing-Coq-Multiple-File-Support"></a>
 <a class="anchor" id="Customizing-Coq-Multiple-File-Support-1"></a>
-<h3 class="subsection">11.4.4 Customizing Coq Multiple File Support</h3>
+<h3 class="subsection">10.4.4 Customizing Coq Multiple File Support</h3>
 
 <p>The customization settings for multiple file support of Coq Proof
 General are in a separate customization group, the
@@ -910,7 +920,7 @@ or not.
 <hr size="6">
 <a class="anchor" id="Current-Limitations"></a>
 <a class="anchor" id="Current-Limitations-1"></a>
-<h3 class="subsection">11.4.5 Current Limitations</h3>
+<h3 class="subsection">10.4.5 Current Limitations</h3>
 
 <ul>
 <li>
@@ -928,7 +938,7 @@ General will perform some unnecessary compilations.
 <hr size="6">
 <a class="anchor" id="Omitting-proofs-for-speed"></a>
 <a class="anchor" id="Omitting-proofs-for-speed-1"></a>
-<h2 class="section">11.5 Omitting proofs for speed</h2>
+<h2 class="section">10.5 Omitting proofs for speed</h2>
 
 <p>To speed up asserting larger chunks, Proof General can omit
 complete opaque proofs by silently replacing the whole proof
@@ -975,7 +985,7 @@ used), see the menu command <code>Coq &gt; &quot;Proof using&quot; mode</code> a
 <hr size="6">
 <a class="anchor" id="Editing-multiple-proofs"></a>
 <a class="anchor" id="Editing-multiple-proofs-1"></a>
-<h2 class="section">11.6 Editing multiple proofs</h2>
+<h2 class="section">10.6 Editing multiple proofs</h2>
 
 <p>Coq allows the user to enter top-level commands while editing a proof
 script.  For example, if the user realizes that the current proof will
@@ -1001,7 +1011,7 @@ current proof is disabled.
 <hr size="6">
 <a class="anchor" id="User_002dloaded-tactics"></a>
 <a class="anchor" id="User_002dloaded-tactics-1"></a>
-<h2 class="section">11.7 User-loaded tactics</h2>
+<h2 class="section">10.7 User-loaded tactics</h2>
 
 <p>Another feature that Coq allows is the extension of the grammar of the
 proof assistant by new tactic commands.  This feature interacts with the
@@ -1064,7 +1074,7 @@ recording it in the script.
 <hr size="6">
 <a class="anchor" id="Indentation-tweaking"></a>
 <a class="anchor" id="Indentation-tweaking-1"></a>
-<h2 class="section">11.8 Indentation tweaking</h2>
+<h2 class="section">10.8 Indentation tweaking</h2>
 
 <p>Indentation of Coq script is provided by Proof General, but it may
 behave badly especially if you use syntax extensions. You can sometimes
@@ -1112,9 +1122,9 @@ concrete syntax to these tokens:
   ...
 </pre></li></ul>
 
-<p>NOTE: This feature is experimental.
+<p><em>NOTE:</em> This feature is experimental.
 </p>
-<p>NOTE: the &ldquo;pg tokens&rdquo; are actually the ones PG generates internally by
+<p><em>NOTE:</em> the &ldquo;pg tokens&rdquo; are actually the ones PG generates internally by
 exploring the file around the indentation point. Consequently this
 refers to internals of PoofGeneral. Contact the Proof General team if you
 need help.
@@ -1123,7 +1133,7 @@ need help.
 <hr size="6">
 <a class="anchor" id="Holes-feature"></a>
 <a class="anchor" id="Holes-feature-1"></a>
-<h2 class="section">11.9 Holes feature</h2>
+<h2 class="section">10.9 Holes feature</h2>
 
 <p><em>Holes</em> are an experimental feature for complex expression editing
 by filling in templates. It is inspired from other tools, like Pcoq
@@ -1150,7 +1160,7 @@ you want to save abbrevs; answer yes.
 <hr size="6">
 <a class="anchor" id="Proof_002dTree-Visualization"></a>
 <a class="anchor" id="Proof_002dTree-Visualization-1"></a>
-<h2 class="section">11.10 Proof-Tree Visualization</h2>
+<h2 class="section">10.10 Proof-Tree Visualization</h2>
 
 <p>Starting with Proof General version 4.2 and Coq version 8.4, Coq
 Proof General has full support for proof-tree visualization, 
@@ -1171,11 +1181,11 @@ several layers.
 <hr size="6">
 <a class="anchor" id="Showing-Proof-Diffs"></a>
 <a class="anchor" id="Showing-Proof-Diffs-1"></a>
-<h2 class="section">11.11 Showing Proof Diffs</h2>
+<h2 class="section">10.11 Showing Proof Diffs</h2>
 
 <p>Coq 8.10 supports automatically highlighting the differences
 between successive proof steps in Proof General.  The feature is described in the
-<a href="https://coq.inria.fr/distrib/current/refman/proof-engine/proof-handling.html#showing-differences-between-proof-steps">Coq Documentation</a>.
+Coq Documentation, section <a href="https://coq.inria.fr/distrib/current/refman/proofs/writing-proofs/proof-mode.html#showing-differences-between-proof-steps">Showing differences between proof steps</a>.
 </p>
 <p>The Coq proof diff does more than a basic &quot;diff&quot; operation.  For example:
 </p>
@@ -1213,7 +1223,7 @@ with non-<code>Bg</code> faces.
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Coq-Proof-General" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/master/userman/Isabelle-Proof-General#Isabelle-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/master/userman/EasyCrypt-Proof-General#EasyCrypt-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left">[<a href="/doc/master/userman/index#Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/master/userman/ProofGeneral_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/master/userman/Function-Index#Function-Index" title="Index">Index</a>]</td>
@@ -1222,7 +1232,7 @@ with non-<code>Bg</code> faces.
 </div>
 <p>
  <font size="-1">
-  This document was generated by <em>Erik Martin-Dorel</em> on <em>August 21, 2021</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
+  This document was generated by <em>Erik Martin-Dorel</em> on <em>March 10, 2022</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
  </font>
  <br>
 

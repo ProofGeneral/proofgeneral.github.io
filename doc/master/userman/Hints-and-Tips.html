@@ -6,7 +6,7 @@ title: Documentation
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="/doc/master/userman/Customizing-Proof-General#Customizing-Proof-General" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/master/userman/LEGO-Proof-General#LEGO-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/master/userman/Coq-Proof-General#Coq-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left">[<a href="/doc/master/userman/index#Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/master/userman/ProofGeneral_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/master/userman/Function-Index#Function-Index" title="Index">Index</a>]</td>
@@ -63,8 +63,8 @@ code like this to your &lsquo;<tt>.emacs</tt>&rsquo; file:
 
 <p>This lisp fragment adds bindings for every buffer in proof script
 mode (the Emacs keymap is called <code>proof-mode-map</code>).  To just
-affect one prover, use a keymap name like <code>isar-mode-map</code> and
-evaluate after the library <code>isar</code> has been loaded.
+affect one prover, use a keymap name like <code>coq-mode-map</code> and
+evaluate after the library <code>coq</code> has been loaded.
 </p>
 <p>To find the names of the functions you may want to bind, look in this
 manual, or query current bindings interactively with <kbd>C-h k</kbd>.  This
@@ -118,69 +118,50 @@ the file.
 <p><b>Remark 1:</b> The examples in the following are for Coq but the
 trick is applicable to other provers. 
 </p>
-<p><b>Remark 2:</b> For Coq specifically, there is a recommended other way
-of configuring Coq options:
-project files (<a href="/doc/master/userman/Coq-Proof-General#Using-the-Coq-project-file">Using the Coq project file</a>).
-Actually, project files are intended to be included in the
-distribution of a library (and included in its repository), so the Coq
-options specified in project files are supposed to work for all users.
-In contrast, user-defined options such as <code>coq-prog-name</code> should
-preferably be specified in a directory-local-variables file (see below).
+<p><b>Remark 2:</b> For Coq specifically, there is a recommended other way of
+configuring Coq command-line options: project files (<a href="/doc/master/userman/Coq-Proof-General#Using-the-Coq-project-file">Using the Coq project file</a>). However file variables are useful to set a specific
+<code>coqtop</code> executable, or for defining file-specific command-line
+options. Actually, since project files are intended to be included in
+the distribution of a library (and included in its repository), the file
+variables can be used to set non versioned options like
+<code>coq-prog-name</code>.
 </p>
-<p>For example, in Coq projects involving multiple directories, it is necessary
-to set the variable <code>coq-load-path</code> 
-(<a href="/doc/master/userman/Coq-Proof-General#Customizing-Coq-Multiple-File-Support">Customizing Coq Multiple File Support</a>). 
-Here is an example:
-Assume the file &lsquo;<tt>.../dir/bar/foo.v</tt>&rsquo; depends on modules in
-<code>.../dir/theories/</code>. Then you can put the following at the
-end of &lsquo;<tt>foo.v</tt>&rsquo;:
+<p><b>Remark 3:</b> For obvious security reasons, when emacs reads file
+variables, it asks for permission to the user before applying the
+assignment. You should read carefully the content of the variable before
+accepting. You can hit <code>!</code> to accept definitely the exact values at
+hand.
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="lisp">(* 
-*** Local Variables: ***
-*** coq-load-path: (&quot;../theories&quot;) ***
-*** End: ***
-*)
-</pre></td></tr></table>
-
-<p>This way, the right command line arguments are passed to the
-invocation of
-<code>coqtop</code> when scripting starts in
-&lsquo;<tt>foo.v</tt>&rsquo;. Note that the load path <code>&quot;../theories&quot;</code> is
-project or even file specific, and that therefore a global
-setting via the
-configuration tool would be inappropriate.
-With file variables, Emacs will set <code>coq-load-path</code>
-automatically when visiting <code>foo.v</code>. Moreover, the setting of
-<code>coq-load-path</code> in different files or buffers will not be
-affected. (File variables become buffer local.) 
-</p>
-<p>Extending the previous example, if the makefile for &lsquo;<tt>foo.v</tt>&rsquo; is
-located in directory &lsquo;<tt>.../dir/</tt>&rsquo;, you can add the right compile
-command. You can also specify a &quot;-R&quot; command. And if you want a non
-standard coq executable to be used, here is what you should put in
-variables:
+<p>Let us take a concrete example: suppose the makefile for &lsquo;<tt>foo.v</tt>&rsquo; is
+located in directory &lsquo;<tt>.../dir/</tt>&rsquo;, you need the right compile command
+in the <code>compile-command</code> emacs variable. Moreover suppose that you
+want <code>coqtop</code> to be found in a non standard directory. To put these
+values in file variables, here is what you should put at the end of
+&lsquo;<tt>foo.v</tt>&rsquo;:
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="lisp">(* 
 *** Local Variables: ***
 *** coq-prog-name: &quot;../../coqsrc/bin/coqtop&quot; ***
-*** coq-load-path: ((&quot;../util&quot; &quot;util&quot;) &quot;../theories&quot;) ***
 *** compile-command: &quot;make -C .. -k bar/foo.vo&quot; ***
 *** End:***
 *)
 </pre></td></tr></table>
 
 <p>And then the right call to make will be done if you use the <kbd>M-x
-compile</kbd> command. Note that the lines are commented in order to be
-ignored by the proof assistant. It is possible to use this mechanism for
-all variables, See <a href="../emacs/File-Variables.html#File-Variables">(emacs)File Variables</a>.
+compile</kbd> command, and the correct <code>coqtop</code> will be called by
+ProofGeneral. Note that the lines are commented in order to be ignored
+by the proof assistant. It is possible to use this mechanism for all
+variables, See <a href="../emacs/File-Variables.html#File-Variables">(emacs)File Variables</a>.
+</p>
+<p><em>NOTE:</em> <code>coq-prog-name</code> should contain only the <code>coqtop</code>
+executable, <em>not the options</em>.
 </p>
 <p>One can also specify file variables on a per directory basis,
-See <a href="../emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>. For instance,
-assume you have a Coq project with several subdirectories and you
-want to put each subdirectory into <code>coq-load-path</code> for every
-file in the project. You can achieve this by storing
+See <a href="../emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>. You can achieve almost the same
+as above for all the files of a directory by storing
 </p>
-<table><tr><td>&nbsp;</td><td><pre class="lisp">((coq-mode . ((coq-load-path . ((&quot;../util&quot; &quot;util&quot;) &quot;../theories&quot;)))))
+<table><tr><td>&nbsp;</td><td><pre class="lisp">((coq-mode . ((coq-prog-name . &quot;/home/xxx/yyy/coqsrc/bin/coqtop&quot;)
+              (compile-command . &quot;make -C .. -k&quot;))))
 </pre></td></tr></table>
 
 <p>into the file <code>.dir-locals.el</code> in one of the parent directories.
@@ -188,20 +169,9 @@ The value in this file must be an alist that maps mode names to alists,
 where these latter alists map variables to values. You can aso put
 arbitrary code in this file See <a href="../emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>.
 </p>
-<p>Regarding the configuration of the <code>coq-prog-name</code> variable, the
-<code>.dir-locals.el</code> file should contain something like:
-</p>
-<table><tr><td>&nbsp;</td><td><pre class="lisp">((coq-mode . ((coq-prog-name . &quot;.../path/to/coqtop&quot;))))
-</pre></td></tr></table>
-
 <p><em>Note:</em> if you add such content to the <code>.dir-locals.el</code> file
-you should restart Emacs to take this change into account (or
-just run <kbd>M-x proof-shell-exit RET yes RET</kbd>
-and <kbd>M-x normal-mode RET</kbd> in the Coq buffer
-before restarting the Coq process).
+you should restart Emacs or revert your buffer.
 </p>
-
-
 <hr size="6">
 <a class="anchor" id="Using-abbreviations"></a>
 <a class="anchor" id="Using-abbreviations-1"></a>
@@ -227,22 +197,12 @@ minor mode, type <kbd>M-x abbrev-mode RET</kbd>. When you are not in Abbrev
 mode you can expand an abbreviation by pressing <kbd>C-x '</kbd>
 (<code>expand-abbrev</code>). See the Emacs manual for more details.
 </p>
-<p>Coq Proof General has a special experimental feature called &quot;Holes&quot;
-which makes use of the abbreviation mechanism and includes a large list
-of command abbreviations. See section <a href="/doc/master/userman/Coq-Proof-General#Holes-feature">Holes feature</a>, for details.  With other
-provers, you may use the standard Emacs commands above to set up your
-own abbreviation tables.
-</p>
-
-
-
-
 
 <hr size="6">
 <div class="header">
 <table cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Hints-and-Tips" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="/doc/master/userman/LEGO-Proof-General#LEGO-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left">[<a href="/doc/master/userman/Coq-Proof-General#Coq-Proof-General" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left">[<a href="/doc/master/userman/index#Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/master/userman/ProofGeneral_toc#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td valign="middle" align="left">[<a href="/doc/master/userman/Function-Index#Function-Index" title="Index">Index</a>]</td>
@@ -251,7 +211,7 @@ own abbreviation tables.
 </div>
 <p>
  <font size="-1">
-  This document was generated by <em>Erik Martin-Dorel</em> on <em>August 21, 2021</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
+  This document was generated by <em>Erik Martin-Dorel</em> on <em>March 10, 2022</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.82</em></a>.
  </font>
  <br>
 
