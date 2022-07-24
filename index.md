@@ -15,7 +15,7 @@ Proof General has been developed at the
 [University of Edinburgh](http://www.ed.ac.uk/), mainly by
 [David Aspinall](http://homepages.inf.ed.ac.uk/da), with contributions
 from other sites.  It is distributed under the conditions of the
-[GNU General Public License](https://www.gnu.org/licenses/gpl-2.0.html).
+[GNU General Public License v3.0 or later](https://www.gnu.org/licenses/gpl-3.0.html).
 
 The authors of Proof General are listed in the [AUTHORS](/AUTHORS) file.
 Many more people have also contributed.  Please see the CREDITS
@@ -71,11 +71,11 @@ Two editions of Proof General are currently available:
 * the (legacy) REPL-based, stable version of Proof General,
   gathered in the
   [master](https://github.com/ProofGeneral/PG/tree/master) branch, and
-  licensed under GPLv2;
+  licensed under GPLv3+;
 * the (newest) Coq-specific, experimental version of Proof General,
   supporting asynchronous proof processing,
   gathered in the
-  [async](https://github.com/ProofGeneral/PG/tree/async) branch, and
+  [async](https://github.com/ProofGeneral/PG/tree/async) branch, also
   licensed under GPLv3+.
 
 {% endcomment %}
