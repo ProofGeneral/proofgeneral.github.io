@@ -18,7 +18,7 @@ CHECKOUT=$(SRC)/PG
 DEST=doc
 DEST_user=userman
 DEST_adapt=adaptingman
-BRANCH=master
+BRANCH ?= master
 HEADER=$(SRC)/_head.html
 TEXI_CUSTOM=$(CURDIR)/$(SRC)/texi2html_custom.pm
 TEXI2HTML=texi2html --expandinfo --node-files --split=chapter --noheader --init-file=$(TEXI_CUSTOM)
@@ -36,7 +36,7 @@ checkout:
 	@echo "### Phase 0"
 	$(RM) -r $(CHECKOUT)/$(REPODIR)
 	# cd $(REPO) && git ls-files -z $(REPODIR) | git checkout-index --prefix=$(CURDIR)/$(CHECKOUT)/ -f --stdin -z
-	cd $(REPO) && git archive --format=tar --prefix=$(CHECKOUT)/ master -- $(REPODIR) | (cd $(CURDIR) && tar xf -)
+	cd $(REPO) && git archive --format=tar --prefix=$(CHECKOUT)/ $(BRANCH) -- $(REPODIR) | (cd $(CURDIR) && tar xf -)
 	@echo "### End of Phase 0 -- $(REPODIR) folder checked-out in:"
 	@echo "$(CURDIR)/$(CHECKOUT)/$(REPODIR)"
 
