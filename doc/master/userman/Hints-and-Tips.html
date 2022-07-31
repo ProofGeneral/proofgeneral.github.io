@@ -109,7 +109,7 @@ see section <a href="/doc/master/userman/Customizing-Proof-General#Display-custo
 <a class="anchor" id="index-file-variables"></a>
 
 <p>A very convenient way to customize file-specific variables is to use 
-File Variables (See <a href="../emacs/File-Variables.html#File-Variables">(emacs)File Variables</a>). This feature of
+File Variables (See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/File-Variables.html#File-Variables">(emacs)File Variables</a>). This feature of
 Emacs permits to specify values for certain Emacs variables
 when a file is loaded. File variables and their values 
 are written as a list at the end of
@@ -151,13 +151,13 @@ values in file variables, here is what you should put at the end of
 compile</kbd> command, and the correct <code>coqtop</code> will be called by
 ProofGeneral. Note that the lines are commented in order to be ignored
 by the proof assistant. It is possible to use this mechanism for all
-variables, See <a href="../emacs/File-Variables.html#File-Variables">(emacs)File Variables</a>.
+variables, See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/File-Variables.html#File-Variables">(emacs)File Variables</a>.
 </p>
 <p><em>NOTE:</em> <code>coq-prog-name</code> should contain only the <code>coqtop</code>
 executable, <em>not the options</em>.
 </p>
 <p>One can also specify file variables on a per directory basis,
-See <a href="../emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>. You can achieve almost the same
+See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>. You can achieve almost the same
 as above for all the files of a directory by storing
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="lisp">((coq-mode . ((coq-prog-name . &quot;/home/xxx/yyy/coqsrc/bin/coqtop&quot;)
@@ -167,7 +167,7 @@ as above for all the files of a directory by storing
 <p>into the file <code>.dir-locals.el</code> in one of the parent directories.
 The value in this file must be an alist that maps mode names to alists,
 where these latter alists map variables to values. You can aso put
-arbitrary code in this file See <a href="../emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>.
+arbitrary code in this file See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>.
 </p>
 <p><em>Note:</em> if you add such content to the <code>.dir-locals.el</code> file
 you should restart Emacs or revert your buffer.
@@ -178,7 +178,7 @@ you should restart Emacs or revert your buffer.
 <h2 class="section">9.3 Using abbreviations</h2>
 
 <p>A very useful package of Emacs supports automatic expansions of
-abbreviations as you type, See <a href="../emacs/Abbrevs.html#Abbrevs">(emacs)Abbrevs</a>.
+abbreviations as you type, See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Abbrevs.html#Abbrevs">(emacs)Abbrevs</a>.
 </p>
 <p>For example, the proof assistant Coq has many command strings that are
 long, such as &ldquo;reflexivity,&rdquo; &ldquo;Inductive,&rdquo; &ldquo;Definition&rdquo; and
@@ -211,7 +211,7 @@ mode you can expand an abbreviation by pressing <kbd>C-x '</kbd>
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>July 30, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>July 31, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

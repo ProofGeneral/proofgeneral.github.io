@@ -110,6 +110,7 @@ temporarily disable (Set Printing All).
 <a class="anchor" id="Using-the-Coq-project-file"></a>
 <a class="anchor" id="Using-the-Coq-project-file-1"></a>
 <h2 class="section">10.2 Using the Coq project file</h2>
+<a class="anchor" id="index-_005fCoqProject"></a>
 
 <p>The Coq project file is the recommended way to configure the Coq
 load path and the mapping of logical module names to physical
@@ -150,8 +151,8 @@ with <code>CoqIde</code> or <code>coq_makefile</code>.
 </p>
 <p><em>NOTE:</em> the Coq project file cannot define which version of
 <code>coqtop</code> is launched. You need either to launch emacs with the
-right executable in the path or use See <a href="../emacs/File-Variables.html#File-Variables">(emacs)File Variables</a> or
-See <a href="../emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>. See <a href="/doc/master/userman/Hints-and-Tips#Using-file-variables">Using file variables</a>
+right executable in the path or use See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/File-Variables.html#File-Variables">(emacs)File Variables</a> or
+See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>. See <a href="/doc/master/userman/Hints-and-Tips#Using-file-variables">Using file variables</a>
 below.
 </p>
 <table class="menu" border="0" cellspacing="0">
@@ -165,6 +166,7 @@ below.
 <a class="anchor" id="Changing-the-name-of-the-coq-project-file"></a>
 <a class="anchor" id="Changing-the-name-of-the-coq-project-file-1"></a>
 <h3 class="subsection">10.2.1 Changing the name of the coq project file</h3>
+<a class="anchor" id="index-_002edir_002dlocals_002eel"></a>
 
 <p>To change the name of the Coq project file, configure
 <code>coq-project-filename</code> (select menu <code>Proof-General -&gt;
@@ -176,17 +178,17 @@ will change the Coq project file name permanently and globally.
 one project you can set the option as local file variable,
 <a href="/doc/master/userman/Hints-and-Tips#Using-file-variables">Using file variables</a>. This can be done either directly in
 every file or once for all files of a directory tree with a
-<code>.dir-local.el</code> file, See <a href="../emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>.
-The file <code>.dir-local.el</code> should then contain
+<code>.dir-locals.el</code> file, See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>.
+The file <code>.dir-locals.el</code> should then contain
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="lisp">((coq-mode . ((coq-project-filename . &quot;myprojectfile&quot;))))
 </pre></td></tr></table>
 
-<p>Note that variables set in <code>.dir-local.el</code> are automatically
+<p>Note that variables set in <code>.dir-locals.el</code> are automatically
 made buffer local (such that files in different directories can
 have their independent setting of <code>coq-project-filename</code>).
 If you make complex customizations using <code>eval</code> in
-<code>.dir-local.el</code>, you might want to add appropriate calls to
+<code>.dir-locals.el</code>, you might want to add appropriate calls to
 <code>make-local-variable</code>.
 </p>
 <p>Documentation of the user option <code>coq-project-filename</code>:
@@ -235,6 +237,7 @@ on a per project basis.
 <a class="anchor" id="Proof-using-annotations"></a>
 <a class="anchor" id="Proof-using-annotations-1"></a>
 <h2 class="section">10.3 Proof using annotations</h2>
+<a class="anchor" id="index-Proof-using"></a>
 
 <p>In order to process files asynchronously and pre-compile files (.vos and
 .vok files), it is advised (inside sections) to list the section
@@ -268,6 +271,7 @@ won&rsquo;t replay the proof)
 <a class="anchor" id="Multiple-File-Support"></a>
 <a class="anchor" id="Multiple-File-Support-1"></a>
 <h2 class="section">10.4 Multiple File Support</h2>
+<a class="anchor" id="index-multiple-file-support"></a>
 
 <p>Since version 4.1 Coq Proof General has multiple file support. It
 consists of the following points:
@@ -394,7 +398,7 @@ dependency tree and recompiles files as necessary.
 of errors. It then appears in the buffer
 <code>*coq-compile-response*</code>.
 One can use <code>C-x `</code> (bound to <code>next-error</code>,
-See <a href="../emacs/Compilation-Mode.html#Compilation-Mode">(emacs)Compilation Mode</a>) to jump to error locations.
+See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Compilation-Mode.html#Compilation-Mode">(emacs)Compilation Mode</a>) to jump to error locations.
 Sometimes the compilation commands do not produce error messages
 with location information, then <code>C-x `</code> does only work in a
 limited way.
@@ -472,7 +476,7 @@ compilation, but exclusively, depending on the Coq version,
 <a class="anchor" id="Locking-Ancestors"></a>
 <a class="anchor" id="Locking-Ancestors-1"></a>
 <h3 class="subsection">10.4.2 Locking Ancestors</h3>
-
+<a class="anchor" id="index-proof_002dstrict_002dread_002donly-1"></a>
 
 <p>Locking ancestor files works as a side effect of dependency
 checking. This means that ancestor locking does only work when
@@ -941,6 +945,7 @@ General will perform some unnecessary compilations.
 <a class="anchor" id="Omitting-proofs-for-speed"></a>
 <a class="anchor" id="Omitting-proofs-for-speed-1"></a>
 <h2 class="section">10.5 Omitting proofs for speed</h2>
+<a class="anchor" id="index-Omitting-proofs-for-speed"></a>
 
 <p>To speed up asserting larger chunks, Proof General can omit
 complete opaque proofs by silently replacing the whole proof
@@ -1163,6 +1168,7 @@ you want to save abbrevs; answer yes.
 <a class="anchor" id="Proof_002dTree-Visualization"></a>
 <a class="anchor" id="Proof_002dTree-Visualization-1"></a>
 <h2 class="section">10.10 Proof-Tree Visualization</h2>
+<a class="anchor" id="index-Proof_002dTree-visualization"></a>
 
 <p>Starting with Proof General version 4.2 and Coq version 8.4, Coq
 Proof General has full support for proof-tree visualization, 
@@ -1184,6 +1190,9 @@ several layers.
 <a class="anchor" id="Showing-Proof-Diffs"></a>
 <a class="anchor" id="Showing-Proof-Diffs-1"></a>
 <h2 class="section">10.11 Showing Proof Diffs</h2>
+<a class="anchor" id="index-Showing-Proof-Diffs"></a>
+<a class="anchor" id="index-coq_002ddiffs"></a>
+<a class="anchor" id="index-coq_002dshow_002dproof_002dstepwise"></a>
 
 <p>Coq 8.10 supports automatically highlighting the differences
 between successive proof steps in Proof General.  The feature is described in the
@@ -1225,6 +1234,7 @@ with non-<code>Bg</code> faces.
 <a class="anchor" id="Opam_002dswitch_002dmode-support"></a>
 <a class="anchor" id="Opam_002dswitch_002dmode-support-1"></a>
 <h2 class="section">10.12 Opam-switch-mode support</h2>
+<a class="anchor" id="index-opam_002dswitch_002dmode-support"></a>
 
 <p>Coq can be installed using <code>opam</code> (the OCaml package manager),
 which makes it easy to manage several different switches, having each
@@ -1270,7 +1280,7 @@ different coq version from a different opam switch.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>July 30, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>July 31, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
