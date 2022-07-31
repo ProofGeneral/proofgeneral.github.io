@@ -59,7 +59,8 @@ doc.%:
 	  sed -e '1,/<body\>/d;/<\/body\>/,$$d' \
 	  -e 's|\(href="\)\([-_0-9A-Za-z]*\)\.html\#|\1'/$(DEST)/$(BRANCH)/$(DEST_$*)/'\2#|g' \
 	  -e 's|"ProofGeneral-image.jpg"|"/img/ProofGeneral-image.jpg"|g' \
-          $$f.bak >> $$f && \
+	  -e 's|"\.\./emacs/|"https://www.gnu.org/software/emacs/manual/html_node/emacs/|g' \
+	  $$f.bak >> $$f && \
 	  $(RM) $$f.bak; \
 	done
 	@echo "### End of Phase 2/$* -- final HTML files generated in:"
