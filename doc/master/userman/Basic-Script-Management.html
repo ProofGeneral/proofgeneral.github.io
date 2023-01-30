@@ -758,16 +758,20 @@ deleted text.
 <dt><a class="anchor" id="index-proof_002dgoto_002dpoint"></a><u>Command:</u> <b>proof-goto-point</b><i> &amp;optional raw</i></dt>
 <dd><p>Assert or retract to the command at current position.<br>
 Calls &lsquo;<samp><code>proof-assert-until-point</code></samp>&rsquo; or &lsquo;<samp><code>proof-retract-until-point</code></samp>&rsquo; as
-appropriate. With prefix argument <var>raw</var> the omit proofs feature
-(&lsquo;<samp><code>proof-omit-proofs-option</code></samp>&rsquo;) is temporaily disabled to check all
-proofs in the asserted region.
+appropriate.
+With prefix argument <var>raw</var>, the activation of the omit proofs feature
+(&lsquo;<samp><code>proof-omit-proofs-option</code></samp>&rsquo;) is temporarily toggled,
+so we can chose whether to check all proofs in the asserted region,
+or to merely assume them and save time.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dprocess_002dbuffer"></a><u>Command:</u> <b>proof-process-buffer</b><i> &amp;optional raw</i></dt>
 <dd><p>Process the current (or script) buffer, and maybe move point to the end.<br>
-With prefix argument <var>raw</var> the omit proofs feature (&lsquo;<samp><code>proof-omit-proofs-option</code></samp>&rsquo;)
-is temporaily disabled to check all proofs in the asserted region.
+With prefix argument <var>raw</var>, the activation of the omit proofs feature
+(&lsquo;<samp><code>proof-omit-proofs-option</code></samp>&rsquo;) is temporarily toggled,
+so we can chose whether to check all proofs in the asserted region,
+or to merely assume them and save time.
 </p></dd></dl>
 
 <dl>
@@ -1090,7 +1094,7 @@ use a fresh Emacs.)
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>November 30, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 30, 2023</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
