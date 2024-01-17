@@ -150,10 +150,12 @@ with the option <code>coq-load-path</code>, but this is not compatible
 with <code>CoqIde</code> or <code>coq_makefile</code>.
 </p>
 <p><em>NOTE:</em> the Coq project file cannot define which version of
-<code>coqtop</code> is launched. You need either to launch emacs with the
-right executable in the path or use See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/File-Variables.html#File-Variables">(emacs)File Variables</a> or
-See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>. See <a href="/doc/master/userman/Hints-and-Tips#Using-file-variables">Using file variables</a>
-below.
+<code>coqtop</code> is launched. See section <a href="#Opam_002dswitch_002dmode-support">Opam-switch-mode support</a> for how to
+switch between different Coq versions. Alternatively, for a fixed
+version, you need either to launch emacs with the right executable in
+the path or use file variables (see section <a href="/doc/master/userman/Hints-and-Tips#Using-file-variables">Using file variables</a> below or
+see <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/File-Variables.html#File-Variables">(emacs)File Variables</a>) or directory variables,
+see <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#Changing-the-name-of-the-coq-project-file">10.2.1 Changing the name of the coq project file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -178,7 +180,7 @@ will change the Coq project file name permanently and globally.
 one project you can set the option as local file variable,
 <a href="/doc/master/userman/Hints-and-Tips#Using-file-variables">Using file variables</a>. This can be done either directly in
 every file or once for all files of a directory tree with a
-<code>.dir-locals.el</code> file, See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>.
+<code>.dir-locals.el</code> file, see <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html#Directory-Variables">(emacs)Directory Variables</a>.
 The file <code>.dir-locals.el</code> should then contain
 </p>
 <table><tr><td>&nbsp;</td><td><pre class="lisp">((coq-mode . ((coq-project-filename . &quot;myprojectfile&quot;))))
@@ -398,7 +400,7 @@ dependency tree and recompiles files as necessary.
 of errors. It then appears in the buffer
 <code>*coq-compile-response*</code>.
 One can use <code>C-x `</code> (bound to <code>next-error</code>,
-See <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Compilation-Mode.html#Compilation-Mode">(emacs)Compilation Mode</a>) to jump to error locations.
+see <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Compilation-Mode.html#Compilation-Mode">(emacs)Compilation Mode</a>) to jump to error locations.
 Sometimes the compilation commands do not produce error messages
 with location information, then <code>C-x `</code> does only work in a
 limited way.
@@ -1280,7 +1282,7 @@ different coq version from a different opam switch.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 16, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 17, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
