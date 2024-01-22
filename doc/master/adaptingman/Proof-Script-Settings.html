@@ -590,10 +590,14 @@ match of &lsquo;<samp><code>proof-script-proof-end-regexp</code></samp>&rsquo;, 
 to the proof assistant) and replaced by
 &lsquo;<samp><code>proof-script-proof-admit-command</code></samp>&rsquo;. If a match for
 &lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo; is found while searching
-forward for the proof end, the current proof (up to and including
-the match of &lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo;) is considered
-to be not opaque and not omitted, thus all these proof commands
-_are_ sent to the proof assistant.
+forward for the proof end or if
+&lsquo;<samp><code>proof-script-cmd-prevents-proof-omission</code></samp>&rsquo; recognizes a proof
+command that prevents proof omission then the current proof (up
+to and including the match of
+&lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo; or
+&lsquo;<samp><code>proof-script-proof-end-regexp</code></samp>&rsquo;) is considered to be not opaque
+and not omitted, thus all these proof commands _are_ sent to the
+proof assistant.
 </p>
 <p>The feature does not work for nested proofs. If a match for
 &lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo; is found before the next match
