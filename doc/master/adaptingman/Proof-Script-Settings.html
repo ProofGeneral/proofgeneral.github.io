@@ -567,6 +567,21 @@ proofs are not nested. If a nested proof is found, a warning is
 displayed and omitting proofs stops at that location for the
 currently asserted region.
 </p>
+<p>In Coq, commands with non-local effects, such as <code>Hint</code>, may
+appear inside proofs. Additionally, admitting a proof of a <code>Let</code>
+declaration causes a warning in Coq. To treat such cases, the
+predicate <code>proof-script-cmd-prevents-proof-omission</code> is applied
+to all commands inside proofs and the regular expression
+<code>proof-script-cmd-force-next-proof-kept</code> is matched against all
+commands outside proofs. In case of a hit, the current or,
+respectively, the next proof is treated as non-opaque and is not
+omitted. Note that a match of
+<code>proof-script-cmd-force-next-proof-kept</code> is only handled if the
+matching command and the following proof appear in the same asserted
+region. If the proof is asserted separately, the information about the
+match in the previously asserted region is lost and the proof may thus
+be omitted.
+</p>
 <p>To enable the omit proofs feature, the following settings must be
 configured.
 </p>
@@ -634,6 +649,35 @@ See &lsquo;<samp><code>proof-omit-proofs-configured</code></samp>&rsquo;.
 <dt><a class="anchor" id="index-proof_002dscript_002dproof_002dadmit_002dcommand"></a><u>Variable:</u> <b>proof-script-proof-admit-command</b></dt>
 <dd><p>Proof command to be inserted instead of omitted proofs.
 </p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002dscript_002dcmd_002dprevents_002dproof_002domission"></a><u>Variable:</u> <b>proof-script-cmd-prevents-proof-omission</b></dt>
+<dd><p>Optional predicate to match commands that prevent omitting the current proof.<br>
+If set, this option should contain a function that takes a proof
+command (as string) as argument and returns t or nil. If set, the
+function is called on every proof command inside a proof while
+scanning for proofs to omit. The predicate should return t if the
+command has effects ouside the proof, potentially breaking the
+script if the current proof is omitted. If the predicate returns
+t, the proof is considered to be not opaque and thus not omitted.
+</p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002dscript_002dcmd_002dforce_002dnext_002dproof_002dkept"></a><u>Variable:</u> <b>proof-script-cmd-force-next-proof-kept</b></dt>
+<dd><p>Optional regexp for commands that prevent omitting the next proof.<br>
+If set, this option should contain a regular expression that
+matches proof-script commands that prevent the omission of proofs
+dirctly following this command. When scanning the newly asserted
+region for proofs to omit, every proof-script command outside
+proofs is matched against this regexp. If it matches and the next
+command matches &lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo; this following
+proof will not be omitted.
+</p>
+<p>Note that recognition of commands with this regular expression
+does only work if the command and the following proof are
+asserted together.
+</p></dd></dl>
+
 <hr size="6">
 <a class="anchor" id="Safe-_0028state_002dpreserving_0029-commands"></a>
 <a class="anchor" id="Safe-_0028state_002dpreserving_0029-commands-1"></a>
@@ -799,7 +843,7 @@ last use time, to discourage saving these into the users database.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 22, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 23, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

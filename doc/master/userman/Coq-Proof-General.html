@@ -949,10 +949,13 @@ General will perform some unnecessary compilations.
 <h2 class="section">10.5 Omitting proofs for speed</h2>
 <a class="anchor" id="index-Omitting-proofs-for-speed"></a>
 
-<p>To speed up asserting larger chunks, Proof General can omit
-complete opaque proofs by silently replacing the whole proof
-script with <code>Admitted</code>, <a href="/doc/master/userman/Basic-Script-Management#Script-processing-commands">Script processing commands</a>.
-This works when
+<p>To speed up asserting larger chunks, Proof General can omit complete
+opaque proofs by silently replacing the whole proof script with
+<code>Admitted</code>, <a href="/doc/master/userman/Basic-Script-Management#Script-processing-commands">Script processing commands</a>. For files with big
+proofs this can bring down the processing time to 10% with the obvious
+disadvantage that errors in the omitted proofs go unnoticed.
+</p>
+<p>The omit-proof feature works when
 </p><ul>
 <li>
 proofs are not nested
@@ -972,9 +975,8 @@ non-opaque proofs (i.e., not omitted).
 <code>proof-omit-proofs-option</code> or select <code>Proof-General -&gt;
 Quick Options -&gt; Processing -&gt; Omit Proofs</code>.
 </p>
-<p>With a prefix argument, both <code>proof-goto-point</code> and
-<code>proof-process-buffer</code> will temporarily disable the omit
-proofs feature and send the full proof script to Coq.
+<p>For both, <code>proof-goto-point</code> and <code>proof-process-buffer</code>, a
+prefix argument toggles the omit-proofs feature for one invocation.
 </p>
 <p>If a nested proof is detected while searching for opaque proofs
 to omit, a warning is displayed and the complete remainder of the
@@ -991,6 +993,34 @@ form being e.g. <code>Proof using Type</code> if no section hypothesis is
 used), see the menu command <code>Coq &gt; &quot;Proof using&quot; mode</code> and
 <a href="#Proof-using-annotations">Proof using annotations</a> for details.
 </p>
+<p>Note that the omit-proof feature works by examining the asserted
+region with different regular expressions to recognize proofs and to
+differentiate opaque from non-opaque proofs. This approach is
+necessarily imprecise and the omit-proofs feature may therefore cause
+unexpected errors in the proof script. Currently, Proof General
+correctly handles the following cases for Coq.
+</p><ul>
+<li>
+Commands, such as <code>Hint</code>, that may appear inside proofs but may
+have effects outside the proof cause the proof to be considered as
+non-opaque.
+</li><li>
+A <code>Let</code> declaration followed by a proof to supply the term causes
+this proof to be considered as non-opaque. Note that such declarations
+are only handled correctly if the <code>Let</code> and the proof are
+asserted together. If the proof is asserted separately it may be
+treated as opaque and thus be omitted.
+</li></ul>
+
+<p>The following cases are currently not handled correctly.
+</p><ul>
+<li>
+All capitalized commands make Proof General believe the proof is
+non-opaque, even if they have proof-local effect only, such as
+<code>Focus</code> or <code>Unshelve</code>.
+</li></ul>
+
+
 <hr size="6">
 <a class="anchor" id="Editing-multiple-proofs"></a>
 <a class="anchor" id="Editing-multiple-proofs-1"></a>
@@ -1282,7 +1312,7 @@ different coq version from a different opam switch.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 22, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 23, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

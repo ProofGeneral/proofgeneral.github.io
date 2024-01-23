@@ -711,17 +711,32 @@ omit complete opaque proofs when larger chunks are asserted. A
 proof is opaque, if its proof script or proof term cannot
 influence the following code. In Coq, opaque proofs are finished
 with <code>Qed</code>, non-opaque ones with <code>Defined</code>. When this
-omit proofs feature is configured, complete opaque proofs are
-silently replace with a suitable cheating command
+omit-proofs feature is configured, complete opaque proofs are
+silently replaced with a suitable cheating command
 (<code>Admitted</code> for Coq) before sending the proof to the proof
 assistant. For files with big proofs this can bring down the
 processing time to 10% with the obvious disadvantage that errors
-in the omitted proofs go unnoticed. For checking the proofs
-occasionally, a prefix argument for <code>proof-goto-point</code> and
-<code>proof-process-buffer</code> causes these commands to disregard
-the setting of <code>proof-omit-proofs-option</code>. Currently, the
-omit proofs feature is only supported for Coq.
-</li><li>
+in the omitted proofs go unnoticed. Currently, the omit-proofs
+feature is only supported for Coq.
+
+<p>A prefix argument for <code>proof-goto-point</code> and
+<code>proof-process-buffer</code> toggles the omit-proofs feature
+temporarily for this invocation. That is, if
+<code>proof-omit-proofs-option</code> has been set to <code>t</code>, a prefix
+argument switches the omit-proofs feature off for these commands. Vice
+versa, if <code>proof-omit-proofs-option</code> is <code>nil</code>, a prefix
+argument switches the omit-proofs feature temporarily on for one
+invocation.
+</p>
+<p>Note that the omit-proof feature works by examining the asserted
+region with different regular expressions to recognize proofs and to
+differentiate opaque from non-opaque proofs. This approach is
+necessarily imprecise and it may happen that certain non-opaque proofs
+are classified as opaque ones, thus being omitted and that the proof
+script therefore fails unexpectedly at a later point. Therefore, if a
+proof script fails unexpectedly try processing it again after
+disabling the omit-proofs feature.
+</p></li><li>
 An often used poor man&rsquo;s solution is to collect all new material
 at the end of one file, regardless where the material really
 belongs. When the final theorem has been proved, one cleans up
@@ -1094,7 +1109,7 @@ use a fresh Emacs.)
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 22, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 23, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
