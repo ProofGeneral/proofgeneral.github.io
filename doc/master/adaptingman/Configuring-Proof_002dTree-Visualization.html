@@ -19,6 +19,10 @@ title: Documentation
 <a class="anchor" id="Configuring-Proof_002dTree-Visualization-1"></a>
 <h1 class="chapter">12. Configuring Proof-Tree Visualization</h1>
 
+<p><b>Parts of this section are outdated. Please create an issue at
+github.com/ProofGeneral/Proof General if you have a question for
+adapting Prooftree for a new proof assistant.</b>
+</p>
 <p>The proof-tree visualization feature was written with the idea of
 supporting Coq as well as other proof assistants. Nevertheless,
 supporting proof-tree visualization for a second proof assistant
@@ -59,18 +63,9 @@ proof goal. The second layer contains proof trees for goals that
 have been added to the proof after the first proof tree was
 completed. And so on.
 </p>
-<p>To organize the layers, Prooftree must identify those proof
-commands that add new goals to a proof.
+<p>Prooftree assumes a new layer when it receives new goals in a state
+where the number of open goals is zero.
 </p>
-<dl>
-<dt><a class="anchor" id="index-proof_002dtree_002dnew_002dlayer_002dcommand_002dregexp"></a><u>Variable:</u> <b>proof-tree-new-layer-command-regexp</b></dt>
-<dd><p>Regexp to match proof commands that add new goals to a proof.<br>
-This regexp must match the command that turns the proof assistant
-into prover mode, which adds the initial goal to the proof.  It
-must further match commands that add additional goals after all
-previous goals have been proved.
-</p></dd></dl>
-
 
 <hr size="6">
 <a class="anchor" id="Prerequisites"></a>
@@ -188,9 +183,7 @@ proof-tree display is distributed in a few chunks over
 <p>The main task of the Elisp code is to extract goals, undo events
 and information about existential variables from the
 proof-assistant output and to send all this data to Prooftree.
-The Elisp code does also determine if additional output must be
-requested from the proof assistant. In that case it adds
-appropriate commands to <code>proof-action-list</code>, see section <a href="/doc/master/adaptingman/Internals-of-Proof-General#Proof-script-mode">Proof script mode</a>. These additional commands are flagged with
+Additional commands inserted by Prooftree are flagged with
 <code>proof-tree-show-subgoal</code>, <code>no-goals-display</code> and
 <code>no-response-display</code>. The flag
 <code>proof-tree-show-subgoal</code> ensures that a number of internal
@@ -198,52 +191,6 @@ functions ignore these additional commands. The other two flags
 ensure that their output is neither displayed in the goals nor
 the response buffer.
 </p>
-<p>For the decision about which goals must be sent to Prooftree, the
-Elisp code maintains the following two state variables.
-</p>
-<dl>
-<dt><a class="anchor" id="index-proof_002dtree_002dsequent_002dhash"></a><u>Variable:</u> <b>proof-tree-sequent-hash</b></dt>
-<dd><p>Hash table to remember sequent ID&rsquo;s.<br>
-Needed because some proof assistants do not distinguish between
-new subgoals, which have been created by the last proof command,
-and older, currently unfocussed subgoals.  If Proof General meets
-a goal, it is treated as new subgoal if it is not in this hash yet.
-</p>
-<p>The hash is mostly used as a set of sequent ID&rsquo;s.  However, for
-undo operations it is necessary to delete all those sequents from
-the hash that have been created in a state later than the undo
-state.  For this purpose this hash maps sequent ID&rsquo;s to the state
-number in which the sequent has been created.
-</p>
-<p>The hash table is initialized in &lsquo;<samp><code>proof-tree-start-process</code></samp>&rsquo;.
-</p></dd></dl>
-
-
-<dl>
-<dt><a class="anchor" id="index-proof_002dtree_002dexistentials_002dalist"></a><u>Variable:</u> <b>proof-tree-existentials-alist</b></dt>
-<dd><p>Alist mapping existential variables to sequent ID&rsquo;s.<br>
-Used to remember which goals need a refresh when an existential
-variable gets instantiated.  To support undo commands the old
-contents of this list must be stored in
-&lsquo;<samp><code>proof-tree-existentials-alist-history</code></samp>&rsquo;.  To ensure undo is
-properly working, this variable should only be changed by using
-&lsquo;<samp><code>proof-tree-delete-existential-assoc</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-tree-add-existential-assoc</code></samp>&rsquo; or
-&lsquo;<samp><code>proof-tree-clear-existentials</code></samp>&rsquo;.
-</p></dd></dl>
-
-<p>When retracting these two variables must be set to their previous
-state. For <code>proof-tree-sequent-hash</code> this is done with the
-state numbers that are stored in the hash. For
-<code>proof-tree-existentials-alist</code> a separate alist stores
-previous states.
-</p>
-<dl>
-<dt><a class="anchor" id="index-proof_002dtree_002dexistentials_002dalist_002dhistory"></a><u>Variable:</u> <b>proof-tree-existentials-alist-history</b></dt>
-<dd><p>Alist mapping state numbers to old values of &lsquo;<samp><code>proof-tree-existentials-alist</code></samp>&rsquo;.<br>
-Needed for undo.
-</p></dd></dl>
-
 
 <p>In Prooftree the separation between generic and proof-assistant
 specific code is less obvious. The Coq specific code is in the
@@ -364,27 +311,28 @@ actions, that can be delayed.
 speed, the amount of urgent code should be kept small.
 </p>
 <dl>
-<dt><a class="anchor" id="index-proof_002dtree_002durgent_002daction"></a><u>Function:</u> <b>proof-tree-urgent-action</b><i> flags</i></dt>
-<dd><p>Handle urgent points before the next item is sent to the proof assistant.<br>
-Schedule goal updates when existential variables have changed and
-call &lsquo;<samp><code>proof-tree-urgent-action-hook</code></samp>&rsquo;. All this is only done if
-the current output does not come from a command (with the
-<code>'proof-tree-show-subgoal</code> flag) that this package inserted itself.
+<dt><a class="anchor" id="index-proof_002dtree_002dcheck_002dproof_002dfinish"></a><u>Function:</u> <b>proof-tree-check-proof-finish</b><i> last-item</i></dt>
+<dd><p>Urgent action to delay processing at proof end.<br>
+This function is called from &lsquo;<samp><code>proof-shell-exec-loop</code></samp>&rsquo; after the
+old item has been removed and before the next item from
+&lsquo;<samp><code>proof-action-list</code></samp>&rsquo; is sent to the proof assistant. Of course
+only when the proof-tree display is active. At the end of the
+proof, this function delays items just following the previous
+proof until all show-goal commands from prooftree and the
+&lsquo;<samp><code>proof-tree-display-stop-command</code></samp>&rsquo; (which switches the dependent
+evar line off for Coq) have been processed.
 </p>
-<p>Urgent actions are only needed if the external proof display is
-currently running. Therefore this function should not be called
-when &lsquo;<samp><code>proof-tree-external-display</code></samp>&rsquo; is nil.
-</p>
-<p>This function assumes that the prover output is not suppressed.
-Therefore, &lsquo;<samp><code>proof-tree-external-display</code></samp>&rsquo; being t is actually a
-necessary precondition.
-</p>
-<p>The not yet delayed output is in the region
-[<code>proof-shell-delayed-output-start</code>, <code>proof-shell-delayed-output-end</code>].
+<p>If this function detects the end of the proof, it moves
+non-priority items following in &lsquo;<samp><code>proof-action-list</code></samp>&rsquo; to
+&lsquo;<samp><code>proof-tree--delayed-actions</code></samp>&rsquo; and sets
+&lsquo;<samp><code>proof-second-action-list-active</code></samp>&rsquo;. When later the command from
+&lsquo;<samp><code>proof-tree-display-stop-command</code></samp>&rsquo; is recognized, the items are
+moved back. If no items follow the end of the previous proof,
+&lsquo;<samp><code>proof-tree-display-stop-command</code></samp>&rsquo; is set to t.
 </p></dd></dl>
 
 
-<p>The function <code>proof-tree-urgent-action</code> is called at a point
+<p>The function <code>proof-tree-check-proof-finish</code> is called at a point
 where it is save to manipulate <code>proof-action-list</code>. This is
 essential, because <code>proof-tree-urgent-action</code> inserts goal
 display commands into <code>proof-action-list</code> when existential
@@ -507,7 +455,7 @@ reference <code>parse_existential_info</code>.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>February 19, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>February 23, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
