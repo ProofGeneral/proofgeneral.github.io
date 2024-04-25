@@ -197,6 +197,10 @@ Emacs automatically resizing windows between proof steps.
 screen), you can force a frame to stick to showing the goals or
 response buffer.
 </p>
+<p>This option only takes effect if the frame height is bigger than
+4 times &lsquo;<samp><code>window-min-height</code></samp>&rsquo; (i.e., bigger than 16 with default
+values) because there must be enough space to create 3 windows.
+</p>
 <p>The default value is <code>t</code>.
 </p></dd></dl>
 
@@ -774,7 +778,7 @@ prover specific ones using the <code><em>PA</em>-</code> mechanism).
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>April 20, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>April 25, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
