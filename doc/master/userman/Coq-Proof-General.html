@@ -34,19 +34,21 @@ assistant.  It supports most of the generic features of Proof General.
 </td></tr>
 <tr><td align="left" valign="top"><a href="#Omitting-proofs-for-speed">10.5 Omitting proofs for speed</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Editing-multiple-proofs">10.6 Editing multiple proofs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Proof-status-statistic-for-Coq">10.6 Proof status statistic for Coq</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#User_002dloaded-tactics">10.7 User-loaded tactics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Editing-multiple-proofs">10.7 Editing multiple proofs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Indentation-tweaking">10.8 Indentation tweaking</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#User_002dloaded-tactics">10.8 User-loaded tactics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Holes-feature">10.9 Holes feature</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Indentation-tweaking">10.9 Indentation tweaking</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Proof_002dTree-Visualization">10.10 Proof-Tree Visualization</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Holes-feature">10.10 Holes feature</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Showing-Proof-Diffs">10.11 Showing Proof Diffs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Proof_002dTree-Visualization">10.11 Proof-Tree Visualization</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Opam_002dswitch_002dmode-support">10.12 Opam-switch-mode support</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Showing-Proof-Diffs">10.12 Showing Proof Diffs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Opam_002dswitch_002dmode-support">10.13 Opam-switch-mode support</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -1022,9 +1024,25 @@ non-opaque, even if they have proof-local effect only, such as
 
 
 <hr size="6">
+<a class="anchor" id="Proof-status-statistic-for-Coq"></a>
+<a class="anchor" id="Proof-status-statistic-for-Coq-1"></a>
+<h2 class="section">10.6 Proof status statistic for Coq</h2>
+
+<p>The command <code>proof-check-proofs</code> (menu <code>Proof-General -&gt;
+Check Opaque Proofs</code>) generates the proof status of all opaque proofs
+in the current buffer, i.e., it generates an overview that shows which
+of the opaque proofs in the current buffer are currently valid and
+which are failing. This command is useful for a development process
+where invalid proofs are permitted and vos compilation (See section <a href="#Quick-and-inconsistent-compilation">Quick and inconsistent compilation</a>) and the omit proofs feature
+(See section <a href="#Omitting-proofs-for-speed">Omitting proofs for speed</a>) are used to work at the most
+interesting or challenging point instead of on the first invalid
+proof. See See section <a href="/doc/master/userman/Advanced-Script-Management-and-Editing#Proof-status-statistic">Proof status statistic</a> for more details.
+</p>
+
+<hr size="6">
 <a class="anchor" id="Editing-multiple-proofs"></a>
 <a class="anchor" id="Editing-multiple-proofs-1"></a>
-<h2 class="section">10.6 Editing multiple proofs</h2>
+<h2 class="section">10.7 Editing multiple proofs</h2>
 
 <p>Coq allows the user to enter top-level commands while editing a proof
 script.  For example, if the user realizes that the current proof will
@@ -1050,7 +1068,7 @@ current proof is disabled.
 <hr size="6">
 <a class="anchor" id="User_002dloaded-tactics"></a>
 <a class="anchor" id="User_002dloaded-tactics-1"></a>
-<h2 class="section">10.7 User-loaded tactics</h2>
+<h2 class="section">10.8 User-loaded tactics</h2>
 
 <p>Another feature that Coq allows is the extension of the grammar of the
 proof assistant by new tactic commands.  This feature interacts with the
@@ -1113,7 +1131,7 @@ recording it in the script.
 <hr size="6">
 <a class="anchor" id="Indentation-tweaking"></a>
 <a class="anchor" id="Indentation-tweaking-1"></a>
-<h2 class="section">10.8 Indentation tweaking</h2>
+<h2 class="section">10.9 Indentation tweaking</h2>
 
 <p>Indentation of Coq script is provided by Proof General, but it may
 behave badly especially if you use syntax extensions. You can sometimes
@@ -1172,7 +1190,7 @@ need help.
 <hr size="6">
 <a class="anchor" id="Holes-feature"></a>
 <a class="anchor" id="Holes-feature-1"></a>
-<h2 class="section">10.9 Holes feature</h2>
+<h2 class="section">10.10 Holes feature</h2>
 
 <p><em>Holes</em> are an experimental feature for complex expression editing
 by filling in templates. It is inspired from other tools, like Pcoq
@@ -1199,7 +1217,7 @@ you want to save abbrevs; answer yes.
 <hr size="6">
 <a class="anchor" id="Proof_002dTree-Visualization"></a>
 <a class="anchor" id="Proof_002dTree-Visualization-1"></a>
-<h2 class="section">10.10 Proof-Tree Visualization</h2>
+<h2 class="section">10.11 Proof-Tree Visualization</h2>
 <a class="anchor" id="index-Proof_002dTree-visualization"></a>
 
 <p>Starting with Proof General version 4.5 and Coq version 8.11, Coq
@@ -1221,7 +1239,7 @@ several layers.
 <hr size="6">
 <a class="anchor" id="Showing-Proof-Diffs"></a>
 <a class="anchor" id="Showing-Proof-Diffs-1"></a>
-<h2 class="section">10.11 Showing Proof Diffs</h2>
+<h2 class="section">10.12 Showing Proof Diffs</h2>
 <a class="anchor" id="index-Showing-Proof-Diffs"></a>
 <a class="anchor" id="index-coq_002ddiffs"></a>
 <a class="anchor" id="index-coq_002dshow_002dproof_002dstepwise"></a>
@@ -1265,7 +1283,7 @@ with non-<code>Bg</code> faces.
 <hr size="6">
 <a class="anchor" id="Opam_002dswitch_002dmode-support"></a>
 <a class="anchor" id="Opam_002dswitch_002dmode-support-1"></a>
-<h2 class="section">10.12 Opam-switch-mode support</h2>
+<h2 class="section">10.13 Opam-switch-mode support</h2>
 <a class="anchor" id="index-opam_002dswitch_002dmode-support"></a>
 
 <p>Coq can be installed using <code>opam</code> (the OCaml package manager),

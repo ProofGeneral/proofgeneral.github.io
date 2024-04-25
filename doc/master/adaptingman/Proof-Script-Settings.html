@@ -38,15 +38,17 @@ the behaviour of script management.
 </td></tr>
 <tr><td align="left" valign="top"><a href="#Omitting-proofs-for-speed">3.6 Omitting proofs for speed</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Safe-_0028state_002dpreserving_0029-commands">3.7 Safe (state-preserving) commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Proof-status-statistic">3.7 Proof status statistic</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Activate-scripting-hook">3.8 Activate scripting hook</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Safe-_0028state_002dpreserving_0029-commands">3.8 Safe (state-preserving) commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Automatic-multiple-files">3.9 Automatic multiple files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Activate-scripting-hook">3.9 Activate scripting hook</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Completely-asserted-buffers">3.10 Completely asserted buffers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Automatic-multiple-files">3.10 Automatic multiple files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Completions">3.11 Completions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Completely-asserted-buffers">3.11 Completely asserted buffers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Completions">3.12 Completions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -678,10 +680,63 @@ does only work if the command and the following proof are
 asserted together.
 </p></dd></dl>
 
+
+<hr size="6">
+<a class="anchor" id="Proof-status-statistic"></a>
+<a class="anchor" id="Proof-status-statistic-1"></a>
+<h2 class="section">3.7 Proof status statistic</h2>
+
+<p>The command <code>proof-check-proofs</code> builds on the omit-proofs
+feature. Using its machinery, it splits the current buffer into opaque
+proofs and all other material. The other material is asserted in the
+usual way and <code>proof-check-proofs</code> aborts if it detects an error
+in there. For opaque proofs the command first tries to assert them in
+the usual way too. If this succeeds the proof is considered valid.
+Otherwise the proof is replaced with
+<code>proof-script-proof-admit-command</code> and the proof is considered
+invalid. To associate theorem names with opaque proofs, the function
+<code>proof-get-proof-info-fn</code> is called, which is identical to
+<code>proof-tree-get-proof-info</code>, See section <a href="/doc/master/adaptingman/Configuring-Proof_002dTree-Visualization#Proof-Tree-Elisp-configuration">Proof Tree Elisp configuration</a>.
+</p>
+<p>To enable proof status statistics, the omit-proofs feature must be
+configured, See section <a href="#Omitting-proofs-for-speed">Omitting proofs for speed</a>. Additionally, the
+following settings must be configured.
+</p>
+<dl>
+<dt><a class="anchor" id="index-proof_002dget_002dproof_002dinfo_002dfn"></a><u>Variable:</u> <b>proof-get-proof-info-fn</b></dt>
+<dd><p>Return proof name and state number for &lsquo;<samp><code>proof-check-proofs</code></samp>&rsquo;.<br>
+Proof assistant specific function for &lsquo;<samp><code>proof-check-proofs</code></samp>&rsquo;. This
+function takes no arguments, it is called after completely
+processing the proof script up to a certain point (including all
+callbacks in spans). It must return a list, which contains, in
+the following order:
+</p>
+<p>* the current state number (as positive integer)
+* the name of the current proof (as string) or nil
+</p>
+<p>The proof assistant should return to the same state when the
+state number is supplied to &lsquo;<samp><code>proof-retract-command-fn</code></samp>&rsquo;.
+Processing the command returned by &lsquo;<samp><code>proof-retract-command-fn</code></samp>&rsquo;
+without processing any other command after calling this function
+should be a no-op.
+</p>
+<p>(This function has the same signature and specification as
+&lsquo;<samp><code>proof-tree-get-proof-info</code></samp>&rsquo;.)
+</p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002dretract_002dcommand_002dfn"></a><u>Variable:</u> <b>proof-retract-command-fn</b></dt>
+<dd><p>Function for retract command to a certain state.<br>
+This function takes a state as argument as returned by
+&lsquo;<samp><code>proof-get-proof-info-fn</code></samp>&rsquo;. It should return a command that brings
+the proof assistant back to the same state.
+</p></dd></dl>
+
+
 <hr size="6">
 <a class="anchor" id="Safe-_0028state_002dpreserving_0029-commands"></a>
 <a class="anchor" id="Safe-_0028state_002dpreserving_0029-commands-1"></a>
-<h2 class="section">3.7 Safe (state-preserving) commands</h2>
+<h2 class="section">3.8 Safe (state-preserving) commands</h2>
 
 <p>A proof command is &quot;safe&quot; if it can be issued away from the proof
 script.  For this to work it should be state-preserving in the proof
@@ -706,7 +761,7 @@ tests by negating the match on &lsquo;<samp><code>proof-non-undoables-regexp</co
 <hr size="6">
 <a class="anchor" id="Activate-scripting-hook"></a>
 <a class="anchor" id="Activate-scripting-hook-1"></a>
-<h2 class="section">3.8 Activate scripting hook</h2>
+<h2 class="section">3.9 Activate scripting hook</h2>
 
 
 <dl>
@@ -732,7 +787,7 @@ for scripting commands), unless activated-interactively is set.
 <hr size="6">
 <a class="anchor" id="Automatic-multiple-files"></a>
 <a class="anchor" id="Automatic-multiple-files-1"></a>
-<h2 class="section">3.9 Automatic multiple files</h2>
+<h2 class="section">3.10 Automatic multiple files</h2>
 
 <p>See section <a href="/doc/master/adaptingman/Handling-Multiple-Files#Handling-Multiple-Files">Handling Multiple Files</a>, for more details about this
 setting.
@@ -755,7 +810,7 @@ Proof General about the dependencies rather than using this setting.
 <hr size="6">
 <a class="anchor" id="Completely-asserted-buffers"></a>
 <a class="anchor" id="Completely-asserted-buffers-1"></a>
-<h2 class="section">3.10 Completely asserted buffers</h2>
+<h2 class="section">3.11 Completely asserted buffers</h2>
 
 <p>When switching scripting from buffer A to buffer B Proof General
 normally offers the choice of either completely retracting or
@@ -790,7 +845,7 @@ needed for Coq.
 <hr size="6">
 <a class="anchor" id="Completions"></a>
 <a class="anchor" id="Completions-1"></a>
-<h2 class="section">3.11 Completions</h2>
+<h2 class="section">3.12 Completions</h2>
 
 <p>Proof General allows provers to create a <i>completion table</i> to help
 writing keywords and identifiers in proof scripts.  This is documented

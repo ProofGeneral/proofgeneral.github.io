@@ -39,11 +39,13 @@ General covered in this chapter.
 </td></tr>
 <tr><td align="left" valign="top"><a href="#Asserting-across-files">3.7 Asserting across files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">      
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Automatic-multiple-file-handling">3.8 Automatic multiple file handling</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Proof-status-statistic">3.8 Proof status statistic</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Escaping-script-management">3.9 Escaping script management</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Automatic-multiple-file-handling">3.9 Automatic multiple file handling</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Editing-features">3.10 Editing features</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Escaping-script-management">3.10 Escaping script management</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Editing-features">3.11 Editing features</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -382,9 +384,84 @@ the proof assistant to automatically process other files.
 </p>
 
 <hr size="6">
+<a class="anchor" id="Proof-status-statistic"></a>
+<a class="anchor" id="Proof-status-statistic-1"></a>
+<h2 class="section">3.8 Proof status statistic</h2>
+<a class="anchor" id="index-Proof-status-statistic"></a>
+
+<p>The command <code>proof-check-proofs</code> (menu <code>Proof-General -&gt;
+Check Opaque Proofs</code>) generates the proof status of all opaque proofs
+in the current buffer, i.e., it generates an overview that shows which
+of the opaque proofs in the current buffer are currently valid and
+which are failing. When used interactively, the proof status is shown
+in the buffer <code>*proof-check-report*</code> (as long as
+<code>proof-check-report-buffer</code> is not changed).
+</p>
+<p>Currently <code>proof-check-proofs</code> does only work for Coq.
+</p>
+<dl>
+<dt><a class="anchor" id="index-proof_002dcheck_002dproofs"></a><u>Command:</u> <b>proof-check-proofs</b><i> tap &amp;optional batch</i></dt>
+<dd><p>Generate an overview about valid and invalid proofs.<br>
+This command completely processes the current buffer and
+generates an overview about all the opaque proofs in it and
+whether their proof scripts are valid or invalid.
+</p>
+<p>This command makes sense for a development process where invalid
+proofs are permitted and vos compilation and the omit proofs
+feature (see &lsquo;<samp><code>proof-omit-proofs-configured</code></samp>&rsquo;) are used to work at
+the most interesting or challenging point instead of on the first
+invalid proof.
+</p>
+<p>Argument <var>tap</var>, which can be set by a prefix argument, controls the
+form of the generated overview. Nil, without prefix, gives an
+human readable overview, otherwise it&rsquo;s test anything
+protocol (<var>tap</var>). Argument <var>batch</var> controls where the overview goes
+to. If nil, or in an interactive call, the overview appears in
+&lsquo;<samp><code>proof-check-report-buffer</code></samp>&rsquo;. If <var>batch</var> is a string, it should be a
+filename and the overview is appended there. Otherwise the
+overview is output via &lsquo;<samp>message</samp>&rsquo; such that it appears on stdout
+when this command runs in batch mode.
+</p>
+<p>In the same way as the omit-proofs feature, this command only
+tolerates errors inside scripts of opaque proofs. Any other error
+is reported to the user without generating an overview. The
+overview only contains those names of theorems whose proofs
+scripts are classified as opaque by the omit-proofs feature. For
+Coq for instance, among others, proof scripts terminated with
+<code>'Defined'</code> are not opaque and do not appear in the generated
+overview.
+</p>
+<p>Note that this command does not (re-)compile required files.
+Files must be required before running this commands, for instance
+by asserting all require commands beforehand.
+</p></dd></dl>
+
+<p>See section <a href="/doc/master/userman/Coq-Proof-General#Quick-and-inconsistent-compilation">Quick and inconsistent compilation</a> for enabling vos compilation
+inside Proof General and see See section <a href="/doc/master/userman/Coq-Proof-General#Omitting-proofs-for-speed">Omitting proofs for speed</a> for the
+omit-proofs feature.
+</p>
+<p>The interactive use of this commands is limited because it only works
+on the current buffer. However, this commands can also be run in batch
+mode in a script, for instance in a continuous integration
+environment. To run this command on a file in batch mode, use
+</p>
+<pre class="verbatim">emacs -batch -l &lt;your-pg-dir&gt;/generic/proof-site.el &lt;file&gt; \
+      --eval '(proof-check-proofs &lt;tap&gt; &lt;output&gt;)'
+</pre>
+<p>where <code>&lt;tap&gt;</code> should be <code>nil</code> for human readable output and
+<code>t</code> for test anything protocol. If <code>&lt;output&gt;</code> is <code>t</code>
+the proof status appears in the standard output of the Emacs process.
+Otherwise <code>&lt;output&gt;</code> should be a filename as string in double
+quotes. Then the proof status is appended to this file. (If
+<code>output</code> is <code>nil</code> or omitted, the proof status is only put
+into the <code>*proof-check-report*</code> buffer, which does not make much
+sense in a batch command as the one above.)
+</p>
+
+<hr size="6">
 <a class="anchor" id="Automatic-multiple-file-handling"></a>
 <a class="anchor" id="Automatic-multiple-file-handling-1"></a>
-<h2 class="section">3.8 Automatic multiple file handling</h2>
+<h2 class="section">3.9 Automatic multiple file handling</h2>
 
 <p>To make it easier to adapt Proof General for a proof assistant, there is
 another possibility for multiple file support &mdash; that it is provided
@@ -411,7 +488,7 @@ the <i>Adapting Proof General</i> manual.
 <hr size="6">
 <a class="anchor" id="Escaping-script-management"></a>
 <a class="anchor" id="Escaping-script-management-1"></a>
-<h2 class="section">3.9 Escaping script management</h2>
+<h2 class="section">3.10 Escaping script management</h2>
 <a class="anchor" id="index-Shell"></a>
 
 <p>Occasionally you may want to review the dialogue of the entire session
@@ -470,7 +547,7 @@ a proof command.
 <hr size="6">
 <a class="anchor" id="Editing-features"></a>
 <a class="anchor" id="Editing-features-1"></a>
-<h2 class="section">3.10 Editing features</h2>
+<h2 class="section">3.11 Editing features</h2>
 <a class="anchor" id="index-Input-ring"></a>
 
 <p>To make editing proof scripts more productive, Proof General provides
