@@ -686,17 +686,18 @@ asserted together.
 <a class="anchor" id="Proof-status-statistic-1"></a>
 <h2 class="section">3.7 Proof status statistic</h2>
 
-<p>The command <code>proof-check-proofs</code> builds on the omit-proofs
-feature. Using its machinery, it splits the current buffer into opaque
-proofs and all other material. The other material is asserted in the
-usual way and <code>proof-check-proofs</code> aborts if it detects an error
-in there. For opaque proofs the command first tries to assert them in
-the usual way too. If this succeeds the proof is considered valid.
-Otherwise the proof is replaced with
-<code>proof-script-proof-admit-command</code> and the proof is considered
-invalid. To associate theorem names with opaque proofs, the function
-<code>proof-get-proof-info-fn</code> is called, which is identical to
-<code>proof-tree-get-proof-info</code>, See section <a href="/doc/master/adaptingman/Configuring-Proof_002dTree-Visualization#Proof-Tree-Elisp-configuration">Proof Tree Elisp configuration</a>.
+<p>The commands <code>proof-check-report</code> and <code>proof-check-annotate</code>
+build on the omit-proofs feature. Using its machinery,
+<code>proof-check-proofs</code>, the inner working horse of both commands,
+splits the current buffer into opaque proofs and all other material.
+The other material is asserted in the usual way and
+<code>proof-check-proofs</code> aborts if it detects an error in there. For
+opaque proofs it first tries to assert them in the usual way too. If
+this succeeds the proof is considered valid. Otherwise the proof is
+replaced with <code>proof-script-proof-admit-command</code> and the proof is
+considered invalid. To associate theorem names with opaque proofs, the
+function <code>proof-get-proof-info-fn</code> is called, which is identical
+to <code>proof-tree-get-proof-info</code>, See section <a href="/doc/master/adaptingman/Configuring-Proof_002dTree-Visualization#Proof-Tree-Elisp-configuration">Proof Tree Elisp configuration</a>.
 </p>
 <p>To enable proof status statistics, the omit-proofs feature must be
 configured, See section <a href="#Omitting-proofs-for-speed">Omitting proofs for speed</a>. Additionally, the
@@ -898,7 +899,7 @@ last use time, to discourage saving these into the users database.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>May 2, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>May 13, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

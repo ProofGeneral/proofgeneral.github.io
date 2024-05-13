@@ -1028,7 +1028,7 @@ non-opaque, even if they have proof-local effect only, such as
 <a class="anchor" id="Proof-status-statistic-for-Coq-1"></a>
 <h2 class="section">10.6 Proof status statistic for Coq</h2>
 
-<p>The command <code>proof-check-proofs</code> (menu <code>Proof-General -&gt;
+<p>The command <code>proof-check-report</code> (menu <code>Proof-General -&gt;
 Check Opaque Proofs</code>) generates the proof status of all opaque proofs
 in the current buffer, i.e., it generates an overview that shows which
 of the opaque proofs in the current buffer are currently valid and
@@ -1036,7 +1036,14 @@ which are failing. This command is useful for a development process
 where invalid proofs are permitted and vos compilation (See section <a href="#Quick-and-inconsistent-compilation">Quick and inconsistent compilation</a>) and the omit proofs feature
 (See section <a href="#Omitting-proofs-for-speed">Omitting proofs for speed</a>) are used to work at the most
 interesting or challenging point instead of on the first invalid
-proof. See See section <a href="/doc/master/userman/Advanced-Script-Management-and-Editing#Proof-status-statistic">Proof status statistic</a> for more details.
+proof.
+</p>
+<p>The command <code>proof-check-annotate</code> (menu <code>Proof-General -&gt;
+Annotate Failing Proofs</code>) can then be used to consistently annotate
+failing proofs with a <code>FAIL</code> comment or to check, e.g., in
+continuous integration, that such comments are present.
+</p>
+<p>See See section <a href="/doc/master/userman/Advanced-Script-Management-and-Editing#Proof-status-statistic">Proof status statistic</a> for more details.
 </p>
 
 <hr size="6">
@@ -1330,7 +1337,7 @@ different coq version from a different opam switch.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>May 2, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>May 13, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

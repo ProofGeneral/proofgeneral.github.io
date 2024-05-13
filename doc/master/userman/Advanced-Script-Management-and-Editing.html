@@ -389,7 +389,7 @@ the proof assistant to automatically process other files.
 <h2 class="section">3.8 Proof status statistic</h2>
 <a class="anchor" id="index-Proof-status-statistic"></a>
 
-<p>The command <code>proof-check-proofs</code> (menu <code>Proof-General -&gt;
+<p>The command <code>proof-check-report</code> (menu <code>Proof-General -&gt;
 Check Opaque Proofs</code>) generates the proof status of all opaque proofs
 in the current buffer, i.e., it generates an overview that shows which
 of the opaque proofs in the current buffer are currently valid and
@@ -397,10 +397,19 @@ which are failing. When used interactively, the proof status is shown
 in the buffer <code>*proof-check-report*</code> (as long as
 <code>proof-check-report-buffer</code> is not changed).
 </p>
-<p>Currently <code>proof-check-proofs</code> does only work for Coq.
+<p>The command <code>proof-check-annotate</code> (menu <code>Proof-General -&gt;
+Annotate Failing Proofs</code>) modifies the current buffer and places
+comments containing <code>FAIL</code> on all failing opaque proofs. With
+prefix argument also the passing proofs are annotated with
+<code>PASS</code>. For configuring the position of these comments, see
+<code>proof-check-annotate-position</code> and
+<code>proof-check-annotate-right-margin</code>.
+</p>
+<p>Currently <code>proof-check-report</code> and <code>proof-check-annotate</code>
+only work for Coq.
 </p>
 <dl>
-<dt><a class="anchor" id="index-proof_002dcheck_002dproofs"></a><u>Command:</u> <b>proof-check-proofs</b><i> tap &amp;optional batch</i></dt>
+<dt><a class="anchor" id="index-proof_002dcheck_002dreport"></a><u>Command:</u> <b>proof-check-report</b><i> tap &amp;optional batch</i></dt>
 <dd><p>Generate an overview about valid and invalid proofs.<br>
 This command completely processes the current buffer and
 generates an overview about all the opaque proofs in it and
@@ -418,44 +427,96 @@ human readable overview, otherwise it&rsquo;s test anything
 protocol (<var>tap</var>). Argument <var>batch</var> controls where the overview goes
 to. If nil, or in an interactive call, the overview appears in
 &lsquo;<samp><code>proof-check-report-buffer</code></samp>&rsquo;. If <var>batch</var> is a string, it should be a
-filename and the overview is appended there. Otherwise the
-overview is output via &lsquo;<samp>message</samp>&rsquo; such that it appears on stdout
-when this command runs in batch mode.
+filename to write the overview to. Otherwise the overview is
+output via &lsquo;<samp>message</samp>&rsquo; such that it appears on stdout when this
+command runs in batch mode.
 </p>
 <p>In the same way as the omit-proofs feature, this command only
 tolerates errors inside scripts of opaque proofs. Any other error
 is reported to the user without generating an overview. The
-overview only contains those names of theorems whose proofs
+overview only contains those names of theorems whose proof
 scripts are classified as opaque by the omit-proofs feature. For
 Coq for instance, among others, proof scripts terminated with
 <code>'Defined'</code> are not opaque and do not appear in the generated
 overview.
 </p>
 <p>Note that this command does not (re-)compile required files.
-Files must be required before running this commands, for instance
-by asserting all require commands beforehand.
+Dependencies must be compiled before running this commands, for
+instance by asserting all require commands beforehand.
 </p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002dcheck_002dannotate"></a><u>Command:</u> <b>proof-check-annotate</b><i> annotate-passing &amp;optional save-buffer</i></dt>
+<dd><p>Annotate failing proofs in current buffer with a &quot;<var>fail</var>&quot; comment.<br>
+This function modifies the current buffer in place. Use with
+care!
+</p>
+<p>Similarly to &lsquo;<samp><code>proof-check-report</code></samp>&rsquo;, check all opaque proofs in the
+current buffer. Instead of generating a report, failing proofs
+are annotated with &quot;<var>fail</var>&quot; in a comment. Existing &quot;<var>pass</var>&quot; or
+&quot;<var>fail</var>&quot; comments (e.g., from a previous run) are deleted
+together with the surrounding white space. With prefix argument
+(or when <var>annotate-passing</var> is non-nil) also passing proofs are
+annotated with a &quot;<var>pass</var>&quot; comment. Pass and fail comments can be
+placed at the last or second last statement before the opaque
+proof. For Coq this corresponds to the proof using and the
+theorem statement, respectively. In both cases the comment is
+placed at the right margin of the first line, see
+&lsquo;<samp><code>proof-check-annotate-position</code></samp>&rsquo; and
+&lsquo;<samp><code>proof-check-annotate-right-margin</code></samp>&rsquo;.
+</p>
+<p>Interactively, this command does not save the current buffer
+after placing the annotations. With <var>save-buffer</var> non-nil, the
+current buffer is saved if it has been modified.
+</p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002dcheck_002dannotate_002dposition"></a><u>Variable:</u> <b>proof-check-annotate-position</b></dt>
+<dd><p>Line for annotating proofs with &quot;<var>pass</var>&quot; or &quot;<var>fail</var>&quot; comments.<br>
+This option determines the line where &lsquo;<samp><code>proof-check-annotate</code></samp>&rsquo; puts
+comments with &quot;<var>pass</var>&quot; and &quot;<var>fail</var>&quot;. Value &lsquo;&rsquo;theoren&rsquo; uses the
+first line of the second last statement before the start of the
+opaque proof, which corresponds to the line containing a Theorem
+keyword for Coq. Value &lsquo;&rsquo;proof-using&rsquo; uses the first line of the
+last statement before the opaque proof, which corresponds to the
+Proof using line for Coq.
+</p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002dcheck_002dannotate_002dright_002dmargin"></a><u>Variable:</u> <b>proof-check-annotate-right-margin</b></dt>
+<dd><p>Right margin for &quot;<var>pass</var>&quot; and &quot;<var>fail</var>&quot; comments.<br>
+This option determines the right margin to which
+&lsquo;<samp><code>proof-check-annotate</code></samp>&rsquo; right-aligns the comments with &quot;<var>pass</var>&quot;
+and &quot;<var>fail</var>&quot;. If nil, the value of &lsquo;<samp><code>fill-column</code></samp>&rsquo; is used.
+</p></dd></dl>
+
 
 <p>See section <a href="/doc/master/userman/Coq-Proof-General#Quick-and-inconsistent-compilation">Quick and inconsistent compilation</a> for enabling vos compilation
 inside Proof General and see See section <a href="/doc/master/userman/Coq-Proof-General#Omitting-proofs-for-speed">Omitting proofs for speed</a> for the
 omit-proofs feature.
 </p>
-<p>The interactive use of this commands is limited because it only works
-on the current buffer. However, this commands can also be run in batch
-mode in a script, for instance in a continuous integration
-environment. To run this command on a file in batch mode, use
+<p>The interactive use of <code>proof-check-report</code> and
+<code>proof-check-annotate</code> is limited because they only work on the
+current buffer. However, these commands can also be run in batch mode
+in a script, for instance in a continuous integration environment. To
+run <code>proof-check-report</code> on a file in batch mode, use
 </p>
 <pre class="verbatim">emacs -batch -l &lt;your-pg-dir&gt;/generic/proof-site.el &lt;file&gt; \
-      --eval '(proof-check-proofs &lt;tap&gt; &lt;output&gt;)'
+      --eval '(proof-check-report &lt;tap&gt; &lt;output&gt;)'
 </pre>
 <p>where <code>&lt;tap&gt;</code> should be <code>nil</code> for human readable output and
 <code>t</code> for test anything protocol. If <code>&lt;output&gt;</code> is <code>t</code>
 the proof status appears in the standard output of the Emacs process.
 Otherwise <code>&lt;output&gt;</code> should be a filename as string in double
-quotes. Then the proof status is appended to this file. (If
+quotes. Then the proof status is written to this file. (If
 <code>output</code> is <code>nil</code> or omitted, the proof status is only put
 into the <code>*proof-check-report*</code> buffer, which does not make much
 sense in a batch command as the one above.)
+</p>
+<p>Using a similar command also <code>proof-check-annotate</code> can run in
+batch mode in a continuous integration environment, for instance for
+checking that all failing proofs are annotated with <code>FAIL</code>
+via <code>git diff --exit-code</code>.
 </p>
 
 <hr size="6">
@@ -627,7 +688,7 @@ If <var>n</var> is negative, search backwards for the -Nth previous match.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>May 2, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>May 13, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
