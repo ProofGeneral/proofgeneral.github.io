@@ -395,7 +395,8 @@ in the current buffer, i.e., it generates an overview that shows which
 of the opaque proofs in the current buffer are currently valid and
 which are failing. When used interactively, the proof status is shown
 in the buffer <code>*proof-check-report*</code> (as long as
-<code>proof-check-report-buffer</code> is not changed).
+<code>proof-check-report-buffer</code> is not changed). Note that incomplete
+proofs, i.e., Admitted proofs for Coq, count as invalid.
 </p>
 <p>The command <code>proof-check-annotate</code> (menu <code>Proof-General -&gt;
 Annotate Failing Proofs</code>) modifies the current buffer and places
@@ -413,7 +414,10 @@ only work for Coq.
 <dd><p>Generate an overview about valid and invalid proofs.<br>
 This command completely processes the current buffer and
 generates an overview about all the opaque proofs in it and
-whether their proof scripts are valid or invalid.
+whether their proof scripts are valid or invalid. Note that
+proofs closed with a cheating command (see
+&lsquo;<samp><code>proof-omit-cheating-regexp</code></samp>&rsquo;), i.e., Admitted for Coq, count as
+invalid.
 </p>
 <p>This command makes sense for a development process where invalid
 proofs are permitted and vos compilation and the omit proofs
@@ -688,7 +692,7 @@ If <var>n</var> is negative, search backwards for the -Nth previous match.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>June 15, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>June 19, 2024</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
