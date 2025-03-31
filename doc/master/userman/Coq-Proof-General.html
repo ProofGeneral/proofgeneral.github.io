@@ -199,18 +199,36 @@ If you make complex customizations using <code>eval</code> in
 </p>
 <dl>
 <dt><a class="anchor" id="index-coq_002dproject_002dfilename"></a><u>Variable:</u> <b>coq-project-filename</b></dt>
-<dd><p>The name of coq project file.<br>
-The coq project file of a coq development (cf. Coq documentation on
-&quot;makefile generation&quot;) should contain the arguments given to
-coq_makefile. In particular it contains the -I and -R
-options (preferably one per line).  If &lsquo;<samp>coq-use-coqproject</samp>&rsquo; is
+<dd><p>Variable containing the function detecting a project file.
+</p>
+<p>See its default value &lsquo;<samp><code>coq--default-project-find-file</code></samp>&rsquo; for an example.
+</p>
+<p>The function takes one argument, the name of a directory, and returns
+the name of a coq/rocq project file it contains if there is one. Return
+nil otherwise.
+</p>
+<p>This is used to detect the coq project file (using
+&lsquo;<samp><code>locate-dominating-file</code></samp>&rsquo;). By default we accept _CoqProject and
+_RocqProject (and any case-variant of these) without checking coq/rocq
+version. If you want something smarter please redefine
+&lsquo;<samp><code>coq-project-filename</code></samp>&rsquo; directly by using:
+</p>
+<p>(setq <code>coq-project-filename</code> #&rsquo;my-own-predicate)
+</p>
+<p>About the coq/rocq project file (cf. Coq documentation on project files
+and &quot;makefile generation&quot;):
+</p>
+<p>The coq project file of a coq development should contain the arguments
+given to coq_makefile. In particular it contains the -I and -R
+options (preferably one per line). If &lsquo;<samp>coq-use-coqproject</samp>&rsquo; is
 t (default) the content of this file will be used by Proof General to
-infer the &lsquo;<samp><code>coq-load-path</code></samp>&rsquo; and the &lsquo;<samp><code>coq-prog-args</code></samp>&rsquo; variables that set
-the coqtop invocation by Proof General.  This is now the recommended
-way of configuring the coqtop invocation.  Local file variables may
-still be used to override the coq project file&rsquo;s configuration.
-.dir-locals.el files also work and override project file settings.
-</p></dd></dl>
+infer the &lsquo;<samp><code>coq-load-path</code></samp>&rsquo; and the &lsquo;<samp><code>coq-prog-args</code></samp>&rsquo; variables that set the
+coqtop invocation by Proof General. This is now the recommended way of
+configuring the coqtop invocation. Local file variables may still be
+used to override the coq project file&rsquo;s configuration. .dir-locals.el
+files also work and override project file settings.
+</p>
+</dd></dl>
 
 
 <hr size="6">
