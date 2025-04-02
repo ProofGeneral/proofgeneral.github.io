@@ -168,7 +168,7 @@ same way as <code>defcustom</code>, except that the symbol declared will
 automatically be prefixed by the current proof assistant symbol.
 </p>
 <dl>
-<dt><a class="anchor" id="index-defpgcustom"></a><u>Macro:</u> <b>defpgcustom</b></dt>
+<dt><a class="anchor" id="index-defpgcustom"></a><u>Macro:</u> <b>defpgcustom</b><i> sym &amp;rest args</i></dt>
 <dd><p>Define a new customization variable &lt;PA&gt;<var>-sym</var> for the current proof assistant.<br>
 This is intended for defining settings which are useful for any prover,
 but which the user may require different values of across provers.
@@ -185,12 +185,12 @@ current prover (named &lt;PA&gt;-config).
 can be used to give a default value for a generic setting.
 </p>
 <dl>
-<dt><a class="anchor" id="index-defpgdefault-1"></a><u>Macro:</u> <b>defpgdefault</b></dt>
+<dt><a class="anchor" id="index-defpgdefault-1"></a><u>Macro:</u> <b>defpgdefault</b><i> sym value</i></dt>
 <dd><p>Set default for the proof assistant specific variable &lt;PA&gt;<var>-sym</var> to <var>value</var>.<br>
 This should be used in prover-specific code to alter the default values
 for prover specific settings.
 </p>
-<p>Usage: (defpgdefault SYM <var>value</var>)
+<p>Usage: (defpgdefault <var>sym</var> <var>value</var>)
 </p></dd></dl>
 
 <p>All new instantiation variables are best declared using the
@@ -204,18 +204,18 @@ it works poorly or not at all with some provers.
 macros are useful.
 </p>
 <dl>
-<dt><a class="anchor" id="index-proof_002dass"></a><u>Macro:</u> <b>proof-ass</b></dt>
-<dd><p>Return the value for SYM for the current prover.<br>
+<dt><a class="anchor" id="index-proof_002dass"></a><u>Macro:</u> <b>proof-ass</b><i> sym</i></dt>
+<dd><p>Return the value for <var>sym</var> for the current prover.<br>
 This macro should only be invoked once a specific prover is engaged.
 </p></dd></dl>
 <dl>
-<dt><a class="anchor" id="index-proof_002dass_002dsym"></a><u>Macro:</u> <b>proof-ass-sym</b></dt>
-<dd><p>Return the symbol for SYM for the current prover.  SYM not evaluated.<br>
+<dt><a class="anchor" id="index-proof_002dass_002dsym"></a><u>Macro:</u> <b>proof-ass-sym</b><i> sym</i></dt>
+<dd><p>Return the symbol for <var>sym</var> for the current prover.  <var>sym</var> not evaluated.<br>
 This macro should only be called once a specific prover is known.
 </p></dd></dl>
 <dl>
-<dt><a class="anchor" id="index-proof_002dass_002dsymv"></a><u>Macro:</u> <b>proof-ass-symv</b></dt>
-<dd><p>Return the symbol for SYM for the current prover.  SYM evaluated.<br>
+<dt><a class="anchor" id="index-proof_002dass_002dsymv"></a><u>Macro:</u> <b>proof-ass-symv</b><i> sym</i></dt>
+<dd><p>Return the symbol for <var>sym</var> for the current prover.  <var>sym</var> evaluated.<br>
 This macro should only be invoked once a specific prover is engaged.
 </p></dd></dl>
 
@@ -262,8 +262,8 @@ approximation we test whether proof-config is fully-loaded yet.
 </p></dd></dl>
 
 <dl>
-<dt><a class="anchor" id="index-proof_002ddeftoggle"></a><u>Macro:</u> <b>proof-deftoggle</b></dt>
-<dd><p>Define a function VAR-toggle for toggling a boolean customize setting VAR.<br>
+<dt><a class="anchor" id="index-proof_002ddeftoggle"></a><u>Macro:</u> <b>proof-deftoggle</b><i> var &amp;optional othername</i></dt>
+<dd><p>Define a function VAR-toggle for toggling a boolean customize setting <var>var</var>.<br>
 The toggle function uses &lsquo;<samp><code>customize-set-variable</code></samp>&rsquo; to change the variable.
 <var>othername</var> gives an alternative name than the default &lt;VAR&gt;-toggle.
 The name of the defined function is returned.
