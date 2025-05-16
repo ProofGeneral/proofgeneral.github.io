@@ -659,7 +659,7 @@ an error if called with a different requested queue mode.
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dmarker"></a><u>Variable:</u> <b>proof-marker</b></dt>
-<dd><p>Marker in proof shell buffer pointing to previous command input.
+<dd><p>Marker in proof shell buffer pointing to the end of previous command input.
 </p></dd></dl>
 
 <dl>
@@ -695,14 +695,35 @@ bother the user.  They may include
   <code>'no-response-display</code>      do not display messages in <strong>response</strong> buffer
   <code>'no-error-display</code>         do not display errors/take error action
   <code>'no-goals-display</code>         do not goals in <strong>goals</strong> buffer
-  <code>'proof-tree-show-subgoal</code>  item inserted by the proof-tree package
+  <code>'keep-response</code>            do not erase the response buffer when goals are shown
+  <code>'proof-tree-show-subgoal</code>  item inserted by the proof-tree package to display
+                            the current or some other goal
+  <code>'proof-tree-last-item</code>     marks the item that follows the last show-goal
+                            request after a proof finished with proof-tree
+                            display, causes switch back to normal queue region
+                            processing
   <code>'priority-action</code>          item added via <code>proof-add-to-priority-queue</code>
+  <code>'empty-action-list</code>        <code>proof-shell-empty-action-list-command</code> should not be
+                            called if this is the last item in the action list
+  <code>'dont-show-when-silent</code>    Used for commands that should not be followed by a
+                            show command when running silent.
 </pre></td></tr></table>
 <p>Note that <code>'invisible</code> does not imply any of the others. If flags
 are non-empty, interactive cues will be surpressed. (E.g.,
 printing hints).
 </p>
 <p>See the functions &lsquo;<samp><code>proof-start-queue</code></samp>&rsquo; and &lsquo;<samp><code>proof-shell-exec-loop</code></samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002dshell_002dold_002dproof_002dmarker_002dposition"></a><u>Variable:</u> <b>proof-shell-old-proof-marker-position</b></dt>
+<dd><p>Position of end of second last input inside delayed callbacks.<br>
+When callbacks of action items are processed, &lsquo;<samp><code>proof-marker</code></samp>&rsquo; has already
+been advanced to the end of the next input that the proof assistant
+processes in parallel with the callback. This variable permits the
+callback to access the end of the input belonging to its action-list
+item and then process the complete output that the proof assistant has
+sent.
 </p></dd></dl>
 
 <p>In Proof General 4.2 and earlier it was always the case that all
@@ -1256,7 +1277,7 @@ Reference Manual.  I recommend using the source-level debugger
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>May 13, 2025</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>May 16, 2025</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
