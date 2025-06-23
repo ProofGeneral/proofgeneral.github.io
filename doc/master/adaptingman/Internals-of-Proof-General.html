@@ -1026,16 +1026,19 @@ to examine &lsquo;<samp><code>proof-shell-last-output</code></samp>&rsquo;.
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002ddelayed_002doutput_002dstart"></a><u>Variable:</u> <b>proof-shell-delayed-output-start</b></dt>
 <dd><p>A record of the start of the previous output in the shell buffer.<br>
-The previous output is held back for processing at end of queue.
+The previous output is held back for processing at end of queue. Reset
+in &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo;, i.e., when subsequent output arrives.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002ddelayed_002doutput_002dend"></a><u>Variable:</u> <b>proof-shell-delayed-output-end</b></dt>
 <dd><p>A record of the start of the previous output in the shell buffer.<br>
-The previous output is held back for processing at end of queue.
+The previous output is held back for processing at end of queue. Reset
+in &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo;, i.e., when subsequent output arrives.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002ddelayed_002doutput_002dflags"></a><u>Variable:</u> <b>proof-shell-delayed-output-flags</b></dt>
-<dd><p>A copy of the &lsquo;<samp><code>proof-action-list</code></samp>&rsquo; flags for &lsquo;<samp>proof-shell-delayed-output</samp>&rsquo;.
+<dd><p>A copy of the &lsquo;<samp><code>proof-action-list</code></samp>&rsquo; flags for &lsquo;<samp>proof-shell-delayed-output</samp>&rsquo;.<br>
+Reset in &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo;, i.e., when subsequent output arrives.
 </p></dd></dl>
 <a class="anchor" id="index-proof_002daction_002dlist-2"></a>
 
@@ -1277,7 +1280,7 @@ Reference Manual.  I recommend using the source-level debugger
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>June 9, 2025</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>June 23, 2025</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
