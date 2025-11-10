@@ -289,7 +289,7 @@ dragging the separating bars.
 </p><table><tr><td>&nbsp;</td><td><pre class="lisp">  where the three useful buffers are displayed: scripting
   buffer, goals buffer and response buffer.
 
-  Here are the three modes:
+  The three possible modes are:
 
   - vertical: the 3 buffers are displayed in one column.
   - hybrid: 2 columns mode, left column displays scripting buffer
@@ -297,12 +297,12 @@ dragging the separating bars.
   - horizontal: 3 columns mode, one for each buffer (script, goals,
     response).
 
-  By default, the display mode is automatically chosen by
-  considering the current Emacs frame width: if it is smaller
-  than &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then vertical mode is chosen,
-  otherwise if it is smaller than 1.5 * &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo;
-  then hybrid mode is chosen, finally if the frame is larger than
-  1.5 * &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then the horizontal mode is chosen.
+  By default, the display mode is <code>'smart</code> which automatically choses
+  between these 3 modes by considering the current Emacs frame width: if
+  it is smaller than &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then vertical mode is
+  chosen, otherwise if it is smaller than 1.5 * &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo;
+  then hybrid mode is chosen, finally if the frame is larger than 1.5 *
+  &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then the horizontal mode is chosen.
 
   You can change the value of &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; at your
   will.
