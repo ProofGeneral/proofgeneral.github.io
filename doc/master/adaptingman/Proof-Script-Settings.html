@@ -589,9 +589,9 @@ configured.
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002domit_002dproofs_002dconfigured"></a><u>Variable:</u> <b>proof-omit-proofs-configured</b></dt>
-<dd><p>t if the omit proofs feature has been configured by the proof assitant.<br>
+<dd><p>Non-nil if the omit proofs feature has been configured by the proof assistant.<br>
 See also &lsquo;<samp><code>proof-omit-proofs-option</code></samp>&rsquo; or the Proof General manual
-for a description of the feature. This option can only be set, if
+for a description of the feature.  This option can only be set, if
 all of &lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo;,
 &lsquo;<samp><code>proof-script-proof-end-regexp</code></samp>&rsquo;,
 &lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo; and
@@ -605,7 +605,7 @@ commands in the source following a match of
 &lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo; up to and including the next
 match of &lsquo;<samp><code>proof-script-proof-end-regexp</code></samp>&rsquo;, are omitted (not send
 to the proof assistant) and replaced by
-&lsquo;<samp><code>proof-script-proof-admit-command</code></samp>&rsquo;. If a match for
+&lsquo;<samp><code>proof-script-proof-admit-command</code></samp>&rsquo;.  If a match for
 &lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo; is found while searching
 forward for the proof end or if
 &lsquo;<samp><code>proof-script-cmd-prevents-proof-omission</code></samp>&rsquo; recognizes a proof
@@ -616,7 +616,7 @@ to and including the match of
 and not omitted, thus all these proof commands _are_ sent to the
 proof assistant.
 </p>
-<p>The feature does not work for nested proofs. If a match for
+<p>The feature does not work for nested proofs.  If a match for
 &lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo; is found before the next match
 for &lsquo;<samp><code>proof-script-proof-end-regexp</code></samp>&rsquo; or
 &lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo;, the search for opaque
@@ -656,11 +656,11 @@ See &lsquo;<samp><code>proof-omit-proofs-configured</code></samp>&rsquo;.
 <dt><a class="anchor" id="index-proof_002dscript_002dcmd_002dprevents_002dproof_002domission"></a><u>Variable:</u> <b>proof-script-cmd-prevents-proof-omission</b></dt>
 <dd><p>Optional predicate to match commands that prevent omitting the current proof.<br>
 If set, this option should contain a function that takes a proof
-command (as string) as argument and returns t or nil. If set, the
+command (as string) as argument and returns t or nil.  If set, the
 function is called on every proof command inside a proof while
-scanning for proofs to omit. The predicate should return t if the
-command has effects ouside the proof, potentially breaking the
-script if the current proof is omitted. If the predicate returns
+scanning for proofs to omit.  The predicate should return t if the
+command has effects outside the proof, potentially breaking the
+script if the current proof is omitted.  If the predicate returns
 t, the proof is considered to be not opaque and thus not omitted.
 </p></dd></dl>
 
@@ -669,9 +669,9 @@ t, the proof is considered to be not opaque and thus not omitted.
 <dd><p>Optional regexp for commands that prevent omitting the next proof.<br>
 If set, this option should contain a regular expression that
 matches proof-script commands that prevent the omission of proofs
-dirctly following this command. When scanning the newly asserted
+directly following this command.  When scanning the newly asserted
 region for proofs to omit, every proof-script command outside
-proofs is matched against this regexp. If it matches and the next
+proofs is matched against this regexp.  If it matches and the next
 command matches &lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo; this following
 proof will not be omitted.
 </p>
@@ -709,10 +709,10 @@ following settings must be configured.
 <dl>
 <dt><a class="anchor" id="index-proof_002dget_002dproof_002dinfo_002dfn"></a><u>Variable:</u> <b>proof-get-proof-info-fn</b></dt>
 <dd><p>Return proof name and state number for &lsquo;<samp><code>proof-check-proofs</code></samp>&rsquo;.<br>
-Proof assistant specific function for &lsquo;<samp><code>proof-check-proofs</code></samp>&rsquo;. This
+Proof assistant specific function for &lsquo;<samp><code>proof-check-proofs</code></samp>&rsquo;.  This
 function takes no arguments, it is called after completely
 processing the proof script up to a certain point (including all
-callbacks in spans). It must return a list, which contains, in
+callbacks in spans).  It must return a list, which contains, in
 the following order:
 </p>
 <p>* the current state number (as positive integer)
@@ -732,7 +732,7 @@ should be a no-op.
 <dt><a class="anchor" id="index-proof_002dretract_002dcommand_002dfn"></a><u>Variable:</u> <b>proof-retract-command-fn</b></dt>
 <dd><p>Function for retract command to a certain state.<br>
 This function takes a state as argument as returned by
-&lsquo;<samp><code>proof-get-proof-info-fn</code></samp>&rsquo;. It should return a command that brings
+&lsquo;<samp><code>proof-get-proof-info-fn</code></samp>&rsquo;.  It should return a command that brings
 the proof assistant back to the same state.
 </p></dd></dl>
 
@@ -740,11 +740,11 @@ the proof assistant back to the same state.
 <dt><a class="anchor" id="index-proof_002domit_002dcheating_002dregexp"></a><u>Variable:</u> <b>proof-omit-cheating-regexp</b></dt>
 <dd><p>Regular expression matching proof closing commands for incomplete proofs.<br>
 If set, this regular expression is applied to the last command of
-opaque proofs. If it matches the proofs counts as invalid for the
-proof-status statistics and annotation feature. For Coq this is
+opaque proofs.  If it matches the proofs counts as invalid for the
+proof-status statistics and annotation feature.  For Coq this is
 used to mark Admitted proofs as invalid.
 </p>
-<p>This option can be left at &lsquo;<samp>nil</samp>&rsquo;.
+<p>This option can be left at nil.
 </p></dd></dl>
 
 
@@ -913,7 +913,7 @@ last use time, to discourage saving these into the users database.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 9, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

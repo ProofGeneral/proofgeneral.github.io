@@ -414,7 +414,7 @@ only work for Coq.
 <dd><p>Generate an overview about valid and invalid proofs.<br>
 This command completely processes the current buffer and
 generates an overview about all the opaque proofs in it and
-whether their proof scripts are valid or invalid. Note that
+whether their proof scripts are valid or invalid.  Note that
 proofs closed with a cheating command (see
 &lsquo;<samp><code>proof-omit-cheating-regexp</code></samp>&rsquo;), i.e., Admitted for Coq, count as
 invalid.
@@ -426,20 +426,20 @@ the most interesting or challenging point instead of on the first
 invalid proof.
 </p>
 <p>Argument <var>tap</var>, which can be set by a prefix argument, controls the
-form of the generated overview. Nil, without prefix, gives an
+form of the generated overview.  Nil, without prefix, gives an
 human readable overview, otherwise it&rsquo;s test anything
-protocol (<var>tap</var>). Argument <var>batch</var> controls where the overview goes
-to. If nil, or in an interactive call, the overview appears in
-&lsquo;<samp><code>proof-check-report-buffer</code></samp>&rsquo;. If <var>batch</var> is a string, it should be a
-filename to write the overview to. Otherwise the overview is
+protocol (<var>tap</var>).  Argument <var>batch</var> controls where the overview goes
+to.  If nil, or in an interactive call, the overview appears in
+&lsquo;<samp><code>proof-check-report-buffer</code></samp>&rsquo;.  If <var>batch</var> is a string, it should be a
+filename to write the overview to.  Otherwise the overview is
 output via &lsquo;<samp>message</samp>&rsquo; such that it appears on stdout when this
 command runs in batch mode.
 </p>
 <p>In the same way as the omit-proofs feature, this command only
-tolerates errors inside scripts of opaque proofs. Any other error
-is reported to the user without generating an overview. The
+tolerates errors inside scripts of opaque proofs.  Any other error
+is reported to the user without generating an overview.  The
 overview only contains those names of theorems whose proof
-scripts are classified as opaque by the omit-proofs feature. For
+scripts are classified as opaque by the omit-proofs feature.  For
 Coq for instance, among others, proof scripts terminated with
 <code>'Defined'</code> are not opaque and do not appear in the generated
 overview.
@@ -452,14 +452,14 @@ instance by asserting all require commands beforehand.
 <dl>
 <dt><a class="anchor" id="index-proof_002dcheck_002dannotate"></a><u>Command:</u> <b>proof-check-annotate</b><i> annotate-passing &amp;optional save-buffer</i></dt>
 <dd><p>Annotate failing proofs in current buffer with a &quot;<var>fail</var>&quot; comment.<br>
-This function modifies the current buffer in place. Use with
+This function modifies the current buffer in place.  Use with
 care!
 </p>
 <p>Similarly to &lsquo;<samp><code>proof-check-report</code></samp>&rsquo;, check all opaque proofs in the
-current buffer. Instead of generating a report, failing proofs
-are annotated with &quot;<var>fail</var>&quot; in a comment. Existing &quot;<var>pass</var>&quot; or
+current buffer.  Instead of generating a report, failing proofs
+are annotated with &quot;<var>fail</var>&quot; in a comment.  Existing &quot;<var>pass</var>&quot; or
 &quot;<var>fail</var>&quot; comments (e.g., from a previous run) are deleted
-together with the surrounding white space. With prefix argument
+together with the surrounding white space.  With prefix argument
 (or when <var>annotate-passing</var> is non-nil) also passing proofs are
 annotated with a &quot;<var>pass</var>&quot; comment. Pass and fail comments can be
 placed at the last or second last statement before the opaque
@@ -692,7 +692,7 @@ If <var>n</var> is negative, search backwards for the -Nth previous match.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 9, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

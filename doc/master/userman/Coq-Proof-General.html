@@ -204,31 +204,30 @@ If you make complex customizations using <code>eval</code> in
 <p>See its default value &lsquo;<samp><code>coq--default-project-find-file</code></samp>&rsquo; for an example.
 </p>
 <p>The function takes one argument, the name of a directory, and returns
-the name of a coq/rocq project file it contains if there is one. Return
+the name of a Coq/Rocq project file it contains if there is one.  Return
 nil otherwise.
 </p>
-<p>This is used to detect the coq project file (using
-&lsquo;<samp><code>locate-dominating-file</code></samp>&rsquo;). By default we accept _CoqProject and
-_RocqProject (and any case-variant of these) without checking coq/rocq
-version. If you want something smarter please redefine
+<p>This is used to detect the Coq project file (using
+&lsquo;<samp><code>locate-dominating-file</code></samp>&rsquo;).  By default we accept _CoqProject and
+_RocqProject (and any case-variant of these) without checking Coq/Rocq
+version.  If you want something smarter please redefine
 &lsquo;<samp><code>coq-project-filename</code></samp>&rsquo; directly by using:
 </p>
 <p>(setq <code>coq-project-filename</code> #&rsquo;my-own-predicate)
 </p>
-<p>About the coq/rocq project file (cf. Coq documentation on project files
+<p>About the Coq/Rocq project file (cf. Coq documentation on project files
 and &quot;makefile generation&quot;):
 </p>
-<p>The coq project file of a coq development should contain the arguments
-given to coq_makefile. In particular it contains the -I and -R
+<p>The Coq project file of a Coq development should contain the arguments
+given to Coq_makefile. In particular it contains the -I and -R
 options (preferably one per line). If &lsquo;<samp>coq-use-coqproject</samp>&rsquo; is
 t (default) the content of this file will be used by Proof General to
 infer the &lsquo;<samp><code>coq-load-path</code></samp>&rsquo; and the &lsquo;<samp><code>coq-prog-args</code></samp>&rsquo; variables that set the
 coqtop invocation by Proof General. This is now the recommended way of
 configuring the coqtop invocation. Local file variables may still be
-used to override the coq project file&rsquo;s configuration. .dir-locals.el
+used to override the Coq project file&rsquo;s configuration. .dir-locals.el
 files also work and override project file settings.
-</p>
-</dd></dl>
+</p></dd></dl>
 
 
 <hr size="6">
@@ -723,8 +722,8 @@ are compiled from the sources before the &quot;Require&quot; command is processe
 <dl>
 <dt><a class="anchor" id="index-coq_002dcompile_002dauto_002dsave"></a><u>Variable:</u> <b>coq-compile-auto-save</b></dt>
 <dd><p>Buffers to save before checking dependencies for compilation.<br>
-There are two orthogonal choices: Firstly one can save all or only the coq
-buffers, where coq buffers means all buffers in coq mode except the current
+There are two orthogonal choices: Firstly one can save all or only the Coq
+buffers, where Coq buffers means all buffers in Coq mode except the current
 buffer.  Secondly, Emacs can ask about each such buffer or save all of them
 unconditionally.
 </p>
@@ -877,7 +876,7 @@ configure these things with the following options.
 </p>
 <dl>
 <dt><a class="anchor" id="index-coq_002dload_002dpath"></a><u>Variable:</u> <b>coq-load-path</b></dt>
-<dd><p>Non-standard coq library load path.<br>
+<dd><p>Non-standard Coq library load path.<br>
 This list specifies the LoadPath extension for coqdep, coqc and
 coqtop.  Usually, the elements of this list are strings (for
 &quot;-I&quot;) or lists of two strings (for &quot;-R&quot; dir path and
@@ -886,7 +885,7 @@ coqtop.  Usually, the elements of this list are strings (for
 <p>The possible forms of elements of this list correspond to the 4
 forms of include options (&lsquo;<samp>-I</samp>&rsquo; &lsquo;<samp>-Q</samp>&rsquo; and &lsquo;<samp>-R</samp>&rsquo;).  An element can be
 </p><table><tr><td>&nbsp;</td><td><pre class="lisp">  - A list of the form &lsquo;<samp>(</samp>&rsquo;ocamlimport dir)', specifying (in 8.5) a
-    directory to be added to ocaml path (&lsquo;<samp>-I</samp>&rsquo;).
+    directory to be added to Ocaml path (&lsquo;<samp>-I</samp>&rsquo;).
   - A list of the form &lsquo;<samp>(</samp>&rsquo;rec dir path)' (where dir and path are
     strings) specifying a directory to be recursively mapped to the
     logical path &lsquo;<samp>path</samp>&rsquo; (&lsquo;<samp>-R dir path</samp>&rsquo;).
@@ -904,11 +903,11 @@ the form &lsquo;<samp>(dir path)</samp>&rsquo; are interpreted as &lsquo;<samp>(
 <p>A plain string maps to -Q ... &quot;&quot; in 8.5, and -I ... in 8.4.
 </p>
 <p>Under normal circumstances this list does not need to
-contain the coq standard library or &quot;.&quot; for the current
+contain the Coq standard library or &quot;.&quot; for the current
 directory (see &lsquo;<samp><code>coq-load-path-include-current</code></samp>&rsquo;).
 </p>
-<p><var>warning</var>: if you use coq &lt;= 8.4, the meaning of these options is
-not the same (-I is for coq path).
+<p><var>warning</var>: if you use Coq &lt;= 8.4, the meaning of these options is
+not the same (-I is for Coq path).
 </p></dd></dl>
 
 
@@ -936,7 +935,7 @@ List of regular expressions for directories in which ProofGeneral
 should not compile modules.  If a library file name matches one
 of the regular expressions in this list then ProofGeneral does
 neither compile this file nor check its dependencies for
-compilation.  It makes sense to include non-standard coq library
+compilation.  It makes sense to include non-standard Coq library
 directories here if they are not changed and if they are so big
 that dependency checking takes noticeable time.  The regular
 expressions in here are always matched against the .vo file name,
@@ -1331,12 +1330,12 @@ is killed when changing the opam switch through
 
 <dl>
 <dt><a class="anchor" id="index-coq_002dkill_002dcoq_002don_002dopam_002dswitch"></a><u>Variable:</u> <b>coq-kill-coq-on-opam-switch</b></dt>
-<dd><p>If t kill coq when the opam switch changes (requires &lsquo;<samp>opam-switch-mode</samp>&rsquo;).<br>
+<dd><p>If t kill Coq when the opam switch changes (requires &lsquo;<samp>opam-switch-mode</samp>&rsquo;).<br>
 When &lsquo;<samp>opam-switch-mode</samp>&rsquo; is loaded and the user changes the opam switch
-through &lsquo;<samp>opam-switch-mode</samp>&rsquo; then this option controls whether the coq
+through &lsquo;<samp>opam-switch-mode</samp>&rsquo; then this option controls whether the Coq
 background process (the proof shell) is killed such that the next
 assert command starts a new proof shell, probably using a
-different coq version from a different opam switch.
+different Coq version from a different opam switch.
 </p>
 <p>See https://github.com/ProofGeneral/opam-switch-mode for &lsquo;<samp>opam-switch-mode</samp>&rsquo;
 </p></dd></dl>
@@ -1354,7 +1353,7 @@ different coq version from a different opam switch.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 9, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

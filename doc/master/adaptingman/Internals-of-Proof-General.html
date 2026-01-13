@@ -378,7 +378,7 @@ important one is <code>proof-init-segmentation</code>.
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002dinit_002dsegmentation"></a><u>Function:</u> <b>proof-init-segmentation</b></dt>
-<dd><p>Initialise the queue and locked spans in a proof script buffer.<br>
+<dd><p>Initialize the queue and locked spans in a proof script buffer.<br>
 Allocate spans if need be.  The spans are detached from the
 buffer, so the regions are made empty by this function.
 Also clear list of script portions.
@@ -709,7 +709,7 @@ bother the user.  They may include
                             show command when running silent.
 </pre></td></tr></table>
 <p>Note that <code>'invisible</code> does not imply any of the others. If flags
-are non-empty, interactive cues will be surpressed. (E.g.,
+are non-empty, interactive cues will be suppressed. (E.g.,
 printing hints).
 </p>
 <p>See the functions &lsquo;<samp><code>proof-start-queue</code></samp>&rsquo; and &lsquo;<samp><code>proof-shell-exec-loop</code></samp>&rsquo;.
@@ -720,7 +720,7 @@ printing hints).
 <dd><p>Position of end of second last input inside delayed callbacks.<br>
 When callbacks of action items are processed, &lsquo;<samp><code>proof-marker</code></samp>&rsquo; has already
 been advanced to the end of the next input that the proof assistant
-processes in parallel with the callback. This variable permits the
+processes in parallel with the callback.  This variable permits the
 callback to access the end of the input belonging to its action-list
 item and then process the complete output that the proof assistant has
 sent.
@@ -758,7 +758,7 @@ background compilation finishes.  Then those items are put into
 <dt><a class="anchor" id="index-pg_002dsubterm_002danns_002duse_002dstack"></a><u>Variable:</u> <b>pg-subterm-anns-use-stack</b></dt>
 <dd><p>Choice of syntax tree encoding for terms.
 </p>
-<p>If nil, prover is expected to make no optimisations.
+<p>If nil, prover is expected to make no optimizations.
 If non-nil, the pretty printer of the prover only reports local changes.
 For Coq 6.2, use t.
 </p></dd></dl>
@@ -769,7 +769,7 @@ buffer and the associated buffers.
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dstart"></a><u>Command:</u> <b>proof-shell-start</b></dt>
-<dd><p>Initialise a shell-like buffer for a proof assistant.<br>
+<dd><p>Initialize a shell-like buffer for a proof assistant.<br>
 Does nothing if proof assistant is already running.
 </p>
 <p>Also generates goal and response buffers.
@@ -1026,13 +1026,13 @@ to examine &lsquo;<samp><code>proof-shell-last-output</code></samp>&rsquo;.
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002ddelayed_002doutput_002dstart"></a><u>Variable:</u> <b>proof-shell-delayed-output-start</b></dt>
 <dd><p>A record of the start of the previous output in the shell buffer.<br>
-The previous output is held back for processing at end of queue. Reset
+The previous output is held back for processing at end of queue.  Reset
 in &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo;, i.e., when subsequent output arrives.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002ddelayed_002doutput_002dend"></a><u>Variable:</u> <b>proof-shell-delayed-output-end</b></dt>
 <dd><p>A record of the start of the previous output in the shell buffer.<br>
-The previous output is held back for processing at end of queue. Reset
+The previous output is held back for processing at end of queue.  Reset
 in &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo;, i.e., when subsequent output arrives.
 </p></dd></dl>
 <dl>
@@ -1093,7 +1093,7 @@ after messages classified as urgent, see &lsquo;<samp><code>proof-shell-filter</
 will also be displayed in the response buffer.
 </p>
 <p>For example, if <var>output</var> has this form:
-</p><table><tr><td>&nbsp;</td><td><pre class="lisp">  <var>messsage-1</var>
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">  <var>message-1</var>
   <var>goals-1</var>
   <var>message-2</var>
   <var>goals-2</var>
@@ -1220,7 +1220,7 @@ entry point, &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo; against 
 overlapping calls.
 </p>
 <p>The argument <var>str-do-not-use</var> contains the most recent output, but
-is discarded. &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo; collects the output from
+is discarded.  &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo; collects the output from
 &lsquo;<samp><code>proof-shell-buffer</code></samp>&rsquo; (where it is inserted by
 &lsquo;<samp><code>scomint-output-filter</code></samp>&rsquo;), relieving this function from the task
 to buffer the output that arrives during parallel, overlapping
@@ -1280,7 +1280,7 @@ Reference Manual.  I recommend using the source-level debugger
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 9, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

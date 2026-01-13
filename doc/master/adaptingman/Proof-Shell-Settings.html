@@ -106,7 +106,7 @@ If &lsquo;<samp><code>proof-terminal-string</code></samp>&rsquo; is nil, this ha
 <dd><p>The command for configuring the proof process to gain synchronization.<br>
 This command is sent before Proof General&rsquo;s synchronization
 mechanism is engaged, to allow customization inside the process
-to help gain syncrhonization (e.g. engaging special markup).
+to help gain synchronization (e.g. engaging special markup).
 </p>
 <p>It is better to configure the proof assistant for this purpose
 via command line options if possible, in which case this variable
@@ -128,7 +128,7 @@ the proof assistant in some way, or print a welcome message
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002drestart_002dcmd"></a><u>Variable:</u> <b>proof-shell-restart-cmd</b></dt>
-<dd><p>A command for re-initialising the proof process.
+<dd><p>A command for re-initializing the proof process.
 </p></dd></dl>
 
 <dl>
@@ -276,7 +276,7 @@ are normally the ones of interest:
 </p><table><tr><td>&nbsp;</td><td><pre class="lisp"> <code>'proof-done-advancing</code>       A &quot;forward&quot; scripting command
  <code>'proof-done-retracting</code>      A &quot;backward&quot; scripting command
  <code>'proof-done-invisible</code>       A non-scripting command
- <code>'proof-shell-set-silent</code>     Indicates prover output has been surpressed
+ <code>'proof-shell-set-silent</code>     Indicates prover output has been suppressed
  <code>'proof-shell-clear-silent</code>   Indicates prover output has been restored
  <code>'init-cmd</code>                   Early initialization command sent to prover
 </pre></td></tr></table>
@@ -399,7 +399,7 @@ command, depending on whether the prover supports nested proofs or not.
 <dd><p>Regexp matching the start of the proof state output.<br>
 This is an important setting.  Output between &lsquo;<samp><code>proof-shell-start-goals-regexp</code></samp>&rsquo;
 and &lsquo;<samp><code>proof-shell-end-goals-regexp</code></samp>&rsquo; will be pasted into the goals buffer
-and possibly analysed further for proof-by-pointing markup.
+and possibly analyzed further for proof-by-pointing markup.
 If it is left as nil, the goals buffer will not be used.
 </p>
 <p>The goals display starts at the beginning of the match on this
@@ -458,7 +458,7 @@ parsing later.  Note that this affects processing of output which is
 ordinarily accumulated: output which appears before the eager annotation
 start will be discarded.
 </p>
-<p>The start/end annotations can be used to hilight the output, but
+<p>The start/end annotations can be used to highlight the output, but
 are stripped from display of the message in the minibuffer.
 </p>
 <p>It is useful to recognize (starts of) warnings or file-reading messages
@@ -711,7 +711,7 @@ before returning to the top level.
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dhandle_002doutput_002dsystem_002dspecific"></a><u>Variable:</u> <b>proof-shell-handle-output-system-specific</b></dt>
 <dd><p>Set this variable to handle system specific output.<br>
-Errors and interrupts are recognised in the function
+Errors and interrupts are recognized in the function
 &lsquo;<samp><code>proof-shell-handle-immediate-output</code></samp>&rsquo;.  Later output is
 handled by &lsquo;<samp><code>proof-shell-handle-delayed-output</code></samp>&rsquo;, which
 displays messages to the user in <strong>goals</strong> and <strong>response</strong>
@@ -748,7 +748,7 @@ symbol is <code>'systemspecific</code>.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 9, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
