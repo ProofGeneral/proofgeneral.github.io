@@ -96,9 +96,9 @@ more details.
 <dl>
 <dt><a class="anchor" id="index-proof_002dassistant_002dtable"></a><u>Variable:</u> <b>proof-assistant-table</b></dt>
 <dd><p>Proof General&rsquo;s table of supported proof assistants.<br>
-This is copied from &lsquo;<samp><code>proof-assistant-table-default</code></samp>&rsquo; at load time,
+This is copied from <code>proof-assistant-table-default</code> at load time,
 removing any entries that do not have a corresponding directory
-under &lsquo;<samp><code>proof-home-directory</code></samp>&rsquo;.
+under <code>proof-home-directory</code>.
 </p>
 <p>Each entry is a list of the form
 </p><table><tr><td>&nbsp;</td><td><pre class="lisp">  (<var>symbol</var> <var>name</var> <var>file-extension</var> [AUTOMODE-REGEXP] [IGNORED-EXTENSIONS-LIST])
@@ -109,14 +109,14 @@ assistant, &lsquo;<samp>SYMBOL-mode</samp>&rsquo;, run when files with <var>auto
 (or with extension <var>file-extension</var>) are visited.  If present,
 <var>ignored-extensions-list</var> is a list of file-name extensions to be
 ignored when doing file-name completion (<var>ignored-extensions-list</var>
-is added to &lsquo;<samp><code>completion-ignored-extensions</code></samp>&rsquo;).
+is added to <code>completion-ignored-extensions</code>).
 </p>
 <p><var>symbol</var> is also used to form the name of the directory and elisp
 file for the mode, which will be
 </p><table><tr><td>&nbsp;</td><td><pre class="lisp">    <var>proof-home-directory</var>/<var>symbol</var>/<var>symbol</var>.el
 </pre></td></tr></table>
 <p>where <var>proof-home-directory</var> is the value of the
-variable &lsquo;<samp><code>proof-home-directory</code></samp>&rsquo;.
+variable <code>proof-home-directory</code>.
 </p></dd></dl>
 
 
@@ -258,7 +258,7 @@ are declared in <code>pg-vars.el</code>.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 24, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

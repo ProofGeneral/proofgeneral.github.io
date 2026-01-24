@@ -154,7 +154,7 @@ dependent code in one place).
 <dt><a class="anchor" id="index-proof_002ddefshortcut"></a><u>Macro:</u> <b>proof-defshortcut</b><i> fn string &amp;optional key</i></dt>
 <dd><p>Define shortcut function <var>fn</var> to insert <var>string</var>, optional keydef <var>key</var>.<br>
 This is intended for defining proof assistant specific functions.
-<var>string</var> is inserted using &lsquo;<samp><code>proof-insert</code></samp>&rsquo;, which see.
+<var>string</var> is inserted using <code>proof-insert</code>, which see.
 <var>key</var> is added onto proof assistant map.
 </p></dd></dl>
 <p>The function <code>proof-shell-invisible-command</code> is a useful utility
@@ -166,11 +166,11 @@ buffer.
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dinvisible_002dcommand"></a><u>Function:</u> <b>proof-shell-invisible-command</b><i> cmd &amp;optional wait invisiblecallback &amp;rest flags</i></dt>
 <dd><p>Send <var>cmd</var> to the proof process.<br>
-The <var>cmd</var> is &lsquo;<samp>invisible</samp>&rsquo; in the sense that it is not recorded in buffer.
+The <var>cmd</var> is <code>invisible</code> in the sense that it is not recorded in buffer.
 <var>cmd</var> may be a string or a string-yielding expression.
 </p>
-<p>Automatically add &lsquo;<samp><code>proof-terminal-string</code></samp>&rsquo; if necessary, examining
-&lsquo;<samp>proof-shell-no-auto-terminate-commands</samp>&rsquo;.
+<p>Automatically add <code>proof-terminal-string</code> if necessary, examining
+<code>proof-shell-no-auto-terminate-commands</code>.
 </p>
 <p>By default, let the command be processed asynchronously.
 But if optional <var>wait</var> command is non-nil, wait for processing to finish
@@ -180,10 +180,10 @@ before and after sending the command.
 </p>
 <p><var>invisiblecallback</var> will be invoked after the command has finished,
 if it is set.  It should probably run the hook variables
-&lsquo;<samp><code>proof-state-change-hook</code></samp>&rsquo;.
+<code>proof-state-change-hook</code>.
 </p>
-<p><var>flags</var> are additional flags to put onto the &lsquo;<samp><code>proof-action-list</code></samp>&rsquo;.
-The flag <code>'invisible</code> is always added to <var>flags</var>.
+<p><var>flags</var> are additional flags to put onto the <code>proof-action-list</code>.
+The flag <code>invisible</code> is always added to <var>flags</var>.
 </p></dd></dl>
 
 <p>There are several handy macros to help you define functions
@@ -193,7 +193,7 @@ which invoke <code>proof-shell-invisible-command</code>.
 <dt><a class="anchor" id="index-proof_002ddefinvisible"></a><u>Macro:</u> <b>proof-definvisible</b><i> fn string &amp;optional key</i></dt>
 <dd><p>Define function <var>fn</var> to send <var>string</var> to proof assistant, optional keydef <var>key</var>.<br>
 This is intended for defining proof assistant specific functions.
-<var>string</var> is sent using &lsquo;<samp><code>proof-shell-invisible-command</code></samp>&rsquo;, which see.
+<var>string</var> is sent using <code>proof-shell-invisible-command</code>, which see.
 <var>string</var> may be a string or a function which returns a string.
 <var>key</var> is added onto proof assistant map.
 </p></dd></dl>
@@ -216,7 +216,7 @@ The <var>body</var> can contain occurrences of arg.
 <dd><p>Format <var>string</var> by replacing quoted chars by escaped version of <var>filename</var>.
 </p>
 <p>%e uses the canonicalized expanded version of filename (including
-directory, using &lsquo;<samp><code>default-directory</code></samp>&rsquo; &ndash; see &lsquo;<samp><code>expand-file-name</code></samp>&rsquo;).
+directory, using <code>default-directory</code> &ndash; see <code>expand-file-name</code>).
 </p>
 <p>%r uses the unadjusted (possibly relative) version of <var>filename</var>.
 </p>
@@ -228,7 +228,7 @@ or extension.
 <p>Using %e can avoid problems with dumb proof assistants who don&rsquo;t
 understand ~, for example.
 </p>
-<p>For all these cases, the escapes in &lsquo;<samp><code>proof-shell-filename-escapes</code></samp>&rsquo;
+<p>For all these cases, the escapes in <code>proof-shell-filename-escapes</code>
 are processed.
 </p>
 <p>If <var>string</var> is in fact a function, instead invoke it on <var>filename</var> and
@@ -248,7 +248,7 @@ return the resulting (string) value.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 24, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

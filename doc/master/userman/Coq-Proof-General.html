@@ -201,28 +201,28 @@ If you make complex customizations using <code>eval</code> in
 <dt><a class="anchor" id="index-coq_002dproject_002dfilename"></a><u>Variable:</u> <b>coq-project-filename</b></dt>
 <dd><p>Variable containing the function detecting a project file.
 </p>
-<p>See its default value &lsquo;<samp><code>coq--default-project-find-file</code></samp>&rsquo; for an example.
+<p>See its default value <code>coq--default-project-find-file</code> for an example.
 </p>
 <p>The function takes one argument, the name of a directory, and returns
 the name of a Coq/Rocq project file it contains if there is one.  Return
 nil otherwise.
 </p>
 <p>This is used to detect the Coq project file (using
-&lsquo;<samp><code>locate-dominating-file</code></samp>&rsquo;).  By default we accept _CoqProject and
+<code>locate-dominating-file</code>).  By default we accept _CoqProject and
 _RocqProject (and any case-variant of these) without checking Coq/Rocq
 version.  If you want something smarter please redefine
-&lsquo;<samp><code>coq-project-filename</code></samp>&rsquo; directly by using:
+<code>coq-project-filename</code> directly by using:
 </p>
-<p>(setq <code>coq-project-filename</code> #&rsquo;my-own-predicate)
+<p>(setq coq-project-filename #&rsquo;my-own-predicate)
 </p>
 <p>About the Coq/Rocq project file (cf. Coq documentation on project files
 and &quot;makefile generation&quot;):
 </p>
 <p>The Coq project file of a Coq development should contain the arguments
 given to Coq_makefile. In particular it contains the -I and -R
-options (preferably one per line). If &lsquo;<samp>coq-use-coqproject</samp>&rsquo; is
+options (preferably one per line). If <code>coq-use-coqproject</code> is
 t (default) the content of this file will be used by Proof General to
-infer the &lsquo;<samp><code>coq-load-path</code></samp>&rsquo; and the &lsquo;<samp><code>coq-prog-args</code></samp>&rsquo; variables that set the
+infer the <code>coq-load-path</code> and the <code>coq-prog-args</code> variables that set the
 coqtop invocation by Proof General. This is now the recommended way of
 configuring the coqtop invocation. Local file variables may still be
 used to override the Coq project file&rsquo;s configuration. .dir-locals.el
@@ -244,11 +244,11 @@ down to &ldquo;Coq Use Project File&rdquo;).
 <dt><a class="anchor" id="index-coq_002duse_002dproject_002dfile"></a><u>Variable:</u> <b>coq-use-project-file</b></dt>
 <dd><p>If t, when opening a Coq file read the dominating _CoqProject.<br>
 If t, when a Coq file is opened, Proof General will look for a
-project file (see &lsquo;<samp><code>coq-project-filename</code></samp>&rsquo;) somewhere in the
+project file (see <code>coq-project-filename</code>) somewhere in the
 current directory or its parent directories.  If there is one,
 its contents are read and used to determine the arguments that
 must be given to coqtop.  In particular it sets the load
-path (including the -R lib options) (see &lsquo;<samp><code>coq-load-path</code></samp>&rsquo;).
+path (including the -R lib options) (see <code>coq-load-path</code>).
 </p></dd></dl>
 
 <p>You can also use the .dir-locals.el as above to configure this setting
@@ -727,10 +727,10 @@ buffers, where Coq buffers means all buffers in Coq mode except the current
 buffer.  Secondly, Emacs can ask about each such buffer or save all of them
 unconditionally.
 </p>
-<p>This makes four permitted values: <code>'ask-coq</code> to confirm saving all
-modified Coq buffers, <code>'ask-all</code> to confirm saving all modified
-buffers, <code>'save-coq</code> to save all modified Coq buffers without
-confirmation and <code>'save-all</code> to save all modified buffers without
+<p>This makes four permitted values: <code>ask-coq</code> to confirm saving all
+modified Coq buffers, <code>ask-all</code> to confirm saving all modified
+buffers, <code>save-coq</code> to save all modified Coq buffers without
+confirmation and <code>save-all</code> to save all modified buffers without
 confirmation.
 </p>
 <p>This option can be set via menu
@@ -750,7 +750,7 @@ with synchronous job.  With this old method Proof General is
 locked during compilation.  If this setting is t, then the new
 method is used and compilation jobs are dispatched in parallel in
 the background.  The maximal number of parallel compilation jobs
-is set with &lsquo;<samp><code>coq-max-background-compilation-jobs</code></samp>&rsquo;.
+is set with <code>coq-max-background-compilation-jobs</code>.
 </p>
 <p>This option can be set/reset via menu
 &lsquo;<samp>Coq -&gt; Auto Compilation -&gt; Compile Parallel In Background</samp>&rsquo;.
@@ -778,38 +778,38 @@ immediately stopped after the first error.
 <dt><a class="anchor" id="index-coq_002dmax_002dbackground_002dcompilation_002djobs"></a><u>Variable:</u> <b>coq-max-background-compilation-jobs</b></dt>
 <dd><p>Maximal number of parallel jobs, if parallel compilation is enabled.<br>
 Use the number of available CPU cores if this is set to
-<code>'all-cpus</code>.  This variable is the user setting.  The value that is
-really used is &lsquo;<samp><code>coq--internal-max-jobs</code></samp>&rsquo;.  Use &lsquo;<samp><code>coq-max-jobs-setter</code></samp>&rsquo;
+<code>all-cpus</code>.  This variable is the user setting.  The value that is
+really used is <code>coq--internal-max-jobs</code>.  Use <code>coq-max-jobs-setter</code>
 or the customization system to change this variable.  Otherwise
-your change will have no effect, because &lsquo;<samp><code>coq--internal-max-jobs</code></samp>&rsquo;
+your change will have no effect, because <code>coq--internal-max-jobs</code>
 is not adapted.
 </p></dd></dl>
 
 
 <dl>
 <dt><a class="anchor" id="index-coq_002dmax_002dbackground_002dsecond_002dstage_002dpercentage"></a><u>Variable:</u> <b>coq-max-background-second-stage-percentage</b></dt>
-<dd><p>Percentage of &lsquo;<samp><code>coq-max-background-compilation-jobs</code></samp>&rsquo; for the second stage.<br>
-This setting configures the maximal number of &lsquo;<samp>`-vok</samp>&rsquo;&rsquo; or vio2vo background
+<dd><p>Percentage of <code>coq-max-background-compilation-jobs</code> for the second stage.<br>
+This setting configures the maximal number of &lsquo;<samp><code>-vok</code></samp>&rsquo; or vio2vo background
 jobs running in a second stage as
-percentage of &lsquo;<samp><code>coq-max-background-compilation-jobs</code></samp>&rsquo;.
+percentage of <code>coq-max-background-compilation-jobs</code>.
 </p>
 <p>For backward compatibility, if this option is not customized, it
 is initialized from the now deprecated option
-&lsquo;<samp><code>coq-max-background-vio2vo-percentage</code></samp>&rsquo;.
+&lsquo;<samp>coq-max-background-vio2vo-percentage</samp>&rsquo;.
 </p></dd></dl>
 
 
 <dl>
 <dt><a class="anchor" id="index-coq_002dcompile_002dsecond_002dstage_002ddelay"></a><u>Variable:</u> <b>coq-compile-second-stage-delay</b></dt>
 <dd><p>Delay in seconds before starting the second stage compilation.<br>
-The delay is applied to both &lsquo;<samp>`-vok</samp>&rsquo;&rsquo; and vio2vo second stages.
+The delay is applied to both &lsquo;<samp><code>-vok</code></samp>&rsquo; and vio2vo second stages.
 For Coq &lt; 8.11 and vio2vo delay helps to avoid running into a
-library inconsistency with <code>'quick-and-vio2vo</code>, see Coq issue
+library inconsistency with <code>quick-and-vio2vo</code>, see Coq issue
 #<var>5223</var>.
 </p>
 <p>For backward compatibility, if this option is not customized, it
 is initialized from the now deprecated option
-&lsquo;<samp><code>coq-compile-vio2vo-delay</code></samp>&rsquo;.
+&lsquo;<samp>coq-compile-vio2vo-delay</samp>&rsquo;.
 </p></dd></dl>
 
 <p>Locking ancestors can be disabled with the following option.
@@ -817,7 +817,7 @@ is initialized from the now deprecated option
 <dl>
 <dt><a class="anchor" id="index-coq_002dlock_002dancestors"></a><u>Variable:</u> <b>coq-lock-ancestors</b></dt>
 <dd><p>If non-nil, lock ancestor module files.<br>
-If external compilation is used (via &lsquo;<samp><code>coq-compile-command</code></samp>&rsquo;) then
+If external compilation is used (via <code>coq-compile-command</code>) then
 only the direct ancestors are locked.  Otherwise all ancestors are
 locked when the &quot;Require&quot; command is processed.
 </p>
@@ -855,7 +855,7 @@ command the following keys are substituted as follows:
 when module &quot;foo&quot; from directory &quot;bar&quot; is required.
 </p>
 <p>After the substitution the command can be changed in the
-minibuffer if &lsquo;<samp><code>coq-confirm-external-compilation</code></samp>&rsquo; is t.
+minibuffer if <code>coq-confirm-external-compilation</code> is t.
 </p></dd></dl>
 
 
@@ -888,23 +888,23 @@ forms of include options (&lsquo;<samp>-I</samp>&rsquo; &lsquo;<samp>-Q</samp>&r
     directory to be added to Ocaml path (&lsquo;<samp>-I</samp>&rsquo;).
   - A list of the form &lsquo;<samp>(</samp>&rsquo;rec dir path)' (where dir and path are
     strings) specifying a directory to be recursively mapped to the
-    logical path &lsquo;<samp>path</samp>&rsquo; (&lsquo;<samp>-R dir path</samp>&rsquo;).
+    logical path <code>path</code> (&lsquo;<samp>-R dir path</samp>&rsquo;).
   - A list of the form &lsquo;<samp>(</samp>&rsquo;recnoimport dir path)' (where dir and
     path are strings) specifying a directory to be recursively
-    mapped to the logical path &lsquo;<samp>path</samp>&rsquo; (&lsquo;<samp>-Q dir path</samp>&rsquo;), but not
+    mapped to the logical path <code>path</code> (&lsquo;<samp>-Q dir path</samp>&rsquo;), but not
     imported (modules accessible for import with qualified names
     only).  Note that -Q dir &quot;&quot; has a special, nonrecursive meaning.
   - A list of the form (8.4 only) &lsquo;<samp>(</samp>&rsquo;nonrec dir path)', specifying a
-    directory to be mapped to the logical path <code>'path'</code> ('-I dir -as path').
+    directory to be mapped to the logical path 'path' ('-I dir -as path').
 </pre></td></tr></table>
-<p>For convenience the symbol &lsquo;<samp>rec</samp>&rsquo; can be omitted and entries of
+<p>For convenience the symbol <code>rec</code> can be omitted and entries of
 the form &lsquo;<samp>(dir path)</samp>&rsquo; are interpreted as &lsquo;<samp>(rec dir path)</samp>&rsquo;.
 </p>
 <p>A plain string maps to -Q ... &quot;&quot; in 8.5, and -I ... in 8.4.
 </p>
 <p>Under normal circumstances this list does not need to
 contain the Coq standard library or &quot;.&quot; for the current
-directory (see &lsquo;<samp><code>coq-load-path-include-current</code></samp>&rsquo;).
+directory (see <code>coq-load-path-include-current</code>).
 </p>
 <p><var>warning</var>: if you use Coq &lt;= 8.4, the meaning of these options is
 not the same (-I is for Coq path).
@@ -916,7 +916,7 @@ not the same (-I is for Coq path).
 <dd><p>If t, let coqdep search the current directory too.<br>
 Should be t for normal users.  If t, pass -Q dir &quot;&quot; to coqdep when
 processing files in directory &quot;dir&quot; in addition to any entries in
-&lsquo;<samp><code>coq-load-path</code></samp>&rsquo;.
+<code>coq-load-path</code>.
 </p>
 <p>This setting is only relevant with Coq &lt; 8.5.
 </p></dd></dl>
@@ -939,7 +939,7 @@ compilation.  It makes sense to include non-standard Coq library
 directories here if they are not changed and if they are so big
 that dependency checking takes noticeable time.  The regular
 expressions in here are always matched against the .vo file name,
-regardless whether &lsquo;<samp>`-quick</samp>&rsquo;&rsquo; would be used to compile the file
+regardless whether &lsquo;<samp><code>-quick</code></samp>&rsquo; would be used to compile the file
 or not.
 </p></dd></dl>
 
@@ -1330,14 +1330,14 @@ is killed when changing the opam switch through
 
 <dl>
 <dt><a class="anchor" id="index-coq_002dkill_002dcoq_002don_002dopam_002dswitch"></a><u>Variable:</u> <b>coq-kill-coq-on-opam-switch</b></dt>
-<dd><p>If t kill Coq when the opam switch changes (requires &lsquo;<samp>opam-switch-mode</samp>&rsquo;).<br>
-When &lsquo;<samp>opam-switch-mode</samp>&rsquo; is loaded and the user changes the opam switch
-through &lsquo;<samp>opam-switch-mode</samp>&rsquo; then this option controls whether the Coq
+<dd><p>If t kill Coq when the opam switch changes (requires <code>opam-switch-mode</code>).<br>
+When <code>opam-switch-mode</code> is loaded and the user changes the opam switch
+through <code>opam-switch-mode</code> then this option controls whether the Coq
 background process (the proof shell) is killed such that the next
 assert command starts a new proof shell, probably using a
 different Coq version from a different opam switch.
 </p>
-<p>See https://github.com/ProofGeneral/opam-switch-mode for &lsquo;<samp>opam-switch-mode</samp>&rsquo;
+<p>See https://github.com/ProofGeneral/opam-switch-mode for <code>opam-switch-mode</code>
 </p></dd></dl>
 
 <hr size="6">
@@ -1353,7 +1353,7 @@ different Coq version from a different opam switch.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 24, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

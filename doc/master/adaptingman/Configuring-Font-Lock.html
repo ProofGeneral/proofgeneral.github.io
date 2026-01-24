@@ -38,24 +38,24 @@ Proof General, see section <a href="/doc/master/adaptingman/Beginning-with-a-New
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dfont_002dlock_002dkeywords"></a><u>Variable:</u> <b>proof-script-font-lock-keywords</b></dt>
-<dd><p>Value of &lsquo;<samp><code>font-lock-keywords</code></samp>&rsquo; used to fontify proof scripts.<br>
-The proof script mode should set this before calling &lsquo;<samp><code>proof-config-done</code></samp>&rsquo;.
-Used also by &lsquo;<samp><code>proof-easy-config</code></samp>&rsquo; mechanism.
-See also &lsquo;<samp><code>proof-goals-font-lock-keywords</code></samp>&rsquo; and &lsquo;<samp><code>proof-response-font-lock-keywords</code></samp>&rsquo;.
+<dd><p>Value of <code>font-lock-keywords</code> used to fontify proof scripts.<br>
+The proof script mode should set this before calling <code>proof-config-done</code>.
+Used also by <code>proof-easy-config</code> mechanism.
+See also <code>proof-goals-font-lock-keywords</code> and <code>proof-response-font-lock-keywords</code>.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dgoals_002dfont_002dlock_002dkeywords"></a><u>Variable:</u> <b>proof-goals-font-lock-keywords</b></dt>
-<dd><p>Value of &lsquo;<samp><code>font-lock-keywords</code></samp>&rsquo; used to fontify the goals output.<br>
-The goals shell mode should set this before calling &lsquo;<samp><code>proof-goals-config-done</code></samp>&rsquo;.
-Used also by &lsquo;<samp><code>proof-easy-config</code></samp>&rsquo; mechanism.
-See also &lsquo;<samp><code>proof-script-font-lock-keywords</code></samp>&rsquo; and &lsquo;<samp><code>proof-response-font-lock-keywords</code></samp>&rsquo;.
+<dd><p>Value of <code>font-lock-keywords</code> used to fontify the goals output.<br>
+The goals shell mode should set this before calling <code>proof-goals-config-done</code>.
+Used also by <code>proof-easy-config</code> mechanism.
+See also <code>proof-script-font-lock-keywords</code> and <code>proof-response-font-lock-keywords</code>.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dresponse_002dfont_002dlock_002dkeywords"></a><u>Variable:</u> <b>proof-response-font-lock-keywords</b></dt>
-<dd><p>Value of &lsquo;<samp><code>font-lock-keywords</code></samp>&rsquo; used to fontify the response output.<br>
-The response mode should set this before calling &lsquo;<samp><code>proof-response-config-done</code></samp>&rsquo;.
-Used also by &lsquo;<samp><code>proof-easy-config</code></samp>&rsquo; mechanism.
-See also &lsquo;<samp><code>proof-script-font-lock-keywords</code></samp>&rsquo; and &lsquo;<samp><code>proof-goals-font-lock-keywords</code></samp>&rsquo;.
+<dd><p>Value of <code>font-lock-keywords</code> used to fontify the response output.<br>
+The response mode should set this before calling <code>proof-response-config-done</code>.
+Used also by <code>proof-easy-config</code> mechanism.
+See also <code>proof-script-font-lock-keywords</code> and <code>proof-goals-font-lock-keywords</code>.
 </p></dd></dl>
 <p>Proof General provides a special function, <code>proof-zap-commas</code>, for
 tweaking the font lock behaviour of provers which have declarations of
@@ -68,7 +68,7 @@ fontifying the output buffers.
 <dl>
 <dt><a class="anchor" id="index-proof_002dzap_002dcommas"></a><u>Function:</u> <b>proof-zap-commas</b><i> limit</i></dt>
 <dd><p>Remove the face of all &lsquo;<samp>,</samp>&rsquo; from point to <var>limit</var>.<br>
-Meant to be used from &lsquo;<samp><code>font-lock-keywords</code></samp>&rsquo; as a way
+Meant to be used from <code>font-lock-keywords</code> as a way
 to unfontify commas in declarations and definitions.
 Useful for provers which have declarations of the form x,y,z:Ty
 All that can be said for it is that the previous ways of doing
@@ -79,7 +79,7 @@ this were even more bogus....
 <dt><a class="anchor" id="index-pg_002dbefore_002dfontify_002doutput_002dhook"></a><u>Variable:</u> <b>pg-before-fontify-output-hook</b></dt>
 <dd><p>This hook is called before fontifying a region in an output buffer.<br>
 A function on this hook can alter the region of the buffer within
-the current restriction, and must return the final value of (<code>point-max</code>).
+the current restriction, and must return the final value of <code>point-max</code>.
 [This hook is presently only used by phox-sym-lock].
 </p></dd></dl>
 
@@ -104,7 +104,7 @@ the current restriction, and must return the final value of (<code>point-max</co
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 24, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

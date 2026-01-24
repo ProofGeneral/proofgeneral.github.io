@@ -626,7 +626,7 @@ to terminate proof commands.  LEGO and Isabelle used a semicolon,
 <dt><a class="anchor" id="index-proof_002dgoto_002dend_002dof_002dlocked"></a><u>Command:</u> <b>proof-goto-end-of-locked</b><i> &amp;optional switch</i></dt>
 <dd><p>Jump to the end of the locked region, maybe switching to script buffer.<br>
 If called interactively or <var>switch</var> is non-nil, switch to script buffer.
-If called interactively, a mark is set at the current location with &lsquo;<samp><code>push-mark</code></samp>&rsquo;
+If called interactively, a mark is set at the current location with <code>push-mark</code>
 </p></dd></dl>
 
 
@@ -764,7 +764,7 @@ Also handy for proof by pointing, in case the last proof-by-pointing
 command took the proof in a direction you don&rsquo;t like.
 </p>
 <p>Notice that the deleted command is put into the Emacs kill ring, so
-you can use the usual &lsquo;<samp>yank</samp>&rsquo; and similar commands to retrieve the
+you can use the usual <code>yank</code> and similar commands to retrieve the
 deleted text.
 </p></dd></dl>
 
@@ -772,10 +772,10 @@ deleted text.
 <dl>
 <dt><a class="anchor" id="index-proof_002dgoto_002dpoint"></a><u>Command:</u> <b>proof-goto-point</b><i> &amp;optional raw</i></dt>
 <dd><p>Assert or retract to the command at current position.<br>
-Calls &lsquo;<samp><code>proof-assert-until-point</code></samp>&rsquo; or &lsquo;<samp><code>proof-retract-until-point</code></samp>&rsquo; as
+Calls <code>proof-assert-until-point</code> or <code>proof-retract-until-point</code> as
 appropriate.
 With prefix argument <var>raw</var>, the activation of the omit proofs feature
-(&lsquo;<samp><code>proof-omit-proofs-option</code></samp>&rsquo;) is temporarily toggled,
+(<code>proof-omit-proofs-option</code>) is temporarily toggled,
 so we can chose whether to check all proofs in the asserted region,
 or to merely assume them and save time.
 </p></dd></dl>
@@ -784,7 +784,7 @@ or to merely assume them and save time.
 <dt><a class="anchor" id="index-proof_002dprocess_002dbuffer"></a><u>Command:</u> <b>proof-process-buffer</b><i> &amp;optional raw</i></dt>
 <dd><p>Process the current (or script) buffer, and maybe move point to the end.<br>
 With prefix argument <var>raw</var>, the activation of the omit proofs feature
-(&lsquo;<samp><code>proof-omit-proofs-option</code></samp>&rsquo;) is temporarily toggled,
+(<code>proof-omit-proofs-option</code>) is temporarily toggled,
 so we can chose whether to check all proofs in the asserted region,
 or to merely assume them and save time.
 </p></dd></dl>
@@ -792,14 +792,14 @@ or to merely assume them and save time.
 <dl>
 <dt><a class="anchor" id="index-proof_002dretract_002dbuffer"></a><u>Command:</u> <b>proof-retract-buffer</b><i> &amp;optional called-interactively</i></dt>
 <dd><p>Retract the current buffer, and maybe move point to the start.<br>
-Point is only moved according to &lsquo;<samp><code>proof-follow-mode</code></samp>&rsquo;, if
+Point is only moved according to <code>proof-follow-mode</code>, if
 <var>called-interactively</var> is non-nil, which is the case for all
 interactive calls.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002delectric_002dterminator_002dtoggle"></a><u>Command:</u> <b>proof-electric-terminator-toggle</b><i> &amp;optional arg</i></dt>
-<dd><p>Toggle &lsquo;<samp><code>proof-electric-terminator-enable</code></samp>&rsquo;. With <var>arg</var>, turn on iff ARG&gt;0.<br>
+<dd><p>Toggle <code>proof-electric-terminator-enable</code>. With <var>arg</var>, turn on iff ARG&gt;0.<br>
 This function simply uses <code>customize-set-variable</code> to set the variable.
 </p></dd></dl>
 
@@ -925,7 +925,7 @@ The user is prompted for an argument.
 <dt><a class="anchor" id="index-pg_002dresponse_002dclear_002ddisplays"></a><u>Command:</u> <b>pg-response-clear-displays</b></dt>
 <dd><p>Clear Proof General response and tracing buffers.<br>
 You can use this command to clear the output from these buffers when
-it becomes overly long.  Particularly useful when &lsquo;<samp><code>proof-tidy-response</code></samp>&rsquo;
+it becomes overly long.  Particularly useful when <code>proof-tidy-response</code>
 is set to nil, so responses are not cleared automatically.
 </p></dd></dl>
 
@@ -957,15 +957,15 @@ The command isn&rsquo;t added to the locked region.
 pasted into the command.  This is handy for copying terms, etc from
 the script.
 </p>
-<p>If &lsquo;<samp><code>proof-strict-state-preserving</code></samp>&rsquo; is set, and &lsquo;<samp><code>proof-state-preserving-p</code></samp>&rsquo;
+<p>If <code>proof-strict-state-preserving</code> is set, and <code>proof-state-preserving-p</code>
 is configured, then the latter is used as a check that the command
 will be safe to execute, in other words, that it won&rsquo;t ruin
 synchronization.  If when applied to the command it returns false,
 then an error message is given.
 </p>
 <p><var>warning</var>: this command risks spoiling synchronization if the test
-&lsquo;<samp><code>proof-state-preserving-p</code></samp>&rsquo; is not configured, if it is
-only an approximate test, or if &lsquo;<samp><code>proof-strict-state-preserving</code></samp>&rsquo;
+<code>proof-state-preserving-p</code> is not configured, if it is
+only an approximate test, or if <code>proof-strict-state-preserving</code>
 is off (nil).
 </p></dd></dl>
 
@@ -987,7 +987,7 @@ Does nothing if proof assistant is already running.
 </p>
 <p>Also generates goal and response buffers.
 </p>
-<p>If &lsquo;<samp><code>proof-prog-name-ask</code></samp>&rsquo; is set, query the user for the
+<p>If <code>proof-prog-name-ask</code> is set, query the user for the
 process command.
 </p></dd></dl>
 
@@ -995,28 +995,28 @@ process command.
 <dt><a class="anchor" id="index-proof_002dshell_002dexit"></a><u>Command:</u> <b>proof-shell-exit</b><i> &amp;optional dont-ask</i></dt>
 <dd><p>Query the user and exit the proof process.
 </p>
-<p>This simply kills the &lsquo;<samp><code>proof-shell-buffer</code></samp>&rsquo; relying on the hook function
+<p>This simply kills the <code>proof-shell-buffer</code> relying on the hook function
 </p>
-<p>&lsquo;<samp><code>proof-shell-kill-function</code></samp>&rsquo; to do the hard work.  If optional
+<p><code>proof-shell-kill-function</code> to do the hard work.  If optional
 argument <var>dont-ask</var> is non-nil, the proof process is terminated
 without confirmation.
 </p>
 <p>The kill function uses &lsquo;<samp>&lt;PA&gt;-quit-timeout</samp>&rsquo; as a timeout to wait
-after sending &lsquo;<samp><code>proof-shell-quit-cmd</code></samp>&rsquo; before rudely killing the process.
+after sending <code>proof-shell-quit-cmd</code> before rudely killing the process.
 </p>
 <p>This function should not be called if
-&lsquo;<samp><code>proof-shell-exit-in-progress</code></samp>&rsquo; is t, because a recursive call of
-&lsquo;<samp><code>proof-shell-kill-function</code></samp>&rsquo; will give strange errors.
+<code>proof-shell-exit-in-progress</code> is t, because a recursive call of
+<code>proof-shell-kill-function</code> will give strange errors.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002drestart"></a><u>Command:</u> <b>proof-shell-restart</b></dt>
-<dd><p>Clear script buffers and send &lsquo;<samp><code>proof-shell-restart-cmd</code></samp>&rsquo;.<br>
+<dd><p>Clear script buffers and send <code>proof-shell-restart-cmd</code>.<br>
 All locked regions are cleared and the active scripting buffer
 deactivated.
 </p>
 <p>If the proof shell is busy, an interrupt is sent with
-&lsquo;<samp><code>proof-interrupt-process</code></samp>&rsquo; and we wait until the process is ready.
+<code>proof-interrupt-process</code> and we wait until the process is ready.
 </p>
 <p>The restart command should re-synchronize Proof General with the proof
 assistant, without actually exiting and restarting the proof assistant
@@ -1109,7 +1109,7 @@ use a fresh Emacs.)
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 24, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

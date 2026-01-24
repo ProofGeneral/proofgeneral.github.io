@@ -166,7 +166,7 @@ shown by default on every launch of Proof General.
 <dl>
 <dt><a class="anchor" id="index-proof_002dsplash_002denable"></a><u>User Option:</u> <b>proof-splash-enable</b></dt>
 <dd><p>If non-nil, display a splash screen when Proof General is loaded.<br>
-See &lsquo;<samp><code>proof-splash-time</code></samp>&rsquo; for configuring the time that the splash
+See <code>proof-splash-time</code> for configuring the time that the splash
 screen is shown.
 </p>
 <p>The default value is <code>t</code>.
@@ -210,7 +210,7 @@ screen), you can force a frame to stick to showing the goals or
 response buffer.
 </p>
 <p>This option only takes effect if the frame height is bigger than
-4 times &lsquo;<samp><code>window-min-height</code></samp>&rsquo; (i.e., bigger than 16 with default
+4 times <code>window-min-height</code> (i.e., bigger than 16 with default
 values) because there must be enough space to create 3 windows.
 </p>
 <p>The default value is <code>t</code>.
@@ -227,7 +227,7 @@ script.  The setting <code>proof-delete-empty-windows</code> helps you do this.
 For example, at the end of a proof the goals buffer window will
 be cleared; if this flag is set it will automatically be removed.
 If you want to fix the sizes of your windows you may want to set this
-variable to <code>'nil'</code> to avoid windows being deleted automatically.
+variable to nil to avoid windows being deleted automatically.
 If you use multiple frames, only the windows in the currently
 selected frame will be automatically deleted.
 </p>
@@ -246,7 +246,7 @@ example.  A convenient way to do this is via the user option
 <dd><p>Whether response and goals buffers have separate frames.<br>
 If non-nil, Emacs will make separate frames (screen windows) for
 the goals and response buffers, by altering the Emacs variable
-&lsquo;<samp><code>special-display-regexps</code></samp>&rsquo;.
+<code>special-display-regexps</code>.
 </p>
 <p>The default value is <code>nil</code>.
 </p></dd></dl>
@@ -275,13 +275,13 @@ without adjusting window layout.
 <dd><p>Refresh the display of windows according to current display mode.
 </p>
 <p>For multiple frame mode, this function obeys the setting of
-&lsquo;<samp><code>pg-response-eagerly-raise</code></samp>&rsquo;, which see.
+<code>pg-response-eagerly-raise</code>, which see.
 </p>
 <p>For single frame mode:
 </p>
 <p>- In two panes mode, this uses a canonical layout made by splitting
 Emacs windows in equal proportions.  The splitting is vertical if
-Emacs width is smaller than &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; and
+Emacs width is smaller than <code>split-width-threshold</code> and
 horizontal otherwise.  You can then adjust the proportions by
 dragging the separating bars.
 </p>
@@ -297,19 +297,19 @@ dragging the separating bars.
   - horizontal: 3 columns mode, one for each buffer (script, goals,
     response).
 
-  By default, the display mode is <code>'smart</code> which automatically chooses
+  By default, the display mode is <code>smart</code> which automatically chooses
   between these 3 modes by considering the current Emacs frame width: if
-  it is smaller than &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then vertical mode is
-  chosen, otherwise if it is smaller than 1.5 * &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo;
+  it is smaller than <code>split-width-threshold</code> then vertical mode is
+  chosen, otherwise if it is smaller than 1.5 * <code>split-width-threshold</code>
   then hybrid mode is chosen, finally if the frame is larger than 1.5 *
-  &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; then the horizontal mode is chosen.
+  <code>split-width-threshold</code> then the horizontal mode is chosen.
 
-  You can change the value of &lsquo;<samp><code>split-width-threshold</code></samp>&rsquo; at your
+  You can change the value of <code>split-width-threshold</code> at your
   will.
 
   If you want to force one of the layouts, you can set variable
-  &lsquo;<samp><code>proof-three-window-mode-policy</code></samp>&rsquo; to <code>'vertical</code>, <code>'horizontal</code> or
-  <code>'hybrid</code>.  The default value is <code>'smart</code> which sets the automatic
+  <code>proof-three-window-mode-policy</code> to <code>vertical</code>, <code>horizontal</code> or
+  <code>hybrid</code>.  The default value is <code>smart</code> which sets the automatic
   behaviour described above.
 </pre></td></tr></table>
 </dd></dl>
@@ -325,7 +325,7 @@ goals and response windows to fit their contents.
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dcolour_002dlocked"></a><u>User Option:</u> <b>proof-colour-locked</b></dt>
-<dd><p>If non-nil, colour the locked region with &lsquo;<samp><code>proof-locked-face</code></samp>&rsquo;.<br>
+<dd><p>If non-nil, colour the locked region with <code>proof-locked-face</code>.<br>
 If this is not set, buffers will have no special face set
 on locked regions.
 </p>
@@ -337,7 +337,7 @@ on locked regions.
 <dd><p>Non-nil causes Proof General to add tooltips for prover output.<br>
 Hovers will be added when this option is non-nil.  Prover outputs
 can be displayed when the mouse hovers over the region that
-produced it and output is available (see &lsquo;<samp><code>proof-full-annotation</code></samp>&rsquo;).
+produced it and output is available (see <code>proof-full-annotation</code>).
 If output is not available, the type of the output region is displayed.
 Changes of this option will not be reflected in already-processed
 regions of the script.
@@ -382,7 +382,7 @@ customize to be sure that Proof General reconfigures itself properly.
 <dt><a class="anchor" id="index-proof_002delectric_002dterminator_002denable"></a><u>User Option:</u> <b>proof-electric-terminator-enable</b></dt>
 <dd><p>If non-nil, use electric terminator mode.<br>
 If electric terminator mode is enabled, pressing a terminator will
-automatically issue &lsquo;<samp>proof-assert-next-command</samp>&rsquo; for convenience,
+automatically issue <code>proof-assert-next-command</code> for convenience,
 to send the command straight to the proof process.  If the command
 you want to send already has a terminator character, you don&rsquo;t
 need to delete the terminator character first.  Just press the
@@ -448,8 +448,8 @@ for the asserted region at the cost of not checking the proofs.
 For partial and non-opaque proofs in the asserted region all
 proof commands are sent to the proof assistant.
 </p>
-<p>Using a prefix argument for &lsquo;<samp><code>proof-goto-point</code></samp>&rsquo; (M-x <code>proof-goto-point</code>)
-or &lsquo;<samp><code>proof-process-buffer</code></samp>&rsquo; (M-x <code>proof-process-buffer</code>) temporarily
+<p>Using a prefix argument for <code>proof-goto-point</code> (M-x proof-goto-point)
+or <code>proof-process-buffer</code> (M-x proof-process-buffer) temporarily
 disables omitting proofs.
 </p></dd></dl>
 
@@ -463,9 +463,9 @@ disables omitting proofs.
 
 <dl>
 <dt><a class="anchor" id="index-PA_002dprog_002dargs"></a><u>Variable:</u> <b>PA-prog-args</b></dt>
-<dd><p>Arguments to be passed to &lsquo;<samp><code>proof-prog-name</code></samp>&rsquo; to run the proof assistant.<br>
-If non-nil, will be treated as a list of arguments for &lsquo;<samp><code>proof-prog-name</code></samp>&rsquo;.
-Otherwise &lsquo;<samp><code>proof-prog-name</code></samp>&rsquo; will be split on spaces to form arguments.
+<dd><p>Arguments to be passed to <code>proof-prog-name</code> to run the proof assistant.<br>
+If non-nil, will be treated as a list of arguments for <code>proof-prog-name</code>.
+Otherwise <code>proof-prog-name</code> will be split on spaces to form arguments.
 </p>
 <p>Remark: Arguments are interpreted strictly: each one must contain only one
 word, with no space (unless it is the same word). For example if the
@@ -475,18 +475,18 @@ arguments are -x foo -y bar, then the list should be &rsquo;(&quot;-x&quot; &quo
 
 <dl>
 <dt><a class="anchor" id="index-PA_002dprog_002denv"></a><u>Variable:</u> <b>PA-prog-env</b></dt>
-<dd><p>Modifications to &lsquo;<samp><code>process-environment</code></samp>&rsquo; made before running &lsquo;<samp><code>proof-prog-name</code></samp>&rsquo;.<br>
+<dd><p>Modifications to <code>process-environment</code> made before running <code>proof-prog-name</code>.<br>
 Each element should be a string of the form ENVVARNAME=<var>value</var>.  They will be
 added to the environment before launching the prover (but not pervasively).
 For example for coq on Windows you might need something like:
-(setq <code>coq-prog-env</code> &rsquo;(&quot;HOME=C:\Program Files\Coq\&quot;))
+(setq coq-prog-env &rsquo;(&quot;HOME=C:\Program Files\Coq\&quot;))
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dprog_002dname_002dguess"></a><u>User Option:</u> <b>proof-prog-name-guess</b></dt>
-<dd><p>If non-nil, use &lsquo;<samp><code>proof-guess-command-line</code></samp>&rsquo; to guess &lsquo;<samp><code>proof-prog-name</code></samp>&rsquo;.<br>
-This option is compatible with &lsquo;<samp><code>proof-prog-name-ask</code></samp>&rsquo;.
-No effect if &lsquo;<samp><code>proof-guess-command-line</code></samp>&rsquo; is nil.
+<dd><p>If non-nil, use <code>proof-guess-command-line</code> to guess <code>proof-prog-name</code>.<br>
+This option is compatible with <code>proof-prog-name-ask</code>.
+No effect if <code>proof-guess-command-line</code> is nil.
 </p>
 <p>The default value is <code>nil</code>.
 </p></dd></dl>
@@ -527,7 +527,7 @@ history that can be browsed without processing/undoing in the prover.
 <dd><p>Non-nil to run Proof General in debug mode.<br>
 This changes some behaviour (e.g. markup stripping) and displays
 debugging messages in the response buffer.  To avoid erasing
-messages shortly after they&rsquo;re printed, set &lsquo;<samp><code>proof-tidy-response</code></samp>&rsquo; to nil.
+messages shortly after they&rsquo;re printed, set <code>proof-tidy-response</code> to nil.
 This is only useful for PG developers.
 </p>
 <p>The default value is <code>nil</code>.
@@ -538,24 +538,24 @@ This is only useful for PG developers.
 <dl>
 <dt><a class="anchor" id="index-proof_002dfollow_002dmode"></a><u>User Option:</u> <b>proof-follow-mode</b></dt>
 <dd><p>Choice of how point moves with script processing commands.<br>
-One of the symbols: <code>'locked</code>, <code>'follow</code>, <code>'followdown</code>, <code>'ignore</code>.
+One of the symbols: <code>locked</code>, <code>follow</code>, <code>followdown</code>, <code>ignore</code>.
 </p>
-<p>If <code>'locked</code>, point sticks to the end of the locked region.
-If <code>'follow</code>, point moves just when needed to display the locked region end.
-If <code>'followdown</code>, point if necessary to stay in writable region
-If <code>'ignore</code>, point is never moved after movement commands or on errors.
+<p>If <code>locked</code>, point sticks to the end of the locked region.
+If <code>follow</code>, point moves just when needed to display the locked region end.
+If <code>followdown</code>, point if necessary to stay in writable region
+If <code>ignore</code>, point is never moved after movement commands or on errors.
 </p>
-<p>If you choose <code>'ignore</code>, you can find the end of the locked using
-M-x <code>proof-goto-end-of-locked</code>
+<p>If you choose <code>ignore</code>, you can find the end of the locked using
+M-x proof-goto-end-of-locked
 </p>
 <p>The default value is <code>locked</code>.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dauto_002daction_002dwhen_002ddeactivating_002dscripting"></a><u>User Option:</u> <b>proof-auto-action-when-deactivating-scripting</b></dt>
-<dd><p>If <code>'retract</code> or <code>'process</code>, do that when deactivating scripting.
+<dd><p>If <code>retract</code> or <code>process</code>, do that when deactivating scripting.
 </p>
-<p>With this option set to <code>'retract</code> or <code>'process</code>, when scripting
+<p>With this option set to <code>retract</code> or <code>process</code>, when scripting
 is turned off in a partly processed buffer, the buffer will be
 retracted or processed automatically.
 </p>
@@ -571,9 +571,9 @@ locked (coloured blue); a buffer is completely unprocessed when there
 is no locked region.
 </p>
 <p>For some proof assistants (such as Coq) fully processed buffers make
-no sense.  Setting this option to <code>'process</code> has then the same effect
+no sense.  Setting this option to <code>process</code> has then the same effect
 as leaving it unset (nil).  (This behaviour is controlled by
-&lsquo;<samp><code>proof-no-fully-processed-buffer</code></samp>&rsquo;.)
+<code>proof-no-fully-processed-buffer</code>.)
 </p>
 <p>The default value is <code>nil</code>.
 </p></dd></dl>
@@ -585,7 +585,7 @@ For example,
 </p><table><tr><td>&nbsp;</td><td><pre class="lisp">   ssh bigjobs
 </pre></td></tr></table>
 <p>Would cause Proof General to issue the command &lsquo;<samp>ssh bigjobs coqtop</samp>&rsquo;
-to start Coq remotely on our large compute server called &lsquo;<samp>bigjobs</samp>&rsquo;.
+to start Coq remotely on our large compute server called <code>bigjobs</code>.
 </p>
 <p>The protocol used should be configured so that no user interaction
 (passwords, or whatever) is required to get going.  For proper
@@ -783,7 +783,7 @@ prover specific ones using the <code><em>PA</em>-</code> mechanism).
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 24, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

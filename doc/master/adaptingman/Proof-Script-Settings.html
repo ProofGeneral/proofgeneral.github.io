@@ -77,9 +77,9 @@ functions.
 <dd><p>String that terminates commands sent to prover; nil if none.
 </p>
 <p>To configure command recognition properly, you must set at least one
-of these: &lsquo;<samp><code>proof-script-sexp-commands</code></samp>&rsquo;, &lsquo;<samp><code>proof-script-command-end-regexp</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-script-command-start-regexp</code></samp>&rsquo;, &lsquo;<samp><code>proof-terminal-string</code></samp>&rsquo;,
-or &lsquo;<samp><code>proof-script-parse-function</code></samp>&rsquo;.
+of these: <code>proof-script-sexp-commands</code>, <code>proof-script-command-end-regexp</code>,
+<code>proof-script-command-start-regexp</code>, <code>proof-terminal-string</code>,
+or <code>proof-script-parse-function</code>.
 </p></dd></dl>
 
 <dl>
@@ -88,13 +88,13 @@ or &lsquo;<samp><code>proof-script-parse-function</code></samp>&rsquo;.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dsexp_002dcommands"></a><u>Variable:</u> <b>proof-script-sexp-commands</b></dt>
-<dd><p>Non-nil if script has Lisp-like syntax: commands are <code>top-level</code> sexps.<br>
+<dd><p>Non-nil if script has Lisp-like syntax: commands are top-level sexps.<br>
 You should set this variable in script mode configuration.
 </p>
 <p>To configure command recognition properly, you must set at least one
-of these: &lsquo;<samp><code>proof-script-sexp-commands</code></samp>&rsquo;, &lsquo;<samp><code>proof-script-command-end-regexp</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-script-command-start-regexp</code></samp>&rsquo;, &lsquo;<samp><code>proof-terminal-string</code></samp>&rsquo;,
-or &lsquo;<samp><code>proof-script-parse-function</code></samp>&rsquo;.
+of these: <code>proof-script-sexp-commands</code>, <code>proof-script-command-end-regexp</code>,
+<code>proof-script-command-start-regexp</code>, <code>proof-terminal-string</code>,
+or <code>proof-script-parse-function</code>.
 </p></dd></dl>
 
 <dl>
@@ -103,9 +103,9 @@ or &lsquo;<samp><code>proof-script-parse-function</code></samp>&rsquo;.
 You should set this variable in script mode configuration.
 </p>
 <p>To configure command recognition properly, you must set at least one
-of these: &lsquo;<samp><code>proof-script-sexp-commands</code></samp>&rsquo;, &lsquo;<samp><code>proof-script-command-end-regexp</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-script-command-start-regexp</code></samp>&rsquo;, &lsquo;<samp><code>proof-terminal-string</code></samp>&rsquo;,
-or &lsquo;<samp><code>proof-script-parse-function</code></samp>&rsquo;.
+of these: <code>proof-script-sexp-commands</code>, <code>proof-script-command-end-regexp</code>,
+<code>proof-script-command-start-regexp</code>, <code>proof-terminal-string</code>,
+or <code>proof-script-parse-function</code>.
 </p></dd></dl>
 
 <dl>
@@ -118,12 +118,12 @@ of this regexp.  The regexp may include a nested group, which
 can be used to recognize the start of the following command
 (or white space).  If there is a nested group, the end of the
 command is considered to be the start of the nested group,
-i.e. (<code>match-beginning</code> 1), rather than (<code>match-end</code> 0).
+i.e. (match-beginning 1), rather than (match-end 0).
 </p>
 <p>To configure command recognition properly, you must set at least one
-of these: &lsquo;<samp><code>proof-script-sexp-commands</code></samp>&rsquo;, &lsquo;<samp><code>proof-script-command-end-regexp</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-script-command-start-regexp</code></samp>&rsquo;, &lsquo;<samp><code>proof-terminal-string</code></samp>&rsquo;,
-or &lsquo;<samp><code>proof-script-parse-function</code></samp>&rsquo;.
+of these: <code>proof-script-sexp-commands</code>, <code>proof-script-command-end-regexp</code>,
+<code>proof-script-command-start-regexp</code>, <code>proof-terminal-string</code>,
+or <code>proof-script-parse-function</code>.
 </p></dd></dl>
 
 
@@ -135,29 +135,29 @@ Read the Elisp manual (see <a href="../Elisp/Syntax-Tables.html#Syntax-Tables">(
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dcomment_002dstart"></a><u>Variable:</u> <b>proof-script-comment-start</b></dt>
 <dd><p>String which starts a comment in the proof assistant command language.<br>
-The script buffer&rsquo;s &lsquo;<samp><code>comment-start</code></samp>&rsquo; is set to this string plus a space.
+The script buffer&rsquo;s <code>comment-start</code> is set to this string plus a space.
 Moreover, comments are usually ignored during script management, and not
 sent to the proof process.
 </p>
 <p>You should set this variable for reliable working of Proof General,
-as well as &lsquo;<samp><code>proof-script-comment-end</code></samp>&rsquo;.
+as well as <code>proof-script-comment-end</code>.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dcomment_002dstart_002dregexp"></a><u>Variable:</u> <b>proof-script-comment-start-regexp</b></dt>
 <dd><p>Regexp which matches a comment start in the proof command language.
 </p>
-<p>The default value for this is set as (<code>regexp-quote</code> &lsquo;<samp><code>proof-script-comment-start</code></samp>&rsquo;)
+<p>The default value for this is set as (regexp-quote <code>proof-script-comment-start</code>)
 but you can set this variable to something else more precise if necessary.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dcomment_002dend"></a><u>Variable:</u> <b>proof-script-comment-end</b></dt>
 <dd><p>String which ends a comment in the proof assistant command language.<br>
-Should be an empty string if comments are terminated by &lsquo;<samp><code>end-of-line</code></samp>&rsquo;
-The script buffer&rsquo;s &lsquo;<samp><code>comment-end</code></samp>&rsquo; is set to a space plus this string,
+Should be an empty string if comments are terminated by <code>end-of-line</code>
+The script buffer&rsquo;s <code>comment-end</code> is set to a space plus this string,
 if it is non-empty.
 </p>
-<p>See also &lsquo;<samp><code>proof-script-comment-start</code></samp>&rsquo;.
+<p>See also <code>proof-script-comment-start</code>.
 </p>
 <p>You should set this variable for reliable working of Proof General.
 </p></dd></dl>
@@ -166,16 +166,16 @@ if it is non-empty.
 <dt><a class="anchor" id="index-proof_002dscript_002dcomment_002dend_002dregexp"></a><u>Variable:</u> <b>proof-script-comment-end-regexp</b></dt>
 <dd><p>Regexp which matches a comment end in the proof command language.
 </p>
-<p>The default value for this is set as (<code>regexp-quote</code> &lsquo;<samp><code>proof-script-comment-end</code></samp>&rsquo;)
+<p>The default value for this is set as (regexp-quote <code>proof-script-comment-end</code>)
 but you can set this variable to something else more precise if necessary.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dcase_002dfold_002dsearch"></a><u>Variable:</u> <b>proof-case-fold-search</b></dt>
-<dd><p>Value for &lsquo;<samp><code>case-fold-search</code></samp>&rsquo; when recognizing portions of proof scripts.<br>
-Also used for completion, via &lsquo;<samp><code>proof-script-complete</code></samp>&rsquo;.
+<dd><p>Value for <code>case-fold-search</code> when recognizing portions of proof scripts.<br>
+Also used for completion, via <code>proof-script-complete</code>.
 The default value is nil.  If your prover has a case <strong>insensitive</strong>
-input syntax, &lsquo;<samp><code>proof-case-fold-search</code></samp>&rsquo; should be set to t instead.
+input syntax, <code>proof-case-fold-search</code> should be set to t instead.
 NB: This setting is not used for matching output from the prover.
 </p></dd></dl>
 
@@ -188,9 +188,9 @@ override this with a system-specific function.
 <dl>
 <dt><a class="anchor" id="index-proof_002dlooking_002dat_002dsyntactic_002dcontext"></a><u>Function:</u> <b>proof-looking-at-syntactic-context</b></dt>
 <dd><p>Determine if current point is at beginning or within comment/string context.<br>
-If so, return a symbol indicating this (&rsquo;comment or <code>'string</code>).
+If so, return a symbol indicating this (<code>comment</code> or <code>string</code>).
 This function invokes &lt;PA-syntactic-context&gt; if that is defined, otherwise
-it calls &lsquo;<samp><code>proof-looking-at-syntactic-context</code></samp>&rsquo;.
+it calls <code>proof-looking-at-syntactic-context</code>.
 </p></dd></dl>
 <hr size="6">
 <a class="anchor" id="Recognizing-proofs"></a>
@@ -211,7 +211,7 @@ nested proofs; the present state is only part of the way there).
 <dl>
 <dt><a class="anchor" id="index-proof_002dgoal_002dcommand_002dregexp"></a><u>Variable:</u> <b>proof-goal-command-regexp</b></dt>
 <dd><p>Matches a goal command in the proof script.<br>
-This is used to make the default value for &lsquo;<samp><code>proof-goal-command-p</code></samp>&rsquo;,
+This is used to make the default value for <code>proof-goal-command-p</code>,
 used as an important part of script management to find the start
 of an atomic undo block.
 </p></dd></dl>
@@ -220,10 +220,10 @@ of an atomic undo block.
 <dt><a class="anchor" id="index-proof_002dgoal_002dcommand_002dp"></a><u>Variable:</u> <b>proof-goal-command-p</b></dt>
 <dd><p>A function to test: is this really a goal command span?
 </p>
-<p>This is added as a more refined addition to &lsquo;<samp><code>proof-goal-command-regexp</code></samp>&rsquo;,
+<p>This is added as a more refined addition to <code>proof-goal-command-regexp</code>,
 to solve the problem that Coq and some other provers can have goals which
 look like definitions, etc.  (In the future we may generalize
-&lsquo;<samp><code>proof-goal-command-regexp</code></samp>&rsquo; instead).
+<code>proof-goal-command-regexp</code> instead).
 </p></dd></dl>
 
 
@@ -231,8 +231,8 @@ look like definitions, etc.  (In the future we may generalize
 <dt><a class="anchor" id="index-proof_002dgoal_002dwith_002dhole_002dregexp"></a><u>Variable:</u> <b>proof-goal-with-hole-regexp</b></dt>
 <dd><p>Regexp which matches a command used to issue and name a goal.<br>
 The name of the theorem is built from the variable
-&lsquo;<samp><code>proof-goal-with-hole-result</code></samp>&rsquo; using the same convention as
-for &lsquo;<samp><code>query-replace-regexp</code></samp>&rsquo;.
+<code>proof-goal-with-hole-result</code> using the same convention as
+for <code>query-replace-regexp</code>.
 Used for setting names of goal..save regions and for default
 configuration of other modes (function menu, imenu).
 </p>
@@ -241,10 +241,10 @@ configuration of other modes (function menu, imenu).
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dgoal_002dwith_002dhole_002dresult"></a><u>Variable:</u> <b>proof-goal-with-hole-result</b></dt>
-<dd><p>How to get theorem name after &lsquo;<samp><code>proof-goal-with-hole-regexp</code></samp>&rsquo; match.<br>
+<dd><p>How to get theorem name after <code>proof-goal-with-hole-regexp</code> match.<br>
 String or Int.
-If an int N, use &lsquo;<samp><code>match-string</code></samp>&rsquo; to get the value of the Nth parenthesis matched.
-If a string, use &lsquo;<samp><code>replace-match</code></samp>&rsquo;.  In this case, &lsquo;<samp><code>proof-goal-with-hole-regexp</code></samp>&rsquo;
+If an int N, use <code>match-string</code> to get the value of the Nth parenthesis matched.
+If a string, use <code>replace-match</code>.  In this case, <code>proof-goal-with-hole-regexp</code>
 should match the entire command.
 </p></dd></dl>
 
@@ -257,8 +257,8 @@ should match the entire command.
 <dt><a class="anchor" id="index-proof_002dsave_002dwith_002dhole_002dregexp"></a><u>Variable:</u> <b>proof-save-with-hole-regexp</b></dt>
 <dd><p>Regexp which matches a command to save a named theorem.<br>
 The name of the theorem is built from the variable
-&lsquo;<samp><code>proof-save-with-hole-result</code></samp>&rsquo; using the same convention as
-&lsquo;<samp><code>query-replace-regexp</code></samp>&rsquo;.
+<code>proof-save-with-hole-result</code> using the same convention as
+<code>query-replace-regexp</code>.
 Used for setting names of goal..save and proof regions.
 </p>
 <p>It&rsquo;s safe to leave this setting as nil.
@@ -276,14 +276,14 @@ may be lost in the prover.  So we allow Proof General to close
 off the goal..[save] region in more flexible ways.
 The possibilities are:
 </p><table><tr><td>&nbsp;</td><td><pre class="lisp">        nil  -  nothing special; close only when a save arrives
-  <code>'closeany</code>  -  close as soon as the next command arrives, save or not
- <code>'closegoal</code>  -  close when the next &quot;goal&quot; command arrives
-    <code>'extend</code>  -  keep extending the closed region until a save or goal.
+  <code>closeany</code>  -  close as soon as the next command arrives, save or not
+ <code>closegoal</code>  -  close when the next &quot;goal&quot; command arrives
+    <code>extend</code>  -  keep extending the closed region until a save or goal.
 </pre></td></tr></table>
 <p>If your proof assistant allows nested goals, it will be wrong to close
 off the portion of proof so far, so this variable should be set to nil.
 </p>
-<p>NB: <code>'extend</code> behaviour is not currently compatible with appearance of
+<p>NB: <code>extend</code> behaviour is not currently compatible with appearance of
 save commands, so don&rsquo;t use that if your prover has save commands.
 </p></dd></dl>
 
@@ -291,7 +291,7 @@ save commands, so don&rsquo;t use that if your prover has save commands.
 <dt><a class="anchor" id="index-proof_002dreally_002dsave_002dcommand_002dp"></a><u>Variable:</u> <b>proof-really-save-command-p</b></dt>
 <dd><p>Is this really a save command?
 </p>
-<p>This is a more refined addition to &lsquo;<samp><code>proof-save-command-regexp</code></samp>&rsquo;.
+<p>This is a more refined addition to <code>proof-save-command-regexp</code>.
 It should be a function taking a span and command as argument,
 and can be used to track nested proofs.
 </p></dd></dl>
@@ -311,7 +311,7 @@ setting based on <code>proof-goal-with-hole-regexp</code> is configured.
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dimenu_002dgeneric_002dexpression"></a><u>Variable:</u> <b>proof-script-imenu-generic-expression</b></dt>
 <dd><p>Regular expressions to help find definitions and proofs in a script.<br>
-Value for &lsquo;<samp><code>imenu-generic-expression</code></samp>&rsquo;, see documentation of Imenu
+Value for <code>imenu-generic-expression</code>, see documentation of Imenu
 and that variable for details.
 </p></dd></dl>
 
@@ -373,8 +373,8 @@ calculated.
 These are commands which should not appear in proof scripts,
 for example, undo commands themselves (if the proof assistant
 cannot &quot;redo&quot; an &quot;undo&quot;).
-Used in default functions &lsquo;<samp><code>proof-generic-state-preserving-p</code></samp>&rsquo;
-and &lsquo;<samp><code>proof-generic-count-undos</code></samp>&rsquo;.  If you don&rsquo;t use those,
+Used in default functions <code>proof-generic-state-preserving-p</code>
+and <code>proof-generic-count-undos</code>.  If you don&rsquo;t use those,
 may be left as nil.
 </p></dd></dl>
 
@@ -387,8 +387,8 @@ undo steps to issue.
 If this is set to a function, it should return a list of
 the appropriate commands (given the number of undo steps).
 </p>
-<p>This setting is used for the default &lsquo;<samp><code>proof-generic-count-undos</code></samp>&rsquo;.
-If you set &lsquo;<samp><code>proof-count-undos-fn</code></samp>&rsquo; to some other function, there is no
+<p>This setting is used for the default <code>proof-generic-count-undos</code>.
+If you set <code>proof-count-undos-fn</code> to some other function, there is no
 need to set this variable.
 </p></dd></dl>
 
@@ -396,8 +396,8 @@ need to set this variable.
 <dt><a class="anchor" id="index-proof_002dignore_002dfor_002dundo_002dcount"></a><u>Variable:</u> <b>proof-ignore-for-undo-count</b></dt>
 <dd><p>Matcher for script commands to be ignored in undo count.<br>
 May be left as nil, in which case it will be set to
-&lsquo;<samp><code>proof-non-undoables-regexp</code></samp>&rsquo;.
-Used in default function &lsquo;<samp><code>proof-generic-count-undos</code></samp>&rsquo;.
+<code>proof-non-undoables-regexp</code>.
+Used in default function <code>proof-generic-count-undos</code>.
 </p></dd></dl>
 
 <dl>
@@ -407,20 +407,20 @@ The function takes a span as an argument, and should return a string
 which is the command to undo to the target span.  The target is
 guaranteed to be within the current (open) proof.
 This is an important function for script management.
-The default setting &lsquo;<samp><code>proof-generic-count-undos</code></samp>&rsquo; is based on the
-settings &lsquo;<samp><code>proof-non-undoables-regexp</code></samp>&rsquo; and
-&lsquo;<samp><code>proof-non-undoables-regexp</code></samp>&rsquo;.
+The default setting <code>proof-generic-count-undos</code> is based on the
+settings <code>proof-non-undoables-regexp</code> and
+<code>proof-non-undoables-regexp</code>.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dgeneric_002dcount_002dundos"></a><u>Function:</u> <b>proof-generic-count-undos</b><i> span</i></dt>
 <dd><p>Count number of undos in <var>span</var>, return commands needed to undo that far.<br>
-Command is set using &lsquo;<samp><code>proof-undo-n-times-cmd</code></samp>&rsquo;.
+Command is set using <code>proof-undo-n-times-cmd</code>.
 </p>
-<p>A default value for &lsquo;<samp><code>proof-count-undos-fn</code></samp>&rsquo;.
+<p>A default value for <code>proof-count-undos-fn</code>.
 </p>
 <p>For this function to work properly, you must configure
-&lsquo;<samp><code>proof-undo-n-times-cmd</code></samp>&rsquo; and &lsquo;<samp><code>proof-ignore-for-undo-count</code></samp>&rsquo;.
+<code>proof-undo-n-times-cmd</code> and <code>proof-ignore-for-undo-count</code>.
 </p></dd></dl>
 
 
@@ -434,14 +434,14 @@ Command is set using &lsquo;<samp><code>proof-undo-n-times-cmd</code></samp>&rsq
 This setting is used to for retraction (undoing) in proof scripts.
 </p>
 <p>It should undo the effect of all settings between its target span
-up to (<code>proof-unprocessed-begin</code>).  This may involve forgetting a number
+up to <code>proof-unprocessed-begin</code>.  This may involve forgetting a number
 of definitions, declarations, or whatever.
 </p>
 <p>If return value is nil, it means there is nothing to do.
 </p>
 <p>This is an important function for script management.
 Study one of the existing instantiations for examples of how to write it,
-or leave it set to the default function &lsquo;<samp><code>proof-generic-find-and-forget</code></samp>&rsquo;
+or leave it set to the default function <code>proof-generic-find-and-forget</code>
 (which see).
 </p></dd></dl>
 
@@ -453,8 +453,8 @@ open goal at the moment, so forgetting involves unbinding
 declarations, etc, rather than undoing proof steps.
 </p>
 <p>This generic implementation assumes it is enough to find the
-nearest following span with a &lsquo;<samp>name</samp>&rsquo; property, and retract
-that using &lsquo;<samp><code>proof-forget-id-command</code></samp>&rsquo; with the given name.
+nearest following span with a <code>name</code> property, and retract
+that using <code>proof-forget-id-command</code> with the given name.
 </p>
 <p>If this behaviour is not correct, you must customize the function
 with something different.
@@ -465,9 +465,9 @@ with something different.
 <dd><p>Command to forget back to a given named span.<br>
 A string; &lsquo;<samp>%s</samp>&rsquo; will be replaced by the name of the span.
 </p>
-<p>This is only used in the implementation of &lsquo;<samp><code>proof-generic-find-and-forget</code></samp>&rsquo;,
+<p>This is only used in the implementation of <code>proof-generic-find-and-forget</code>,
 you only need to set if you use that function (by not customizing
-&lsquo;<samp><code>proof-find-and-forget-fn</code></samp>&rsquo;.
+<code>proof-find-and-forget-fn</code>.
 </p></dd></dl>
 
 <dl>
@@ -475,7 +475,7 @@ you only need to set if you use that function (by not customizing
 <dd><p>Function to return cons if point is at a goal/hypothesis/literal.<br>
 This is used to parse the proofstate output to mark it up for
 proof-by-pointing or literal command insertion.  It should return a cons or nil.
-First element of the cons is a symbol, <code>'goal'</code>, <code>'hyp'</code> or <code>'lit'</code>.
+First element of the cons is a symbol, <code>goal</code>, <code>hyp</code> or <code>lit</code>.
 The second element is a string: the goal, hypothesis, or literal command itself.
 </p>
 <p>If you leave this variable unset, no proof-by-pointing markup
@@ -486,13 +486,13 @@ will be attempted.
 <dt><a class="anchor" id="index-proof_002dkill_002dgoal_002dcommand"></a><u>Variable:</u> <b>proof-kill-goal-command</b></dt>
 <dd><p>Command to kill the currently open goal.
 </p>
-<p>If this is set to nil, PG will expect &lsquo;<samp><code>proof-find-and-forget-fn</code></samp>&rsquo;
+<p>If this is set to nil, PG will expect <code>proof-find-and-forget-fn</code>
 to do all the work of retracting to an arbitrary point in a file.
 Otherwise, the generic split-phase mechanism will be used:
 </p>
-<p>1. If inside an unclosed proof, use &lsquo;<samp>proof-count-undos</samp>&rsquo;.
+<p>1. If inside an unclosed proof, use <code>proof-count-undos</code>.
 2. If retracting to before an unclosed proof, use
-&lsquo;<samp><code>proof-kill-goal-command</code></samp>&rsquo;, followed by &lsquo;<samp><code>proof-find-and-forget-fn</code></samp>&rsquo;
+<code>proof-kill-goal-command</code>, followed by <code>proof-find-and-forget-fn</code>
 if necessary.
 </p></dd></dl>
 
@@ -530,11 +530,11 @@ lost.
 <p>Used for provers which allow nested atomic goal-saves, but with some
 nested history that must be undone specially.
 </p>
-<p>At the moment, the behaviour is that a goal-save span has a <code>'nestedundos</code>
+<p>At the moment, the behaviour is that a goal-save span has a <code>nestedundos</code>
 property which is set to the number of commands within it which match
 this regexp.  The idea is that the prover-specific code can create a
 customized undo command to retract the goal-save region, based on the
-<code>'nestedundos</code> setting.  Coq uses this to forget declarations, since
+<code>nestedundos</code> setting.  Coq uses this to forget declarations, since
 declarations in Coq reside in a separate context with its own (flat)
 history.
 </p></dd></dl>
@@ -590,38 +590,38 @@ configured.
 <dl>
 <dt><a class="anchor" id="index-proof_002domit_002dproofs_002dconfigured"></a><u>Variable:</u> <b>proof-omit-proofs-configured</b></dt>
 <dd><p>Non-nil if the omit proofs feature has been configured by the proof assistant.<br>
-See also &lsquo;<samp><code>proof-omit-proofs-option</code></samp>&rsquo; or the Proof General manual
+See also <code>proof-omit-proofs-option</code> or the Proof General manual
 for a description of the feature.  This option can only be set, if
-all of &lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-script-proof-end-regexp</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo; and
-&lsquo;<samp><code>proof-script-proof-admit-command</code></samp>&rsquo; have been configured.
+all of <code>proof-script-proof-start-regexp</code>,
+<code>proof-script-proof-end-regexp</code>,
+<code>proof-script-definition-end-regexp</code> and
+<code>proof-script-proof-admit-command</code> have been configured.
 </p>
 <p>The omit proofs feature skips over opaque proofs in the source
 code, admitting the theorems, to speed up processing.
 </p>
-<p>If &lsquo;<samp><code>proof-omit-proofs-option</code></samp>&rsquo; is set by the user, all proof
+<p>If <code>proof-omit-proofs-option</code> is set by the user, all proof
 commands in the source following a match of
-&lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo; up to and including the next
-match of &lsquo;<samp><code>proof-script-proof-end-regexp</code></samp>&rsquo;, are omitted (not send
+<code>proof-script-proof-start-regexp</code> up to and including the next
+match of <code>proof-script-proof-end-regexp</code>, are omitted (not send
 to the proof assistant) and replaced by
-&lsquo;<samp><code>proof-script-proof-admit-command</code></samp>&rsquo;.  If a match for
-&lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo; is found while searching
+<code>proof-script-proof-admit-command</code>.  If a match for
+<code>proof-script-definition-end-regexp</code> is found while searching
 forward for the proof end or if
-&lsquo;<samp><code>proof-script-cmd-prevents-proof-omission</code></samp>&rsquo; recognizes a proof
+<code>proof-script-cmd-prevents-proof-omission</code> recognizes a proof
 command that prevents proof omission then the current proof (up
 to and including the match of
-&lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo; or
-&lsquo;<samp><code>proof-script-proof-end-regexp</code></samp>&rsquo;) is considered to be not opaque
+<code>proof-script-definition-end-regexp</code> or
+<code>proof-script-proof-end-regexp</code>) is considered to be not opaque
 and not omitted, thus all these proof commands _are_ sent to the
 proof assistant.
 </p>
 <p>The feature does not work for nested proofs.  If a match for
-&lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo; is found before the next match
-for &lsquo;<samp><code>proof-script-proof-end-regexp</code></samp>&rsquo; or
-&lsquo;<samp><code>proof-script-definition-end-regexp</code></samp>&rsquo;, the search for opaque
+<code>proof-script-proof-start-regexp</code> is found before the next match
+for <code>proof-script-proof-end-regexp</code> or
+<code>proof-script-definition-end-regexp</code>, the search for opaque
 proofs immediately stops and all commands following the previous
-match of &lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo; are sent verbatim to
+match of <code>proof-script-proof-start-regexp</code> are sent verbatim to
 the proof assistant.
 </p>
 <p>All the regular expressions for this feature are matched against
@@ -632,19 +632,19 @@ without surrounding space.
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dproof_002dstart_002dregexp"></a><u>Variable:</u> <b>proof-script-proof-start-regexp</b></dt>
 <dd><p>Regular expression for the start of a proof for the omit proofs feature.<br>
-See &lsquo;<samp><code>proof-omit-proofs-configured</code></samp>&rsquo;.
+See <code>proof-omit-proofs-configured</code>.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dproof_002dend_002dregexp"></a><u>Variable:</u> <b>proof-script-proof-end-regexp</b></dt>
 <dd><p>Regular expression for the end of an opaque proof for the omit proofs feature.<br>
-See &lsquo;<samp><code>proof-omit-proofs-configured</code></samp>&rsquo;.
+See <code>proof-omit-proofs-configured</code>.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002ddefinition_002dend_002dregexp"></a><u>Variable:</u> <b>proof-script-definition-end-regexp</b></dt>
 <dd><p>Regexp for the end of a non-opaque proof for the omit proofs feature.<br>
-See &lsquo;<samp><code>proof-omit-proofs-configured</code></samp>&rsquo;.
+See <code>proof-omit-proofs-configured</code>.
 </p></dd></dl>
 
 <dl>
@@ -672,7 +672,7 @@ matches proof-script commands that prevent the omission of proofs
 directly following this command.  When scanning the newly asserted
 region for proofs to omit, every proof-script command outside
 proofs is matched against this regexp.  If it matches and the next
-command matches &lsquo;<samp><code>proof-script-proof-start-regexp</code></samp>&rsquo; this following
+command matches <code>proof-script-proof-start-regexp</code> this following
 proof will not be omitted.
 </p>
 <p>Note that recognition of commands with this regular expression
@@ -708,8 +708,8 @@ following settings must be configured.
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002dget_002dproof_002dinfo_002dfn"></a><u>Variable:</u> <b>proof-get-proof-info-fn</b></dt>
-<dd><p>Return proof name and state number for &lsquo;<samp><code>proof-check-proofs</code></samp>&rsquo;.<br>
-Proof assistant specific function for &lsquo;<samp><code>proof-check-proofs</code></samp>&rsquo;.  This
+<dd><p>Return proof name and state number for <code>proof-check-proofs</code>.<br>
+Proof assistant specific function for <code>proof-check-proofs</code>.  This
 function takes no arguments, it is called after completely
 processing the proof script up to a certain point (including all
 callbacks in spans).  It must return a list, which contains, in
@@ -719,20 +719,20 @@ the following order:
 * the name of the current proof (as string) or nil
 </p>
 <p>The proof assistant should return to the same state when the
-state number is supplied to &lsquo;<samp><code>proof-retract-command-fn</code></samp>&rsquo;.
-Processing the command returned by &lsquo;<samp><code>proof-retract-command-fn</code></samp>&rsquo;
+state number is supplied to <code>proof-retract-command-fn</code>.
+Processing the command returned by <code>proof-retract-command-fn</code>
 without processing any other command after calling this function
 should be a no-op.
 </p>
 <p>(This function has the same signature and specification as
-&lsquo;<samp><code>proof-tree-get-proof-info</code></samp>&rsquo;.)
+<code>proof-tree-get-proof-info</code>.)
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dretract_002dcommand_002dfn"></a><u>Variable:</u> <b>proof-retract-command-fn</b></dt>
 <dd><p>Function for retract command to a certain state.<br>
 This function takes a state as argument as returned by
-&lsquo;<samp><code>proof-get-proof-info-fn</code></samp>&rsquo;.  It should return a command that brings
+<code>proof-get-proof-info-fn</code>.  It should return a command that brings
 the proof assistant back to the same state.
 </p></dd></dl>
 
@@ -760,16 +760,16 @@ assistant (with respect to an on-going proof).
 <dl>
 <dt><a class="anchor" id="index-proof_002dstate_002dpreserving_002dp"></a><u>Variable:</u> <b>proof-state-preserving-p</b></dt>
 <dd><p>A predicate, non-nil if its argument (a command) preserves the proof state.<br>
-This is a safety-test used by &lsquo;<samp><code>proof-minibuffer-cmd</code></samp>&rsquo; to filter out scripting
+This is a safety-test used by <code>proof-minibuffer-cmd</code> to filter out scripting
 commands which should be entered directly into the script itself.
 </p>
-<p>The default setting for this function, &lsquo;<samp><code>proof-generic-state-preserving-p</code></samp>&rsquo;
-tests by negating the match on &lsquo;<samp><code>proof-non-undoables-regexp</code></samp>&rsquo;.
+<p>The default setting for this function, <code>proof-generic-state-preserving-p</code>
+tests by negating the match on <code>proof-non-undoables-regexp</code>.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dgeneric_002dstate_002dpreserving_002dp"></a><u>Function:</u> <b>proof-generic-state-preserving-p</b><i> cmd</i></dt>
-<dd><p>Is <var>cmd</var> state preserving?  Match on &lsquo;<samp><code>proof-non-undoables-regexp</code></samp>&rsquo;.
+<dd><p>Is <var>cmd</var> state preserving?  Match on <code>proof-non-undoables-regexp</code>.
 </p></dd></dl>
 
 
@@ -790,8 +790,8 @@ assistant, for example, to switch to a new theory
 script).
 </p>
 <p>When functions in this hook are called, the variable
-&lsquo;<samp>activated-interactively</samp>&rsquo; will be non-nil if
-&lsquo;<samp><code>proof-activate-scripting</code></samp>&rsquo; was called interactively
+<code>activated-interactively</code> will be non-nil if
+<code>proof-activate-scripting</code> was called interactively
 (rather than as a side-effect of some other action).
 If a hook function sends commands to the proof process,
 it should wait for them to complete (so the queue is cleared
@@ -884,14 +884,14 @@ you may want to call at other times.
 Completion is activated with M-x complete.
 </p>
 <p>If this table is empty or needs adjusting, please make changes using
-&lsquo;<samp><code>customize-variable</code></samp>&rsquo; and post suggestions at
+<code>customize-variable</code> and post suggestions at
 https://github.com/ProofGeneral/PG/issues
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dadd_002dcompletions"></a><u>Command:</u> <b>proof-add-completions</b></dt>
 <dd><p>Add completions from &lt;PA&gt;-completion-table to completion database.<br>
-Uses &lsquo;<samp><code>add-completion</code></samp>&rsquo; with a negative number of uses and ancient
+Uses <code>add-completion</code> with a negative number of uses and ancient
 last use time, to discourage saving these into the users database.
 </p></dd></dl>
 
@@ -913,7 +913,7 @@ last use time, to discourage saving these into the users database.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 24, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

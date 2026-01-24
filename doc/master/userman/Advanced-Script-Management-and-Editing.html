@@ -135,7 +135,7 @@ also on the Display menu in Quick Options.  See section <a href="/doc/master/use
 Proof output is recorded as it occurs interactively; normally if
 many steps are taken at once, this output is suppressed.  If this
 setting is used to enable it, the proof script can be annotated
-with full details.  See also &lsquo;<samp><code>proof-output-tooltips</code></samp>&rsquo; to enable
+with full details.  See also <code>proof-output-tooltips</code> to enable
 automatic display of output on mouse hovers.
 </p>
 <p>The default value is <code>nil</code>.
@@ -146,7 +146,7 @@ automatic display of output on mouse hovers.
 <dt><a class="anchor" id="index-proof_002dstrict_002dread_002donly"></a><u>User Option:</u> <b>proof-strict-read-only</b></dt>
 <dd><p>Whether Proof General is strict about the read-only region in buffers.<br>
 If non-nil, an error is given when an attempt is made to edit the
-read-only region, except for the special value <code>'retract</code> which means
+read-only region, except for the special value <code>retract</code> which means
 undo first.  If nil, Proof General is more relaxed (but may give
 you a reprimand!).
 </p>
@@ -207,7 +207,7 @@ off from the keyboard, you can use the key binding:
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dautosend_002dtoggle"></a><u>Command:</u> <b>proof-autosend-toggle</b><i> &amp;optional arg</i></dt>
-<dd><p>Toggle &lsquo;<samp><code>proof-autosend-enable</code></samp>&rsquo;. With <var>arg</var>, turn on iff ARG&gt;0.<br>
+<dd><p>Toggle <code>proof-autosend-enable</code>. With <var>arg</var>, turn on iff ARG&gt;0.<br>
 This function simply uses <code>customize-set-variable</code> to set the variable.
 </p></dd></dl>
 
@@ -416,12 +416,12 @@ This command completely processes the current buffer and
 generates an overview about all the opaque proofs in it and
 whether their proof scripts are valid or invalid.  Note that
 proofs closed with a cheating command (see
-&lsquo;<samp><code>proof-omit-cheating-regexp</code></samp>&rsquo;), i.e., Admitted for Coq, count as
+<code>proof-omit-cheating-regexp</code>), i.e., Admitted for Coq, count as
 invalid.
 </p>
 <p>This command makes sense for a development process where invalid
 proofs are permitted and vos compilation and the omit proofs
-feature (see &lsquo;<samp><code>proof-omit-proofs-configured</code></samp>&rsquo;) are used to work at
+feature (see <code>proof-omit-proofs-configured</code>) are used to work at
 the most interesting or challenging point instead of on the first
 invalid proof.
 </p>
@@ -430,9 +430,9 @@ form of the generated overview.  Nil, without prefix, gives an
 human readable overview, otherwise it&rsquo;s test anything
 protocol (<var>tap</var>).  Argument <var>batch</var> controls where the overview goes
 to.  If nil, or in an interactive call, the overview appears in
-&lsquo;<samp><code>proof-check-report-buffer</code></samp>&rsquo;.  If <var>batch</var> is a string, it should be a
+<code>proof-check-report-buffer</code>.  If <var>batch</var> is a string, it should be a
 filename to write the overview to.  Otherwise the overview is
-output via &lsquo;<samp>message</samp>&rsquo; such that it appears on stdout when this
+output via <code>message</code> such that it appears on stdout when this
 command runs in batch mode.
 </p>
 <p>In the same way as the omit-proofs feature, this command only
@@ -441,7 +441,7 @@ is reported to the user without generating an overview.  The
 overview only contains those names of theorems whose proof
 scripts are classified as opaque by the omit-proofs feature.  For
 Coq for instance, among others, proof scripts terminated with
-<code>'Defined'</code> are not opaque and do not appear in the generated
+&quot;Defined&quot; are not opaque and do not appear in the generated
 overview.
 </p>
 <p>Note that this command does not (re-)compile required files.
@@ -455,7 +455,7 @@ instance by asserting all require commands beforehand.
 This function modifies the current buffer in place.  Use with
 care!
 </p>
-<p>Similarly to &lsquo;<samp><code>proof-check-report</code></samp>&rsquo;, check all opaque proofs in the
+<p>Similarly to <code>proof-check-report</code>, check all opaque proofs in the
 current buffer.  Instead of generating a report, failing proofs
 are annotated with &quot;<var>fail</var>&quot; in a comment.  Existing &quot;<var>pass</var>&quot; or
 &quot;<var>fail</var>&quot; comments (e.g., from a previous run) are deleted
@@ -466,8 +466,8 @@ placed at the last or second last statement before the opaque
 proof. For Coq this corresponds to the proof using and the
 theorem statement, respectively. In both cases the comment is
 placed at the right margin of the first line, see
-&lsquo;<samp><code>proof-check-annotate-position</code></samp>&rsquo; and
-&lsquo;<samp><code>proof-check-annotate-right-margin</code></samp>&rsquo;.
+<code>proof-check-annotate-position</code> and
+<code>proof-check-annotate-right-margin</code>.
 </p>
 <p>Interactively, this command does not save the current buffer
 after placing the annotations. With <var>save-buffer</var> non-nil, the
@@ -477,7 +477,7 @@ current buffer is saved if it has been modified.
 <dl>
 <dt><a class="anchor" id="index-proof_002dcheck_002dannotate_002dposition"></a><u>Variable:</u> <b>proof-check-annotate-position</b></dt>
 <dd><p>Line for annotating proofs with &quot;<var>pass</var>&quot; or &quot;<var>fail</var>&quot; comments.<br>
-This option determines the line where &lsquo;<samp><code>proof-check-annotate</code></samp>&rsquo; puts
+This option determines the line where <code>proof-check-annotate</code> puts
 comments with &quot;<var>pass</var>&quot; and &quot;<var>fail</var>&quot;. Value &lsquo;&rsquo;theoren&rsquo; uses the
 first line of the second last statement before the start of the
 opaque proof, which corresponds to the line containing a Theorem
@@ -490,8 +490,8 @@ Proof using line for Coq.
 <dt><a class="anchor" id="index-proof_002dcheck_002dannotate_002dright_002dmargin"></a><u>Variable:</u> <b>proof-check-annotate-right-margin</b></dt>
 <dd><p>Right margin for &quot;<var>pass</var>&quot; and &quot;<var>fail</var>&quot; comments.<br>
 This option determines the right margin to which
-&lsquo;<samp><code>proof-check-annotate</code></samp>&rsquo; right-aligns the comments with &quot;<var>pass</var>&quot;
-and &quot;<var>fail</var>&quot;. If nil, the value of &lsquo;<samp><code>fill-column</code></samp>&rsquo; is used.
+<code>proof-check-annotate</code> right-aligns the comments with &quot;<var>pass</var>&quot;
+and &quot;<var>fail</var>&quot;. If nil, the value of <code>fill-column</code> is used.
 </p></dd></dl>
 
 
@@ -692,7 +692,7 @@ If <var>n</var> is negative, search backwards for the -Nth previous match.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 24, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

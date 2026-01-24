@@ -114,7 +114,7 @@ in the <code>proof-assistants</code> setting.
 <dl>
 <dt><a class="anchor" id="index-proof_002dassistants"></a><u>Variable:</u> <b>proof-assistants</b></dt>
 <dd><p>Choice of proof assistants to use with Proof General.<br>
-A list of symbols chosen from: &lsquo;<samp>coq</samp>&rsquo; &lsquo;<samp>easycrypt</samp>&rsquo; &lsquo;<samp>phox</samp>&rsquo; &lsquo;<samp>qrhl</samp>&rsquo; &lsquo;<samp>pgshell</samp>&rsquo; &lsquo;<samp>pgocaml</samp>&rsquo; &lsquo;<samp>pghaskell</samp>&rsquo;.
+A list of symbols chosen from: <code>coq</code> <code>easycrypt</code> <code>phox</code> <code>qrhl</code> <code>pgshell</code> <code>pgocaml</code> <code>pghaskell</code>.
 If nil, the default will be ALL available proof assistants.
 </p>
 <p>Each proof assistant defines its own instance of Proof General,
@@ -176,7 +176,7 @@ but which the user may require different values of across provers.
 <p>The function proof-assistant-&lt;SYM&gt; is also defined, which can be used in the
 generic portion of Proof General to access the value for the current prover.
 </p>
-<p>Arguments <var>args</var> are as for &lsquo;<samp>defcustom</samp>&rsquo;, which see.  If a :group argument is
+<p>Arguments <var>args</var> are as for <code>defcustom</code>, which see.  If a :group argument is
 not supplied, the setting will be added to the internal settings for the
 current prover (named &lt;PA&gt;-config).
 </p></dd></dl>
@@ -246,14 +246,14 @@ interfacing properly with the <code>customize</code> mechanism.
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002dset_002dvalue"></a><u>Function:</u> <b>proof-set-value</b><i> sym value</i></dt>
-<dd><p>Set a customize variable using &lsquo;<samp><code>set-default</code></samp>&rsquo; and a function.<br>
-We first call &lsquo;<samp><code>set-default</code></samp>&rsquo; to set <var>sym</var> to <var>value</var>.
+<dd><p>Set a customize variable using <code>set-default</code> and a function.<br>
+We first call <code>set-default</code> to set <var>sym</var> to <var>value</var>.
 Then if there is a function <var>sym</var> (i.e. with the same name as the
 variable <var>sym</var>), it is called to take some dynamic action for the new
 setting.
 </p>
 <p>If there is no function <var>sym</var>, we try stripping
-&lsquo;<samp><code>proof-assistant-symbol</code></samp>&rsquo; and adding &quot;proof-&quot; instead to get
+<code>proof-assistant-symbol</code> and adding &quot;proof-&quot; instead to get
 a function name.  This extends <code>proof-set-value</code> to work with
 generic individual settings.
 </p>
@@ -264,7 +264,7 @@ approximation we test whether proof-config is fully-loaded yet.
 <dl>
 <dt><a class="anchor" id="index-proof_002ddeftoggle"></a><u>Macro:</u> <b>proof-deftoggle</b><i> var &amp;optional othername</i></dt>
 <dd><p>Define a function VAR-toggle for toggling a boolean customize setting <var>var</var>.<br>
-The toggle function uses &lsquo;<samp><code>customize-set-variable</code></samp>&rsquo; to change the variable.
+The toggle function uses <code>customize-set-variable</code> to change the variable.
 <var>othername</var> gives an alternative name than the default &lt;VAR&gt;-toggle.
 The name of the defined function is returned.
 </p></dd></dl>
@@ -302,19 +302,19 @@ a few utility functions and some triggers to load in the other files.
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dbuffer_002dtype"></a><u>Variable:</u> <b>proof-buffer-type</b></dt>
-<dd><p>Symbol for the type of this buffer: <code>'script</code>, <code>'shell</code>, <code>'goals</code>, or <code>'response</code>.
+<dd><p>Symbol for the type of this buffer: <code>script</code>, <code>shell</code>, <code>goals</code>, or <code>response</code>.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dincluded_002dfiles_002dlist-3"></a><u>Variable:</u> <b>proof-included-files-list</b></dt>
 <dd><p>List of files currently included in proof process.<br>
 This list contains files in canonical truename format
-(see &lsquo;<samp><code>file-truename</code></samp>&rsquo;).
+(see <code>file-truename</code>).
 </p>
 <p>Whenever a new file is being processed, it gets added to this list
-via the &lsquo;<samp><code>proof-shell-process-file</code></samp>&rsquo; configuration settings.
+via the <code>proof-shell-process-file</code> configuration settings.
 When the prover retracts a file, this list is resynchronised via the
-&lsquo;<samp><code>proof-shell-retract-files-regexp</code></samp>&rsquo; and &lsquo;<samp><code>proof-shell-compute-new-files-list</code></samp>&rsquo;
+<code>proof-shell-retract-files-regexp</code> and <code>proof-shell-compute-new-files-list</code>
 configuration settings.
 </p>
 <p>Only files which have been <strong>fully</strong> processed should be included here.
@@ -339,7 +339,7 @@ of the proof (starting from 1).
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002derror_002dor_002dinterrupt_002dseen"></a><u>Variable:</u> <b>proof-shell-error-or-interrupt-seen</b></dt>
 <dd><p>Flag indicating that an error or interrupt has just occurred.<br>
-Set to <code>'error</code> or <code>'interrupt</code> if one was observed from the proof
+Set to <code>error</code> or <code>interrupt</code> if one was observed from the proof
 assistant during the last group of commands.
 </p></dd></dl>
 
@@ -435,22 +435,22 @@ various actions, such as starting up the proof assistant, or altering
 necessary if it is already in Scripting minor mode.  Otherwise, it
 will become the new active scripting buffer, provided scripting can be
 switched off in the previous active scripting buffer with
-&lsquo;<samp><code>proof-deactivate-scripting</code></samp>&rsquo;.
+<code>proof-deactivate-scripting</code>.
 </p>
 <p>Activating a new script buffer is a good time to ask if the user
 wants to save some buffers; this is done if the user option
-&lsquo;<samp><code>proof-query-file-save-when-activating-scripting</code></samp>&rsquo; is set and
+<code>proof-query-file-save-when-activating-scripting</code> is set and
 provided the optional argument <var>nosaves</var> is non-nil.
 </p>
 <p>The optional argument <var>queuemode</var> relaxes the test for a busy proof
 shell to allow one which has mode <var>queuemode</var>.  In all other cases,
 a proof shell busy error is given.
 </p>
-<p>Finally, the hooks &lsquo;<samp><code>proof-activate-scripting-hook</code></samp>&rsquo; are run.  This can
+<p>Finally, the hooks <code>proof-activate-scripting-hook</code> are run.  This can
 be a useful place to configure the proof assistant for scripting in a
 particular file, for example, loading the correct theory, or whatever.
 If the hooks issue commands to the proof assistant (via
-&lsquo;<samp><code>proof-shell-invisible-command</code></samp>&rsquo;) which result in an error, the
+<code>proof-shell-invisible-command</code>) which result in an error, the
 activation is considered to have failed and an error is given.
 </p></dd></dl>
 
@@ -458,7 +458,7 @@ activation is considered to have failed and an error is given.
 <dt><a class="anchor" id="index-proof_002ddeactivate_002dscripting"></a><u>Command:</u> <b>proof-deactivate-scripting</b><i> &amp;optional forcedaction</i></dt>
 <dd><p>Try to deactivate scripting for the active scripting buffer.
 </p>
-<p>Aims to set &lsquo;<samp><code>proof-script-buffer</code></samp>&rsquo; to nil and turn off the
+<p>Aims to set <code>proof-script-buffer</code> to nil and turn off the
 modeline indicator.  No action is required there is no active
 scripting buffer.
 </p>
@@ -466,17 +466,17 @@ scripting buffer.
 region or a full locked region (everything in it has been processed).
 If this is not already the case, we question the user whether to
 retract or assert, or automatically take the action indicated in the
-user option &lsquo;<samp><code>proof-auto-action-when-deactivating-scripting</code></samp>&rsquo;.
+user option <code>proof-auto-action-when-deactivating-scripting</code>.
 </p>
-<p>If &lsquo;<samp><code>proof-no-fully-processed-buffer</code></samp>&rsquo; is t there is only the choice
+<p>If <code>proof-no-fully-processed-buffer</code> is t there is only the choice
 to fully retract the active scripting buffer.  In this case the
 active scripting buffer is retracted even if it was fully processed.
-Setting &lsquo;<samp><code>proof-auto-action-when-deactivating-scripting</code></samp>&rsquo; to <code>'process</code>
+Setting <code>proof-auto-action-when-deactivating-scripting</code> to <code>process</code>
 is ignored in this case.
 </p>
 <p>If the scripting buffer is (or has become) fully processed, and it is
 associated with a file, it is registered on
-&lsquo;<samp><code>proof-included-files-list</code></samp>&rsquo;.  Conversely, if it is (or has become)
+<code>proof-included-files-list</code>.  Conversely, if it is (or has become)
 empty, we make sure that it is <strong>not</strong> registered.  This is to be
 certain that the included files list behaves as we might expect with
 respect to the active scripting buffer, in an attempt to harmonize
@@ -485,12 +485,12 @@ mixed scripting and file reading in the prover.
 <p>This function either succeeds, fails because the user refused to
 process or retract a partly finished buffer, or gives an error message
 because retraction or processing failed.  If this function succeeds,
-then &lsquo;<samp><code>proof-script-buffer</code></samp>&rsquo; is nil afterwards.
+then <code>proof-script-buffer</code> is nil afterwards.
 </p>
 <p>The optional argument <var>forcedaction</var> overrides the user option
-&lsquo;<samp><code>proof-auto-action-when-deactivating-scripting</code></samp>&rsquo; and prevents
+<code>proof-auto-action-when-deactivating-scripting</code> and prevents
 questioning the user.  It is used to make a value for
-the &lsquo;<samp><code>kill-buffer-hook</code></samp>&rsquo; for scripting buffers, so that when
+the <code>kill-buffer-hook</code> for scripting buffers, so that when
 a scripting buffer is killed it is always retracted.
 </p></dd></dl>
 
@@ -513,26 +513,26 @@ a series of commands to be sent to the proof assistant.
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dgeneric_002dparse_002dcmdend"></a><u>Function:</u> <b>proof-script-generic-parse-cmdend</b></dt>
-<dd><p>For &lsquo;<samp><code>proof-script-parse-function</code></samp>&rsquo; if &lsquo;<samp><code>proof-script-command-end-regexp</code></samp>&rsquo; set.
+<dd><p>For <code>proof-script-parse-function</code> if <code>proof-script-command-end-regexp</code> set.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dgeneric_002dparse_002dcmdstart"></a><u>Function:</u> <b>proof-script-generic-parse-cmdstart</b></dt>
-<dd><p>For &lsquo;<samp><code>proof-script-parse-function</code></samp>&rsquo; if &lsquo;<samp><code>proof-script-command-start-regexp</code></samp>&rsquo; is set.
+<dd><p>For <code>proof-script-parse-function</code> if <code>proof-script-command-start-regexp</code> is set.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dgeneric_002dparse_002dsexp"></a><u>Function:</u> <b>proof-script-generic-parse-sexp</b></dt>
-<dd><p>Used for &lsquo;<samp><code>proof-script-parse-function</code></samp>&rsquo; if &lsquo;<samp><code>proof-script-sexp-commands</code></samp>&rsquo; is set.
+<dd><p>Used for <code>proof-script-parse-function</code> if <code>proof-script-sexp-commands</code> is set.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dsemis_002dto_002dvanillas"></a><u>Function:</u> <b>proof-semis-to-vanillas</b><i> semis &amp;optional queueflags</i></dt>
 <dd><p>Create vanilla spans for <var>semis</var> and a list for the queue.<br>
 Proof terminator positions <var>semis</var> has the form returned by
-the function &lsquo;<samp>proof-segment-up-to</samp>&rsquo;.  The argument list is destroyed.
-The callback in each queue element is &lsquo;<samp><code>proof-done-advancing</code></samp>&rsquo;.
+the function <code>proof-segment-up-to</code>.  The argument list is destroyed.
+The callback in each queue element is <code>proof-done-advancing</code>.
 </p>
-<p>If the variable &lsquo;<samp><code>proof-script-preprocess</code></samp>&rsquo; is set (to the name of
+<p>If the variable <code>proof-script-preprocess</code> is set (to the name of
 a function), call that function to construct the first element of
 each queue item.
 </p>
@@ -560,16 +560,16 @@ hence all the different options when we&rsquo;ve done so.
 <dd><p>Set up the proof process for retracting until point.<br>
 This calculates the commands to undo to the current point within
 the locked region.  If invoked outside the locked region, undo
-the last successfully processed command.  See &lsquo;<samp><code>proof-retract-target</code></samp>&rsquo;.
+the last successfully processed command.  See <code>proof-retract-target</code>.
 </p>
 <p>After retraction has succeeded in the prover, the filter will call
-&lsquo;<samp><code>proof-done-retracting</code></samp>&rsquo;.  If <var>undo-action</var> is non-nil, it will
+<code>proof-done-retracting</code>.  If <var>undo-action</var> is non-nil, it will
 then be invoked on the region in the proof script corresponding to
 the proof command sequence.
-<var>displayflags</var> control output shown to user, see &lsquo;<samp><code>proof-action-list</code></samp>&rsquo;.
+<var>displayflags</var> control output shown to user, see <code>proof-action-list</code>.
 </p>
 <p>Before the retraction is calculated, we enforce the file-level
-protocol with &lsquo;<samp><code>proof-activate-scripting</code></samp>&rsquo;.  This has a couple
+protocol with <code>proof-activate-scripting</code>.  This has a couple
 of effects:
 </p>
 <p>1. If the file is completely processed, we have to re-open it
@@ -593,17 +593,17 @@ proof assistant exits, we use the functions
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002drestart_002dbuffers"></a><u>Function:</u> <b>proof-restart-buffers</b><i> buffers</i></dt>
-<dd><p>Remove all extents in <var>buffers</var> and maybe reset &lsquo;<samp><code>proof-script-buffer</code></samp>&rsquo;.<br>
+<dd><p>Remove all extents in <var>buffers</var> and maybe reset <code>proof-script-buffer</code>.<br>
 The high-level effect is that all members of <var>buffers</var> are
 completely unlocked, including all the necessary cleanup.  No
 effect on a buffer which is nil or killed.  If one of the buffers
-is the current scripting buffer, then &lsquo;<samp><code>proof-script-buffer</code></samp>&rsquo; will
+is the current scripting buffer, then <code>proof-script-buffer</code> will
 deactivated.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dscript_002dremove_002dall_002dspans_002dand_002ddeactivate"></a><u>Function:</u> <b>proof-script-remove-all-spans-and-deactivate</b></dt>
-<dd><p>Remove all spans from scripting buffers via &lsquo;<samp><code>proof-restart-buffers</code></samp>&rsquo;.
+<dd><p>Remove all spans from scripting buffers via <code>proof-restart-buffers</code>.
 </p></dd></dl>
 
 
@@ -647,14 +647,14 @@ to script management from a buffer (rather than being ad-hoc
 query commands to the prover).
 </p>
 <p>When processing commands from a buffer for script management,
-this will be set to the queue mode <code>'advancing</code> or <code>'retracting</code> to
+this will be set to the queue mode <code>advancing</code> or <code>retracting</code> to
 indicate the direction of movement.
 </p>
-<p>When this is non-nil, &lsquo;<samp><code>proof-shell-ready-prover</code></samp>&rsquo; will give
+<p>When this is non-nil, <code>proof-shell-ready-prover</code> will give
 an error if called with a different requested queue mode.
 </p>
-<p>See also functions &lsquo;<samp><code>proof-activate-scripting</code></samp>&rsquo; and
-&lsquo;<samp><code>proof-shell-available-p</code></samp>&rsquo;.
+<p>See also functions <code>proof-activate-scripting</code> and
+<code>proof-shell-available-p</code>.
 </p></dd></dl>
 
 <dl>
@@ -683,42 +683,42 @@ is a space.
 </p>
 <p><var>action</var> is the callback to be invoked when this item has been
 processed by the prover. For normal scripting items it is
-&lsquo;<samp><code>proof-done-advancing</code></samp>&rsquo;, for retract items
-&lsquo;<samp><code>proof-done-retracting</code></samp>&rsquo;, but there are more possibilities (e.g.
-&lsquo;<samp><code>proof-done-invisible</code></samp>&rsquo;, &lsquo;<samp><code>proof-shell-set-silent</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-shell-clear-silent</code></samp>&rsquo; and &lsquo;<samp><code>proof-tree-show-goal-callback</code></samp>&rsquo;).
+<code>proof-done-advancing</code>, for retract items
+<code>proof-done-retracting</code>, but there are more possibilities (e.g.
+<code>proof-done-invisible</code>, <code>proof-shell-set-silent</code>,
+<code>proof-shell-clear-silent</code> and <code>proof-tree-show-goal-callback</code>).
 </p>
 <p>The <var>displayflags</var> are set
 for non-scripting commands or for when scripting should not
 bother the user.  They may include
-</p><table><tr><td>&nbsp;</td><td><pre class="lisp">  <code>'invisible</code>                non-script command (&lsquo;<samp><code>proof-shell-invisible-command</code></samp>&rsquo;)
-  <code>'no-response-display</code>      do not display messages in <strong>response</strong> buffer
-  <code>'no-error-display</code>         do not display errors/take error action
-  <code>'no-goals-display</code>         do not goals in <strong>goals</strong> buffer
-  <code>'keep-response</code>            do not erase the response buffer when goals are shown
-  <code>'proof-tree-show-subgoal</code>  item inserted by the proof-tree package to display
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">  <code>invisible</code>             non-script command (<code>proof-shell-invisible-command</code>)
+  <code>no-response-display</code>      do not display messages in <strong>response</strong> buffer
+  <code>no-error-display</code>         do not display errors/take error action
+  <code>no-goals-display</code>         do not goals in <strong>goals</strong> buffer
+  <code>keep-response</code>            do not erase the response buffer when goals are shown
+  <code>proof-tree-show-subgoal</code>  item inserted by the proof-tree package to display
                             the current or some other goal
-  <code>'proof-tree-last-item</code>     marks the item that follows the last show-goal
+  <code>proof-tree-last-item</code>     marks the item that follows the last show-goal
                             request after a proof finished with proof-tree
                             display, causes switch back to normal queue region
                             processing
-  <code>'priority-action</code>          item added via <code>proof-add-to-priority-queue</code>
-  <code>'empty-action-list</code>        <code>proof-shell-empty-action-list-command</code> should not be
+  <code>priority-action</code>          item added via proof-add-to-priority-queue
+  <code>empty-action-list</code>        proof-shell-empty-action-list-command should not be
                             called if this is the last item in the action list
-  <code>'dont-show-when-silent</code>    Used for commands that should not be followed by a
+  <code>dont-show-when-silent</code>    Used for commands that should not be followed by a
                             show command when running silent.
 </pre></td></tr></table>
-<p>Note that <code>'invisible</code> does not imply any of the others. If flags
+<p>Note that <code>invisible</code> does not imply any of the others. If flags
 are non-empty, interactive cues will be suppressed. (E.g.,
 printing hints).
 </p>
-<p>See the functions &lsquo;<samp><code>proof-start-queue</code></samp>&rsquo; and &lsquo;<samp><code>proof-shell-exec-loop</code></samp>&rsquo;.
+<p>See the functions <code>proof-start-queue</code> and <code>proof-shell-exec-loop</code>.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dold_002dproof_002dmarker_002dposition"></a><u>Variable:</u> <b>proof-shell-old-proof-marker-position</b></dt>
 <dd><p>Position of end of second last input inside delayed callbacks.<br>
-When callbacks of action items are processed, &lsquo;<samp><code>proof-marker</code></samp>&rsquo; has already
+When callbacks of action items are processed, <code>proof-marker</code> has already
 been advanced to the end of the next input that the proof assistant
 processes in parallel with the callback.  This variable permits the
 callback to access the end of the input belonging to its action-list
@@ -741,17 +741,17 @@ until the asynchronous background compilation finishes.
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002dsecond_002daction_002dlist_002dactive"></a><u>Variable:</u> <b>proof-second-action-list-active</b></dt>
-<dd><p>Signals that some items are waiting outside of &lsquo;<samp><code>proof-action-list</code></samp>&rsquo;.<br>
+<dd><p>Signals that some items are waiting outside of <code>proof-action-list</code>.<br>
 If this is t it means that some items from the queue region are
 waiting for being processed in a place different from
-&lsquo;<samp><code>proof-action-list</code></samp>&rsquo;.  In this case Proof General must behave as if
-&lsquo;<samp><code>proof-action-list</code></samp>&rsquo; would be non-empty, when it is, in fact, empty.
+<code>proof-action-list</code>.  In this case Proof General must behave as if
+<code>proof-action-list</code> would be non-empty, when it is, in fact, empty.
 </p>
 <p>This is used, for instance, for parallel background compilation
 for Coq: The Require command and the following items are not put
-into &lsquo;<samp><code>proof-action-list</code></samp>&rsquo; and are stored somewhere else until the
+into <code>proof-action-list</code> and are stored somewhere else until the
 background compilation finishes.  Then those items are put into
-&lsquo;<samp><code>proof-action-list</code></samp>&rsquo; for getting processed.
+<code>proof-action-list</code> for getting processed.
 </p></dd></dl>
 
 <dl>
@@ -774,7 +774,7 @@ Does nothing if proof assistant is already running.
 </p>
 <p>Also generates goal and response buffers.
 </p>
-<p>If &lsquo;<samp><code>proof-prog-name-ask</code></samp>&rsquo; is set, query the user for the
+<p>If <code>proof-prog-name-ask</code> is set, query the user for the
 process command.
 </p></dd></dl>
 
@@ -790,32 +790,32 @@ restarting the process.
 <dt><a class="anchor" id="index-proof_002dshell_002dkill_002dfunction"></a><u>Function:</u> <b>proof-shell-kill-function</b></dt>
 <dd><p>Function run when a proof-shell buffer is killed.<br>
 Try to shut down the proof process nicely and clear locked
-regions and state variables.  Value for &lsquo;<samp><code>kill-buffer-hook</code></samp>&rsquo; in
-shell buffer, called by &lsquo;<samp><code>proof-shell-bail-out</code></samp>&rsquo; if process exits.
+regions and state variables.  Value for <code>kill-buffer-hook</code> in
+shell buffer, called by <code>proof-shell-bail-out</code> if process exits.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dexit"></a><u>Command:</u> <b>proof-shell-exit</b><i> &amp;optional dont-ask</i></dt>
 <dd><p>Query the user and exit the proof process.
 </p>
-<p>This simply kills the &lsquo;<samp><code>proof-shell-buffer</code></samp>&rsquo; relying on the hook function
+<p>This simply kills the <code>proof-shell-buffer</code> relying on the hook function
 </p>
-<p>&lsquo;<samp><code>proof-shell-kill-function</code></samp>&rsquo; to do the hard work.  If optional
+<p><code>proof-shell-kill-function</code> to do the hard work.  If optional
 argument <var>dont-ask</var> is non-nil, the proof process is terminated
 without confirmation.
 </p>
 <p>The kill function uses &lsquo;<samp>&lt;PA&gt;-quit-timeout</samp>&rsquo; as a timeout to wait
-after sending &lsquo;<samp><code>proof-shell-quit-cmd</code></samp>&rsquo; before rudely killing the process.
+after sending <code>proof-shell-quit-cmd</code> before rudely killing the process.
 </p>
 <p>This function should not be called if
-&lsquo;<samp><code>proof-shell-exit-in-progress</code></samp>&rsquo; is t, because a recursive call of
-&lsquo;<samp><code>proof-shell-kill-function</code></samp>&rsquo; will give strange errors.
+<code>proof-shell-exit-in-progress</code> is t, because a recursive call of
+<code>proof-shell-kill-function</code> will give strange errors.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dbail_002dout"></a><u>Function:</u> <b>proof-shell-bail-out</b><i> process event</i></dt>
 <dd><p>Value for the process sentinel for the proof assistant <var>process</var>.<br>
-If the proof assistant dies, run &lsquo;<samp><code>proof-shell-kill-function</code></samp>&rsquo; to
+If the proof assistant dies, run <code>proof-shell-kill-function</code> to
 cleanup and remove the associated buffers.  The shell buffer is
 left around so the user may discover what killed the process.
 <var>event</var> is the string describing the change.
@@ -823,12 +823,12 @@ left around so the user may discover what killed the process.
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002drestart"></a><u>Command:</u> <b>proof-shell-restart</b></dt>
-<dd><p>Clear script buffers and send &lsquo;<samp><code>proof-shell-restart-cmd</code></samp>&rsquo;.<br>
+<dd><p>Clear script buffers and send <code>proof-shell-restart-cmd</code>.<br>
 All locked regions are cleared and the active scripting buffer
 deactivated.
 </p>
 <p>If the proof shell is busy, an interrupt is sent with
-&lsquo;<samp><code>proof-interrupt-process</code></samp>&rsquo; and we wait until the process is ready.
+<code>proof-interrupt-process</code> and we wait until the process is ready.
 </p>
 <p>The restart command should re-synchronize Proof General with the proof
 assistant, without actually exiting and restarting the proof assistant
@@ -853,7 +853,7 @@ functions <code>proof-extend-queue</code> and <code>proof-shell-exec-loop</code>
 <dd><p>Extend the current queue with <var>queueitems</var>, queue end <var>end</var>.<br>
 To make sense, the commands should correspond to processing actions
 for processing a region from (buffer-queue-or-locked-end) to <var>end</var>.
-The queue mode is set to <code>'advancing</code>
+The queue mode is set to <code>advancing</code>
 </p></dd></dl>
 
 <dl>
@@ -861,16 +861,16 @@ The queue mode is set to <code>'advancing</code>
 <dd><p>Extend the current queue with <var>queueitems</var>, queue end <var>end</var>.<br>
 To make sense, the commands should correspond to processing actions
 for processing a region from (buffer-queue-or-locked-end) to <var>end</var>.
-The queue mode is set to <code>'advancing</code>
+The queue mode is set to <code>advancing</code>
 </p></dd></dl>
 <a class="anchor" id="index-proof_002daction_002dlist-1"></a>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dexec_002dloop"></a><u>Function:</u> <b>proof-shell-exec-loop</b></dt>
-<dd><p>Main loop processing the &lsquo;<samp><code>proof-action-list</code></samp>&rsquo;, called from shell filter.
+<dd><p>Main loop processing the <code>proof-action-list</code>, called from shell filter.
 </p>
-<p>&lsquo;<samp><code>proof-action-list</code></samp>&rsquo; contains a list of (<var>span</var> <var>command</var> <var>action</var> [FLAGS]) lists.
+<p><code>proof-action-list</code> contains a list of (<var>span</var> <var>command</var> <var>action</var> [FLAGS]) lists.
 </p>
-<p>If this function is called with a non-empty &lsquo;<samp><code>proof-action-list</code></samp>&rsquo;, the
+<p>If this function is called with a non-empty <code>proof-action-list</code>, the
 head of the list is the previously executed command which succeeded.
 We execute the callback (<var>action</var> <var>span</var>) on the first item,
 then (<var>action</var> <var>span</var>) on any following items which have null as
@@ -890,7 +890,7 @@ by the low-level function <code>proof-shell-insert</code>.
 </p>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dinsert"></a><u>Function:</u> <b>proof-shell-insert</b><i> strings action &amp;optional scriptspan</i></dt>
-<dd><p>Insert <var>strings</var> at the end of the proof shell, call &lsquo;<samp><code>scomint-send-input</code></samp>&rsquo;.
+<dd><p>Insert <var>strings</var> at the end of the proof shell, call <code>scomint-send-input</code>.
 </p>
 <p><var>strings</var> is a list of strings (which will be concatenated), or a
 single string.
@@ -898,7 +898,7 @@ single string.
 <p>The <var>action</var> argument is a symbol which is typically the name of a
 callback for when each string has been processed.
 </p>
-<p>This calls &lsquo;<samp><code>proof-shell-insert-hook</code></samp>&rsquo;.  The arguments <var>action</var> and
+<p>This calls <code>proof-shell-insert-hook</code>.  The arguments <var>action</var> and
 <var>scriptspan</var> may be examined by the hook to determine how to modify
 the string variable (exploiting dynamic scoping) which will be
 the command actually sent to the shell.
@@ -907,12 +907,12 @@ the command actually sent to the shell.
 or a carriage return.
 </p>
 <p>We strip the string of carriage returns before inserting it
-and updating &lsquo;<samp><code>proof-marker</code></samp>&rsquo; to point to the end of the newly
+and updating <code>proof-marker</code> to point to the end of the newly
 inserted text.
 </p>
 <p>Do not use this function directly, or output will be lost.  It is only
-used in &lsquo;<samp><code>proof-add-to-queue</code></samp>&rsquo; when we start processing a queue, and in
-&lsquo;<samp><code>proof-shell-exec-loop</code></samp>&rsquo;, to process the next item.
+used in <code>proof-add-to-queue</code> when we start processing a queue, and in
+<code>proof-shell-exec-loop</code>, to process the next item.
 </p></dd></dl>
 
 
@@ -924,13 +924,13 @@ not need to use these directly.
 <dl>
 <dt><a class="anchor" id="index-proof_002dgrab_002dlock"></a><u>Function:</u> <b>proof-grab-lock</b><i> &amp;optional queuemode</i></dt>
 <dd><p>Grab the proof shell lock, starting the proof assistant if need be.<br>
-Runs &lsquo;<samp><code>proof-state-change-hook</code></samp>&rsquo; to notify state change.
+Runs <code>proof-state-change-hook</code> to notify state change.
 If <var>queuemode</var> is supplied, set the lock to that value.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002drelease_002dlock"></a><u>Function:</u> <b>proof-release-lock</b></dt>
-<dd><p>Release the proof shell lock.  Clear &lsquo;<samp><code>proof-shell-busy</code></samp>&rsquo;.
+<dd><p>Release the proof shell lock.  Clear <code>proof-shell-busy</code>.
 </p></dd></dl>
 
 
@@ -973,7 +973,7 @@ if you don&rsquo;t need it (slight speed penalty).
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dlast_002dprompt"></a><u>Variable:</u> <b>proof-shell-last-prompt</b></dt>
 <dd><p>A raw record of the last prompt seen from the proof system.<br>
-This is the string matched by &lsquo;<samp><code>proof-shell-annotated-prompt-regexp</code></samp>&rsquo;.
+This is the string matched by <code>proof-shell-annotated-prompt-regexp</code>.
 </p></dd></dl>
 
 <dl>
@@ -986,59 +986,59 @@ This is raw string, for internal use only.
 <dt><a class="anchor" id="index-proof_002dshell_002dlast_002doutput_002dkind"></a><u>Variable:</u> <b>proof-shell-last-output-kind</b></dt>
 <dd><p>A symbol denoting the type of the last output string from the proof system.<br>
 Specifically:
-</p><table><tr><td>&nbsp;</td><td><pre class="lisp"> <code>'interrupt</code>      An interrupt message
- <code>'error</code>          An error message
- <code>'loopback</code>       A command sent from the PA to be inserted into the script
- <code>'response</code>       A response message
- <code>'goals</code>          A goals (proof state) display
- <code>'systemspecific</code> Something specific to a particular system,
-                  -- see &lsquo;<samp><code>proof-shell-handle-output-system-specific</code></samp>&rsquo;
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp"> <code>interrupt</code>   An interrupt message
+ <code>error</code>               An error message
+ <code>loopback</code>    A command sent from the PA to be inserted into the script
+ <code>response</code>    A response message
+ <code>goals</code>               A goals (proof state) display
+ <code>systemspecific</code> Something specific to a particular system,
+                  -- see <code>proof-shell-handle-output-system-specific</code>
 </pre></td></tr></table>
-<p>The output corresponding to this will be in &lsquo;<samp><code>proof-shell-last-output</code></samp>&rsquo;.
+<p>The output corresponding to this will be in <code>proof-shell-last-output</code>.
 </p>
-<p>See also &lsquo;<samp><code>proof-shell-proof-completed</code></samp>&rsquo; for further information about
+<p>See also <code>proof-shell-proof-completed</code> for further information about
 the proof process output, when ends of proofs are spotted.
 </p>
 <p>This variable can be used for instance specific functions which want
-to examine &lsquo;<samp><code>proof-shell-last-output</code></samp>&rsquo;.
+to examine <code>proof-shell-last-output</code>.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dlast_002doutput_002dkind-1"></a><u>Variable:</u> <b>proof-shell-last-output-kind</b></dt>
 <dd><p>A symbol denoting the type of the last output string from the proof system.<br>
 Specifically:
-</p><table><tr><td>&nbsp;</td><td><pre class="lisp"> <code>'interrupt</code>      An interrupt message
- <code>'error</code>          An error message
- <code>'loopback</code>       A command sent from the PA to be inserted into the script
- <code>'response</code>       A response message
- <code>'goals</code>          A goals (proof state) display
- <code>'systemspecific</code> Something specific to a particular system,
-                  -- see &lsquo;<samp><code>proof-shell-handle-output-system-specific</code></samp>&rsquo;
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp"> <code>interrupt</code>   An interrupt message
+ <code>error</code>               An error message
+ <code>loopback</code>    A command sent from the PA to be inserted into the script
+ <code>response</code>    A response message
+ <code>goals</code>               A goals (proof state) display
+ <code>systemspecific</code> Something specific to a particular system,
+                  -- see <code>proof-shell-handle-output-system-specific</code>
 </pre></td></tr></table>
-<p>The output corresponding to this will be in &lsquo;<samp><code>proof-shell-last-output</code></samp>&rsquo;.
+<p>The output corresponding to this will be in <code>proof-shell-last-output</code>.
 </p>
-<p>See also &lsquo;<samp><code>proof-shell-proof-completed</code></samp>&rsquo; for further information about
+<p>See also <code>proof-shell-proof-completed</code> for further information about
 the proof process output, when ends of proofs are spotted.
 </p>
 <p>This variable can be used for instance specific functions which want
-to examine &lsquo;<samp><code>proof-shell-last-output</code></samp>&rsquo;.
+to examine <code>proof-shell-last-output</code>.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002ddelayed_002doutput_002dstart"></a><u>Variable:</u> <b>proof-shell-delayed-output-start</b></dt>
 <dd><p>A record of the start of the previous output in the shell buffer.<br>
 The previous output is held back for processing at end of queue.  Reset
-in &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo;, i.e., when subsequent output arrives.
+in <code>proof-shell-filter</code>, i.e., when subsequent output arrives.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002ddelayed_002doutput_002dend"></a><u>Variable:</u> <b>proof-shell-delayed-output-end</b></dt>
 <dd><p>A record of the start of the previous output in the shell buffer.<br>
 The previous output is held back for processing at end of queue.  Reset
-in &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo;, i.e., when subsequent output arrives.
+in <code>proof-shell-filter</code>, i.e., when subsequent output arrives.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002ddelayed_002doutput_002dflags"></a><u>Variable:</u> <b>proof-shell-delayed-output-flags</b></dt>
-<dd><p>A copy of the &lsquo;<samp><code>proof-action-list</code></samp>&rsquo; flags for &lsquo;<samp>proof-shell-delayed-output</samp>&rsquo;.<br>
-Reset in &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo;, i.e., when subsequent output arrives.
+<dd><p>A copy of the <code>proof-action-list</code> flags for <code>proof-shell-delayed-output</code>.<br>
+Reset in <code>proof-shell-filter</code>, i.e., when subsequent output arrives.
 </p></dd></dl>
 <a class="anchor" id="index-proof_002daction_002dlist-2"></a>
 
@@ -1051,19 +1051,19 @@ handled immediately, however: these are errors, interrupts,
 goals and loopbacks (proof step hints/proof by pointing results).
 </p>
 <p>In this function we check, in turn:
-</p><table><tr><td>&nbsp;</td><td><pre class="lisp">  &lsquo;<samp><code>proof-shell-interrupt-regexp</code></samp>&rsquo;
-  &lsquo;<samp><code>proof-shell-error-regexp</code></samp>&rsquo;
-  &lsquo;<samp><code>proof-shell-proof-completed-regexp</code></samp>&rsquo;
-  &lsquo;<samp><code>proof-shell-result-start</code></samp>&rsquo;
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">  <code>proof-shell-interrupt-regexp</code>
+  <code>proof-shell-error-regexp</code>
+  <code>proof-shell-proof-completed-regexp</code>
+  <code>proof-shell-result-start</code>
 </pre></td></tr></table>
 <p>Other kinds of output are essentially display only, so only
 dealt with if necessary.
 </p>
-<p>To extend this, set &lsquo;<samp><code>proof-shell-handle-output-system-specific</code></samp>&rsquo;,
+<p>To extend this, set <code>proof-shell-handle-output-system-specific</code>,
 which is a hook to take particular additional actions.
 </p>
-<p>This function sets variables: &lsquo;<samp><code>proof-shell-last-output-kind</code></samp>&rsquo;,
-and the counter &lsquo;<samp><code>proof-shell-proof-completed</code></samp>&rsquo; which counts commands
+<p>This function sets variables: <code>proof-shell-last-output-kind</code>,
+and the counter <code>proof-shell-proof-completed</code> which counts commands
 after a completed proof.
 </p></dd></dl>
 
@@ -1071,25 +1071,25 @@ after a completed proof.
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dhandle_002ddelayed_002doutput"></a><u>Function:</u> <b>proof-shell-handle-delayed-output</b></dt>
 <dd><p>Display delayed goals/responses, when queue is stopped or completed.<br>
-This function handles the cases of &lsquo;<samp>proof-shell-output-kind</samp>&rsquo; which
+This function handles the cases of <code>proof-shell-output-kind</code> which
 are not dealt with eagerly during script processing, namely
-<code>'response</code> and <code>'goals</code> types.
+<code>response</code> and <code>goals</code> types.
 </p>
 <p>This is useful even with empty delayed output as it will empty
 the buffers.
 </p>
 <p>The delayed output is in the region
-[<code>proof-shell-delayed-output-start</code>,<code>proof-shell-delayed-output-end</code>].
+[<code>proof-shell-delayed-output-start</code>, <code>proof-shell-delayed-output-end</code>].
 </p>
 <p>If no goals classified output is found, the whole output is
 displayed in the response buffer.
 </p>
 <p>If goals output is found, the last matching instance, possibly
-bounded by &lsquo;<samp><code>proof-shell-end-goals-regexp</code></samp>&rsquo;, will be displayed
+bounded by <code>proof-shell-end-goals-regexp</code>, will be displayed
 in the goals buffer (and may be further analysed by Proof General).
 </p>
 <p>Any output that appears <strong>before</strong> the last goals output (but
-after messages classified as urgent, see &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo;)
+after messages classified as urgent, see <code>proof-shell-filter</code>)
 will also be displayed in the response buffer.
 </p>
 <p>For example, if <var>output</var> has this form:
@@ -1103,16 +1103,16 @@ will also be displayed in the response buffer.
 in the response buffer.  <var>junk</var> will be ignored.
 </p>
 <p>Notice that the above alternation (and separation of <var>junk</var>) can
-only be distinguished if both &lsquo;<samp><code>proof-shell-start-goals-regexp</code></samp>&rsquo;
-and &lsquo;<samp><code>proof-shell-end-goals-regexp</code></samp>&rsquo; are set.  With just the start
+only be distinguished if both <code>proof-shell-start-goals-regexp</code>
+and <code>proof-shell-end-goals-regexp</code> are set.  With just the start
 goals regexp set, <var>goals-2</var> <var>junk</var> will appear in the goals buffer
 and no response output would occur.
 </p><p>The goals and response outputs are copied into
-&lsquo;<samp><code>proof-shell-last-goals-output</code></samp>&rsquo; and
-&lsquo;<samp><code>proof-shell-last-response-output</code></samp>&rsquo; respectively.
+<code>proof-shell-last-goals-output</code> and
+<code>proof-shell-last-response-output</code> respectively.
 </p>
-<p>The value returned is the value for &lsquo;<samp><code>proof-shell-last-output-kind</code></samp>&rsquo;,
-i.e., <code>'goals</code> or <code>'response</code>.
+<p>The value returned is the value for <code>proof-shell-last-output-kind</code>,
+i.e., <code>goals</code> or <code>response</code>.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002durgent_002dmessage_002dmarker"></a><u>Variable:</u> <b>proof-shell-urgent-message-marker</b></dt>
@@ -1130,8 +1130,8 @@ theorem dependency message or interactive output indicator.
 <p>If none of these apply, display the text between <var>start</var> and <var>end</var>.
 </p>
 <p>The text between <var>start</var> and <var>end</var> should be a string that starts with
-text matching &lsquo;<samp><code>proof-shell-eager-annotation-start</code></samp>&rsquo; and
-ends with text matching &lsquo;<samp><code>proof-shell-eager-annotation-end</code></samp>&rsquo;.
+text matching <code>proof-shell-eager-annotation-start</code> and
+ends with text matching <code>proof-shell-eager-annotation-end</code>.
 </p></dd></dl>
 
 <p>The main processing point which triggers other actions is
@@ -1144,24 +1144,24 @@ library that is distributed with Proof General (in
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dfilter"></a><u>Function:</u> <b>proof-shell-filter</b></dt>
 <dd><p>Master filter for the proof assistant shell-process.<br>
-A function for &lsquo;<samp><code>scomint-output-filter-functions</code></samp>&rsquo;.
+A function for <code>scomint-output-filter-functions</code>.
 </p>
 <p>Deal with output and issue new input from the queue.  This is an
 important internal function.  The output must be collected from
-&lsquo;<samp><code>proof-shell-buffer</code></samp>&rsquo; for the following reason.  This function
-might block inside &lsquo;<samp><code>process-send-string</code></samp>&rsquo; when sending input to
+<code>proof-shell-buffer</code> for the following reason.  This function
+might block inside <code>process-send-string</code> when sending input to
 the proof assistant or to prooftree.  In this case Emacs might
 call the process filter again while the previous instance is
-still running.  &lsquo;<samp><code>proof-shell-filter-wrapper</code></samp>&rsquo; detects and delays
+still running.  <code>proof-shell-filter-wrapper</code> detects and delays
 such calls but does not buffer the output.
 </p>
 <p>Handle urgent messages first.  As many as possible are processed,
-using the function &lsquo;<samp><code>proof-shell-process-urgent-messages</code></samp>&rsquo;.
+using the function <code>proof-shell-process-urgent-messages</code>.
 </p>
-<p>If a prompt is seen, run &lsquo;<samp><code>proof-shell-filter-manage-output</code></samp>&rsquo; on the
+<p>If a prompt is seen, run <code>proof-shell-filter-manage-output</code> on the
 output between the new prompt and the last input (position of
-&lsquo;<samp><code>proof-marker</code></samp>&rsquo;) or the last urgent message (position of
-&lsquo;<samp><code>proof-shell-urgent-message-marker</code></samp>&rsquo;), whichever is later.  For
+<code>proof-marker</code>) or the last urgent message (position of
+<code>proof-shell-urgent-message-marker</code>), whichever is later.  For
 example, in this case:
 </p><table><tr><td>&nbsp;</td><td><pre class="lisp"> PROMPT&gt; <var>input</var>
  <var>output-1</var>
@@ -1171,35 +1171,35 @@ example, in this case:
  <var>output-3</var>
  PROMPT&gt;
 </pre></td></tr></table>
-<p>&lsquo;<samp><code>proof-marker</code></samp>&rsquo; points after <var>input</var>.
+<p><code>proof-marker</code> points after <var>input</var>.
 </p>
-<p>&lsquo;<samp><code>proof-shell-urgent-message-marker</code></samp>&rsquo; points after <var>urgent-message-2</var>,
+<p><code>proof-shell-urgent-message-marker</code> points after <var>urgent-message-2</var>,
 after both urgent messages have been processed by
-&lsquo;<samp><code>proof-shell-process-urgent-messages</code></samp>&rsquo;.  Urgent messages always
+<code>proof-shell-process-urgent-messages</code>.  Urgent messages always
 processed; they are intended to correspond to informational
 notes that the prover makes to inform the user or interface on
 progress.
 </p>
 <p>In this case, the ordinary outputs <var>output-1</var> and <var>output-2</var> are
 ignored; only <var>output-3</var> will be processed by
-&lsquo;<samp><code>proof-shell-filter-manage-output</code></samp>&rsquo;.
+<code>proof-shell-filter-manage-output</code>.
 </p>
 <p>Error or interrupt messages are expected to terminate an
 interactive output and appear last before a prompt and will
 always be processed.  Error messages and interrupt messages are
 therefore <strong>not</strong> considered as urgent messages.
 </p>
-<p>The first time that a prompt is seen, &lsquo;<samp><code>proof-marker</code></samp>&rsquo; is
+<p>The first time that a prompt is seen, <code>proof-marker</code> is
 initialised to the end of the prompt.  This should correspond
-with initializing the process.  After that, &lsquo;<samp><code>proof-marker</code></samp>&rsquo;
-is only changed when input is sent in &lsquo;<samp><code>proof-shell-insert</code></samp>&rsquo;.
+with initializing the process.  After that, <code>proof-marker</code>
+is only changed when input is sent in <code>proof-shell-insert</code>.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dfilter_002dmanage_002doutput"></a><u>Function:</u> <b>proof-shell-filter-manage-output</b><i> start end</i></dt>
-<dd><p>Subroutine of &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo; for output between <var>start</var> and <var>end</var>.
+<dd><p>Subroutine of <code>proof-shell-filter</code> for output between <var>start</var> and <var>end</var>.
 </p>
-<p>First, we invoke &lsquo;<samp><code>proof-shell-handle-immediate-output</code></samp>&rsquo; which classifies
+<p>First, we invoke <code>proof-shell-handle-immediate-output</code> which classifies
 and handles output that must be dealt with immediately.
 </p>
 <p>Other output (user display) is only displayed when the proof
@@ -1212,17 +1212,17 @@ by the filter is to send the next command from the queue.
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dfilter_002dwrapper"></a><u>Function:</u> <b>proof-shell-filter-wrapper</b><i> str-do-not-use</i></dt>
-<dd><p>Wrapper for &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo;, protecting against parallel calls.<br>
+<dd><p>Wrapper for <code>proof-shell-filter</code>, protecting against parallel calls.<br>
 In Emacs a process filter function can be called while the same
 filter is currently running for the same process, for instance,
 when the filter blocks on I/O. This wrapper protects the main
-entry point, &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo; against such parallel,
+entry point, <code>proof-shell-filter</code> against such parallel,
 overlapping calls.
 </p>
 <p>The argument <var>str-do-not-use</var> contains the most recent output, but
-is discarded.  &lsquo;<samp><code>proof-shell-filter</code></samp>&rsquo; collects the output from
-&lsquo;<samp><code>proof-shell-buffer</code></samp>&rsquo; (where it is inserted by
-&lsquo;<samp><code>scomint-output-filter</code></samp>&rsquo;), relieving this function from the task
+is discarded.  <code>proof-shell-filter</code> collects the output from
+<code>proof-shell-buffer</code> (where it is inserted by
+<code>scomint-output-filter</code>), relieving this function from the task
 to buffer the output that arrives during parallel, overlapping
 calls.
 </p></dd></dl>
@@ -1244,7 +1244,7 @@ configuration variable <code>proof-general-debug</code>.
 <dd><p>Non-nil to run Proof General in debug mode.<br>
 This changes some behaviour (e.g. markup stripping) and displays
 debugging messages in the response buffer.  To avoid erasing
-messages shortly after they&rsquo;re printed, set &lsquo;<samp><code>proof-tidy-response</code></samp>&rsquo; to nil.
+messages shortly after they&rsquo;re printed, set <code>proof-tidy-response</code> to nil.
 This is only useful for PG developers.
 </p>
 <p>The default value is <code>nil</code>.
@@ -1280,7 +1280,7 @@ Reference Manual.  I recommend using the source-level debugger
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 24, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 

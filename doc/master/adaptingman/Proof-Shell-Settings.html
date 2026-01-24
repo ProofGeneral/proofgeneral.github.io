@@ -66,16 +66,16 @@ to send to the prover to activate certain actions.
 May contain arguments separated by spaces, but see also the
 prover specific settings &lsquo;<samp>&lt;PA&gt;-prog-args</samp>&rsquo; and &lsquo;<samp>&lt;PA&gt;-prog-env</samp>&rsquo;.
 </p>
-<p>Remark: if &lsquo;<samp>&lt;PA&gt;-prog-args</samp>&rsquo; is non-nil, then &lsquo;<samp><code>proof-prog-name</code></samp>&rsquo; is considered
+<p>Remark: if &lsquo;<samp>&lt;PA&gt;-prog-args</samp>&rsquo; is non-nil, then <code>proof-prog-name</code> is considered
 strictly: it must contain <strong>only</strong> the program name with no option, spaces
 are interpreted literally as part of the program name.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-PA_002dprog_002dargs"></a><u>Variable:</u> <b>PA-prog-args</b></dt>
-<dd><p>Arguments to be passed to &lsquo;<samp><code>proof-prog-name</code></samp>&rsquo; to run the proof assistant.<br>
-If non-nil, will be treated as a list of arguments for &lsquo;<samp><code>proof-prog-name</code></samp>&rsquo;.
-Otherwise &lsquo;<samp><code>proof-prog-name</code></samp>&rsquo; will be split on spaces to form arguments.
+<dd><p>Arguments to be passed to <code>proof-prog-name</code> to run the proof assistant.<br>
+If non-nil, will be treated as a list of arguments for <code>proof-prog-name</code>.
+Otherwise <code>proof-prog-name</code> will be split on spaces to form arguments.
 </p>
 <p>Remark: Arguments are interpreted strictly: each one must contain only one
 word, with no space (unless it is the same word). For example if the
@@ -85,20 +85,20 @@ arguments are -x foo -y bar, then the list should be &rsquo;(&quot;-x&quot; &quo
 
 <dl>
 <dt><a class="anchor" id="index-PA_002dprog_002denv"></a><u>Variable:</u> <b>PA-prog-env</b></dt>
-<dd><p>Modifications to &lsquo;<samp><code>process-environment</code></samp>&rsquo; made before running &lsquo;<samp><code>proof-prog-name</code></samp>&rsquo;.<br>
+<dd><p>Modifications to <code>process-environment</code> made before running <code>proof-prog-name</code>.<br>
 Each element should be a string of the form ENVVARNAME=<var>value</var>.  They will be
 added to the environment before launching the prover (but not pervasively).
 For example for coq on Windows you might need something like:
-(setq <code>coq-prog-env</code> &rsquo;(&quot;HOME=C:\Program Files\Coq\&quot;))
+(setq coq-prog-env &rsquo;(&quot;HOME=C:\Program Files\Coq\&quot;))
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dauto_002dterminate_002dcommands"></a><u>Variable:</u> <b>proof-shell-auto-terminate-commands</b></dt>
 <dd><p>Non-nil if Proof General should try to add terminator to every command.<br>
 If non-nil, whenever a command is sent to the prover using
-&lsquo;<samp><code>proof-shell-invisible-command</code></samp>&rsquo;, Proof General will check to see if it
-ends with &lsquo;<samp><code>proof-terminal-string</code></samp>&rsquo;, and add it if not.
-If &lsquo;<samp><code>proof-terminal-string</code></samp>&rsquo; is nil, this has no effect.
+<code>proof-shell-invisible-command</code>, Proof General will check to see if it
+ends with <code>proof-terminal-string</code>, and add it if not.
+If <code>proof-terminal-string</code> is nil, this has no effect.
 </p></dd></dl>
 
 <dl>
@@ -112,7 +112,7 @@ to help gain synchronization (e.g. engaging special markup).
 via command line options if possible, in which case this variable
 does not need to be set.
 </p>
-<p>See also &lsquo;<samp><code>proof-shell-init-cmd</code></samp>&rsquo;.
+<p>See also <code>proof-shell-init-cmd</code>.
 </p></dd></dl>
 
 <dl>
@@ -123,7 +123,7 @@ This command is sent to the process as soon as synchronization is gained
 the proof assistant in some way, or print a welcome message
 (since output before the first prompt is discarded).
 </p>
-<p>See also &lsquo;<samp><code>proof-shell-pre-sync-init-cmd</code></samp>&rsquo;.
+<p>See also <code>proof-shell-pre-sync-init-cmd</code>.
 </p></dd></dl>
 
 <dl>
@@ -140,15 +140,15 @@ the proof assistant in some way, or print a welcome message
 <dt><a class="anchor" id="index-proof_002dshell_002dcd_002dcmd"></a><u>Variable:</u> <b>proof-shell-cd-cmd</b></dt>
 <dd><p>Command to the proof assistant to change the working directory.<br>
 The format character &lsquo;<samp>%s</samp>&rsquo; is replaced with the directory, and
-the escape sequences in &lsquo;<samp><code>proof-shell-filename-escapes</code></samp>&rsquo; are
+the escape sequences in <code>proof-shell-filename-escapes</code> are
 applied to the filename.
 </p>
-<p>This setting is used to define the function &lsquo;<samp><code>proof-cd</code></samp>&rsquo; which
-changes to the value of (<code>default-directory</code>) for script buffers.
-For files, the value of (<code>default-directory</code>) is simply the
+<p>This setting is used to define the function <code>proof-cd</code> which
+changes to the value of <code>default-directory</code> for script buffers.
+For files, the value of <code>default-directory</code> is simply the
 directory the file resides in.
 </p>
-<p>NB: By default, &lsquo;<samp><code>proof-cd</code></samp>&rsquo; is called from &lsquo;<samp><code>proof-activate-scripting-hook</code></samp>&rsquo;,
+<p>NB: By default, <code>proof-cd</code> is called from <code>proof-activate-scripting-hook</code>,
 so that the prover switches to the directory of a proof
 script every time scripting begins.
 </p></dd></dl>
@@ -158,7 +158,7 @@ script every time scripting begins.
 <dd><p>Command to turn prover goals output off when sending many script commands.<br>
 If non-nil, Proof General will automatically issue this command
 to help speed up processing of long proof scripts.
-See also &lsquo;<samp><code>proof-shell-stop-silent-cmd</code></samp>&rsquo;.
+See also <code>proof-shell-stop-silent-cmd</code>.
 NB: terminator not added to command.
 </p></dd></dl>
 
@@ -167,7 +167,7 @@ NB: terminator not added to command.
 <dd><p>Command to turn prover output on.<br>
 If non-nil, Proof General will automatically issue this command
 to help speed up processing of long proof scripts.
-See also &lsquo;<samp><code>proof-shell-start-silent-cmd</code></samp>&rsquo;.
+See also <code>proof-shell-start-silent-cmd</code>.
 NB: Terminator not added to command.
 </p></dd></dl>
 
@@ -187,7 +187,7 @@ for more details about the final two settings in this group,
 <dd><p>Command to the proof assistant to tell it that a file has been processed.<br>
 The format character &lsquo;<samp>%s</samp>&rsquo; is replaced by a complete filename for a
 script file which has been fully processed interactively with
-Proof General.  See &lsquo;<samp><code>proof-format-filename</code></samp>&rsquo; for other possibilities
+Proof General.  See <code>proof-format-filename</code> for other possibilities
 to process the filename.
 </p>
 <p>This setting used to interface with the proof assistant&rsquo;s internal
@@ -199,15 +199,15 @@ issuing this command.
 </p>
 <p>If this is set to nil, no command is issued.
 </p>
-<p>See also: &lsquo;<samp><code>proof-shell-inform-file-retracted-cmd</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-shell-process-file</code></samp>&rsquo;, &lsquo;<samp><code>proof-shell-compute-new-files-list</code></samp>&rsquo;.
+<p>See also: <code>proof-shell-inform-file-retracted-cmd</code>,
+<code>proof-shell-process-file</code>, <code>proof-shell-compute-new-files-list</code>.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dinform_002dfile_002dretracted_002dcmd"></a><u>Variable:</u> <b>proof-shell-inform-file-retracted-cmd</b></dt>
 <dd><p>Command to the proof assistant to tell it that a file has been retracted.<br>
 The format character &lsquo;<samp>%s</samp>&rsquo; is replaced by a complete filename for a
 script file which Proof General wants the prover to consider as not
-completely processed.  See &lsquo;<samp><code>proof-format-filename</code></samp>&rsquo; for other
+completely processed.  See <code>proof-format-filename</code> for other
 possibilities to process the filename.
 </p>
 <p>This is used to interface with the proof assistant&rsquo;s internal
@@ -223,11 +223,11 @@ also unlocked.
 </p>
 <p>It is also possible to set this value to a function which will
 be invoked on the name of the retracted file, and should remove
-the ancestor files from &lsquo;<samp><code>proof-included-files-list</code></samp>&rsquo; by some
+the ancestor files from <code>proof-included-files-list</code> by some
 other calculation.
 </p>
-<p>See also: &lsquo;<samp><code>proof-shell-inform-file-processed-cmd</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-shell-process-file</code></samp>&rsquo;, &lsquo;<samp><code>proof-shell-compute-new-files-list</code></samp>&rsquo;.
+<p>See also: <code>proof-shell-inform-file-processed-cmd</code>,
+<code>proof-shell-process-file</code>, <code>proof-shell-compute-new-files-list</code>.
 </p></dd></dl>
 
 
@@ -257,43 +257,43 @@ input, then newlines can be retained in the input.
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dinsert_002dhook"></a><u>Variable:</u> <b>proof-shell-insert-hook</b></dt>
-<dd><p>Hook run by &lsquo;<samp><code>proof-shell-insert</code></samp>&rsquo; before inserting a command.<br>
+<dd><p>Hook run by <code>proof-shell-insert</code> before inserting a command.<br>
 Can be used to configure the proof assistant to the interface in
 various ways &ndash; for example, to observe or alter the commands sent to
 the prover, or to sneak in extra commands to configure the prover.
 </p>
-<p>This hook is called inside a &lsquo;<samp><code>save-excursion</code></samp>&rsquo; with the &lsquo;<samp><code>proof-shell-buffer</code></samp>&rsquo;
+<p>This hook is called inside a <code>save-excursion</code> with the <code>proof-shell-buffer</code>
 current, just before inserting and sending the text in the
-variable &lsquo;<samp>string</samp>&rsquo;.  The hook can massage &lsquo;<samp>string</samp>&rsquo; or insert additional
-text directly into the &lsquo;<samp><code>proof-shell-buffer</code></samp>&rsquo;.
-Before sending &lsquo;<samp>string</samp>&rsquo;, it will be stripped of carriage returns.
+variable <code>string</code>.  The hook can massage <code>string</code> or insert additional
+text directly into the <code>proof-shell-buffer</code>.
+Before sending <code>string</code>, it will be stripped of carriage returns.
 </p>
-<p>Additionally, the hook can examine the variable &lsquo;<samp>action</samp>&rsquo;.  It will be
+<p>Additionally, the hook can examine the variable <code>action</code>.  It will be
 a symbol, set to the callback command which is executed in the proof
-shell filter once &lsquo;<samp>string</samp>&rsquo; has been processed.  The &lsquo;<samp>action</samp>&rsquo; variable
+shell filter once <code>string</code> has been processed.  The <code>action</code> variable
 suggests what class of command is about to be inserted, the first two
 are normally the ones of interest:
-</p><table><tr><td>&nbsp;</td><td><pre class="lisp"> <code>'proof-done-advancing</code>       A &quot;forward&quot; scripting command
- <code>'proof-done-retracting</code>      A &quot;backward&quot; scripting command
- <code>'proof-done-invisible</code>       A non-scripting command
- <code>'proof-shell-set-silent</code>     Indicates prover output has been suppressed
- <code>'proof-shell-clear-silent</code>   Indicates prover output has been restored
- <code>'init-cmd</code>                   Early initialization command sent to prover
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp"> <code>proof-done-advancing</code>            A &quot;forward&quot; scripting command
+ <code>proof-done-retracting</code>           A &quot;backward&quot; scripting command
+ <code>proof-done-invisible</code>            A non-scripting command
+ <code>proof-shell-set-silent</code>     Indicates prover output has been suppressed
+ <code>proof-shell-clear-silent</code>   Indicates prover output has been restored
+ <code>init-cmd</code>                Early initialization command sent to prover
 </pre></td></tr></table>
 <p>Caveats: You should be very careful about setting this hook.  Proof
 General relies on a careful synchronization with the process between
 inputs and outputs.  It expects to see a prompt for each input it
 sends from the queue.  If you add extra input here and it causes more
 prompts than expected, things will break!  Extending the variable
-&lsquo;<samp>string</samp>&rsquo; may be safer than inserting text directly, since it is
+<code>string</code> may be safer than inserting text directly, since it is
 stripped of carriage returns before being sent.
 </p>
 <p>Example uses:
 Lego used this hook for setting the pretty printer width if
 the window width has changed;
-Plastic used it to remove literate-style markup from &lsquo;<samp>string</samp>&rsquo;.
+Plastic used it to remove literate-style markup from <code>string</code>.
 </p>
-<p>See also &lsquo;<samp><code>proof-script-preprocess</code></samp>&rsquo; which can munge text when
+<p>See also <code>proof-script-preprocess</code> which can munge text when
 it is added to the queue of commands.
 </p></dd></dl>
 
@@ -342,15 +342,15 @@ in ordinary output, which should appear in this regexp.
 <p>We assume that an error message corresponds to a failure in the last
 proof command executed.  So don&rsquo;t match mere warning messages with
 this regexp.  Moreover, an error message should <strong>not</strong> be matched as an
-eager annotation (see &lsquo;<samp><code>proof-shell-eager-annotation-start</code></samp>&rsquo;) otherwise it
+eager annotation (see <code>proof-shell-eager-annotation-start</code>) otherwise it
 will be lost.
 </p>
-<p>Error messages are considered to begin from &lsquo;<samp><code>proof-shell-error-regexp</code></samp>&rsquo;
+<p>Error messages are considered to begin from <code>proof-shell-error-regexp</code>
 and continue until the next prompt.  The variable
-&lsquo;<samp><code>proof-shell-truncate-before-error</code></samp>&rsquo; controls whether text before the
+<code>proof-shell-truncate-before-error</code> controls whether text before the
 error message is displayed.
 </p>
-<p>The engine matches interrupts before errors, see &lsquo;<samp><code>proof-shell-interrupt-regexp</code></samp>&rsquo;.
+<p>The engine matches interrupts before errors, see <code>proof-shell-interrupt-regexp</code>.
 </p>
 <p>It is safe to leave this variable unset (as nil).
 </p></dd></dl>
@@ -360,10 +360,10 @@ error message is displayed.
 We assume that an interrupt message corresponds to a failure in the last
 proof command executed.  So don&rsquo;t match mere warning messages with
 this regexp.  Moreover, an interrupt message should not be matched as an
-eager annotation (see &lsquo;<samp><code>proof-shell-eager-annotation-start</code></samp>&rsquo;) otherwise it
+eager annotation (see <code>proof-shell-eager-annotation-start</code>) otherwise it
 will be lost.
 </p>
-<p>The engine matches interrupts before errors, see &lsquo;<samp><code>proof-shell-error-regexp</code></samp>&rsquo;.
+<p>The engine matches interrupts before errors, see <code>proof-shell-error-regexp</code>.
 </p>
 <p>It is safe to leave this variable unset (as nil).
 </p></dd></dl>
@@ -379,7 +379,7 @@ behaviour in Proof General before version 3.4.  The more obvious
 setting for new instances is probably nil.
 </p>
 <p>Interrupt messages are treated in the same way.
-See &lsquo;<samp><code>proof-shell-error-regexp</code></samp>&rsquo; and &lsquo;<samp><code>proof-shell-interrupt-regexp</code></samp>&rsquo;.
+See <code>proof-shell-error-regexp</code> and <code>proof-shell-interrupt-regexp</code>.
 </p></dd></dl>
 
 <dl>
@@ -387,7 +387,7 @@ See &lsquo;<samp><code>proof-shell-error-regexp</code></samp>&rsquo; and &lsquo;
 <dd><p>Regexp matching output indicating a finished proof.
 </p>
 <p>When output which matches this regexp is seen, we clear the goals
-buffer in case this is not also marked up as a &lsquo;<samp>goals</samp>&rsquo; type of
+buffer in case this is not also marked up as a <code>goals</code> type of
 message.
 </p>
 <p>We also enable the QED function (save a proof) and we may automatically
@@ -397,14 +397,14 @@ command, depending on whether the prover supports nested proofs or not.
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dstart_002dgoals_002dregexp"></a><u>Variable:</u> <b>proof-shell-start-goals-regexp</b></dt>
 <dd><p>Regexp matching the start of the proof state output.<br>
-This is an important setting.  Output between &lsquo;<samp><code>proof-shell-start-goals-regexp</code></samp>&rsquo;
-and &lsquo;<samp><code>proof-shell-end-goals-regexp</code></samp>&rsquo; will be pasted into the goals buffer
+This is an important setting.  Output between <code>proof-shell-start-goals-regexp</code>
+and <code>proof-shell-end-goals-regexp</code> will be pasted into the goals buffer
 and possibly analyzed further for proof-by-pointing markup.
 If it is left as nil, the goals buffer will not be used.
 </p>
 <p>The goals display starts at the beginning of the match on this
 regexp, unless it has a match group, in which case it starts
-at (<code>match-end</code> 1).
+at (match-end 1).
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dend_002dgoals_002dregexp"></a><u>Variable:</u> <b>proof-shell-end-goals-regexp</b></dt>
@@ -413,11 +413,11 @@ This allows a shorter form of the proof state output to be displayed,
 in case several messages are combined in a command output.
 </p>
 <p>The portion treated as the goals output will be that between the
-match on &lsquo;<samp><code>proof-shell-start-goals-regexp</code></samp>&rsquo; (which see) and the
-start of the match on &lsquo;<samp><code>proof-shell-end-goals-regexp</code></samp>&rsquo;.
+match on <code>proof-shell-start-goals-regexp</code> (which see) and the
+start of the match on <code>proof-shell-end-goals-regexp</code>.
 </p>
 <p>If nil, use the whole of the output from the match on
-&lsquo;<samp><code>proof-shell-start-goals-regexp</code></samp>&rsquo; up to the next prompt.
+<code>proof-shell-start-goals-regexp</code> up to the next prompt.
 </p></dd></dl>
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dassumption_002dregexp"></a><u>Variable:</u> <b>proof-shell-assumption-regexp</b></dt>
@@ -425,7 +425,7 @@ start of the match on &lsquo;<samp><code>proof-shell-end-goals-regexp</code></sa
 </p>
 <p>At the moment, this setting is not used in the generic Proof General.
 </p>
-<p>Future use may provide a generic implementation for &lsquo;<samp><code>pg-topterm-goalhyplit-fn</code></samp>&rsquo;,
+<p>Future use may provide a generic implementation for <code>pg-topterm-goalhyplit-fn</code>,
 used to help parse the goals buffer to annotate it for proof by pointing.
 </p></dd></dl>
 
@@ -463,11 +463,11 @@ are stripped from display of the message in the minibuffer.
 </p>
 <p>It is useful to recognize (starts of) warnings or file-reading messages
 with this regexp.  You must also recognize any special messages
-from the prover to PG with this regexp (e.g. &lsquo;<samp><code>proof-shell-clear-goals-regexp</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-shell-retract-files-regexp</code></samp>&rsquo;, etc.)
+from the prover to PG with this regexp (e.g. <code>proof-shell-clear-goals-regexp</code>,
+<code>proof-shell-retract-files-regexp</code>, etc.)
 </p>
-<p>See also &lsquo;<samp><code>proof-shell-eager-annotation-start-length</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-shell-eager-annotation-end</code></samp>&rsquo;.
+<p>See also <code>proof-shell-eager-annotation-start-length</code>,
+<code>proof-shell-eager-annotation-end</code>.
 </p>
 <p>Set to nil to disable this feature.
 </p></dd></dl>
@@ -476,7 +476,7 @@ from the prover to PG with this regexp (e.g. &lsquo;<samp><code>proof-shell-clea
 <dt><a class="anchor" id="index-proof_002dshell_002deager_002dannotation_002dstart_002dlength"></a><u>Variable:</u> <b>proof-shell-eager-annotation-start-length</b></dt>
 <dd><p>Maximum length of an eager annotation start.<br>
 Must be set to the maximum length of the text that may match
-&lsquo;<samp><code>proof-shell-eager-annotation-start</code></samp>&rsquo; (at least 1).
+<code>proof-shell-eager-annotation-start</code> (at least 1).
 If this value is too low, eager annotations may be lost!
 </p>
 <p>This value is used internally by Proof General to optimize the process
@@ -489,12 +489,12 @@ filter to avoid unnecessary searching.
 An eager annotation indicates to Emacs that some following output
 should be displayed or processed immediately.
 </p>
-<p>See also &lsquo;<samp><code>proof-shell-eager-annotation-start</code></samp>&rsquo;.
+<p>See also <code>proof-shell-eager-annotation-start</code>.
 </p>
 <p>It is nice to recognize (ends of) warnings or file-reading messages
 with this regexp.  You must also recognize (ends of) any special messages
-from the prover to PG with this regexp (e.g. &lsquo;<samp><code>proof-shell-clear-goals-regexp</code></samp>&rsquo;,
-&lsquo;<samp><code>proof-shell-retract-files-regexp</code></samp>&rsquo;, etc.)
+from the prover to PG with this regexp (e.g. <code>proof-shell-clear-goals-regexp</code>,
+<code>proof-shell-retract-files-regexp</code>, etc.)
 </p>
 <p>The default value is &quot;\n&quot; to match up to the end of the line.
 </p></dd></dl>
@@ -513,8 +513,8 @@ be acted on as soon as they are issued by the prover.
 <dd><p>Regexp matching output telling Proof General to clear the response buffer.
 </p>
 <p>More precisely, this should match a string which is bounded by
-matches on &lsquo;<samp><code>proof-shell-eager-annotation-start</code></samp>&rsquo; and
-&lsquo;<samp><code>proof-shell-eager-annotation-end</code></samp>&rsquo;.
+matches on <code>proof-shell-eager-annotation-start</code> and
+<code>proof-shell-eager-annotation-end</code>.
 </p>
 <p>This feature is useful to give the prover more control over what output
 is shown to the user.  Set to nil to disable.
@@ -525,8 +525,8 @@ is shown to the user.  Set to nil to disable.
 <dd><p>Regexp matching output telling Proof General to clear the goals buffer.
 </p>
 <p>More precisely, this should match a string which is bounded by
-matches on &lsquo;<samp><code>proof-shell-eager-annotation-start</code></samp>&rsquo; and
-&lsquo;<samp><code>proof-shell-eager-annotation-end</code></samp>&rsquo;.
+matches on <code>proof-shell-eager-annotation-start</code> and
+<code>proof-shell-eager-annotation-end</code>.
 </p>
 <p>This feature is useful to give the prover more control over what output
 is shown to the user.  Set to nil to disable.
@@ -542,8 +542,8 @@ the shell buffer will be displayed and the user left to their own
 devices.
 </p>
 <p>Note: this should match a string which is bounded by matches
-on &lsquo;<samp><code>proof-shell-eager-annotation-start</code></samp>&rsquo; and
-&lsquo;<samp><code>proof-shell-eager-annotation-end</code></samp>&rsquo;.
+on <code>proof-shell-eager-annotation-start</code> and
+<code>proof-shell-eager-annotation-end</code>.
 </p></dd></dl>
 
 <dl>
@@ -557,8 +557,8 @@ response buffer.
 the prover, rather than ordinary output from final proofs.
 </p>
 <p>This should match a string which is bounded by matches
-on &lsquo;<samp><code>proof-shell-eager-annotation-start</code></samp>&rsquo; and
-&lsquo;<samp><code>proof-shell-eager-annotation-end</code></samp>&rsquo;.
+on <code>proof-shell-eager-annotation-start</code> and
+<code>proof-shell-eager-annotation-end</code>.
 </p>
 <p>Set to nil to disable.
 </p></dd></dl>
@@ -571,7 +571,7 @@ The output from the prover should be a message with the form
 </p><table><tr><td>&nbsp;</td><td><pre class="lisp">   <var>dependencies</var> OF  X Y Z   ARE  A B C
 </pre></td></tr></table>
 <p>with X Y Z, A B C separated by whitespace or somehow else (see
-&lsquo;<samp><code>proof-shell-theorem-dependency-list-split</code></samp>&rsquo;.  This variable should
+<code>proof-shell-theorem-dependency-list-split</code>.  This variable should
 be set to a regexp to match the overall message (which should
 be an urgent message), with two sub-matches for X Y Z and A B C.
 </p>
@@ -598,13 +598,13 @@ the empty string, the file name of the scripting buffer is used
 instead.  If it returns nil, no action is taken.
 </p>
 <p>More precisely, <var>regexp</var> should match a string which is bounded by
-matches on &lsquo;<samp><code>proof-shell-eager-annotation-start</code></samp>&rsquo; and
-&lsquo;<samp><code>proof-shell-eager-annotation-end</code></samp>&rsquo;.
+matches on <code>proof-shell-eager-annotation-start</code> and
+<code>proof-shell-eager-annotation-end</code>.
 </p>
 <p>Care has to be taken in case the prover only reports on compiled
 versions of files it is processing.  In this case, <var>function</var> needs to
 reconstruct the corresponding script file name.  The new (true) file
-name is added to the front of &lsquo;<samp><code>proof-included-files-list</code></samp>&rsquo;.
+name is added to the front of <code>proof-included-files-list</code>.
 </p></dd></dl>
 
 <dl>
@@ -612,12 +612,12 @@ name is added to the front of &lsquo;<samp><code>proof-included-files-list</code
 <dd><p>Matches a message that the prover has retracted a file.
 </p>
 <p>More precisely, this should match a string which is bounded by
-matches on &lsquo;<samp><code>proof-shell-eager-annotation-start</code></samp>&rsquo; and
-&lsquo;<samp><code>proof-shell-eager-annotation-end</code></samp>&rsquo;.
+matches on <code>proof-shell-eager-annotation-start</code> and
+<code>proof-shell-eager-annotation-end</code>.
 </p>
 <p>At this stage, Proof General&rsquo;s view of the processed files is out of
 date and needs to be updated with the help of the function
-&lsquo;<samp><code>proof-shell-compute-new-files-list</code></samp>&rsquo;.
+<code>proof-shell-compute-new-files-list</code>.
 </p></dd></dl>
 <a class="anchor" id="index-proof_002dincluded_002dfiles_002dlist-1"></a>
 
@@ -626,14 +626,14 @@ date and needs to be updated with the help of the function
 <dd><p>Function to update &lsquo;<samp>proof-included-files list</samp>&rsquo;.
 </p>
 <p>It needs to return an up-to-date list of all processed files.  The
-result will be stored in &lsquo;<samp><code>proof-included-files-list</code></samp>&rsquo;.
+result will be stored in <code>proof-included-files-list</code>.
 </p>
-<p>This function is called when &lsquo;<samp><code>proof-shell-retract-files-regexp</code></samp>&rsquo;
+<p>This function is called when <code>proof-shell-retract-files-regexp</code>
 has been matched in the prover output.
 </p>
 <p>In practice, this function is likely to inspect the
-previous (global) variable &lsquo;<samp><code>proof-included-files-list</code></samp>&rsquo; and the
-match data triggered by &lsquo;<samp><code>proof-shell-retract-files-regexp</code></samp>&rsquo;.
+previous (global) variable <code>proof-included-files-list</code> and the
+match data triggered by <code>proof-shell-retract-files-regexp</code>.
 </p></dd></dl>
 
 
@@ -673,12 +673,12 @@ quote characters must be escaped.  The setting
 </pre></td></tr></table>
 <p>achieves this.
 </p>
-<p>This setting is used inside the function &lsquo;<samp><code>proof-format-filename</code></samp>&rsquo;.
+<p>This setting is used inside the function <code>proof-format-filename</code>.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dprocess_002dconnection_002dtype"></a><u>Variable:</u> <b>proof-shell-process-connection-type</b></dt>
-<dd><p>The value of &lsquo;<samp><code>process-connection-type</code></samp>&rsquo; for the proof shell.<br>
+<dd><p>The value of <code>process-connection-type</code> for the proof shell.<br>
 Set non-nil for ptys, nil for pipes.
 </p>
 <p><var>note</var>: In Emacs &gt;= 24 (checked for 24 and 25.0.50.1), t is not a
@@ -688,22 +688,22 @@ good choice: input is cut after <var>4095</var> chars, which hangs pg.
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dhandle_002derror_002dor_002dinterrupt_002dhook"></a><u>Variable:</u> <b>proof-shell-handle-error-or-interrupt-hook</b></dt>
 <dd><p>Run after an error or interrupt has been reported in the response buffer.<br>
-Hook functions may inspect &lsquo;<samp><code>proof-shell-last-output-kind</code></samp>&rsquo; to
+Hook functions may inspect <code>proof-shell-last-output-kind</code> to
 determine whether the cause was an error or interrupt.  Possible
 values for this hook include:
-</p><table><tr><td>&nbsp;</td><td><pre class="lisp"> &lsquo;<samp><code>proof-goto-end-of-locked-on-error-if-pos-not-visible-in-window</code></samp>&rsquo;
- &lsquo;<samp><code>proof-goto-end-of-locked-if-pos-not-visible-in-window</code></samp>&rsquo;
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp"> <code>proof-goto-end-of-locked-on-error-if-pos-not-visible-in-window</code>
+ <code>proof-goto-end-of-locked-if-pos-not-visible-in-window</code>
 </pre></td></tr></table>
 <p>which move the cursor in the scripting buffer on an error or
 error/interrupt.
 </p>
 <p>Remark: This hook is called from shell buffer.  If you want to do
-something in scripting buffer, &lsquo;<samp><code>save-excursion</code></samp>&rsquo; and/or &lsquo;<samp><code>set-buffer</code></samp>&rsquo;.
+something in scripting buffer, <code>save-excursion</code> and/or <code>set-buffer</code>.
 </p></dd></dl>
 
 <dl>
 <dt><a class="anchor" id="index-proof_002dshell_002dpre_002dinterrupt_002dhook"></a><u>Variable:</u> <b>proof-shell-pre-interrupt-hook</b></dt>
-<dd><p>Run immediately after &lsquo;<samp><code>comint-interrupt-subjob</code></samp>&rsquo; is called.<br>
+<dd><p>Run immediately after <code>comint-interrupt-subjob</code> is called.<br>
 This hook is added to allow customization for systems that query the user
 before returning to the top level.
 </p></dd></dl>
@@ -712,23 +712,23 @@ before returning to the top level.
 <dt><a class="anchor" id="index-proof_002dshell_002dhandle_002doutput_002dsystem_002dspecific"></a><u>Variable:</u> <b>proof-shell-handle-output-system-specific</b></dt>
 <dd><p>Set this variable to handle system specific output.<br>
 Errors and interrupts are recognized in the function
-&lsquo;<samp><code>proof-shell-handle-immediate-output</code></samp>&rsquo;.  Later output is
-handled by &lsquo;<samp><code>proof-shell-handle-delayed-output</code></samp>&rsquo;, which
+<code>proof-shell-handle-immediate-output</code>.  Later output is
+handled by <code>proof-shell-handle-delayed-output</code>, which
 displays messages to the user in <strong>goals</strong> and <strong>response</strong>
 buffers.
 </p>
 <p>This hook can run between the two stages to take some effect.
 </p>
 <p>It should be a function which is passed (cmd string) as
-arguments, where &lsquo;<samp>cmd</samp>&rsquo; is a string containing the currently
-processed command and &lsquo;<samp>string</samp>&rsquo; is the response from the proof
+arguments, where <code>cmd</code> is a string containing the currently
+processed command and <code>string</code> is the response from the proof
 system.  If action is taken and goals/response display should
 be prevented, the function should update the variable
-&lsquo;<samp><code>proof-shell-last-output-kind</code></samp>&rsquo; to some non-nil symbol.
+<code>proof-shell-last-output-kind</code> to some non-nil symbol.
 </p>
 <p>The symbol will be compared against standard ones, see documentation
-of &lsquo;<samp><code>proof-shell-last-output-kind</code></samp>&rsquo;.  A suggested canonical non-standard
-symbol is <code>'systemspecific</code>.
+of <code>proof-shell-last-output-kind</code>.  A suggested canonical non-standard
+symbol is <code>systemspecific</code>.
 </p></dd></dl>
 
 
@@ -748,7 +748,7 @@ symbol is <code>'systemspecific</code>.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>January 13, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>January 24, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
