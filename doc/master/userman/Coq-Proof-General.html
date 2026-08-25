@@ -143,9 +143,12 @@ the auto compilation feature, <a href="#Automatic-Compilation-in-Detail">Automat
 <code>coqtop -emacs -foo3 -R foo bar -I foo2</code> (remark:
 <code>-emacs</code> is always added to the options).
 </p>
-<p><em>NOTE:</em> <code>-arg</code> must be followed by one and only one option
-to pass to coqtop/coqc, use several <code>-arg</code> to issue several
-options. One per line (limitation of Proof General).
+<p><em>NOTE:</em> <code>-arg</code> must be followed by exactly one token, which may
+denote several options: it is split on spaces, unless single quotes
+prevent it, and the quotes are then removed. So <code>-arg &quot;-set 'Default
+Goal Selector=!'&quot;</code> passes <code>-set</code> and <code>Default Goal Selector=!</code>.
+There is no escape character. See Rocq Documentation, section
+<a href="https://coq.inria.fr/distrib/current/refman/practical-tools/utilities.html#quoting-arguments-to-rocq-c">Quoting arguments to rocq c</a>.
 </p>
 <p>For backward compatibility, one can also configure the load path
 with the option <code>coq-load-path</code>, but this is not compatible
@@ -1353,7 +1356,7 @@ different Coq version from a different opam switch.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>June 22, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>August 25, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
