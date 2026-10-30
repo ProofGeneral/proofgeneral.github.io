@@ -887,6 +887,8 @@ coqtop.  Usually, the elements of this list are strings (for
 forms of include options (&lsquo;<samp>-I</samp>&rsquo; &lsquo;<samp>-Q</samp>&rsquo; and &lsquo;<samp>-R</samp>&rsquo;).  An element can be
 </p><table><tr><td>&nbsp;</td><td><pre class="lisp">  - A list of the form &lsquo;<samp>(</samp>&rsquo;ocamlimport dir)', specifying (in 8.5) a
     directory to be added to Ocaml path (&lsquo;<samp>-I</samp>&rsquo;).
+  - A list of the form &lsquo;<samp>(</samp>&rsquo;package name)', specifying (since 9.3) a
+    ocamlfind package with Rocq files.
   - A list of the form &lsquo;<samp>(</samp>&rsquo;rec dir path)' (where dir and path are
     strings) specifying a directory to be recursively mapped to the
     logical path <code>path</code> (&lsquo;<samp>-R dir path</samp>&rsquo;).
