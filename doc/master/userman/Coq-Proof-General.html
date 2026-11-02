@@ -46,7 +46,9 @@ assistant.  It supports most of the generic features of Proof General.
 </td></tr>
 <tr><td align="left" valign="top"><a href="#Showing-Proof-Diffs">10.11 Showing Proof Diffs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Opam_002dswitch_002dmode-support">10.12 Opam-switch-mode support</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Display-of-the-goals">10.12 Display of the goals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Opam_002dswitch_002dmode-support">10.13 Opam-switch-mode support</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -1279,9 +1281,44 @@ a <code>Coq Diffs ... Bg</code> face.  The added or removed tokens themselves ar
 with non-<code>Bg</code> faces.
 </p>
 <hr size="6">
+<a class="anchor" id="Display-of-the-goals"></a>
+<a class="anchor" id="Display-of-the-goals-1"></a>
+<h2 class="section">10.12 Display of the goals</h2>
+<a class="anchor" id="index-goals-display"></a>
+<a class="anchor" id="index-coq_002dfold_002dother_002dgoals"></a>
+<a class="anchor" id="index-coq_002dprefer_002dtop_002dof_002dconclusion"></a>
+
+<p>When the goals do not fit in their window, Proof General shows the last
+hypotheses and the conclusion of the first goal: the hypotheses near
+the conclusion matter most.  If <code>coq-prefer-top-of-conclusion</code> is
+non-nil, a conclusion that does not fit shows its beginning and the
+separator line instead of its end.  Arrows in the fringe tell what is
+out of view, see <code>proof-goals-indicators-enable</code>.  The mode line
+of the goals buffer gives the number of focused and unfocused goals,
+for instance <code>3+4</code>.  The number of unfocused goals is only right
+if Coq displays them: use <code>Set Printing Unfocused</code>, for instance
+in <code>coq-user-init-cmd</code>.
+</p>
+<p>The goals after the first one are folded: a line gives their number,
+with the number of unfocused goals if Coq displays them (<code>Set
+Printing Unfocused</code>).  Click on this line or type <kbd>RET</kbd> on it to
+show or hide them, or use the menu <code>Coq -&gt; Settings -&gt; Fold Other
+Goals</code>.
+</p>
+<dl>
+<dt><a class="anchor" id="index-coq_002dfold_002dother_002dgoals-1"></a><u>User Option:</u> <b>coq-fold-other-goals</b></dt>
+<dd><p>If non-nil, the goals other than the first one are folded.<br>
+Only their number is displayed, with the number of unfocused goals if
+Coq displays them (see Set Printing Unfocused), on a line that unfolds
+them when clicked, see <code>coq-toggle-other-goals</code>.
+</p>
+<p>The default value is <code>t</code>.
+</p></dd></dl>
+
+<hr size="6">
 <a class="anchor" id="Opam_002dswitch_002dmode-support"></a>
 <a class="anchor" id="Opam_002dswitch_002dmode-support-1"></a>
-<h2 class="section">10.12 Opam-switch-mode support</h2>
+<h2 class="section">10.13 Opam-switch-mode support</h2>
 <a class="anchor" id="index-opam_002dswitch_002dmode-support"></a>
 
 <p>Coq can be installed using <code>opam</code> (the OCaml package manager),

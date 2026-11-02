@@ -324,6 +324,25 @@ goals and response windows to fit their contents.
 </p></dd></dl>
 
 <dl>
+<dt><a class="anchor" id="index-proof_002dgoals_002dindicators_002denable"></a><u>User Option:</u> <b>proof-goals-indicators-enable</b></dt>
+<dd><p>Whether goals windows tell when the goals continue above or below.<br>
+Arrows are then displayed in the left fringe, see
+<code>indicate-buffer-boundaries</code>.  They are not visible if the fringe is
+too narrow, see <code>fringe-mode</code>.
+</p>
+<p>The default value is <code>t</code>.
+</p></dd></dl>
+
+<dl>
+<dt><a class="anchor" id="index-proof_002dgoals_002dscroll_002dmargin"></a><u>User Option:</u> <b>proof-goals-scroll-margin</b></dt>
+<dd><p>Number of empty lines that scrolling can show after the goals.<br>
+Scrolling further would only hide them.  If nil, scrolling is not
+limited.
+</p>
+<p>The default value is <code>1</code>.
+</p></dd></dl>
+
+<dl>
 <dt><a class="anchor" id="index-proof_002dcolour_002dlocked"></a><u>User Option:</u> <b>proof-colour-locked</b></dt>
 <dd><p>If non-nil, colour the locked region with <code>proof-locked-face</code>.<br>
 If this is not set, buffers will have no special face set
