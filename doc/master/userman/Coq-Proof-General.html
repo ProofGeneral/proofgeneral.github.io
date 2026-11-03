@@ -77,7 +77,8 @@ proposed by coq on the current goal.
 <dd><p>Show the goal (enter for the current goal, i &lt;enter&gt; for the ith goal).
 </p>
 <p>Add the prefix C-u to see the answer with all pretty printing options
-temporarily disable (Set Printing All).
+temporarily disable (Set Printing All), or C-u C-u to choose the
+printing flags, as for the following queries.
 </p>
 </dd>
 <dt> <kbd>C-c C-a C-c</kbd>   </dt>
@@ -85,7 +86,10 @@ temporarily disable (Set Printing All).
 from the identifier under the cursor.
 </p>
 <p>Add the prefix C-u to see the answer with all pretty printing options
-temporarily disable (Set Printing All).
+temporarily disable (Set Printing All).  Add the prefix C-u C-u to
+choose the printing flags for this query only, among the ones of the
+option <code>coq-query-flags</code> (Printing All, Implicit, Coercions,
+Parentheses, No Notations, Universes).
 </p>
 </dd>
 <dt> <kbd>C-c C-a C-p</kbd></dt>
@@ -95,7 +99,7 @@ temporarily disable (Set Printing All).
 <dd><p>The same for a &ldquo;About &rdquo; query.
 </p></dd>
 <dt> <kbd>C-c C-a C-a</kbd></dt>
-<dd><p>The same for a &ldquo;Search &rdquo; query (no C-u prefix).
+<dd><p>The same for a &ldquo;Search &rdquo; query.
 </p></dd>
 <dt> <kbd>C-c C-a C-o</kbd></dt>
 <dd><p>The same for a Search &ldquo;SearchIsos&rdquo; (no C-u prefix).
@@ -106,6 +110,23 @@ temporarily disable (Set Printing All).
 </p></dd>
 </dl>
 
+<a class="anchor" id="index-coq_002dmode_002dmap"></a>
+<p>The query keys above (and also <kbd>C-c C-a C-q</kbd>, <kbd>C-c C-a C-l</kbd>,
+<kbd>C-c C-a C-n</kbd> and <kbd>C-c C-a h</kbd>) and the insertions built from
+a query (<kbd>C-c C-a C-i</kbd>, <kbd>C-c C-a C-m</kbd> and <kbd>C-c C-a C-g</kbd>)
+are bound in <code>coq-mode-map</code>, which is meant to be common to all
+the backends of Coq mode.  To bind these commands to other keys, do it
+in this keymap, for instance:
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define-key coq-mode-map (kbd &quot;&lt;f9&gt;&quot;) #'coq-Check)
+</pre></td></tr></table>
+
+<a class="anchor" id="index-coq_002dremap_002dmouse_002d1"></a>
+<p>If the option <code>coq-remap-mouse-1</code> is set, clicking on an
+identifier with control runs Print on it, with shift About, with
+control and shift Check, and adding meta runs it with Printing All.
+This overrides the global bindings of control and shift mouse-1, which
+is why the option is off by default.
+</p>
 
 
 <hr size="6">
