@@ -48,7 +48,9 @@ assistant.  It supports most of the generic features of Proof General.
 </td></tr>
 <tr><td align="left" valign="top"><a href="#Display-of-the-goals">10.12 Display of the goals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#Opam_002dswitch_002dmode-support">10.13 Opam-switch-mode support</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#Folding-and-highlighting-hypotheses">10.13 Folding and highlighting hypotheses</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Opam_002dswitch_002dmode-support">10.14 Opam-switch-mode support</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -1340,9 +1342,50 @@ them when clicked, see <code>coq-toggle-other-goals</code>.
 </p></dd></dl>
 
 <hr size="6">
+<a class="anchor" id="Folding-and-highlighting-hypotheses"></a>
+<a class="anchor" id="Folding-and-highlighting-hypotheses-1"></a>
+<h2 class="section">10.13 Folding and highlighting hypotheses</h2>
+<a class="anchor" id="index-hypotheses_002c-folding"></a>
+<a class="anchor" id="index-hypotheses_002c-highlighting"></a>
+<a class="anchor" id="index-coq_002dhighlight_002dhyps_002dsticky"></a>
+<a class="anchor" id="index-coq_002dhighlighted_002dhyps_002dbg"></a>
+<a class="anchor" id="index-coq_002dhighlight_002dhyps_002dcited_002din_002dresponse"></a>
+
+<p>The hypotheses of the first goal can be folded: their type is replaced
+by dots, the text stays in the buffer for copy.  A folded hypothesis
+stays folded in the next goals.  They can also be highlighted, with
+the background color <code>coq-highlighted-hyps-bg</code>.  The highlighting
+stops at the next goals, unless <code>coq-highlight-hyps-sticky</code> is
+non-nil.  A <code>Search</code> highlights the hypotheses it finds, unless
+<code>coq-highlight-hyps-cited-in-response</code> is nil.
+</p>
+<p>In the goals buffer:
+</p><dl compact="compact">
+<dt> <kbd>f</kbd></dt>
+<dd><p>fold or unfold the hypothesis at point,
+</p></dd>
+<dt> <kbd>F</kbd></dt>
+<dd><p>unfold all the hypotheses,
+</p></dd>
+<dt> <kbd>h</kbd></dt>
+<dd><p>highlight or unhighlight the hypothesis at point,
+</p></dd>
+<dt> <kbd>H</kbd></dt>
+<dd><p>unhighlight all the hypotheses.
+</p></dd>
+</dl>
+
+<p>The first column of each hypothesis is a button, <code>-</code> or <code>+</code>
+when folded: click on it to fold or unfold the hypothesis.  A right
+click on its name does the same, a middle click inserts its name at
+point.  The commands are also in the menu <code>Coq -&gt; Settings -&gt;
+Hypotheses</code>.  Elsewhere than in the goals buffer, they work on the
+hypothesis named by the identifier at point.
+</p>
+<hr size="6">
 <a class="anchor" id="Opam_002dswitch_002dmode-support"></a>
 <a class="anchor" id="Opam_002dswitch_002dmode-support-1"></a>
-<h2 class="section">10.13 Opam-switch-mode support</h2>
+<h2 class="section">10.14 Opam-switch-mode support</h2>
 <a class="anchor" id="index-opam_002dswitch_002dmode-support"></a>
 
 <p>Coq can be installed using <code>opam</code> (the OCaml package manager),
