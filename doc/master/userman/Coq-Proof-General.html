@@ -112,10 +112,13 @@ Parentheses, No Notations, Universes).
 
 <a class="anchor" id="index-coq_002dmode_002dmap"></a>
 <p>The query keys above (and also <kbd>C-c C-a C-q</kbd>, <kbd>C-c C-a C-l</kbd>,
-<kbd>C-c C-a C-n</kbd> and <kbd>C-c C-a h</kbd>) and the insertions built from
-a query (<kbd>C-c C-a C-i</kbd>, <kbd>C-c C-a C-m</kbd> and <kbd>C-c C-a C-g</kbd>)
-are bound in <code>coq-mode-map</code>, which is meant to be common to all
-the backends of Coq mode.  To bind these commands to other keys, do it
+<kbd>C-c C-a C-n</kbd> and <kbd>C-c C-a h</kbd>), the insertions built from a
+query (<kbd>C-c C-a C-i</kbd>, <kbd>C-c C-a C-m</kbd> and <kbd>C-c C-a C-g</kbd>) and
+the other insertions (<kbd>C-c C-a C-t</kbd>, <kbd>t</kbd>, <kbd>!</kbd>,
+<kbd>C-SPC</kbd>, <kbd>C-RET</kbd>, <kbd>C-r</kbd>, <kbd>C-(</kbd> and <kbd>C-)</kbd> after
+<kbd>C-c C-a</kbd>, for tactics, tacticals, closing tactics, terms,
+commands, requires and sections) are bound in <code>coq-mode-map</code>,
+which is meant to be common to all the backends of Coq mode.  To bind these commands to other keys, do it
 in this keymap, for instance:
 </p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define-key coq-mode-map (kbd &quot;&lt;f9&gt;&quot;) #'coq-Check)
 </pre></td></tr></table>
@@ -1386,7 +1389,7 @@ different Coq version from a different opam switch.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>November 3, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>November 4, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
