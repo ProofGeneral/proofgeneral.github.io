@@ -23,6 +23,15 @@ title: Documentation
 <p>Coq Proof General is an instantiation of Proof General for the Coq proof
 assistant.  It supports most of the generic features of Proof General.
 </p>
+<a class="anchor" id="index-coq_002dbackend"></a>
+<a class="anchor" id="index-coq_002duse_002dpg"></a>
+<p>Coq mode interacts with Coq through a backend, chosen with the option
+<code>coq-backend</code>.  The default, <code>pg</code>, is Proof General, which
+runs Coq in a shell and which this chapter describes.  With <code>nil</code>,
+Coq mode only edits Coq files, without loading Proof General.  The
+older option <code>coq-use-pg</code> is obsolete, it gives the default value
+of <code>coq-backend</code>.
+</p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#Coq_002dspecific-commands">10.1 Coq-specific commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
