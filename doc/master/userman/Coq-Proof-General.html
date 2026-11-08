@@ -32,6 +32,25 @@ Coq mode only edits Coq files, without loading Proof General.  The
 older option <code>coq-use-pg</code> is obsolete, it gives the default value
 of <code>coq-backend</code>.
 </p>
+<a class="anchor" id="index-coq_002dmode_002dmap"></a>
+<p>Key bindings defined in <code>coq-mode-map</code> (including with
+<code>local-set-key</code> in <code>coq-mode-hook</code>) apply to all Coq backends;
+those in <code>proof-mode-map</code> only to Proof General.  To keep your key
+bindings with another backend, define them in <code>coq-mode-map</code>,
+preferably on commands common to all backends, like the queries
+(<code>coq-Check</code>, <code>coq-Search</code>&hellip;).  With Proof General, the
+key bindings of <code>coq-mode-map</code> have priority over those of
+<code>proof-mode-map</code>.
+</p>
+<a class="anchor" id="index-coq_002dall_002dbuffers_002dcommands"></a>
+<p>The key bindings of <code>coq-mode-map</code> for the commands of
+<code>coq-all-buffers-commands</code> (the queries, the display and the
+printing options) apply also in the goals and response buffers, in all
+backends, including the key bindings of the user.  In these buffers,
+<kbd>C-c C-a C-r</kbd> and <kbd>C-c C-a C-g</kbd> also store the response and the
+goals; in the goals buffer, <kbd>f</kbd>, <kbd>F</kbd>, <kbd>h</kbd> and <kbd>H</kbd> fold
+and highlight the hypotheses.
+</p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#Coq_002dspecific-commands">10.1 Coq-specific commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -121,7 +140,7 @@ Parentheses, No Notations, Universes).
 </p></dd>
 </dl>
 
-<a class="anchor" id="index-coq_002dmode_002dmap"></a>
+<a class="anchor" id="index-coq_002dmode_002dmap-1"></a>
 <p>The query keys above (and also <kbd>C-c C-a C-q</kbd>, <kbd>C-c C-a C-l</kbd>,
 <kbd>C-c C-a C-n</kbd> and <kbd>C-c C-a h</kbd>), the display keys (<kbd>C-c C-a
 C-w</kbd> for the printing width, <kbd>C-c C-a r</kbd> and <kbd>g</kbd> to copy the
@@ -1446,7 +1465,7 @@ different Coq version from a different opam switch.
 </div>
 <p>
  <font size="-1">
-  This document was generated on <i>November 6, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
+  This document was generated on <i>November 8, 2026</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 1.82</i></a>.
  </font>
  <br>
 
